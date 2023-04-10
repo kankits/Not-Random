@@ -1,0 +1,4828 @@
+flight_number,airline,source_cityid,destination_cityid
+681,Air India,279,279
+726,AirAsia India,140,207
+3786,SpiceJet,252,13
+502,TruJet,207,120
+1102,Air India,13,140
+735,AirAsia India,140,702
+712,TruJet,270,13
+6238,TestIndigo,82,116
+417,Jetlite,217,458
+6772,TestIndigo,151,140
+3570,Jet Airways,210,1114
+2127,TestIndigo,102,140
+202,TestIndigo,13,13
+7684,TestIndigo,82,207
+797,SpiceJet,120,635
+6629,SpiceJet,702,13
+950,SpiceJet,252,252
+535,AirAsia India,102,82
+525,AirAsia India,209,283
+3403,SpiceJet,120,1170
+708,TestIndigo,210,82
+6904,TestIndigo,140,13
+773,Vistara,458,283
+185,GoAir,140,223
+5032,TestIndigo,82,140
+824,Air India,1148,140
+2607,GoAir,458,217
+729,AirAsia India,702,140
+2177,TestIndigo,140,1019
+667,Vistara,140,116
+504,TruJet,207,120
+316,SpiceJet,458,279
+3404,SpiceJet,1170,82
+981,SpiceJet,120,702
+501,Vistara,82,116
+706,Air India,151,283
+794,TestIndigo,283,702
+6339,TestIndigo,82,210
+265,SpiceJet,458,192
+806,Vistara,82,140
+6537,TestIndigo,207,1148
+776,TestIndigo,207,131
+525,SpiceJet,82,13
+3173,TestIndigo,120,207
+791,GoAir,207,116
+322,GoAir,458,140
+950,AirAsia India,140,217
+218,GoAir,210,140
+7274,TestIndigo,207,120
+7243,TestIndigo,207,101
+444,TestIndigo,207,138
+316,AirAsia India,283,458
+2325,TestIndigo,635,140
+729,SpiceJet,1157,120
+3309,SpiceJet,82,82
+2487,TestIndigo,82,140
+5349,TestIndigo,458,82
+5307,TestIndigo,458,120
+408,GoAir,82,217
+735,SpiceJet,120,635
+6605,TestIndigo,120,730
+314,TestIndigo,13,102
+611,Vistara,140,223
+449,TestIndigo,82,217
+167,TestIndigo,140,82
+726,SpiceJet,252,82
+358,TestIndigo,11,11
+732,Vistara,283,120
+527,Air India,82,702
+365,TestIndigo,192,120
+462,Jet Airways,120,458
+766,Jet Airways,210,140
+143,Jetlite,210,116
+911,TestIndigo,82,120
+979,Vistara,140,13
+354,Jetlite,140,458
+7247,TestIndigo,207,212
+7267,TestIndigo,210,13
+3452,SpiceJet,13,138
+618,Air India,207,458
+7156,TestIndigo,207,207
+5082,TestIndigo,458,325
+742,Vistara,192,140
+7201,TestIndigo,207,1170
+175,TestIndigo,82,1019
+259,TestIndigo,771,207
+853,Vistara,458,82
+746,AirAsia India,140,998
+2011,TestIndigo,140,998
+531,TruJet,120,842
+6055,TestIndigo,13,116
+3427,Air India,140,140
+2158,TestIndigo,151,140
+287,TestIndigo,82,13
+6405,TestIndigo,82,730
+3461,SpiceJet,101,207
+405,GoAir,283,102
+8663,SpiceJet,746,140
+196,TestIndigo,82,325
+451,AirAsia India,120,120
+5382,TestIndigo,458,210
+424,GoAir,140,140
+642,Vistara,325,140
+846,TestIndigo,207,140
+113,TestIndigo,82,102
+309,GoAir,120,13
+716,AirAsia India,140,140
+6752,TestIndigo,131,120
+344,Jetlite,1148,458
+505,TestIndigo,487,140
+830,GoAir,82,82
+7242,TestIndigo,735,207
+319,SpiceJet,458,207
+994,GoAir,120,279
+553,TestIndigo,702,283
+429,SpiceJet,458,252
+891,Vistara,458,702
+547,Air India,140,131
+2058,TestIndigo,140,102
+451,SpiceJet,252,458
+2023,TestIndigo,101,140
+6155,TestIndigo,217,207
+688,SpiceJet,458,217
+635,Air India,210,140
+638,TestIndigo,82,207
+6807,TestIndigo,192,13
+604,Air India,82,458
+758,Jet Airways,210,140
+390,GoAir,458,217
+716,SpiceJet,82,635
+826,Jet Airways,138,140
+699,TestIndigo,82,702
+273,GoAir,635,82
+738,TestIndigo,140,140
+746,SpiceJet,207,702
+345,TestIndigo,210,82
+816,AirAsia India,140,702
+829,Vistara,140,207
+595,GoAir,702,207
+141,TruJet,207,735
+478,Jet Airways,82,458
+517,Vistara,140,13
+427,TestIndigo,82,102
+974,SpiceJet,140,13
+783,TestIndigo,1179,207
+2474,AirAsia India,82,120
+509,GoAir,207,82
+6733,TestIndigo,325,140
+2386,AirAsia India,120,82
+7001,SpiceJet,140,82
+7189,TestIndigo,120,251
+352,TestIndigo,207,13
+439,Air India,140,120
+727,TestIndigo,120,82
+6142,TestIndigo,116,82
+602,Air India,746,458
+2933,SpiceJet,13,235
+291,GoAir,207,82
+663,TestIndigo,283,487
+2042,TestIndigo,140,138
+668,GoAir,325,13
+112,TestIndigo,120,11
+3645,TestIndigo,140,140
+751,TestIndigo,13,283
+2871,SpiceJet,140,212
+3693,SpiceJet,279,207
+5316,TestIndigo,771,458
+873,TestIndigo,82,1070
+2043,TestIndigo,138,13
+691,SpiceJet,13,13
+6128,TestIndigo,82,458
+2622,TestIndigo,120,140
+912,Vistara,210,140
+568,TestIndigo,458,279
+723,GoAir,325,140
+858,Air India,702,140
+5097,TestIndigo,140,140
+8723,SpiceJet,140,458
+2035,TestIndigo,140,101
+353,GoAir,140,210
+257,TestIndigo,102,458
+426,Air India,251,140
+548,AirAsia India,140,11
+131,TruJet,207,1170
+8701,SpiceJet,140,458
+6188,TestIndigo,120,1019
+650,Air India,31,458
+103,SpiceJet,120,120
+5323,TestIndigo,458,82
+844,Vistara,140,458
+381,GoAir,458,116
+916,GoAir,283,120
+621,Jet Airways,458,283
+262,TestIndigo,82,140
+6245,SpiceJet,458,131
+674,SpiceJet,998,283
+772,Air India,82,283
+2613,GoAir,217,279
+918,TestIndigo,283,140
+683,Jetlite,458,487
+640,SpiceJet,13,13
+593,GoAir,140,102
+919,Vistara,458,13
+472,SpiceJet,140,207
+1359,AirAsia India,210,82
+2213,GoAir,487,82
+540,AirAsia India,140,283
+7958,TestIndigo,279,251
+3739,SpiceJet,279,82
+407,Jet Airways,458,279
+8128,SpiceJet,120,120
+7191,TestIndigo,212,207
+253,GoAir,140,1157
+133,Jet Airways,217,1148
+2125,TestIndigo,120,140
+425,SpiceJet,192,131
+660,Air India,458,140
+412,TestIndigo,82,82
+7993,TestIndigo,23,283
+144,Jetlite,116,210
+622,Vistara,1157,458
+579,GoAir,279,120
+718,Vistara,635,82
+608,Air India,82,458
+864,Air India,458,140
+148,GoAir,771,140
+7982,TestIndigo,23,283
+7315,TestIndigo,13,13
+2902,TestIndigo,998,140
+526,GoAir,82,458
+3328,SpiceJet,283,1157
+487,TestIndigo,131,207
+3027,SpiceJet,120,279
+740,SpiceJet,13,192
+2603,GoAir,458,13
+2805,SpiceJet,283,954
+538,GoAir,283,13
+2072,TestIndigo,138,140
+935,Jet Airways,192,192
+331,SpiceJet,140,339
+725,Air India,635,31
+510,AirAsia India,207,120
+165,GoAir,140,635
+346,AirAsia India,82,120
+682,Air India,279,458
+734,Jet Airways,1157,140
+461,TestIndigo,120,207
+195,TestIndigo,1019,82
+988,Vistara,458,140
+946,TestIndigo,283,207
+821,Jet Airways,140,120
+346,SpiceJet,192,120
+771,Vistara,458,283
+232,TestIndigo,82,82
+311,TestIndigo,120,120
+6457,TestIndigo,140,283
+805,TestIndigo,82,82
+331,AirAsia India,207,458
+215,GoAir,140,210
+850,Jet Airways,120,82
+714,Vistara,102,82
+745,TestIndigo,101,101
+5339,TestIndigo,140,458
+626,GoAir,207,251
+284,TestIndigo,140,217
+6929,TestIndigo,635,192
+652,Air India,458,1179
+435,TestIndigo,82,207
+578,Air India,283,82
+605,Jet Airways,140,192
+503,TruJet,120,207
+796,AirAsia India,13,140
+470,Jet Airways,120,458
+7051,SpiceJet,120,120
+8185,SpiceJet,140,82
+1720,AirAsia India,82,217
+7959,TestIndigo,251,279
+788,TestIndigo,283,207
+388,GoAir,217,458
+493,TestIndigo,120,1019
+173,TestIndigo,140,120
+455,Jet Airways,458,207
+2195,TestIndigo,730,140
+393,TestIndigo,102,82
+124,TestIndigo,702,283
+740,AirAsia India,140,82
+6539,TestIndigo,192,207
+249,SpiceJet,283,82
+631,Air India,458,101
+754,Air India,954,283
+6202,TestIndigo,82,217
+403,Air India,140,746
+845,TestIndigo,207,140
+736,SpiceJet,635,120
+164,SpiceJet,82,13
+501,GoAir,207,279
+5387,TestIndigo,210,458
+3428,SpiceJet,1070,82
+827,TestIndigo,207,82
+585,AirAsia India,192,283
+620,Air India,207,458
+208,TestIndigo,82,82
+301,SpiceJet,1070,458
+406,Jet Airways,279,458
+825,Vistara,458,120
+6073,TestIndigo,458,487
+731,AirAsia India,140,702
+7265,TestIndigo,279,283
+180,GoAir,116,140
+179,GoAir,140,116
+670,Air India,102,458
+815,Jet Airways,140,82
+818,Jet Airways,140,325
+922,TestIndigo,207,102
+898,Jet Airways,101,458
+812,Air India,325,140
+941,Jet Airways,120,131
+5035,TestIndigo,82,102
+2753,SpiceJet,635,217
+6004,TestIndigo,82,120
+2923,SpiceJet,13,138
+592,Air India,82,120
+2934,SpiceJet,235,13
+562,Air India,771,82
+1355,AirAsia India,279,82
+524,Air India,217,82
+628,TestIndigo,458,207
+117,GoAir,82,82
+986,TestIndigo,279,120
+6455,TestIndigo,116,140
+2424,TestIndigo,140,325
+224,TestIndigo,82,140
+835,Jet Airways,140,138
+2105,TestIndigo,140,235
+803,GoAir,82,13
+943,TestIndigo,140,325
+6361,SpiceJet,458,131
+271,TestIndigo,120,82
+147,TestIndigo,82,207
+7945,TestIndigo,12,1157
+8968,SpiceJet,140,53
+433,GoAir,120,210
+2389,AirAsia India,82,120
+6431,SpiceJet,207,207
+244,TestIndigo,13,13
+976,TestIndigo,251,82
+2564,TestIndigo,140,1091
+868,Jet Airways,120,82
+1538,AirAsia India,82,1179
+207,GoAir,140,325
+732,GoAir,13,13
+893,TestIndigo,13,82
+7334,TestIndigo,730,210
+613,AirAsia India,116,140
+6324,TestIndigo,283,140
+565,TestIndigo,458,82
+544,GoAir,140,458
+651,Vistara,458,116
+585,SpiceJet,1179,283
+2746,TestIndigo,140,1114
+736,AirAsia India,702,140
+634,Jet Airways,138,140
+834,Jet Airways,140,82
+420,Jet Airways,458,131
+2610,GoAir,279,140
+617,Air India,458,207
+997,TestIndigo,82,82
+174,TruJet,210,13
+2783,TestIndigo,82,140
+806,GoAir,217,82
+791,Vistara,140,730
+731,SpiceJet,120,207
+144,TestIndigo,635,82
+3301,SpiceJet,120,82
+1056,SpiceJet,207,53
+491,Jet Airways,120,210
+513,Air India,207,140
+830,Vistara,140,116
+599,TestIndigo,207,283
+564,TestIndigo,207,140
+2696,SpiceJet,235,140
+1215,TestIndigo,635,487
+466,Air India,279,140
+715,AirAsia India,140,140
+452,Jet Airways,207,458
+272,SpiceJet,140,283
+6851,TestIndigo,13,120
+7269,TestIndigo,771,283
+642,GoAir,207,251
+3501,Jet Airways,458,31
+683,TestIndigo,140,120
+43,TestIndigo,1085,1085
+154,SpiceJet,53,140
+2761,SpiceJet,702,207
+728,TestIndigo,13,140
+5304,TestIndigo,13,458
+2335,AirAsia India,82,702
+7107,TestIndigo,82,735
+488,TestIndigo,11,82
+3828,Air India,223,998
+5056,TestIndigo,140,31
+2021,SpiceJet,140,31
+423,TestIndigo,140,13
+1475,AirAsia India,1019,82
+756,TestIndigo,102,120
+819,Vistara,140,82
+5041,TestIndigo,140,1114
+2499,TestIndigo,771,82
+5378,TestIndigo,116,458
+541,TestIndigo,82,82
+1057,SpiceJet,53,207
+646,TestIndigo,140,210
+517,GoAir,207,82
+546,Air India,207,120
+7131,TestIndigo,1085,120
+2178,TestIndigo,1019,140
+7961,TestIndigo,279,251
+583,TestIndigo,102,279
+111,TruJet,82,131
+8745,SpiceJet,140,252
+705,TruJet,13,686
+6366,SpiceJet,283,458
+2924,SpiceJet,138,13
+112,TruJet,131,82
+6271,TestIndigo,207,1114
+413,Jet Airways,235,82
+104,TestIndigo,207,31
+615,Air India,458,207
+768,Jet Airways,140,217
+6159,TestIndigo,116,192
+6232,TestIndigo,325,116
+3607,SpiceJet,339,82
+286,SpiceJet,192,140
+719,GoAir,140,13
+156,Jet Airways,210,283
+3525,SpiceJet,120,207
+8260,SpiceJet,138,140
+6446,TestIndigo,458,325
+352,Jetlite,140,458
+759,SpiceJet,688,82
+329,Jet Airways,458,13
+355,SpiceJet,635,31
+416,GoAir,192,120
+993,Vistara,140,458
+169,SpiceJet,140,82
+2126,TestIndigo,140,140
+697,GoAir,140,140
+653,Jet Airways,487,140
+448,Air India,53,458
+8163,TestIndigo,458,1179
+854,TestIndigo,283,140
+206,GoAir,13,635
+891,GoAir,487,702
+994,Vistara,140,140
+456,Jet Airways,207,458
+968,TestIndigo,82,209
+514,TestIndigo,1114,120
+7319,TestIndigo,325,210
+115,Air India,31,140
+468,Jet Airways,120,458
+7745,TestIndigo,207,487
+723,Vistara,140,1157
+2758,SpiceJet,13,31
+7316,TestIndigo,210,325
+281,TestIndigo,82,140
+2013,TestIndigo,140,102
+884,TestIndigo,210,207
+5322,TestIndigo,82,458
+655,Air India,458,746
+401,TestIndigo,120,702
+1214,SpiceJet,82,339
+483,TestIndigo,207,82
+8911,SpiceJet,140,458
+912,GoAir,13,13
+1426,AirAsia India,82,217
+141,TestIndigo,120,102
+894,TestIndigo,82,31
+802,Air India,82,140
+887,Jet Airways,82,131
+2204,TestIndigo,730,140
+471,TestIndigo,207,207
+2174,TestIndigo,458,140
+6107,TestIndigo,635,283
+839,TestIndigo,217,82
+814,GoAir,102,82
+522,AirAsia India,283,120
+951,TestIndigo,140,702
+2763,SpiceJet,140,458
+228,TestIndigo,13,210
+668,Vistara,116,140
+6523,TestIndigo,283,209
+3735,SpiceJet,193,223
+6389,TestIndigo,325,82
+342,TestIndigo,102,82
+3562,SpiceJet,217,31
+137,Jet Airways,210,1148
+551,TestIndigo,120,1179
+755,Vistara,140,771
+507,TestIndigo,82,207
+2895,TestIndigo,31,140
+6514,TestIndigo,82,116
+5344,TestIndigo,458,120
+6404,TestIndigo,487,458
+7146,TestIndigo,1085,120
+798,GoAir,998,223
+903,TestIndigo,82,325
+558,GoAir,207,325
+515,AirAsia India,82,207
+759,Jet Airways,120,120
+7971,TestIndigo,120,102
+2138,TestIndigo,116,140
+6269,TestIndigo,82,82
+6684,TestIndigo,207,140
+413,SpiceJet,82,192
+910,Vistara,458,140
+656,Vistara,235,458
+142,GoAir,458,487
+648,Jet Airways,116,140
+440,Jet Airways,702,116
+2131,TestIndigo,140,82
+7024,SpiceJet,13,207
+109,GoAir,13,13
+761,AirAsia India,140,120
+768,SpiceJet,82,635
+7977,TestIndigo,251,1070
+713,SpiceJet,283,82
+747,AirAsia India,998,140
+3710,Air India,688,283
+1048,SpiceJet,1091,207
+247,TestIndigo,207,235
+2588,TestIndigo,120,120
+975,TestIndigo,82,251
+8152,SpiceJet,140,140
+852,Air India,702,140
+456,SpiceJet,82,458
+125,TestIndigo,13,283
+1229,TestIndigo,1019,487
+715,Jet Airways,140,82
+6719,TestIndigo,207,13
+792,Jetlite,210,140
+7122,TestIndigo,101,207
+468,SpiceJet,207,207
+452,AirAsia India,13,13
+744,AirAsia India,140,771
+6477,SpiceJet,458,140
+169,Jet Airways,140,1179
+355,Jet Airways,53,140
+644,Air India,1114,458
+767,SpiceJet,635,82
+509,Vistara,151,192
+793,AirAsia India,13,140
+6126,TestIndigo,140,140
+639,Air India,458,82
+307,SpiceJet,192,207
+647,TestIndigo,1179,82
+747,SpiceJet,702,207
+713,AirAsia India,998,140
+2074,TestIndigo,223,140
+847,Jet Airways,120,140
+3539,Jet Airways,702,635
+344,TestIndigo,82,11
+6406,TestIndigo,702,120
+2502,GoAir,458,771
+8046,TestIndigo,120,283
+1071,SpiceJet,120,131
+2164,TestIndigo,140,207
+536,TestIndigo,82,120
+7121,TestIndigo,82,101
+168,SpiceJet,252,458
+2166,TestIndigo,140,31
+396,GoAir,325,82
+1047,SpiceJet,207,1091
+7719,TestIndigo,283,1157
+586,TestIndigo,82,13
+113,TruJet,82,1085
+3217,SpiceJet,192,283
+1724,AirAsia India,82,217
+8710,SpiceJet,458,140
+122,TestIndigo,13,207
+936,TestIndigo,82,13
+6171,TestIndigo,116,13
+329,AirAsia India,116,458
+3834,TestIndigo,13,120
+432,SpiceJet,120,120
+764,TestIndigo,458,1114
+744,SpiceJet,13,82
+197,TestIndigo,140,458
+928,SpiceJet,13,82
+456,AirAsia India,279,120
+6172,TestIndigo,13,116
+2616,TestIndigo,102,140
+263,SpiceJet,140,283
+1620,AirAsia India,82,207
+129,GoAir,998,140
+184,GoAir,325,140
+6006,TestIndigo,120,207
+2702,TestIndigo,140,1148
+492,Jet Airways,120,458
+844,GoAir,116,82
+549,AirAsia India,283,140
+1531,GoAir,279,207
+916,Vistara,13,458
+447,Air India,458,53
+8905,SpiceJet,140,82
+518,Vistara,13,140
+531,TestIndigo,82,131
+3408,SpiceJet,82,82
+3474,SpiceJet,138,217
+6893,TestIndigo,279,82
+7153,TestIndigo,207,207
+8146,SpiceJet,140,31
+7991,TestIndigo,730,23
+231,GoAir,140,635
+914,TestIndigo,207,131
+3589,SpiceJet,207,339
+175,TruJet,13,210
+609,TestIndigo,131,207
+629,GoAir,251,1070
+809,GoAir,82,487
+784,Jet Airways,120,82
+776A,Air India,82,283
+1314,SpiceJet,339,207
+6174,TestIndigo,13,120
+428,GoAir,140,458
+831,GoAir,82,82
+354,TestIndigo,82,82
+371,SpiceJet,283,31
+6147,TestIndigo,82,82
+3521,SpiceJet,31,217
+2198,TestIndigo,140,1070
+3554,Jet Airways,23,487
+1305,GoAir,120,688
+3598,SpiceJet,1170,207
+571,Air India,13,13
+775,SpiceJet,82,217
+143,TestIndigo,120,102
+404,TestIndigo,283,458
+533,TruJet,120,842
+597,Vistara,140,102
+707,TestIndigo,102,209
+365,Jetlite,140,702
+591,Air India,120,82
+101,TestIndigo,120,131
+865,Vistara,458,82
+6505,TestIndigo,82,82
+2137,TestIndigo,140,120
+701,GoAir,13,13
+2808,TestIndigo,82,140
+480,SpiceJet,101,223
+933,Vistara,140,458
+385,TestIndigo,11,11
+308,AirAsia India,458,82
+687,Air India,458,140
+2976,TestIndigo,120,140
+870,GoAir,82,1070
+896,Jet Airways,101,458
+634,SpiceJet,458,82
+420,SpiceJet,283,207
+2410,GoAir,120,1157
+233,TestIndigo,82,120
+963,SpiceJet,635,82
+780,SpiceJet,138,458
+3512,TestIndigo,82,31
+463,Jet Airways,458,120
+321,GoAir,458,140
+886,Vistara,279,140
+506,Vistara,207,140
+720,TruJet,270,13
+123,GoAir,207,102
+1576,AirAsia India,82,207
+598,TestIndigo,102,102
+643,TestIndigo,140,702
+414,TestIndigo,82,458
+532,SpiceJet,82,140
+220,TruJet,842,120
+731,Jet Airways,635,140
+476,TestIndigo,283,140
+315,GoAir,217,120
+795,TestIndigo,102,120
+8915,SpiceJet,140,31
+6636,SpiceJet,13,702
+443,Jet Airways,458,82
+7002,SpiceJet,82,140
+673,Air India,458,192
+8160,SpiceJet,140,140
+327,GoAir,140,140
+941,AirAsia India,82,82
+890,Air India,192,140
+570,Air India,458,120
+622,GoAir,82,251
+658,SpiceJet,192,82
+718,GoAir,13,140
+972,SpiceJet,1157,13
+6289,SpiceJet,120,458
+733,Jet Airways,140,1157
+152,Jet Airways,1070,82
+849,Jet Airways,82,120
+959,Vistara,140,13
+5313,TestIndigo,458,283
+504,TestIndigo,140,217
+8752,SpiceJet,635,140
+3455,SpiceJet,53,13
+957,TestIndigo,140,82
+191,TruJet,207,1179
+5348,TestIndigo,82,458
+556,AirAsia India,120,120
+192,GoAir,140,140
+780,AirAsia India,209,140
+193,Jet Airways,192,13
+454,GoAir,217,1019
+736,Jet Airways,120,140
+6637,SpiceJet,702,82
+882,AirAsia India,458,140
+786,Jet Airways,702,140
+2562,TestIndigo,82,140
+972,AirAsia India,82,207
+465,Air India,140,279
+134,GoAir,635,140
+226,TestIndigo,138,82
+7106,TestIndigo,1091,82
+431,Air India,140,325
+2423,TestIndigo,140,82
+7199,TestIndigo,120,339
+632,TestIndigo,116,82
+3348,SpiceJet,192,283
+484,Jet Airways,458,283
+753,Air India,283,954
+995,TestIndigo,207,13
+760,SpiceJet,635,82
+6067,TestIndigo,82,207
+7715,TestIndigo,174,174
+301,Jet Airways,458,140
+7973,TestIndigo,251,82
+3829,Air India,998,223
+213,GoAir,140,223
+606,Air India,53,53
+406,SpiceJet,283,13
+6249,TestIndigo,283,207
+511,Air India,279,140
+202,TruJet,120,207
+2752,TestIndigo,120,140
+417,TestIndigo,152,140
+335,TestIndigo,192,82
+2438,SpiceJet,140,101
+6319,TestIndigo,207,82
+714,GoAir,13,140
+581,GoAir,207,279
+211,TruJet,207,53
+194,TestIndigo,207,1091
+363,GoAir,458,13
+246,TestIndigo,13,13
+6251,TestIndigo,116,120
+932,TestIndigo,283,82
+712,TestIndigo,458,730
+389,TestIndigo,82,82
+411,TestIndigo,82,102
+3777,Air India,11,11
+6114,TestIndigo,11,11
+308,SpiceJet,458,13
+6365,SpiceJet,458,283
+1221,SpiceJet,212,82
+7734,TestIndigo,13,101
+3553,Jet Airways,487,23
+645,Jet Airways,140,116
+588,TestIndigo,138,325
+782,Vistara,102,140
+502,TestIndigo,120,702
+2978,TestIndigo,209,140
+878,GoAir,82,1070
+657,Air India,458,131
+374,Jet Airways,458,325
+771,GoAir,1070,82
+356,SpiceJet,31,635
+3561,SpiceJet,31,217
+911,Jet Airways,279,140
+745,AirAsia India,771,140
+461,SpiceJet,120,635
+992,Jet Airways,954,140
+766,TestIndigo,207,140
+6836,TestIndigo,207,1157
+462,TestIndigo,192,11
+978,Jet Airways,131,120
+3549,Jet Airways,82,138
+929,Vistara,458,13
+796,TestIndigo,120,730
+426,GoAir,82,140
+314,Jet Airways,458,13
+306,SpiceJet,283,82
+2106,GoAir,283,487
+186,GoAir,140,120
+2026,TestIndigo,140,1148
+519,Air India,82,82
+5057,TestIndigo,31,140
+665,TestIndigo,140,140
+331,TestIndigo,82,152
+128,SpiceJet,1019,140
+3556,Air India,746,140
+358,Jet Airways,140,458
+449,Jet Airways,82,458
+167,Jet Airways,140,1114
+720,Jet Airways,635,140
+177,TestIndigo,140,702
+1912,GoAir,13,120
+444,Jet Airways,82,458
+678,SpiceJet,120,458
+6274,TestIndigo,101,82
+3028,SpiceJet,279,120
+3472,SpiceJet,1179,283
+543,TestIndigo,279,13
+7116,TestIndigo,207,1085
+487,SpiceJet,458,283
+6131,TestIndigo,192,102
+6305,TestIndigo,210,207
+944,GoAir,635,140
+593,Air India,120,13
+574,Air India,635,82
+641,Jet Airways,140,116
+6215,TestIndigo,13,120
+3251,SpiceJet,120,1179
+6124,TestIndigo,138,283
+955,GoAir,120,635
+6152,TestIndigo,131,192
+6891,TestIndigo,82,102
+1565,AirAsia India,102,82
+323,SpiceJet,120,120
+3531,Jet Airways,140,23
+788,AirAsia India,140,192
+554,TestIndigo,13,140
+153,SpiceJet,140,53
+794,Jet Airways,210,140
+2938,SpiceJet,138,13
+8259,SpiceJet,140,138
+6266,SpiceJet,192,458
+776,Jet Airways,82,702
+317,GoAir,458,82
+841,SpiceJet,140,998
+2014,TestIndigo,140,102
+348,Jet Airways,458,207
+3791,SpiceJet,279,1070
+6936,TestIndigo,487,458
+6422,SpiceJet,283,458
+304,GoAir,120,120
+193,TruJet,207,1179
+132,TestIndigo,131,82
+77,Air India,140,102
+852,Vistara,82,458
+249,TestIndigo,140,140
+566,TestIndigo,82,458
+6429,SpiceJet,458,252
+684,Jetlite,487,458
+1427,GoAir,283,120
+509,Air India,120,279
+644,Vistara,998,140
+124,SpiceJet,207,140
+6841,TestIndigo,1157,13
+678,AirAsia India,458,192
+689,TestIndigo,635,283
+953,Vistara,140,458
+2195,SpiceJet,140,212
+136,SpiceJet,82,140
+876,Jet Airways,120,82
+703,GoAir,217,217
+173,SpiceJet,283,13
+301,TruJet,1170,237
+497,Air India,140,746
+708,Jet Airways,210,13
+493,SpiceJet,82,134
+6414,TestIndigo,13,120
+176,TruJet,210,13
+7963,TestIndigo,925,283
+301,Jetlite,458,140
+6154,TestIndigo,283,217
+439,GoAir,458,140
+709,Jet Airways,210,235
+788,SpiceJet,82,140
+572,TestIndigo,138,283
+656,Air India,746,458
+324,GoAir,140,458
+807,Jet Airways,140,82
+397,Jet Airways,458,82
+769,TestIndigo,140,140
+925,Jet Airways,140,217
+2520,GoAir,487,140
+341,SpiceJet,207,192
+7946,TestIndigo,1157,12
+435,SpiceJet,458,746
+6182,TestIndigo,458,101
+1731,AirAsia India,279,82
+496,Air India,746,140
+2214,TestIndigo,140,102
+495,Air India,140,746
+7744,TestIndigo,251,207
+284,SpiceJet,458,82
+2411,GoAir,1157,82
+6645,TestIndigo,13,131
+785,Vistara,140,102
+596,TestIndigo,192,283
+204,GoAir,998,140
+151,Jet Airways,82,1070
+481,Jetlite,458,82
+199,TestIndigo,458,82
+745,SpiceJet,82,82
+668,Air India,1070,458
+3781,SpiceJet,101,13
+5922,TestIndigo,31,283
+6573,TestIndigo,120,120
+5374,TestIndigo,635,458
+954,GoAir,207,120
+5034,TestIndigo,140,82
+763,AirAsia India,140,120
+858,GoAir,702,487
+6115,TestIndigo,13,120
+2412,GoAir,82,1157
+311,SpiceJet,140,53
+232,SpiceJet,192,140
+346,TestIndigo,82,131
+445,TestIndigo,102,82
+7266,TestIndigo,210,207
+946,SpiceJet,140,688
+306,AirAsia India,82,458
+209,TruJet,120,471
+294,GoAir,82,207
+8144,SpiceJet,140,635
+655,Vistara,458,235
+243,GoAir,13,458
+8193,SpiceJet,140,13
+1227,TestIndigo,101,487
+8394,SpiceJet,140,283
+913,GoAir,13,13
+7988,TestIndigo,283,23
+3555,Air India,140,746
+6779,TestIndigo,82,13
+6557,TestIndigo,207,120
+623,Jet Airways,458,283
+375,AirAsia India,210,458
+568,SpiceJet,82,82
+478,TestIndigo,31,31
+915,GoAir,120,283
+657,Vistara,140,998
+7050,SpiceJet,120,120
+860,Vistara,207,140
+548,TestIndigo,120,116
+691,TestIndigo,82,210
+2989,SpiceJet,217,1114
+738,Jet Airways,13,458
+614,TestIndigo,192,140
+705,SpiceJet,207,82
+5329,TestIndigo,458,82
+7924,TestIndigo,138,23
+320,SpiceJet,458,339
+511,Vistara,140,279
+6156,TestIndigo,207,283
+8661,SpiceJet,140,746
+626,Air India,325,458
+751,SpiceJet,131,207
+3722,SpiceJet,101,101
+276,GoAir,207,1070
+127,GoAir,140,140
+956,Jet Airways,140,236
+885,Vistara,140,279
+960,SpiceJet,82,192
+431,Vistara,140,120
+663,SpiceJet,140,223
+638,Jet Airways,998,140
+528,TestIndigo,82,82
+6290,SpiceJet,138,458
+2511,GoAir,140,635
+1829,AirAsia India,283,82
+7214,TestIndigo,82,339
+724,SpiceJet,252,82
+3747,SpiceJet,82,151
+758,TestIndigo,13,82
+379,GoAir,102,116
+2289,TestIndigo,82,82
+5336,TestIndigo,140,140
+6173,TestIndigo,120,207
+278,GoAir,702,140
+753,Vistara,140,771
+352,SpiceJet,82,13
+6421,SpiceJet,458,283
+7119,TestIndigo,735,82
+631,GoAir,207,1070
+6009,TestIndigo,131,207
+479,Air India,140,31
+777,SpiceJet,120,207
+305,GoAir,120,120
+702,Jet Airways,138,458
+3282,SpiceJet,212,283
+792,Jet Airways,210,140
+3744,Air India,11,283
+783,SpiceJet,458,192
+974,TestIndigo,82,120
+5062,TestIndigo,1070,140
+6282,SpiceJet,458,279
+7108,TestIndigo,735,207
+673,Vistara,140,1157
+425,TestIndigo,82,120
+227,TestIndigo,210,13
+6273,TestIndigo,82,82
+6012,TestIndigo,82,120
+313,GoAir,210,13
+1458,AirAsia India,82,1179
+6992,TestIndigo,13,82
+982,Jet Airways,283,702
+727,AirAsia India,207,140
+392,Jetlite,207,140
+325,TestIndigo,192,82
+2764,SpiceJet,1019,217
+890,Vistara,207,140
+960,AirAsia India,140,192
+781,GoAir,283,13
+506,Air India,140,82
+783,AirAsia India,140,192
+7216,TestIndigo,120,251
+924,Vistara,13,82
+472,TestIndigo,207,458
+1573,AirAsia India,279,82
+947,SpiceJet,458,746
+888,Jet Airways,131,82
+846,Jet Airways,140,31
+6364,SpiceJet,458,207
+526,Air India,283,207
+1539,AirAsia India,1179,82
+2963,TestIndigo,140,82
+201,TestIndigo,82,101
+866,GoAir,82,207
+865,Air India,140,458
+674,TestIndigo,13,13
+934,Jet Airways,210,702
+692,SpiceJet,13,13
+559,AirAsia India,140,140
+591,Vistara,140,31
+1982,AirAsia India,82,192
+375,SpiceJet,252,283
+8935,SpiceJet,140,131
+597,Air India,120,283
+6846,TestIndigo,82,1019
+3084,SpiceJet,82,131
+6852,TestIndigo,635,13
+1911,GoAir,120,13
+899,Vistara,140,207
+2473,AirAsia India,283,82
+2504,GoAir,458,13
+2063,TestIndigo,140,210
+436,Jet Airways,458,279
+538,Air India,458,140
+140,GoAir,140,635
+2380,AirAsia India,102,82
+103,TestIndigo,702,82
+8475,SpiceJet,1019,140
+175,Jet Airways,217,325
+737,TestIndigo,210,82
+114,TestIndigo,138,140
+437,TestIndigo,31,120
+751,AirAsia India,210,140
+2606,GoAir,458,325
+149,Jet Airways,140,138
+7179,TestIndigo,339,279
+630,GoAir,1070,207
+705,AirAsia India,116,140
+594,GoAir,702,279
+2519,GoAir,140,487
+312,Jet Airways,140,458
+145,TestIndigo,102,120
+442,GoAir,140,120
+257,SpiceJet,458,1157
+319,TestIndigo,120,82
+307,Jetlite,458,140
+234,GoAir,1157,140
+163,GoAir,325,283
+407,TestIndigo,82,82
+787,Air India,283,688
+539,Air India,120,120
+474,Jet Airways,458,120
+359,AirAsia India,82,13
+2841,TestIndigo,140,102
+828,Air India,998,140
+5327,TestIndigo,283,458
+637,Vistara,140,116
+706,GoAir,771,458
+494,Air India,1019,140
+2273,TestIndigo,140,82
+133,TestIndigo,82,82
+793,Jetlite,140,210
+3737,SpiceJet,82,193
+651,Air India,458,458
+553,AirAsia India,140,116
+7717,TestIndigo,283,635
+237,GoAir,140,771
+702,AirAsia India,13,140
+1582,AirAsia India,82,207
+625,Jet Airways,458,283
+178,TruJet,210,207
+452,Jetlite,207,458
+2512,GoAir,635,140
+792,AirAsia India,279,140
+617,Vistara,140,138
+7353,TestIndigo,207,251
+6056,TestIndigo,116,13
+6117,TestIndigo,207,120
+3318,SpiceJet,82,120
+621,TestIndigo,120,458
+287,SpiceJet,458,120
+516,TestIndigo,120,82
+7193,TestIndigo,120,339
+436,SpiceJet,746,458
+7254,TestIndigo,1070,279
+6876,TestIndigo,131,131
+636,TestIndigo,487,140
+375,Jet Airways,140,1157
+6334,TestIndigo,82,279
+692,Jet Airways,53,458
+408,Air India,635,140
+867,Jet Airways,82,120
+434,TestIndigo,207,82
+267,TestIndigo,13,140
+138,Jet Airways,1148,210
+2770,SpiceJet,140,138
+6630,SpiceJet,13,702
+618,GoAir,487,140
+659,TestIndigo,279,192
+189,TestIndigo,140,458
+822,Vistara,120,458
+738,AirAsia India,140,82
+529,SpiceJet,82,13
+816,TestIndigo,279,487
+312,SpiceJet,53,140
+522,TruJet,131,120
+1174,Air India,82,140
+212,TruJet,53,207
+5004,TestIndigo,325,140
+259,SpiceJet,140,283
+5989,TestIndigo,283,236
+3713,SpiceJet,120,735
+856,TestIndigo,13,13
+7989,TestIndigo,23,23
+741,GoAir,325,13
+5343,TestIndigo,217,458
+6261,TestIndigo,31,31
+5007,TestIndigo,120,140
+623,SpiceJet,120,283
+840,Air India,207,140
+2642,SpiceJet,212,140
+7347,TestIndigo,53,207
+2842,SpiceJet,283,120
+619,Air India,458,207
+717,Vistara,82,635
+743,GoAir,13,325
+3507,SpiceJet,283,635
+2554,TestIndigo,140,140
+2774,SpiceJet,31,217
+6427,SpiceJet,283,120
+2298,TestIndigo,140,13
+3533,Jet Airways,140,487
+172,GoAir,702,140
+537,TruJet,120,471
+751,Jet Airways,1085,120
+486,Air India,688,140
+989,TestIndigo,210,82
+672,Vistara,1157,140
+2176,TestIndigo,82,140
+3468,SpiceJet,138,138
+5381,TestIndigo,210,458
+2056,TestIndigo,140,31
+808,Vistara,82,140
+345,SpiceJet,120,192
+312,AirAsia India,458,120
+746,TestIndigo,13,283
+859,TestIndigo,283,730
+529,AirAsia India,192,283
+738,SpiceJet,13,13
+1585,AirAsia India,207,82
+705,Jet Airways,235,13
+320,Jet Airways,82,1148
+873,Jet Airways,82,120
+592,Vistara,31,140
+824,GoAir,1019,82
+825,Air India,140,998
+727,Jet Airways,140,635
+6176,TestIndigo,140,458
+716,TestIndigo,283,82
+352,Jet Airways,140,458
+292,TestIndigo,120,192
+3453,SpiceJet,138,13
+9681,TestIndigo,82,209
+8714,SpiceJet,217,140
+812,Vistara,82,140
+960,Jet Airways,31,140
+2297,TestIndigo,140,82
+638,SpiceJet,13,458
+923,Vistara,82,13
+3755,SpiceJet,1170,1091
+804,Jetlite,210,82
+688,TestIndigo,283,635
+881,GoAir,1179,82
+874,TestIndigo,82,82
+783,Jet Airways,82,120
+5983,TestIndigo,23,702
+939,Vistara,140,13
+451,TestIndigo,82,101
+419,GoAir,325,458
+902,TestIndigo,82,635
+429,TestIndigo,283,283
+6237,TestIndigo,12,82
+3565,SpiceJet,193,207
+875,TestIndigo,209,82
+106,GoAir,140,116
+635,GoAir,13,251
+603,Air India,458,82
+981,TestIndigo,138,458
+393,Jet Airways,82,458
+316,TestIndigo,11,82
+191,SpiceJet,140,82
+418,Jetlite,458,217
+669,TestIndigo,279,325
+547,GoAir,771,207
+171,GoAir,140,140
+1516,AirAsia India,82,207
+3558,Jet Airways,23,635
+6758,TestIndigo,120,635
+879,Jetlite,458,487
+615,Vistara,140,138
+788,Jet Airways,217,140
+421,TestIndigo,140,771
+288,TestIndigo,82,1179
+299,GoAir,283,325
+898,Jetlite,101,458
+136,Jet Airways,458,192
+455,TestIndigo,116,140
+789,SpiceJet,140,82
+542,Air India,140,140
+173,Jet Airways,702,207
+836,Jet Airways,82,140
+493,Jet Airways,120,702
+708,SpiceJet,82,207
+776,AirAsia India,140,192
+7311,TestIndigo,192,283
+2169,TestIndigo,131,140
+557,TestIndigo,102,102
+797,TestIndigo,120,283
+595,Air India,120,1157
+8169,SpiceJet,140,13
+904,TestIndigo,325,82
+920,GoAir,120,1070
+5003,TestIndigo,140,325
+8032,TestIndigo,82,283
+938,TestIndigo,102,82
+991,Jet Airways,140,954
+633,TestIndigo,283,140
+110,TruJet,82,207
+410,Air India,635,140
+6432,SpiceJet,207,458
+925,SpiceJet,13,120
+605,TestIndigo,120,120
+1268,SpiceJet,207,101
+223,SpiceJet,458,746
+435,Jet Airways,702,210
+978,AirAsia India,140,283
+311,Jet Airways,458,140
+256,GoAir,1019,140
+821,TestIndigo,458,207
+1532,GoAir,207,1179
+380,Jet Airways,746,458
+946,Jet Airways,283,140
+6213,TestIndigo,120,209
+770,Air India,140,283
+314,AirAsia India,140,458
+722,Vistara,192,140
+3417,SpiceJet,82,1170
+521,TestIndigo,279,82
+805,Jet Airways,82,207
+378,GoAir,458,82
+863,Air India,140,458
+778,Jet Airways,140,210
+819,Air India,140,1148
+6363,SpiceJet,207,458
+2156,TestIndigo,339,140
+461,Jet Airways,458,120
+533,SpiceJet,140,635
+512,GoAir,283,458
+182,Jet Airways,1114,140
+5153,TestIndigo,458,283
+7922,TestIndigo,471,207
+365,SpiceJet,458,283
+935,TestIndigo,13,102
+119,TestIndigo,11,82
+550,GoAir,207,13
+2173,TestIndigo,140,458
+1455,AirAsia India,140,82
+726,TestIndigo,102,192
+167,SpiceJet,13,82
+7932,TestIndigo,12,23
+449,SpiceJet,82,458
+734,TestIndigo,82,116
+314,SpiceJet,120,131
+6491,TestIndigo,82,207
+799,GoAir,223,13
+1421,GoAir,120,1070
+735,TestIndigo,13,82
+7272,TestIndigo,279,1085
+364,GoAir,13,13
+6915,TestIndigo,82,207
+3502,Jet Airways,31,458
+424,Air India,102,140
+926,SpiceJet,120,13
+563,Air India,120,82
+473,TestIndigo,82,207
+641,SpiceJet,13,82
+174,Jet Airways,207,702
+729,TestIndigo,82,120
+6458,TestIndigo,458,283
+966,Vistara,13,140
+6847,TestIndigo,120,82
+489,Air India,140,140
+721,Vistara,140,192
+892,Vistara,702,458
+990,Vistara,207,140
+857,TestIndigo,82,131
+6897,TestIndigo,82,82
+405,Air India,1157,140
+415,Air India,140,635
+183,GoAir,140,140
+3788,SpiceJet,217,101
+487,Jet Airways,458,120
+7926,TestIndigo,23,23
+584,Air India,1070,82
+467,Air India,140,1170
+532,TruJet,842,120
+694,TestIndigo,140,192
+671,Vistara,140,1157
+3714,Air India,209,283
+535,TestIndigo,120,140
+525,TestIndigo,11,11
+776,SpiceJet,120,458
+984,AirAsia India,458,82
+789,AirAsia India,192,140
+2155,TestIndigo,140,339
+412,Jet Airways,82,235
+265,TestIndigo,102,82
+187,GoAir,120,140
+348,SpiceJet,13,207
+245,SpiceJet,458,131
+6157,TestIndigo,325,283
+2672,SpiceJet,1019,207
+709,AirAsia India,140,998
+5383,TestIndigo,207,458
+6838,TestIndigo,82,635
+996,GoAir,207,140
+3075,SpiceJet,82,1070
+972,TestIndigo,120,116
+6235,TestIndigo,82,12
+658,TestIndigo,140,13
+3469,SpiceJet,120,207
+1769,TestIndigo,210,82
+1316,GoAir,1157,13
+2087,TestIndigo,140,487
+469,Air India,140,140
+632,AirAsia India,771,458
+889,Air India,140,192
+7194,TestIndigo,339,120
+6636,TestIndigo,13,279
+498,TestIndigo,82,82
+491,TestIndigo,31,82
+3513,GoAir,140,120
+535,TruJet,120,120
+525,TruJet,120,131
+694,Jetlite,53,458
+573,TestIndigo,283,192
+639,GoAir,207,207
+2983,SpiceJet,138,13
+5997,TestIndigo,23,82
+229,TestIndigo,458,120
+8901,SpiceJet,140,53
+532,TestIndigo,131,82
+582,GoAir,116,458
+944,Vistara,458,140
+414,SpiceJet,192,82
+955,Vistara,140,140
+643,SpiceJet,134,82
+556,TestIndigo,217,82
+963,TestIndigo,138,140
+2128,TestIndigo,140,120
+834,TestIndigo,458,207
+634,TestIndigo,140,283
+8720,SpiceJet,82,13
+3746,SpiceJet,120,207
+882,TestIndigo,120,120
+6013,TestIndigo,120,140
+774,Jet Airways,82,702
+7133,TestIndigo,1170,82
+2976,SpiceJet,13,235
+893,Jet Airways,140,101
+385,SpiceJet,702,635
+676,Air India,283,458
+2726,TestIndigo,1179,140
+280,GoAir,82,192
+868,TestIndigo,283,102
+871,AirAsia India,283,458
+588,AirAsia India,283,82
+2808,SpiceJet,1179,283
+376,Jet Airways,140,458
+502,AirAsia India,11,11
+772,Vistara,283,458
+7252,TestIndigo,192,251
+1216,SpiceJet,82,101
+921,GoAir,120,120
+404,SpiceJet,192,13
+334,Jet Airways,140,458
+143,SpiceJet,140,82
+336,Jetlite,140,458
+629,Air India,458,487
+775,TestIndigo,283,102
+8477,SpiceJet,458,140
+809,Air India,458,140
+695,Vistara,140,31
+147,Jet Airways,210,325
+335,AirAsia India,458,82
+8379,SpiceJet,140,207
+6685,TestIndigo,13,140
+3419,SpiceJet,82,682
+710,Jet Airways,235,210
+371,TestIndigo,13,82
+354,SpiceJet,635,82
+2037,TestIndigo,140,23
+146,TestIndigo,53,82
+712,AirAsia India,140,140
+3694,SpiceJet,207,279
+6239,TestIndigo,635,120
+986,Jet Airways,1148,140
+356,TestIndigo,82,120
+7123,TestIndigo,207,735
+7348,TestIndigo,1170,207
+802,GoAir,13,82
+217,GoAir,82,210
+521,TruJet,120,131
+8951,SpiceJet,279,140
+872,GoAir,82,251
+628,Jet Airways,283,458
+502,SpiceJet,120,13
+943,Jet Airways,283,192
+310,GoAir,13,120
+833,Jet Airways,82,140
+616,TestIndigo,13,140
+835,TestIndigo,325,702
+5332,TestIndigo,458,82
+1221,TestIndigo,325,210
+3508,SpiceJet,635,283
+188,Jet Airways,138,140
+308,TestIndigo,207,102
+954,Vistara,458,140
+858,Vistara,82,458
+5024,TestIndigo,140,31
+7986,TestIndigo,23,730
+118,TestIndigo,120,131
+377,GoAir,771,458
+7947,TestIndigo,209,151
+389,SpiceJet,283,1019
+712,SpiceJet,82,283
+880,GoAir,82,1179
+205,GoAir,140,140
+785,GoAir,207,1179
+246,SpiceJet,82,635
+932,SpiceJet,458,138
+897,Jet Airways,458,101
+354,AirAsia India,207,120
+520,GoAir,82,140
+814,Air India,702,116
+417,SpiceJet,207,13
+2752,SpiceJet,217,635
+3742,SpiceJet,192,82
+406,TestIndigo,102,82
+2932,SpiceJet,212,13
+795,AirAsia India,140,13
+8473,SpiceJet,140,1019
+823,TestIndigo,13,82
+941,TestIndigo,82,53
+558,Air India,140,207
+922,Jet Airways,82,702
+907,Jet Airways,140,283
+898,TestIndigo,283,140
+818,TestIndigo,140,116
+2931,SpiceJet,13,212
+703,Vistara,140,192
+815,TestIndigo,635,207
+6831,TestIndigo,325,730
+879,TestIndigo,13,207
+1004,SpiceJet,207,207
+644,GoAir,207,251
+3426,SpiceJet,120,82
+6011,TestIndigo,120,82
+953,GoAir,120,207
+845,Jet Airways,140,120
+7206,TestIndigo,1170,207
+5001,TestIndigo,140,120
+6702,SpiceJet,458,140
+1519,AirAsia India,207,82
+330,Jet Airways,13,458
+316,Jetlite,140,458
+2571,GoAir,140,251
+598,AirAsia India,283,120
+957,SpiceJet,140,998
+504,SpiceJet,283,120
+139,TestIndigo,82,11
+852,GoAir,702,192
+942,GoAir,120,283
+3526,SpiceJet,207,120
+275,GoAir,140,702
+454,Air India,31,140
+429,Jetlite,120,458
+767,TestIndigo,140,207
+2256,TestIndigo,102,140
+653,TestIndigo,140,13
+3017,SpiceJet,279,82
+451,Jetlite,458,207
+170,GoAir,13,140
+329,TestIndigo,82,283
+764,AirAsia India,120,140
+7124,TestIndigo,735,120
+754,Vistara,771,140
+125,SpiceJet,140,207
+631,Vistara,140,1157
+456,TestIndigo,82,102
+490,Air India,1019,140
+804,TestIndigo,730,458
+247,SpiceJet,635,82
+8033,TestIndigo,283,82
+948,SpiceJet,746,458
+713,TestIndigo,82,207
+768,TestIndigo,458,120
+2135,TestIndigo,82,140
+8952,SpiceJet,140,192
+344,AirAsia India,458,207
+8049,TestIndigo,283,635
+1477,AirAsia India,82,1019
+413,TestIndigo,82,82
+6927,TestIndigo,116,283
+8147,SpiceJet,31,140
+536,AirAsia India,82,102
+431,GoAir,217,82
+6794,TestIndigo,82,458
+465,GoAir,116,140
+156,TestIndigo,82,13
+6933,SpiceJet,138,458
+342,SpiceJet,192,207
+3712,SpiceJet,1019,207
+675,Jet Airways,192,138
+3752,TestIndigo,131,120
+714,Air India,209,283
+601,Jet Airways,140,998
+810,Jet Airways,31,140
+2645,SpiceJet,140,140
+951,SpiceJet,192,140
+3514,GoAir,120,140
+927,Vistara,140,458
+6839,TestIndigo,635,82
+537,TestIndigo,82,82
+609,AirAsia India,140,116
+511,GoAir,458,283
+471,SpiceJet,207,140
+652,Vistara,116,458
+1006,SpiceJet,207,1019
+8104,SpiceJet,120,140
+771,Air India,283,82
+2196,SpiceJet,212,140
+6433,TestIndigo,458,13
+646,Jet Airways,116,140
+7154,TestIndigo,735,207
+752,Vistara,771,140
+860,GoAir,82,116
+401,SpiceJet,13,283
+2392,AirAsia India,120,82
+6323,TestIndigo,207,209
+549,TestIndigo,116,120
+1311,GoAir,13,283
+913,Vistara,140,210
+281,SpiceJet,223,458
+7229,TestIndigo,120,82
+2489,TestIndigo,102,140
+6624,TestIndigo,207,120
+6342,TestIndigo,279,13
+856,Jetlite,140,140
+609,SpiceJet,120,192
+571,GoAir,283,207
+475,Air India,140,235
+3253,SpiceJet,1170,1179
+5321,TestIndigo,210,458
+382,GoAir,116,82
+522,TestIndigo,82,82
+212,TestIndigo,140,217
+3754,SpiceJet,1157,82
+951,AirAsia India,217,140
+428,Air India,1157,140
+3608,SpiceJet,82,120
+155,GoAir,192,140
+135,Jet Airways,192,458
+816,Jetlite,82,140
+6492,TestIndigo,13,140
+8001,TestIndigo,283,458
+6698,TestIndigo,702,140
+756,Jet Airways,217,140
+654,TestIndigo,120,458
+8722,SpiceJet,635,140
+6187,TestIndigo,207,82
+293,GoAir,702,82
+219,GoAir,140,140
+728,Jet Airways,635,140
+725,Vistara,140,151
+531,SpiceJet,13,82
+884,AirAsia India,458,140
+8188,SpiceJet,140,702
+6116,TestIndigo,207,102
+701,Air India,283,140
+5006,TestIndigo,140,120
+682,Vistara,235,140
+337,TestIndigo,279,116
+866,Vistara,82,120
+591,GoAir,207,279
+2051,TestIndigo,140,1157
+7259,TestIndigo,207,210
+263,TestIndigo,13,120
+975,AirAsia India,82,702
+7221,TestIndigo,82,120
+7972,TestIndigo,102,120
+6186,TestIndigo,82,207
+837,Jet Airways,140,1114
+197,SpiceJet,140,82
+1229,AirAsia India,13,82
+928,TestIndigo,458,120
+178,TestIndigo,635,82
+2781,SpiceJet,82,207
+452,TestIndigo,13,13
+744,TestIndigo,207,131
+432,TestIndigo,140,13
+6825,TestIndigo,82,120
+3467,SpiceJet,138,138
+122,SpiceJet,140,207
+762,AirAsia India,120,140
+924,GoAir,325,120
+6267,SpiceJet,458,140
+793,TestIndigo,116,120
+157,Jet Airways,283,116
+862,TestIndigo,283,702
+551,AirAsia India,11,140
+7253,TestIndigo,251,283
+133,TruJet,207,1170
+622,Air India,116,458
+8664,SpiceJet,140,746
+6053,TestIndigo,325,13
+5386,TestIndigo,458,210
+739,Air India,102,82
+168,TestIndigo,458,140
+459,TestIndigo,138,120
+890,GoAir,702,487
+3505,Jet Airways,702,192
+781,Vistara,140,102
+515,TestIndigo,120,325
+7169,TestIndigo,207,251
+696,TestIndigo,1157,82
+2104,TestIndigo,140,487
+6001,TestIndigo,1179,120
+761,TestIndigo,207,207
+398,TestIndigo,771,140
+864,Vistara,82,458
+747,TestIndigo,82,1148
+647,SpiceJet,82,207
+307,TestIndigo,140,283
+3720,Air India,209,283
+5353,TestIndigo,120,458
+8153,SpiceJet,140,235
+601,AirAsia India,140,217
+464,Air India,116,140
+952,SpiceJet,140,192
+5008,TestIndigo,140,120
+76,Air India,102,140
+756,SpiceJet,13,207
+675,AirAsia India,82,192
+677,Air India,458,140
+741,Vistara,140,192
+279,TestIndigo,82,82
+423,SpiceJet,702,120
+1572,AirAsia India,207,279
+730,Jet Airways,140,635
+437,Jetlite,702,210
+2021,TestIndigo,102,140
+2039,TestIndigo,140,101
+433,Air India,140,140
+488,SpiceJet,283,458
+624,GoAir,82,251
+3252,SpiceJet,1179,120
+851,Air India,13,13
+618,Vistara,138,140
+114,TruJet,1085,82
+460,Jet Airways,120,458
+914,Jet Airways,458,13
+103,TruJet,207,1091
+2538,SpiceJet,140,1157
+1059,SpiceJet,207,1179
+810,AirAsia India,82,13
+523,GoAir,325,13
+8978,SpiceJet,339,140
+492,TestIndigo,102,82
+541,AirAsia India,283,192
+611,Air India,458,217
+242,TestIndigo,207,207
+6246,TestIndigo,140,138
+6321,TestIndigo,207,116
+8154,SpiceJet,140,13
+6253,TestIndigo,120,101
+569,Air India,120,458
+277,TestIndigo,11,192
+728,SpiceJet,120,1157
+732,Air India,283,458
+154,TestIndigo,207,140
+201,TruJet,207,120
+7743,TestIndigo,207,251
+422,GoAir,140,207
+936,Jet Airways,192,192
+3471,SpiceJet,283,1179
+683,SpiceJet,217,120
+7161,TestIndigo,1085,82
+617,GoAir,140,487
+2103,GoAir,1019,283
+6373,TestIndigo,140,13
+121,GoAir,207,82
+801,Air India,140,82
+7929,TestIndigo,12,101
+580,AirAsia India,11,11
+8638,SpiceJet,101,140
+514,AirAsia India,207,82
+272,TestIndigo,458,140
+968,AirAsia India,140,279
+395,GoAir,82,325
+544,Air India,140,207
+6845,TestIndigo,31,82
+274,TestIndigo,116,120
+686,Air India,31,458
+513,GoAir,82,116
+8189,SpiceJet,140,702
+1215,SpiceJet,339,82
+765,Air India,131,120
+847,TestIndigo,82,82
+693,Air India,458,82
+706,Vistara,140,116
+647,Jet Airways,140,13
+392,TestIndigo,207,283
+8704,SpiceJet,458,140
+637,GoAir,82,251
+347,GoAir,458,279
+5391,TestIndigo,458,120
+105,GoAir,140,283
+806,Air India,458,140
+3550,Jet Airways,138,82
+425,Jetlite,458,131
+715,TestIndigo,458,82
+620,GoAir,207,251
+3571,TestIndigo,702,140
+8746,SpiceJet,252,140
+968,SpiceJet,223,140
+2679,AirAsia India,487,82
+580,SpiceJet,283,1179
+2782,SpiceJet,207,82
+1223,TestIndigo,210,487
+501,Air India,82,82
+6425,SpiceJet,283,458
+3794,TestIndigo,82,458
+8163,SpiceJet,458,252
+7205,TestIndigo,207,1170
+210,GoAir,140,140
+881,Vistara,140,279
+403,GoAir,82,82
+587,TestIndigo,207,207
+5325,TestIndigo,458,487
+762,Jet Airways,458,140
+667,Air India,458,207
+6683,TestIndigo,13,140
+169,TestIndigo,13,82
+939,GoAir,325,120
+355,TestIndigo,131,82
+903,Jet Airways,140,283
+5395,TestIndigo,82,458
+759,TestIndigo,120,120
+812,GoAir,82,279
+670,GoAir,325,1019
+923,GoAir,120,635
+6153,TestIndigo,458,283
+6285,SpiceJet,458,138
+8734,SpiceJet,1114,140
+5324,TestIndigo,82,140
+286,TestIndigo,140,702
+6129,TestIndigo,210,13
+599,AirAsia India,120,283
+824,Vistara,120,458
+6829,TestIndigo,13,325
+773,Air India,283,283
+648,TestIndigo,210,207
+104,SpiceJet,120,140
+2047,TestIndigo,140,140
+545,GoAir,207,771
+883,Vistara,140,279
+116,GoAir,82,140
+108,GoAir,140,116
+951,Jet Airways,210,120
+562,GoAir,116,458
+3345,SpiceJet,283,192
+2548,SpiceJet,458,212
+592,GoAir,102,140
+839,Jet Airways,458,140
+2773,SpiceJet,217,31
+471,Jet Airways,458,116
+3612,SpiceJet,82,207
+6366,TestIndigo,207,1179
+282,TestIndigo,140,283
+159,TestIndigo,102,13
+137,TestIndigo,120,279
+2644,SpiceJet,746,140
+3552,Jet Airways,23,210
+2409,TestIndigo,730,140
+675,SpiceJet,283,120
+2096,TestIndigo,487,140
+441,TestIndigo,120,116
+258,SpiceJet,458,458
+820,Jet Airways,82,140
+583,SpiceJet,279,283
+808,GoAir,82,82
+339,GoAir,458,140
+1219,TestIndigo,487,325
+717,GoAir,140,13
+6123,TestIndigo,283,138
+803,Air India,140,82
+884,Jet Airways,120,82
+679,Air India,131,131
+728,AirAsia India,140,702
+160,SpiceJet,140,140
+971,Vistara,140,702
+349,GoAir,458,1157
+887,TestIndigo,120,82
+2942,SpiceJet,212,207
+3581,SpiceJet,207,1019
+2678,AirAsia India,82,283
+6369,TestIndigo,207,82
+8258,SpiceJet,31,140
+8105,SpiceJet,140,120
+894,Jet Airways,101,140
+141,Jet Airways,82,635
+117,Air India,140,31
+6169,TestIndigo,210,279
+7212,TestIndigo,339,120
+6632,SpiceJet,217,1114
+483,Jet Airways,458,82
+3711,SpiceJet,207,1019
+508,TestIndigo,635,140
+943,SpiceJet,635,140
+645,TestIndigo,13,13
+2515,GoAir,140,487
+209,TestIndigo,102,120
+871,Jet Airways,82,120
+901,GoAir,120,325
+900,Jet Airways,82,279
+8751,SpiceJet,140,635
+224,SpiceJet,746,458
+2141,TestIndigo,140,116
+3540,Jet Airways,635,702
+6782,TestIndigo,120,279
+446,GoAir,140,458
+546,GoAir,192,283
+1710,GoAir,1070,120
+477,Air India,140,102
+6476,SpiceJet,458,279
+613,TestIndigo,120,120
+8721,SpiceJet,140,635
+6332,TestIndigo,13,458
+374,TestIndigo,283,11
+255,TestIndigo,82,635
+8002,TestIndigo,458,283
+722,GoAir,13,13
+481,TestIndigo,82,217
+417,Jet Airways,217,458
+438,GoAir,82,1019
+334,AirAsia India,82,458
+552,AirAsia India,283,140
+411,Jet Airways,13,82
+1621,AirAsia India,82,82
+389,Jet Airways,1070,458
+402,TestIndigo,702,140
+932,Jet Airways,210,487
+503,SpiceJet,120,283
+1882,AirAsia India,82,192
+976,AirAsia India,702,82
+194,Jet Airways,13,192
+296,GoAir,192,283
+6281,SpiceJet,223,458
+710,AirAsia India,998,140
+632,Jet Airways,702,131
+484,TestIndigo,1114,207
+922,SpiceJet,13,13
+1129,AirAsia India,82,279
+102,GoAir,283,140
+786,TestIndigo,140,283
+176,TestIndigo,140,138
+301,TestIndigo,279,120
+615,GoAir,140,102
+373,GoAir,82,82
+2049,TestIndigo,325,140
+6287,SpiceJet,458,120
+214,TestIndigo,13,23
+208,SpiceJet,207,192
+115,GoAir,116,140
+2637,TestIndigo,140,82
+957,Jet Airways,236,140
+849,TestIndigo,82,458
+152,TestIndigo,31,82
+891,Air India,140,192
+684,TestIndigo,82,207
+733,TestIndigo,140,140
+635,Vistara,140,31
+6877,TestIndigo,702,131
+7101,TestIndigo,207,120
+164,TestIndigo,82,13
+448,GoAir,140,458
+736,TestIndigo,140,116
+697,Air India,458,635
+193,TestIndigo,120,102
+132,TruJet,1170,207
+416,Air India,635,140
+2872,SpiceJet,212,458
+443,TestIndigo,11,102
+811,Air India,140,325
+795,Jet Airways,31,140
+996,Vistara,458,140
+6168,TestIndigo,279,210
+731,TestIndigo,192,102
+612,Vistara,140,140
+241,GoAir,82,702
+977,Jet Airways,120,131
+671,GoAir,1019,325
+8482,SpiceJet,1019,140
+126,SpiceJet,207,140
+463,TestIndigo,82,82
+721,GoAir,13,702
+8962,SpiceJet,207,140
+430,GoAir,140,217
+8637,SpiceJet,140,101
+2746,SpiceJet,252,140
+896,TestIndigo,279,13
+6672,TestIndigo,11,140
+2257,TestIndigo,140,13
+2073,TestIndigo,140,223
+642,Air India,116,140
+414,Jet Airways,458,120
+177,TruJet,207,210
+295,GoAir,283,192
+330,AirAsia India,458,140
+643,Jet Airways,140,207
+2563,TestIndigo,140,82
+387,GoAir,458,771
+376,SpiceJet,283,120
+799,Vistara,140,998
+6005,TestIndigo,120,82
+1425,GoAir,13,120
+707,Jet Airways,13,210
+8255,SpiceJet,283,140
+561,GoAir,458,116
+6344,TestIndigo,120,120
+3708,Air India,688,283
+2107,TestIndigo,954,140
+198,GoAir,140,140
+774,SpiceJet,217,82
+385,Jet Airways,458,210
+3715,SpiceJet,339,82
+877,Vistara,458,207
+5031,TestIndigo,140,82
+969,Vistara,140,13
+238,GoAir,771,140
+3551,Air India,120,688
+853,Air India,140,702
+354,Jet Airways,140,458
+3787,SpiceJet,101,217
+8016,TestIndigo,279,207
+7248,TestIndigo,212,207
+1003,SpiceJet,207,1170
+784,TestIndigo,192,279
+386,GoAir,998,458
+512,Vistara,279,140
+983,AirAsia India,82,458
+6568,TestIndigo,53,458
+404,Jet Airways,279,458
+260,SpiceJet,283,140
+2192,TestIndigo,140,192
+8256,SpiceJet,140,283
+6361,TestIndigo,207,13
+2024,TestIndigo,140,31
+813,Air India,116,702
+627,TestIndigo,207,131
+404,Air India,746,140
+453,Jetlite,140,207
+571,TestIndigo,120,120
+6806,TestIndigo,217,13
+814,AirAsia India,140,102
+212,GoAir,325,140
+382,TestIndigo,207,82
+522,GoAir,140,325
+1729,AirAsia India,217,82
+155,TestIndigo,140,458
+231,SpiceJet,140,13
+6467,TestIndigo,207,730
+6007,TestIndigo,120,120
+737,Vistara,140,283
+219,TestIndigo,82,82
+2071,TestIndigo,140,138
+293,TestIndigo,207,207
+5015,TestIndigo,11,140
+687,TestIndigo,1157,82
+676,SpiceJet,120,283
+899,TestIndigo,283,192
+7137,TestIndigo,487,207
+3551,Jet Airways,210,23
+2977,TestIndigo,140,82
+2565,TestIndigo,1091,140
+1426,GoAir,120,283
+337,GoAir,140,458
+6367,TestIndigo,487,140
+674,Vistara,1157,140
+591,TestIndigo,120,120
+707,Air India,458,210
+1238,SpiceJet,207,82
+184,SpiceJet,1157,120
+642,Jet Airways,116,458
+2475,TestIndigo,82,140
+2420,SpiceJet,1157,140
+2507,GoAir,116,140
+2034,SpiceJet,138,140
+6263,TestIndigo,458,1148
+1478,AirAsia India,1019,82
+414,Air India,325,140
+8713,SpiceJet,140,217
+643,Air India,458,1114
+744,GoAir,325,116
+598,Air India,283,120
+452,GoAir,702,120
+7264,TestIndigo,217,116
+178,GoAir,210,140
+6242,TestIndigo,207,771
+432,GoAir,82,120
+924,TestIndigo,120,635
+793,GoAir,283,102
+150,GoAir,635,140
+931,Jet Airways,702,82
+862,GoAir,82,120
+706,TruJet,686,13
+977,Air India,82,207
+909,Jet Airways,209,140
+361,Jet Airways,458,140
+798,AirAsia India,192,140
+459,GoAir,13,458
+168,GoAir,635,140
+515,GoAir,13,116
+2104,GoAir,283,11
+8159,SpiceJet,140,458
+673,TestIndigo,702,13
+1325,AirAsia India,82,116
+761,GoAir,102,283
+811,Jet Airways,140,82
+6304,TestIndigo,207,53
+8938,SpiceJet,140,702
+398,GoAir,458,82
+476,Air India,235,140
+307,GoAir,210,13
+6158,TestIndigo,116,192
+5305,TestIndigo,458,210
+7114,TestIndigo,82,1091
+5017,TestIndigo,31,102
+767,GoAir,13,140
+3426,Air India,223,140
+419,Jetlite,131,458
+848,TestIndigo,458,82
+416,Jet Airways,82,458
+271A,TestIndigo,283,120
+329,GoAir,458,140
+468,GoAir,279,458
+965,Jet Airways,140,325
+2403,TestIndigo,140,120
+504,Air India,140,82
+2694,TestIndigo,140,120
+2148,TestIndigo,140,998
+804,GoAir,13,82
+713,GoAir,140,13
+3310,SpiceJet,82,82
+606,TestIndigo,120,120
+7164,TestIndigo,1085,279
+826,Vistara,120,458
+6814,TestIndigo,13,217
+768,GoAir,140,13
+758,Vistara,283,458
+7329,TestIndigo,1170,1091
+842,TestIndigo,116,140
+413,GoAir,13,458
+753,TestIndigo,1114,458
+3319,SpiceJet,151,151
+632,Air India,101,458
+2108,TestIndigo,82,140
+328,TestIndigo,82,82
+885,TestIndigo,192,140
+6347,TestIndigo,217,458
+798,SpiceJet,207,120
+1424,AirAsia India,82,702
+431,TestIndigo,102,82
+3325,SpiceJet,82,193
+719,Jet Airways,487,210
+465,TestIndigo,11,192
+156,GoAir,1157,283
+1358,AirAsia India,82,210
+6704,SpiceJet,458,140
+2172,TestIndigo,223,140
+411,Air India,138,138
+704,Jet Airways,138,458
+2382,AirAsia India,207,120
+6002,TestIndigo,120,131
+6197,TestIndigo,1157,140
+391,Jet Airways,458,207
+829,Jet Airways,140,120
+1559,AirAsia India,102,82
+8184,SpiceJet,82,140
+2167,TestIndigo,31,140
+3514,TestIndigo,82,31
+6162,TestIndigo,635,116
+691,Vistara,140,31
+417,Air India,140,771
+6834,TestIndigo,13,120
+614,Vistara,1114,458
+6379,SpiceJet,339,458
+958,SpiceJet,82,138
+225,SpiceJet,458,82
+537,GoAir,13,13
+172,TruJet,210,13
+629,AirAsia India,458,102
+511,TestIndigo,207,82
+477,Jet Airways,458,82
+3564,SpiceJet,283,193
+973,TestIndigo,120,82
+16,Air India,140,31
+6606,TestIndigo,217,140
+7244,TestIndigo,101,13
+2175,TestIndigo,140,82
+449A,SpiceJet,998,458
+2798,SpiceJet,120,82
+743,Jetlite,140,82
+657,TestIndigo,140,116
+912,SpiceJet,13,140
+8963,SpiceJet,140,1070
+502,Air India,82,82
+588,Air India,279,82
+7227,TestIndigo,101,207
+3076,SpiceJet,1070,82
+676,AirAsia India,192,82
+6236,TestIndigo,140,120
+2055,TestIndigo,53,140
+802,TestIndigo,730,458
+771,SpiceJet,458,120
+217,TestIndigo,120,31
+8624,SpiceJet,101,140
+3213,SpiceJet,283,954
+483,Air India,140,730
+701,AirAsia India,140,13
+401,Air India,140,283
+655,TestIndigo,210,458
+872,TestIndigo,207,120
+6179,TestIndigo,458,771
+5372,TestIndigo,1148,458
+616,GoAir,102,140
+679,Jet Airways,140,730
+308,GoAir,13,1157
+510,Vistara,192,140
+118,GoAir,82,140
+377,TestIndigo,140,152
+785,TestIndigo,207,102
+8956,SpiceJet,13,140
+6345,TestIndigo,279,82
+2894,TestIndigo,140,31
+3552,Air India,688,120
+363,SpiceJet,192,207
+820,Air India,1148,140
+302,Jet Airways,140,458
+3609,SpiceJet,120,339
+2022,TestIndigo,140,101
+7197,TestIndigo,120,339
+581,SpiceJet,1179,283
+7222,TestIndigo,1070,279
+951,Air India,1179,207
+110,GoAir,13,13
+839,Air India,140,207
+3430,SpiceJet,101,13
+2157,TestIndigo,140,151
+471,Air India,140,1114
+7136,TestIndigo,207,487
+180,Jet Airways,635,458
+779,TestIndigo,131,207
+6258,SpiceJet,458,635
+406,GoAir,192,140
+3783,SpiceJet,13,1114
+7933,TestIndigo,23,152
+315,AirAsia India,140,116
+773,Jet Airways,702,82
+2516,GoAir,487,140
+572,Vistara,458,140
+760,GoAir,283,102
+823,GoAir,82,1019
+1534,GoAir,207,1070
+6351,SpiceJet,82,458
+6612,TestIndigo,140,325
+2509,GoAir,140,325
+898,GoAir,487,771
+3466,SpiceJet,131,82
+818,GoAir,140,116
+815,GoAir,82,207
+507,Air India,82,82
+879,GoAir,1070,82
+718,AirAsia India,140,207
+551,Air India,120,688
+179,Jet Airways,458,635
+644,TestIndigo,13,13
+171,TruJet,13,210
+192,SpiceJet,82,140
+6279,SpiceJet,217,458
+418,GoAir,82,458
+953,TestIndigo,13,102
+1042,SpiceJet,207,207
+852,TestIndigo,82,138
+2124,TestIndigo,140,120
+139,GoAir,140,116
+685,Jetlite,13,140
+275,TestIndigo,11,120
+490,SpiceJet,458,283
+6161,TestIndigo,192,116
+106,TruJet,1091,207
+942,TestIndigo,53,82
+905,SpiceJet,140,82
+718,SpiceJet,1019,283
+6052,TestIndigo,1070,140
+2197,TestIndigo,140,140
+158,SpiceJet,458,140
+3550,Air India,688,120
+806,Jet Airways,207,82
+739,SpiceJet,998,13
+536,Air India,283,140
+2704,TestIndigo,120,140
+5925,TestIndigo,283,31
+3347,SpiceJet,283,192
+3830,Air India,223,998
+8391,SpiceJet,283,140
+7976,TestIndigo,279,251
+7233,TestIndigo,283,102
+315,SpiceJet,131,458
+639,TestIndigo,13,13
+532,GoAir,13,192
+351,Jet Airways,458,140
+229,GoAir,635,140
+2045,TestIndigo,13,53
+183,TruJet,13,53
+582,TestIndigo,279,102
+764,Air India,140,283
+7713,TestIndigo,283,174
+321,SpiceJet,13,82
+6198,TestIndigo,217,82
+780,GoAir,116,283
+5998,TestIndigo,82,23
+634,GoAir,251,13
+834,GoAir,102,82
+454,AirAsia India,120,702
+801,Jet Airways,82,207
+366,SpiceJet,283,458
+870,SpiceJet,458,13
+732,Jet Airways,235,140
+1074,SpiceJet,82,207
+531,Air India,13,13
+7716,TestIndigo,174,174
+447,TestIndigo,217,140
+6254,TestIndigo,101,120
+161,Jet Airways,140,217
+771,AirAsia India,13,13
+7249,TestIndigo,192,212
+921,TestIndigo,140,207
+512,TruJet,237,207
+730,Air India,192,283
+460,Air India,1091,140
+609,Air India,458,82
+929,TestIndigo,120,458
+7925,TestIndigo,23,23
+796,Vistara,730,140
+475,SpiceJet,279,458
+3754,Air India,954,283
+979,Jet Airways,458,1179
+581,AirAsia India,11,11
+464,Jet Airways,120,458
+2123,TestIndigo,140,82
+146,GoAir,223,140
+1314,GoAir,283,13
+7246,TestIndigo,101,207
+766,Vistara,688,120
+7217,TestIndigo,339,82
+534,TruJet,842,120
+677,Jet Airways,730,140
+967,Jetlite,458,730
+790,SpiceJet,458,140
+686,SpiceJet,635,217
+443,GoAir,120,140
+6257,TestIndigo,82,207
+564,Air India,82,120
+317,TruJet,207,1091
+765,SpiceJet,283,82
+315,Jet Airways,13,458
+731,GoAir,13,283
+6212,TestIndigo,82,120
+693,SpiceJet,998,13
+671,TestIndigo,140,702
+694,Vistara,31,140
+905,Jet Airways,140,31
+241,TestIndigo,207,283
+158,Jet Airways,116,283
+622,Jet Airways,283,458
+739,Jet Airways,140,120
+289,SpiceJet,120,458
+327,Jet Airways,458,1114
+966,TestIndigo,140,116
+107,SpiceJet,140,120
+463,GoAir,458,325
+955,Jetlite,207,210
+721,TestIndigo,13,13
+892,TestIndigo,120,11
+3346,SpiceJet,192,283
+857,Vistara,458,82
+1527,AirAsia India,207,82
+896,GoAir,207,82
+458,Jet Airways,207,458
+7257,TestIndigo,279,192
+366,Jet Airways,702,140
+501,AirAsia India,11,11
+585,GoAir,458,635
+2019,TestIndigo,140,102
+351,SpiceJet,13,82
+2802,SpiceJet,212,283
+8191,SpiceJet,702,140
+239,TestIndigo,458,82
+387,TestIndigo,120,458
+6445,TestIndigo,283,82
+466,TestIndigo,82,207
+5037,TestIndigo,102,140
+701,Jet Airways,458,138
+5013,TestIndigo,140,140
+326,TestIndigo,120,207
+734,Vistara,120,120
+611,SpiceJet,120,120
+6376,TestIndigo,13,283
+3784,SpiceJet,1114,13
+2405,TestIndigo,102,140
+161,SpiceJet,140,140
+198,TestIndigo,458,140
+735,Vistara,458,31
+343,TestIndigo,120,120
+870,Jet Airways,120,82
+728,Air India,192,82
+732,SpiceJet,207,120
+207,SpiceJet,192,207
+238,TestIndigo,13,13
+679,AirAsia India,192,458
+803,AirAsia India,120,120
+831,Jet Airways,120,140
+6801,TestIndigo,102,13
+332,TestIndigo,82,102
+464,SpiceJet,101,120
+426,Jetlite,131,458
+302,AirAsia India,82,82
+952,Air India,207,1179
+2314,TestIndigo,102,140
+2878,AirAsia India,82,140
+1073,SpiceJet,207,82
+386,TestIndigo,11,11
+784,GoAir,116,207
+423,Air India,140,283
+488,Air India,688,140
+6219,TestIndigo,217,458
+832,Vistara,120,140
+5346,TestIndigo,458,53
+1093,SpiceJet,1091,207
+627,GoAir,251,120
+645,GoAir,251,283
+508,GoAir,279,207
+679,SpiceJet,458,120
+209,GoAir,140,223
+732,AirAsia India,702,140
+6572,TestIndigo,102,140
+6785,TestIndigo,279,120
+446,TestIndigo,151,283
+546,TestIndigo,207,120
+821,Vistara,140,82
+646,Air India,235,458
+374,GoAir,82,207
+255,GoAir,140,1019
+878,Jet Airways,217,140
+541,Air India,207,140
+722,TestIndigo,102,116
+5019,TestIndigo,102,140
+979,AirAsia India,283,140
+438,TestIndigo,325,210
+2018,TestIndigo,212,140
+402,GoAir,82,192
+675,Air India,458,283
+2803,TestIndigo,140,102
+797,Vistara,140,730
+8024,TestIndigo,207,279
+302,SpiceJet,283,82
+583,Air India,82,1070
+363,Jet Airways,140,702
+8733,SpiceJet,140,1114
+464,AirAsia India,279,120
+296,TestIndigo,82,82
+850,Vistara,82,458
+601,Air India,458,746
+484,GoAir,771,458
+457,TestIndigo,82,11
+5379,TestIndigo,283,116
+134,Jet Airways,1148,217
+8717,SpiceJet,140,82
+102,TestIndigo,120,11
+950,Vistara,458,140
+786,GoAir,1179,207
+1239,SpiceJet,82,207
+176,GoAir,325,140
+373,TestIndigo,11,82
+615,TestIndigo,116,207
+8164,SpiceJet,235,458
+765,AirAsia India,140,120
+3522,SpiceJet,217,31
+214,GoAir,140,325
+773,SpiceJet,207,120
+7196,TestIndigo,339,120
+7927,TestIndigo,23,138
+115,TestIndigo,102,82
+5002,TestIndigo,120,140
+5312,TestIndigo,138,458
+514,Air India,702,207
+3456,SpiceJet,13,217
+152,GoAir,192,140
+6635,TestIndigo,1157,140
+7105,TestIndigo,207,1091
+733,GoAir,217,13
+384,TestIndigo,120,207
+3590,SpiceJet,339,207
+854,Air India,702,140
+501,SpiceJet,13,120
+2859,TestIndigo,120,120
+736,GoAir,283,102
+448,TestIndigo,31,339
+981,Vistara,140,458
+193,GoAir,998,140
+2054,TestIndigo,140,53
+3706,SpiceJet,207,120
+8961,SpiceJet,140,207
+1728,AirAsia India,82,217
+3074,SpiceJet,82,82
+715,GoAir,140,13
+6256,TestIndigo,283,325
+902,Vistara,458,140
+6178,TestIndigo,82,13
+827,Air India,140,998
+698,Jetlite,217,458
+7209,TestIndigo,1170,207
+875,Vistara,458,207
+206,SpiceJet,217,283
+874,Vistara,207,458
+587,GoAir,279,207
+403,TestIndigo,13,283
+754,TruJet,210,13
+939,TestIndigo,140,192
+1711,GoAir,120,771
+416,SpiceJet,13,207
+169,GoAir,140,13
+6571,TestIndigo,702,140
+2151,TestIndigo,140,116
+798,Jet Airways,140,120
+812,TestIndigo,82,325
+361,AirAsia India,13,82
+1454,AirAsia India,82,140
+2443,TestIndigo,140,120
+8062,TestIndigo,120,82
+923,TestIndigo,120,283
+607,TestIndigo,140,13
+2757,SpiceJet,31,13
+1220,SpiceJet,82,212
+2041,TestIndigo,101,140
+7138,TestIndigo,82,251
+369,TestIndigo,82,13
+545,TestIndigo,120,116
+716,Vistara,635,140
+811,AirAsia India,13,82
+142,Jet Airways,635,82
+2566,TestIndigo,140,635
+1451,AirAsia India,82,279
+524,TestIndigo,11,11
+813,AirAsia India,102,140
+108,TestIndigo,82,82
+116,TestIndigo,120,283
+746,Vistara,283,140
+814,Jet Airways,82,140
+3326,SpiceJet,193,82
+562,TestIndigo,283,120
+3743,Air India,283,11
+592,TestIndigo,82,82
+3174,TestIndigo,207,120
+7103,TestIndigo,192,283
+704,SpiceJet,207,458
+137,GoAir,13,116
+159,GoAir,1157,283
+282,GoAir,325,283
+1217,SpiceJet,339,82
+503,Air India,82,82
+672,TestIndigo,702,140
+3904,TestIndigo,210,458
+989,Vistara,140,702
+7225,TestIndigo,207,251
+5409,TestIndigo,210,140
+339,TestIndigo,82,120
+6248,TestIndigo,192,279
+808,TestIndigo,210,82
+752,TruJet,210,13
+717,TestIndigo,207,279
+5043,TestIndigo,140,325
+7143,TestIndigo,120,1085
+349,TestIndigo,192,82
+6827,TestIndigo,283,120
+6749,TestIndigo,458,283
+908,Jet Airways,140,209
+517,SpiceJet,82,82
+912,Jet Airways,140,279
+628,Air India,140,193
+710,Air India,152,283
+3787,Air India,120,688
+391,AirAsia India,120,458
+2088,TestIndigo,487,140
+6796,TestIndigo,192,13
+298,TestIndigo,120,140
+742,SpiceJet,283,82
+279,GoAir,1157,140
+704,AirAsia India,13,116
+552,Air India,688,120
+624,TestIndigo,120,120
+6291,TestIndigo,120,120
+809,Jet Airways,31,82
+629,Jet Airways,458,283
+822,TestIndigo,82,82
+523,TestIndigo,82,120
+816,Vistara,82,140
+8964,SpiceJet,1070,140
+7026,SpiceJet,140,13
+242,GoAir,702,82
+492,GoAir,217,458
+636,Vistara,31,140
+485,TestIndigo,82,82
+3611,SpiceJet,120,82
+517,AirAsia India,120,207
+184,Jet Airways,730,702
+817,AirAsia India,702,140
+774,Air India,283,283
+2101,GoAir,487,283
+621,Vistara,458,1157
+6869,TestIndigo,102,82
+236,SpiceJet,458,217
+676,Jet Airways,138,192
+154,GoAir,140,140
+530,GoAir,140,458
+866,Jetlite,487,458
+7145,TestIndigo,120,1085
+422,TestIndigo,1179,82
+2038,TestIndigo,23,140
+8155,SpiceJet,13,140
+577,Air India,82,283
+121,TestIndigo,207,13
+6325,TestIndigo,140,140
+5045,TestIndigo,207,140
+1622,AirAsia India,82,82
+642,SpiceJet,82,134
+6714,TestIndigo,82,283
+919,Jet Airways,82,207
+395,TestIndigo,458,283
+272,GoAir,82,82
+565,Air India,82,325
+6312,TestIndigo,116,207
+274,GoAir,82,635
+889,Jet Airways,82,131
+513,TestIndigo,120,120
+7294,TestIndigo,207,730
+6789,TestIndigo,13,458
+392,GoAir,140,458
+7285,TestIndigo,23,210
+719,AirAsia India,207,140
+313,Jetlite,140,53
+347,TestIndigo,82,82
+396,Jet Airways,210,458
+2609,GoAir,140,325
+105,TestIndigo,140,82
+361,SpiceJet,458,131
+469,Jet Airways,458,120
+105,TruJet,207,1091
+227,GoAir,140,140
+425,GoAir,140,207
+761,Vistara,140,325
+309,Jet Airways,458,140
+864,TestIndigo,120,207
+2076,TestIndigo,140,283
+313,TestIndigo,13,458
+747,Vistara,140,283
+253,SpiceJet,140,140
+6145,TestIndigo,192,13
+608,TestIndigo,207,207
+838,Jet Airways,1114,140
+755,AirAsia India,207,140
+325,GoAir,458,82
+482,TestIndigo,82,82
+1235,TestIndigo,487,102
+412,Air India,325,140
+781,TestIndigo,1070,120
+7144,TestIndigo,1085,120
+489,Jet Airways,120,458
+7213,TestIndigo,120,82
+678,Air India,140,458
+415,Jet Airways,458,82
+2133,TestIndigo,82,82
+5926,TestIndigo,31,283
+472,GoAir,207,635
+793,Vistara,140,730
+467,Jet Airways,458,120
+487,Air India,140,688
+1009,SpiceJet,212,207
+2067,TestIndigo,174,140
+5009,TestIndigo,82,140
+1069,SpiceJet,1170,207
+7192,TestIndigo,212,207
+6217,TestIndigo,120,82
+8705,SpiceJet,140,82
+424,Jet Airways,131,458
+6211,TestIndigo,207,1179
+7237,TestIndigo,283,82
+5042,TestIndigo,1114,140
+640,GoAir,140,458
+7714,TestIndigo,174,283
+928,Vistara,458,140
+3827,Air India,998,223
+452,Vistara,82,140
+3329,SpiceJet,1157,283
+682,TestIndigo,82,82
+3214,SpiceJet,954,283
+866,TestIndigo,207,283
+5988,TestIndigo,236,207
+519,SpiceJet,702,82
+964,TestIndigo,140,138
+575,TestIndigo,82,120
+6146,TestIndigo,13,192
+763,Air India,283,140
+372,SpiceJet,31,283
+725,TestIndigo,283,207
+3610,SpiceJet,339,120
+8129,SpiceJet,120,120
+381,SpiceJet,82,635
+2643,SpiceJet,140,746
+485,Jetlite,458,120
+6074,TestIndigo,210,140
+353,AirAsia India,120,207
+266,SpiceJet,192,458
+863,Jet Airways,116,217
+523,TruJet,120,131
+1241,TestIndigo,487,702
+819,Jet Airways,283,458
+103,GoAir,140,283
+461,Air India,140,31
+2606,TestIndigo,140,120
+737,GoAir,102,635
+654,Vistara,116,140
+114,GoAir,140,283
+961,AirAsia India,192,140
+3022,SpiceJet,131,120
+7975,TestIndigo,251,279
+594,TestIndigo,207,1070
+2519,TestIndigo,140,120
+145,GoAir,140,223
+442,TestIndigo,120,11
+2136,TestIndigo,140,998
+353,SpiceJet,82,458
+590,GoAir,207,702
+3254,SpiceJet,1179,1170
+518,AirAsia India,1179,283
+913,TestIndigo,207,207
+2982,SpiceJet,1157,217
+805,Air India,140,458
+749,Jet Airways,140,217
+723,SpiceJet,82,252
+7152,TestIndigo,207,339
+519,AirAsia India,283,1179
+770,Jet Airways,339,458
+1533,GoAir,1179,207
+915,TestIndigo,207,217
+2624,TestIndigo,140,82
+2032,TestIndigo,82,140
+2514,GoAir,140,487
+752,TestIndigo,131,131
+2336,AirAsia India,702,82
+339,Jetlite,458,140
+5375,TestIndigo,458,207
+578,TestIndigo,458,1157
+251,SpiceJet,458,120
+435,Air India,140,101
+748,TestIndigo,1114,458
+652,TestIndigo,279,217
+567,SpiceJet,82,82
+496,SpiceJet,134,134
+2084,TestIndigo,131,140
+7239,TestIndigo,1179,82
+961,SpiceJet,192,82
+276,TestIndigo,283,11
+745,Air India,283,11
+3523,Jet Airways,116,325
+410,Jet Airways,82,458
+524,TruJet,131,120
+127,TestIndigo,82,140
+3568,Jet Airways,1114,746
+108,TruJet,1091,207
+360,AirAsia India,82,13
+916A,Vistara,13,458
+493,Air India,140,1019
+497,SpiceJet,458,82
+2062,TestIndigo,101,140
+2152,TestIndigo,116,140
+6966,TestIndigo,207,140
+7219,TestIndigo,339,82
+713,Vistara,82,102
+788,Air India,688,283
+5126,TestIndigo,140,140
+6262,TestIndigo,31,31
+379,TestIndigo,82,82
+6385,TestIndigo,120,120
+3792,SpiceJet,1070,279
+278,TestIndigo,192,140
+252,SpiceJet,120,458
+649,TestIndigo,120,283
+3529,Jet Airways,458,1157
+8267,SpiceJet,458,140
+631,TestIndigo,102,207
+754,TestIndigo,283,13
+305,TestIndigo,120,120
+210,TruJet,471,120
+994,Jet Airways,131,140
+8561,SpiceJet,140,131
+2406,TestIndigo,140,120
+2033,TestIndigo,140,730
+980,Jet Airways,1179,458
+603,Jet Airways,140,702
+698,TestIndigo,13,82
+653,Vistara,140,116
+166,SpiceJet,82,13
+540,GoAir,192,13
+993,Jet Airways,140,131
+7202,TestIndigo,1170,207
+2608,GoAir,217,458
+2620,GoAir,325,458
+132,GoAir,140,140
+304,TestIndigo,207,82
+7251,TestIndigo,954,192
+479,SpiceJet,458,101
+9817,Jet Airways,140,998
+5389,TestIndigo,487,458
+249,GoAir,140,192
+3723,SpiceJet,192,31
+959,SpiceJet,138,82
+2118,TestIndigo,120,140
+566,GoAir,140,325
+384,Jetlite,140,458
+7203,TestIndigo,1170,82
+8709,SpiceJet,140,458
+1567,AirAsia India,82,102
+941,Vistara,140,140
+818,Vistara,82,140
+898,Vistara,140,140
+703,TestIndigo,210,13
+6314,TestIndigo,283,217
+6097,TestIndigo,140,138
+579,AirAsia India,283,140
+815,Vistara,140,82
+664,Jet Airways,116,140
+1126,Air India,140,120
+879,Vistara,116,140
+373,Jetlite,140,458
+727,Air India,82,192
+825,Jet Airways,279,458
+602,TestIndigo,82,207
+439,TestIndigo,138,140
+2701,TestIndigo,140,102
+102,TruJet,1091,207
+5373,TestIndigo,458,635
+185,Jet Airways,210,746
+985,Jet Airways,140,1148
+7113,TestIndigo,735,82
+1528,AirAsia India,82,207
+8902,SpiceJet,53,140
+6644,TestIndigo,13,13
+324,TestIndigo,207,730
+823,Vistara,458,120
+1562,AirAsia India,82,102
+3182,TestIndigo,13,279
+1228,TestIndigo,487,1019
+769,GoAir,13,82
+705,Air India,283,151
+937,TestIndigo,140,82
+7151,TestIndigo,1085,120
+6326,TestIndigo,207,82
+362,TestIndigo,11,13
+2214,GoAir,82,1070
+6533,TestIndigo,458,82
+626,SpiceJet,283,120
+757,Jet Airways,140,210
+199,GoAir,140,223
+204,TestIndigo,101,82
+3722,Air India,954,283
+538,AirAsia India,283,192
+357,Jet Airways,458,140
+619,Jet Airways,458,283
+962,TestIndigo,13,140
+130,SpiceJet,140,13
+181,TestIndigo,140,13
+835,Vistara,140,120
+616,Vistara,138,140
+954,TestIndigo,101,13
+858,TestIndigo,131,82
+510,GoAir,82,82
+248,SpiceJet,82,13
+346,GoAir,140,140
+559,Air India,140,140
+568,Air India,82,82
+294,TestIndigo,11,13
+7176,TestIndigo,207,82
+840,Jet Airways,120,140
+243,TestIndigo,140,140
+5916,TestIndigo,82,12
+1983,AirAsia India,192,82
+2612,GoAir,140,217
+7134,TestIndigo,82,1170
+394,SpiceJet,13,192
+766,GoAir,82,13
+775,Vistara,458,283
+7148,TestIndigo,1085,120
+333,Jetlite,458,140
+8250,SpiceJet,283,140
+6133,TestIndigo,82,138
+796,GoAir,116,13
+426,TestIndigo,82,702
+6638,SpiceJet,82,702
+2106,TestIndigo,140,140
+186,TestIndigo,82,192
+3955,TestIndigo,283,192
+3534,Jet Airways,487,140
+1245,TestIndigo,487,487
+7195,TestIndigo,120,339
+1602,SpiceJet,735,207
+6375,TestIndigo,102,458
+165,SpiceJet,13,82
+343,Jetlite,458,1148
+868,Vistara,82,458
+933,SpiceJet,138,458
+7165,TestIndigo,251,120
+264,SpiceJet,283,140
+2212,GoAir,82,487
+782,AirAsia India,217,140
+7332,TestIndigo,735,82
+625,Air India,458,325
+2630,GoAir,140,635
+7943,TestIndigo,251,120
+963,Vistara,140,458
+177,GoAir,140,210
+1068,SpiceJet,207,1170
+740,GoAir,116,325
+3248,TestIndigo,283,207
+834,Vistara,120,120
+2383,AirAsia India,82,102
+882,Vistara,140,140
+651,Jet Airways,140,116
+2988,SpiceJet,13,217
+5365,TestIndigo,458,279
+7168,TestIndigo,251,207
+409,TestIndigo,82,207
+944,TestIndigo,207,283
+6471,SpiceJet,458,53
+526,SpiceJet,13,82
+955,TestIndigo,140,223
+560,Air India,140,207
+2315,TestIndigo,140,120
+906,TestIndigo,140,325
+7204,TestIndigo,82,1170
+6849,TestIndigo,102,458
+383,Jet Airways,458,210
+494,Jet Airways,702,120
+554,GoAir,207,13
+791,Jet Airways,140,210
+972,Vistara,140,140
+658,Vistara,998,140
+317,TestIndigo,82,82
+6372,SpiceJet,31,458
+2413,GoAir,1157,120
+474,Air India,102,140
+7261,TestIndigo,210,116
+5309,TestIndigo,120,458
+534,TestIndigo,13,120
+378,TestIndigo,82,207
+1046,SpiceJet,131,82
+967,TestIndigo,140,207
+3307,SpiceJet,120,82
+832,GoAir,82,283
+529,Air India,207,283
+627,Vistara,140,1114
+75,Air India,140,102
+1124,AirAsia India,82,279
+254,SpiceJet,283,140
+1043,SpiceJet,207,339
+3272,SpiceJet,283,192
+394,Jet Airways,140,31
+2161,TestIndigo,102,140
+6209,TestIndigo,131,82
+336,GoAir,140,279
+3713,Air India,283,209
+7115,TestIndigo,1091,207
+757,AirAsia India,140,207
+512,TestIndigo,82,102
+784,Vistara,102,140
+222,SpiceJet,283,458
+2604,GoAir,13,458
+119,GoAir,140,82
+5914,TestIndigo,458,23
+933,Jet Airways,458,1179
+969,TestIndigo,131,207
+5984,TestIndigo,702,23
+1722,AirAsia India,82,207
+436,Air India,101,140
+6135,TestIndigo,13,13
+3488,Air India,688,140
+799,TestIndigo,458,82
+6352,SpiceJet,458,82
+408,SpiceJet,207,207
+735,GoAir,11,283
+364,TestIndigo,120,192
+221,SpiceJet,458,283
+888,Air India,458,140
+7987,TestIndigo,730,23
+651,SpiceJet,1179,140
+303,SpiceJet,82,283
+473,GoAir,635,283
+8051,TestIndigo,635,283
+729,GoAir,13,279
+450,Jetlite,82,458
+240,SpiceJet,458,283
+886,Jet Airways,325,140
+6066,TestIndigo,207,82
+2465,TestIndigo,140,82
+857,GoAir,192,702
+183,TestIndigo,120,120
+6527,TestIndigo,283,635
+5044,TestIndigo,325,140
+2216,TestIndigo,458,140
+6175,TestIndigo,458,138
+322,SpiceJet,82,13
+8977,SpiceJet,140,339
+525,GoAir,325,82
+535,GoAir,13,325
+5302,TestIndigo,101,458
+505,Air India,82,140
+187,TestIndigo,192,82
+787,SpiceJet,140,120
+1828,AirAsia India,82,283
+367,SpiceJet,458,207
+148,Jet Airways,325,210
+8124,TestIndigo,283,487
+6438,SpiceJet,1070,458
+5326,TestIndigo,458,210
+113,Air India,31,140
+996,TestIndigo,13,82
+612,TestIndigo,279,120
+731,Vistara,120,120
+383,SpiceJet,635,702
+494,SpiceJet,134,82
+635,TestIndigo,140,207
+106,TestIndigo,82,82
+1130,AirAsia India,279,82
+3429,SpiceJet,13,101
+685,TestIndigo,325,458
+736,Vistara,31,458
+7309,TestIndigo,283,192
+7331,TestIndigo,1091,735
+7928,TestIndigo,325,12
+669,GoAir,13,325
+2376,TestIndigo,140,82
+949,TestIndigo,458,82
+171,TestIndigo,140,458
+547,TestIndigo,702,120
+5028,TestIndigo,140,1019
+1036,SpiceJet,82,207
+2513,GoAir,140,702
+849,Vistara,458,82
+303,AirAsia India,82,458
+553,Air India,140,120
+733,Vistara,120,283
+3219,SpiceJet,954,283
+684,Vistara,235,140
+6529,TestIndigo,635,207
+2046,TestIndigo,53,140
+388,Jet Airways,458,1070
+421,GoAir,140,140
+7198,TestIndigo,339,120
+185,SpiceJet,120,13
+299,TestIndigo,730,207
+8480,SpiceJet,140,635
+288,GoAir,1157,140
+7746,TestIndigo,487,207
+539,AirAsia India,192,140
+455,GoAir,1019,217
+787,AirAsia India,140,192
+604,TestIndigo,730,120
+638,Air India,210,140
+664,SpiceJet,223,140
+786,Vistara,102,140
+791,AirAsia India,140,279
+557,GoAir,140,82
+904,GoAir,702,120
+797,GoAir,13,223
+919A,Vistara,458,13
+633,GoAir,13,120
+318,SpiceJet,207,458
+938,GoAir,120,325
+6079,TestIndigo,140,101
+5533,TestIndigo,458,82
+738,Air India,82,102
+605,GoAir,283,102
+2907,TestIndigo,120,140
+5014,TestIndigo,140,11
+880,Jetlite,487,458
+7208,TestIndigo,120,1170
+427,Air India,140,1157
+2804,TestIndigo,102,140
+5012,TestIndigo,207,140
+613,Vistara,458,1114
+6535,TestIndigo,140,771
+2991,AirAsia India,192,82
+256,TestIndigo,635,13
+6105,TestIndigo,283,635
+310,Jetlite,458,140
+7308,TestIndigo,730,207
+508,Vistara,31,140
+645,Vistara,140,223
+521,GoAir,140,207
+589,Air India,82,13
+3555,Jet Airways,325,23
+2095,TestIndigo,140,102
+3506,Jet Airways,192,702
+7215,TestIndigo,120,120
+3465,SpiceJet,82,131
+353,Jet Airways,458,140
+681,TestIndigo,702,82
+3530,Jet Airways,1157,458
+285,TestIndigo,207,82
+7921,TestIndigo,207,471
+971,TestIndigo,116,120
+749,SpiceJet,207,283
+495,Jet Airways,458,82
+895,Jet Airways,458,101
+511,TruJet,207,237
+6356,SpiceJet,458,1070
+6378,SpiceJet,458,339
+961,Jet Airways,131,207
+172,TestIndigo,82,82
+6985,TestIndigo,131,140
+410,SpiceJet,31,140
+824,TestIndigo,82,487
+1536,GoAir,207,279
+309,AirAsia India,458,207
+709,Air India,283,152
+6449,TestIndigo,82,458
+6276,SpiceJet,458,217
+2623,TestIndigo,140,82
+390,SpiceJet,1019,283
+716,GoAir,140,325
+883,TestIndigo,207,13
+292,GoAir,82,702
+656,Jet Airways,116,140
+910,Jet Airways,207,82
+753,TruJet,13,210
+2985,TestIndigo,140,120
+708,Air India,210,458
+6134,TestIndigo,102,82
+6423,TestIndigo,235,13
+755,Jet Airways,140,217
+3320,SpiceJet,151,151
+584,AirAsia India,283,192
+6795,TestIndigo,13,192
+874,GoAir,635,82
+881,TestIndigo,120,120
+5016,TestIndigo,140,31
+5385,TestIndigo,487,458
+120,GoAir,82,82
+2508,GoAir,458,140
+715,Vistara,140,635
+451,GoAir,120,13
+902,GoAir,325,120
+8702,SpiceJet,458,140
+875,GoAir,251,82
+429,GoAir,140,458
+7177,TestIndigo,210,207
+776,Air India,82,102
+3714,SpiceJet,82,120
+319,GoAir,458,140
+234,TestIndigo,131,207
+163,TestIndigo,13,102
+407,GoAir,102,283
+360,Jet Airways,325,458
+1125,AirAsia India,279,82
+542,AirAsia India,192,283
+1005,SpiceJet,682,207
+6069,TestIndigo,102,207
+390,AirAsia India,458,120
+6284,TestIndigo,458,140
+6674,TestIndigo,283,13
+1472,AirAsia India,82,702
+970,Vistara,140,140
+309,SpiceJet,13,458
+3691,SpiceJet,82,1179
+706,TestIndigo,120,120
+133,GoAir,140,635
+2012,TestIndigo,82,140
+2393,AirAsia India,82,120
+6374,TestIndigo,120,13
+237,TestIndigo,13,13
+424,SpiceJet,82,702
+641,Air India,140,116
+3432,SpiceJet,1170,82
+3302,SpiceJet,82,120
+6488,TestIndigo,11,140
+917,TestIndigo,120,458
+489,SpiceJet,283,458
+444,Air India,116,140
+2512,TestIndigo,140,102
+1723,AirAsia India,207,82
+5917,TestIndigo,12,82
+3788,Air India,688,120
+680,Jet Airways,210,120
+415,SpiceJet,252,82
+467,SpiceJet,207,207
+584,SpiceJet,283,1179
+749,AirAsia India,210,140
+516,GoAir,635,207
+527,TestIndigo,207,82
+621,GoAir,251,82
+6015,TestIndigo,210,116
+916,Jet Airways,325,140
+3556,Jet Airways,23,325
+381,Jet Airways,458,82
+6359,TestIndigo,283,207
+5991,TestIndigo,82,23
+945,SpiceJet,134,458
+6362,SpiceJet,131,458
+283,SpiceJet,279,458
+636,GoAir,251,82
+219,TruJet,120,842
+434,GoAir,210,120
+978,Air India,207,82
+618,TestIndigo,217,207
+3549,Air India,120,688
+189,GoAir,998,140
+816,GoAir,207,82
+6353,SpiceJet,1070,458
+7295,TestIndigo,210,13
+741,TestIndigo,13,210
+533,Air India,140,13
+453,TestIndigo,131,31
+856,GoAir,283,192
+541,GoAir,13,207
+646,GoAir,283,251
+657,Jet Airways,140,487
+353,Jetlite,458,140
+8392,SpiceJet,140,283
+517,TestIndigo,82,13
+3083,SpiceJet,131,82
+623,Vistara,140,192
+613,Air India,458,13
+817,TestIndigo,487,279
+477,TestIndigo,31,31
+973,Jet Airways,458,1114
+160,GoAir,140,13
+1529,AirAsia India,207,279
+869,Jet Airways,82,120
+6436,SpiceJet,746,458
+645,Air India,458,235
+717,SpiceJet,283,1019
+7173,TestIndigo,82,207
+6248,SpiceJet,131,458
+391,TestIndigo,702,82
+672,SpiceJet,217,283
+829,TestIndigo,82,82
+402,Air India,283,140
+704,TestIndigo,13,210
+2525,TestIndigo,31,140
+3326,TestIndigo,283,120
+738,Vistara,283,140
+2861,SpiceJet,138,140
+108,SpiceJet,120,140
+810,GoAir,487,82
+3514,Jet Airways,325,82
+524,SpiceJet,702,13
+481,Air India,101,101
+513,AirAsia India,207,82
+753,Jet Airways,140,325
+104,GoAir,116,140
+6014,TestIndigo,116,120
+606,Jet Airways,192,140
+637,AirAsia India,207,207
+465,Jet Airways,458,120
+6080,TestIndigo,101,140
+719,TestIndigo,13,13
+2757,TestIndigo,140,730
+607,SpiceJet,688,120
+347,AirAsia India,120,82
+923,SpiceJet,217,13
+638,Vistara,116,140
+328,Jet Airways,1114,458
+885,Jet Airways,217,116
+6444,TestIndigo,954,283
+484,Air India,730,140
+358Z,TestIndigo,11,283
+416,TestIndigo,207,210
+939,SpiceJet,998,140
+1248,TestIndigo,283,116
+8562,SpiceJet,131,140
+170,Jet Airways,1179,140
+6616,TestIndigo,283,140
+792,Vistara,730,140
+403,SpiceJet,13,192
+697,TestIndigo,82,13
+736,Air India,217,283
+206,TestIndigo,151,140
+580,GoAir,13,13
+849,Air India,140,702
+514,GoAir,116,13
+965,TestIndigo,217,458
+1624,AirAsia India,82,82
+361,TestIndigo,82,11
+505,Vistara,140,207
+890,Jet Airways,131,82
+105,SpiceJet,140,120
+909,TestIndigo,487,82
+923,AirAsia India,283,140
+607,AirAsia India,207,140
+347,SpiceJet,207,13
+2201,TestIndigo,140,730
+7352,TestIndigo,251,279
+731,Air India,283,192
+637,SpiceJet,458,13
+2052,TestIndigo,101,140
+545,AirAsia India,140,283
+811,TestIndigo,82,210
+3686,SpiceJet,131,82
+8025,TestIndigo,1157,82
+443,Air India,140,116
+368,GoAir,13,458
+2559,TestIndigo,140,140
+642,TestIndigo,217,82
+3418,SpiceJet,1170,82
+846,Vistara,82,458
+2912,TestIndigo,140,730
+157,GoAir,140,140
+8170,SpiceJet,458,140
+6181,TestIndigo,458,283
+463,Air India,140,116
+7223,TestIndigo,82,120
+422,SpiceJet,207,207
+6348,TestIndigo,458,217
+5357,TestIndigo,101,140
+5027,TestIndigo,11,140
+7317,TestIndigo,325,138
+899,Jet Airways,279,82
+236,TestIndigo,116,82
+687,Jet Airways,13,140
+3738,SpiceJet,82,82
+6908,TestIndigo,140,131
+372,Jetlite,702,140
+5022,TestIndigo,82,140
+6646,TestIndigo,140,140
+627,Air India,458,487
+524,AirAsia India,283,209
+6468,TestIndigo,120,140
+813,TestIndigo,458,192
+382,Jet Airways,210,458
+523,SpiceJet,13,702
+5047,TestIndigo,458,140
+562,AirAsia India,217,140
+592,AirAsia India,82,283
+131,GoAir,140,635
+8936,SpiceJet,131,140
+423,GoAir,140,207
+742,TestIndigo,1179,207
+6177,TestIndigo,13,82
+5393,TestIndigo,207,458
+269,TestIndigo,120,116
+952,GoAir,192,207
+8913,SpiceJet,140,13
+672,AirAsia India,283,458
+135,GoAir,140,635
+155,Jet Airways,283,210
+339,AirAsia India,458,82
+7218,TestIndigo,82,339
+979,TestIndigo,1114,82
+2506,GoAir,140,116
+147,GoAir,140,635
+271,GoAir,635,82
+1452,AirAsia India,82,82
+1236,TestIndigo,102,487
+929,Jet Airways,458,13
+851,TestIndigo,120,82
+7226,TestIndigo,207,101
+552,GoAir,13,207
+334,GoAir,140,458
+433,TestIndigo,82,192
+3425,Air India,140,223
+386,SpiceJet,635,131
+2879,AirAsia India,140,82
+677,TestIndigo,325,279
+8903,SpiceJet,140,1179
+7112,TestIndigo,207,735
+992,Vistara,702,140
+244,GoAir,458,13
+464,TestIndigo,138,207
+710,GoAir,13,1157
+332,SpiceJet,339,140
+911,Vistara,140,210
+530,Air India,283,207
+865,Jetlite,458,487
+750,SpiceJet,207,131
+893,GoAir,82,702
+732,TestIndigo,207,138
+207,TestIndigo,13,192
+569,TestIndigo,217,120
+8210,SpiceJet,207,140
+198,SpiceJet,82,140
+546,AirAsia India,140,140
+446,AirAsia India,120,120
+161,TestIndigo,140,13
+2246,TestIndigo,82,140
+611,TestIndigo,207,1179
+538,TruJet,207,120
+492,Air India,217,140
+722,AirAsia India,82,140
+326,SpiceJet,13,120
+376,GoAir,458,771
+295,SpiceJet,140,1157
+466,SpiceJet,1019,120
+3024,SpiceJet,131,120
+5396,TestIndigo,458,82
+544,TestIndigo,13,279
+641,Vistara,140,325
+350,GoAir,1157,458
+926,Vistara,13,82
+268,TestIndigo,13,13
+239,SpiceJet,13,207
+351,TestIndigo,13,702
+801,TestIndigo,458,730
+3736,SpiceJet,193,207
+6214,TestIndigo,209,120
+577,GoAir,82,120
+526,TruJet,131,120
+430,SpiceJet,252,458
+450,Jet Airways,82,458
+7135,TestIndigo,1170,120
+2517,GoAir,120,140
+720,Vistara,140,140
+721,SpiceJet,82,1157
+892,SpiceJet,998,140
+6113,TestIndigo,120,1070
+107,TestIndigo,31,207
+6409,TestIndigo,210,140
+289,TestIndigo,140,102
+806,TestIndigo,120,82
+2797,SpiceJet,82,120
+7109,TestIndigo,251,82
+126,GoAir,140,635
+2727,TestIndigo,140,13
+1045,SpiceJet,82,131
+776,Vistara,283,458
+241,SpiceJet,458,283
+671,SpiceJet,283,217
+144,GoAir,635,140
+8287,SpiceJet,140,458
+2472,AirAsia India,82,283
+639,Jet Airways,138,116
+794,Vistara,730,140
+765,TestIndigo,140,207
+3513,Jet Airways,82,325
+6437,SpiceJet,458,1070
+7983,TestIndigo,283,23
+721,AirAsia India,140,82
+667,TestIndigo,13,279
+990,AirAsia India,82,283
+953,Jet Airways,458,217
+587,Air India,82,279
+644,Jet Airways,207,140
+448,SpiceJet,217,192
+6343,TestIndigo,13,82
+501,TestIndigo,279,140
+2053,TestIndigo,140,101
+384,SpiceJet,131,635
+6635,SpiceJet,1114,217
+861,GoAir,116,82
+6472,SpiceJet,53,458
+1008,SpiceJet,207,212
+2524,TestIndigo,140,31
+2028,TestIndigo,140,120
+715,Air India,209,209
+330,GoAir,140,251
+6413,TestIndigo,120,13
+6475,SpiceJet,279,458
+2790,SpiceJet,53,53
+208,GoAir,325,140
+440,Air India,120,140
+773,TestIndigo,207,1179
+2165,TestIndigo,207,140
+779,Jet Airways,82,120
+2472,SpiceJet,138,140
+6815,TestIndigo,120,458
+102,SpiceJet,339,120
+671,AirAsia India,458,283
+179,TestIndigo,140,458
+2322,TestIndigo,140,1114
+708,Vistara,283,140
+2437,SpiceJet,101,101
+6848,TestIndigo,458,102
+7166,TestIndigo,207,1091
+7725,TestIndigo,1157,174
+922,GoAir,120,120
+7149,TestIndigo,120,730
+5335,TestIndigo,140,458
+2075,TestIndigo,283,140
+3407,SpiceJet,82,82
+876,Vistara,207,458
+1061,SpiceJet,207,735
+332,AirAsia India,116,140
+296,SpiceJet,1157,140
+302,TestIndigo,120,120
+503,GoAir,207,120
+441,Air India,53,53
+785,Jet Airways,140,217
+2258,TestIndigo,13,140
+2948,SpiceJet,217,13
+2803,SpiceJet,283,192
+377,Jet Airways,458,730
+3477,SpiceJet,82,1070
+6913,TestIndigo,1157,207
+1563,AirAsia India,102,82
+8429,SpiceJet,140,140
+438,SpiceJet,82,252
+925,Vistara,82,13
+6513,TestIndigo,283,207
+5039,TestIndigo,210,140
+807,Vistara,140,82
+722,SpiceJet,1157,82
+628,GoAir,120,251
+326,AirAsia India,279,458
+7941,TestIndigo,23,102
+655,Jet Airways,13,140
+872,Jet Airways,120,82
+78,Air India,102,140
+802,Jet Airways,207,82
+117,TestIndigo,102,207
+1543,AirAsia India,207,82
+1425,AirAsia India,702,82
+446,SpiceJet,192,120
+887,Air India,140,458
+7167,TestIndigo,207,207
+6355,TestIndigo,283,207
+188,GoAir,140,140
+224,GoAir,998,140
+6899,TestIndigo,283,192
+310,Jet Airways,458,140
+750,AirAsia India,140,210
+833,GoAir,283,82
+679,TestIndigo,116,140
+943,GoAir,283,120
+6939,TestIndigo,458,82
+6682,TestIndigo,82,702
+804,Air India,82,82
+942,SpiceJet,140,140
+384,Jet Airways,140,458
+275,SpiceJet,702,283
+8121,TestIndigo,131,283
+504,GoAir,120,207
+468,Air India,1170,140
+190,GoAir,140,998
+450,AirAsia India,120,1179
+192,TestIndigo,283,120
+3464,SpiceJet,31,138
+6279,TestIndigo,702,487
+448,Jet Airways,82,458
+2488,TestIndigo,1148,140
+653,Air India,458,458
+454,TestIndigo,101,13
+2057,TestIndigo,31,140
+2306,TestIndigo,140,82
+1558,AirAsia India,82,102
+134,TestIndigo,207,140
+836,Vistara,120,140
+457,Jet Airways,458,207
+632,GoAir,1070,251
+413,Air India,140,325
+2685,TestIndigo,120,120
+373,Jet Airways,140,458
+615,Jet Airways,458,283
+2171,TestIndigo,140,223
+7241,TestIndigo,207,735
+788,Vistara,102,140
+6481,SpiceJet,192,458
+713,Air India,283,209
+3710,SpiceJet,207,1170
+213,TestIndigo,279,13
+779,SpiceJet,458,138
+537,Air India,140,458
+1075,SpiceJet,207,279
+7238,TestIndigo,82,283
+318,TruJet,1091,207
+335,GoAir,998,140
+6327,TestIndigo,207,279
+194,GoAir,192,283
+581,TestIndigo,140,635
+714,TestIndigo,82,283
+246,GoAir,771,140
+2022,SpiceJet,31,140
+711,TruJet,13,270
+745,Vistara,140,283
+363,TestIndigo,13,283
+991,Vistara,140,702
+389,GoAir,217,458
+5377,TestIndigo,458,487
+712,GoAir,13,116
+2894,SpiceJet,702,207
+205,SpiceJet,283,217
+411,GoAir,82,102
+377,SpiceJet,283,283
+2215,GoAir,1070,279
+805,Vistara,140,82
+901,Jet Airways,140,283
+871,GoAir,1070,82
+690,Air India,138,283
+549,Air India,120,688
+447,AirAsia India,279,120
+310,SpiceJet,82,458
+3685,SpiceJet,82,131
+2981,SpiceJet,140,1157
+722,Jet Airways,192,140
+988,TestIndigo,82,210
+502,GoAir,279,207
+946,Vistara,13,140
+812A,GoAir,82,487
+771,TestIndigo,102,207
+921,AirAsia India,217,283
+333,Jet Airways,458,140
+2510,GoAir,325,140
+386,Jet Airways,210,458
+2027,TestIndigo,1148,140
+6412,TestIndigo,82,235
+785,AirAsia India,140,192
+654,Air India,998,458
+2064,TestIndigo,140,1148
+778,Vistara,283,140
+1422,GoAir,1070,120
+332,Jet Airways,140,458
+7104,TestIndigo,487,207
+428,TestIndigo,207,458
+831,TestIndigo,192,458
+354,GoAir,140,140
+522,Air India,1179,207
+5055,TestIndigo,140,207
+475,TestIndigo,1019,120
+929,SpiceJet,702,120
+404,GoAir,82,82
+143,GoAir,140,635
+921,SpiceJet,13,82
+802,AirAsia India,120,120
+707,GoAir,13,279
+101,GoAir,140,283
+701,TestIndigo,1148,82
+5317,TestIndigo,458,325
+370,Jet Airways,1157,140
+750,Jet Airways,325,140
+310,AirAsia India,207,458
+447,SpiceJet,192,217
+280,SpiceJet,458,223
+7211,TestIndigo,207,1170
+3756,SpiceJet,1091,1170
+385,GoAir,82,207
+3569,Jet Airways,1114,210
+763,Vistara,82,151
+6459,TestIndigo,283,458
+366,TestIndigo,207,207
+458,TestIndigo,102,82
+430,Jet Airways,116,458
+233,GoAir,140,1157
+450,SpiceJet,458,252
+2327,SpiceJet,140,138
+966,Jet Airways,325,140
+432,Air India,325,140
+721,Jet Airways,140,192
+321,TestIndigo,82,11
+998,Vistara,140,140
+643,GoAir,458,140
+452,Air India,1179,140
+744,Air India,11,283
+387,Jet Airways,458,746
+123,TestIndigo,120,458
+466,Jet Airways,120,458
+582,SpiceJet,283,279
+414,GoAir,207,192
+6998,TestIndigo,458,217
+942,AirAsia India,217,82
+639,SpiceJet,207,13
+795,GoAir,283,116
+315,TestIndigo,120,120
+696,Air India,1157,458
+7126,TestIndigo,735,207
+1234,TestIndigo,487,1148
+515,Air India,207,82
+327,TestIndigo,120,279
+8937,SpiceJet,702,140
+7346,TestIndigo,207,53
+459,Air India,140,1091
+739,TestIndigo,140,82
+158,TestIndigo,13,102
+622,TestIndigo,82,1179
+718,TestIndigo,279,207
+671,Jet Airways,458,702
+905,TestIndigo,120,120
+637,Jet Airways,458,13
+261,TestIndigo,13,279
+6538,TestIndigo,207,192
+573,Air India,82,635
+498,Air India,746,140
+491,Air India,140,217
+7125,TestIndigo,120,735
+344,GoAir,458,487
+889,TestIndigo,140,11
+3582,SpiceJet,1019,207
+673,SpiceJet,283,998
+753,AirAsia India,210,140
+469,TestIndigo,82,217
+536,GoAir,325,13
+328,AirAsia India,458,116
+3071,SpiceJet,120,339
+396,TestIndigo,131,140
+7117,TestIndigo,1085,207
+586,GoAir,635,458
+658,Air India,131,458
+309,Jetlite,458,140
+7349,TestIndigo,192,1157
+634,Air India,101,458
+420,Air India,207,140
+122,GoAir,207,283
+780,Air India,102,102
+617,Jet Airways,458,283
+2066,TestIndigo,120,82
+2990,AirAsia India,82,192
+764,GoAir,140,279
+395,Jet Airways,458,210
+7255,TestIndigo,251,279
+2029,TestIndigo,120,140
+8161,SpiceJet,140,140
+197,GoAir,998,223
+1233,SpiceJet,82,82
+919,TestIndigo,82,102
+2034,TestIndigo,82,140
+532,Air India,13,140
+129,TestIndigo,140,138
+184,TestIndigo,138,140
+6417,TestIndigo,207,82
+973,AirAsia India,207,82
+867,Vistara,458,82
+692,Vistara,31,140
+2977,SpiceJet,235,13
+1354,AirAsia India,82,279
+844,TestIndigo,138,207
+2614,TestIndigo,140,635
+2987,SpiceJet,217,13
+480,Air India,31,140
+7132,TestIndigo,120,1170
+1476,AirAsia India,82,1019
+676,TestIndigo,82,82
+3532,Jet Airways,23,140
+2886,AirAsia India,82,210
+293,SpiceJet,998,140
+3420,SpiceJet,682,82
+399,GoAir,82,458
+5021,TestIndigo,140,82
+7118,TestIndigo,207,735
+1721,AirAsia India,217,82
+231,TestIndigo,207,458
+3731,SpiceJet,193,193
+382,SpiceJet,635,82
+822,Jet Airways,120,140
+914,GoAir,120,13
+809,TestIndigo,207,207
+775,Air India,192,82
+511,AirAsia India,207,120
+624,Jet Airways,283,458
+6623,TestIndigo,283,192
+730,GoAir,279,13
+5354,TestIndigo,458,82
+349,Jet Airways,207,458
+6844,TestIndigo,82,31
+281,GoAir,192,82
+6236,SpiceJet,458,217
+7155,TestIndigo,207,735
+1072,SpiceJet,131,207
+616,Air India,207,458
+1226,TestIndigo,487,101
+9820,Jet Airways,209,283
+7268,TestIndigo,283,279
+483,GoAir,458,771
+5334,TestIndigo,82,458
+401,GoAir,283,192
+1535,GoAir,1070,207
+912,TestIndigo,82,82
+657,SpiceJet,82,192
+6268,TestIndigo,217,82
+5081,TestIndigo,325,458
+894,GoAir,82,207
+141,GoAir,487,458
+591,AirAsia India,283,82
+908,TestIndigo,140,131
+7235,TestIndigo,102,102
+973,SpiceJet,13,140
+471,GoAir,487,635
+6151,TestIndigo,207,120
+511,SpiceJet,13,207
+2767,SpiceJet,207,53
+3785,SpiceJet,13,252
+6264,TestIndigo,207,102
+873,Vistara,458,207
+705,Vistara,140,283
+814,TestIndigo,325,82
+958,TestIndigo,192,82
+225,TestIndigo,458,210
+6379,TestIndigo,283,82
+951,GoAir,120,192
+2069,TestIndigo,210,140
+3431,SpiceJet,82,1170
+339,Jet Airways,458,140
+808,Jet Airways,82,140
+5915,TestIndigo,23,458
+672,Jet Airways,702,458
+2323,TestIndigo,82,140
+8914,SpiceJet,31,140
+751,Vistara,140,771
+118,Air India,31,140
+607,Jet Airways,140,138
+551,GoAir,207,13
+465,SpiceJet,120,1019
+670,Jet Airways,192,140
+8974,SpiceJet,53,140
+507,GoAir,140,82
+431,SpiceJet,120,120
+812,Jet Airways,82,140
+798,TestIndigo,82,11
+2518,GoAir,140,120
+7231,TestIndigo,82,735
+960,Vistara,458,140
+7948,TestIndigo,151,209
+8706,SpiceJet,82,140
+558,TestIndigo,192,140
+6428,SpiceJet,120,283
+903,GoAir,120,702
+7245,TestIndigo,13,101
+823,Air India,140,1148
+753,SpiceJet,207,13
+142,TestIndigo,325,13
+5306,TestIndigo,210,458
+109,TestIndigo,101,101
+940,Vistara,458,140
+406,Air India,140,12
+369,Jet Airways,140,702
+724,Vistara,1157,140
+727,Vistara,140,283
+247,GoAir,13,458
+235,TestIndigo,207,458
+2475,AirAsia India,120,82
+5301,TestIndigo,458,101
+125,GoAir,283,207
+2990,SpiceJet,1114,217
+762,GoAir,325,283
+3906,TestIndigo,192,140
+783,Vistara,140,102
+418,Air India,771,140
+403,Jet Airways,458,279
+1453,AirAsia India,217,82
+553,GoAir,13,207
+2393,TestIndigo,140,730
+994,TestIndigo,11,82
+702,GoAir,13,13
+305,Jet Airways,458,140
+6528,TestIndigo,140,325
+6631,SpiceJet,13,13
+754,Jet Airways,217,140
+631,Jet Airways,131,702
+669,Air India,458,102
+7942,TestIndigo,102,23
+419,SpiceJet,207,283
+993,TestIndigo,140,458
+5376,TestIndigo,207,458
+1583,AirAsia India,207,82
+7158,TestIndigo,279,207
+792,GoAir,116,283
+603,TestIndigo,120,82
+1709,GoAir,120,1070
+9819,Jet Airways,283,209
+854,Vistara,82,458
+638,GoAir,251,279
+542,TestIndigo,207,120
+338,TestIndigo,116,279
+142,TruJet,735,207
+2985,SpiceJet,217,1157
+6050,AirAsia India,210,140
+6809,TestIndigo,1179,207
+109,TruJet,207,82
+956,GoAir,635,120
+6283,SpiceJet,279,458
+649,Jet Airways,82,131
+379,Jet Airways,458,746
+6276,TestIndigo,23,207
+2623,SpiceJet,140,101
+421,Air India,140,210
+8123,TestIndigo,487,283
+216,TestIndigo,82,82
+706,AirAsia India,458,140
+652,Jet Airways,116,138
+748,Jet Airways,120,1085
+273,TestIndigo,82,82
+470,Air India,487,140
+927,Jet Airways,140,101
+605,Air India,53,53
+345,GoAir,279,140
+810,Vistara,82,140
+1473,AirAsia India,702,82
+850,Air India,702,140
+958,Jetlite,210,207
+2941,SpiceJet,207,212
+633,Air India,458,101
+203,TestIndigo,140,140
+172,SpiceJet,13,283
+595,TestIndigo,53,140
+741,AirAsia India,82,140
+2210,GoAir,279,1070
+2061,TestIndigo,140,101
+453,AirAsia India,13,13
+749,TestIndigo,458,1114
+971,SpiceJet,13,1157
+913,Jet Airways,13,458
+6280,SpiceJet,458,223
+285,SpiceJet,140,138
+2132,TestIndigo,82,140
+2874,SpiceJet,686,458
+521,Air India,207,1179
+2394,TestIndigo,120,140
+3748,SpiceJet,151,82
+743,SpiceJet,82,13
+752,Jet Airways,217,140
+3023,SpiceJet,120,131
+915,Jet Airways,140,325
+2162,TestIndigo,140,82
+646,Vistara,223,140
+821,Air India,140,223
+2695,SpiceJet,140,235
+623,GoAir,251,82
+427,GoAir,207,140
+149,GoAir,140,140
+1564,AirAsia India,207,102
+741,SpiceJet,82,283
+756,Vistara,771,140
+2031,TestIndigo,140,82
+175,GoAir,140,140
+819,TestIndigo,702,82
+863,TestIndigo,702,140
+7737,TestIndigo,101,13
+6353,TestIndigo,209,207
+2615,TestIndigo,13,140
+6315,TestIndigo,131,120
+442,Jet Airways,82,458
+2211,GoAir,1070,82
+312,GoAir,82,210
+2719,TestIndigo,140,1179
+2134,TestIndigo,82,82
+2684,SpiceJet,458,1019
+3606,SpiceJet,82,339
+7163,TestIndigo,279,1085
+964,Jet Airways,283,140
+3567,Jet Airways,746,1114
+2937,SpiceJet,13,138
+682,Jet Airways,325,458
+6362,TestIndigo,207,13
+283,TestIndigo,140,82
+945,TestIndigo,140,1070
+8939,SpiceJet,998,140
+726,Air India,31,283
+297,TestIndigo,207,458
+287,GoAir,223,223
+8481,SpiceJet,140,13
+527,SpiceJet,82,1157
+184,TruJet,53,13
+467,TestIndigo,207,217
+2036,TestIndigo,101,140
+415,TestIndigo,82,82
+405,TestIndigo,82,102
+8665,SpiceJet,746,140
+881,AirAsia India,140,458
+857,Air India,140,702
+3487,Air India,140,688
+489,TestIndigo,82,11
+7232,TestIndigo,735,82
+196,GoAir,223,140
+683,Vistara,140,235
+729,Air India,283,192
+473,Air India,140,102
+563,TestIndigo,120,120
+3692,SpiceJet,1179,82
+837,Vistara,116,120
+424,TestIndigo,82,458
+237,SpiceJet,217,458
+113,GoAir,140,82
+7172,TestIndigo,279,82
+706,SpiceJet,82,1019
+309,TestIndigo,102,207
+313,Jet Airways,140,53
+6284,SpiceJet,635,458
+5098,TestIndigo,140,217
+1578,AirAsia India,207,82
+883,AirAsia India,140,458
+781,Jet Airways,140,635
+660,Jet Airways,192,82
+5319,TestIndigo,458,131
+2893,SpiceJet,207,702
+482,Jet Airways,82,458
+505,GoAir,207,207
+163,SpiceJet,458,252
+6183,TestIndigo,120,116
+525,Air India,207,283
+6835,TestIndigo,120,1179
+6265,SpiceJet,458,192
+535,Air India,140,283
+7162,TestIndigo,82,1085
+838,TestIndigo,82,217
+6137,TestIndigo,82,210
+694,Air India,82,458
+383,TestIndigo,13,207
+494,TestIndigo,140,487
+612,SpiceJet,120,120
+2611,GoAir,325,140
+794,GoAir,102,283
+2299,TestIndigo,1114,140
+828,TestIndigo,82,730
+7325,TestIndigo,192,209
+2760,SpiceJet,207,702
+245,GoAir,140,13
+367,TestIndigo,688,207
+539,TestIndigo,207,283
+787,TestIndigo,458,458
+1035,SpiceJet,207,82
+348,GoAir,279,458
+7962,TestIndigo,283,925
+407,Air India,140,635
+604,AirAsia India,13,140
+1094,SpiceJet,207,1091
+610,SpiceJet,192,120
+791,TestIndigo,207,120
+322,TestIndigo,279,82
+2801,SpiceJet,283,212
+218,TestIndigo,217,458
+2929,TestIndigo,140,82
+183,SpiceJet,120,1157
+997,Vistara,31,140
+720,GoAir,13,140
+6292,TestIndigo,82,283
+906,Jet Airways,31,140
+926,GoAir,120,1070
+547,AirAsia India,283,140
+641,GoAir,1019,207
+944,Jet Airways,192,283
+366,Jetlite,140,140
+6926,TestIndigo,283,116
+303,TestIndigo,140,207
+6958,TestIndigo,13,458
+651,TestIndigo,283,120
+987,TestIndigo,120,283
+221,TestIndigo,82,82
+364,SpiceJet,207,192
+8168,SpiceJet,252,458
+434,Air India,174,140
+408,TestIndigo,82,458
+186,Jet Airways,746,210
+3218,SpiceJet,283,954
+636,Air India,140,210
+3427,SpiceJet,82,1070
+167,GoAir,140,771
+358,GoAir,998,140
+516,Air India,82,207
+1096,SpiceJet,207,212
+621,Air India,458,116
+3072,SpiceJet,339,120
+365,GoAir,458,13
+6918,TestIndigo,192,283
+774,Vistara,283,120
+6435,SpiceJet,458,746
+512,SpiceJet,207,13
+650,Jet Airways,131,82
+920,AirAsia India,140,217
+5356,TestIndigo,140,101
+254,TestIndigo,458,207
+911,GoAir,13,13
+976,Vistara,13,31
+7224,TestIndigo,120,82
+3724,SpiceJet,31,192
+428,Jetlite,458,131
+6798,TestIndigo,207,13
+1007,SpiceJet,1019,207
+967,SpiceJet,140,223
+378,SpiceJet,458,283
+534,SpiceJet,192,82
+858,Jet Airways,1148,140
+954,Jet Airways,217,458
+1568,AirAsia India,102,82
+550,AirAsia India,140,283
+181,Jet Airways,140,1114
+833,Vistara,120,120
+969,AirAsia India,279,140
+962,Jet Airways,207,131
+619,TestIndigo,207,635
+357,TestIndigo,207,82
+943,Vistara,140,458
+7102,TestIndigo,120,207
+1041,SpiceJet,207,1091
+628,Vistara,1114,140
+6138,TestIndigo,210,82
+2048,TestIndigo,1157,140
+5388,TestIndigo,458,487
+256,SpiceJet,635,458
+2804,SpiceJet,192,283
+986,Vistara,458,140
+7286,TestIndigo,210,23
+378,AirAsia India,283,207
+7328,TestIndigo,82,1091
+223,GoAir,140,998
+2591,TestIndigo,1148,140
+6136,TestIndigo,13,82
+6920,SpiceJet,458,140
+925,GoAir,120,120
+711,TestIndigo,207,458
+5449,TestIndigo,82,458
+807,GoAir,82,82
+746,Air India,11,283
+397,GoAir,458,325
+211,GoAir,140,325
+2025,TestIndigo,31,140
+151,GoAir,140,140
+486,TestIndigo,207,131
+503,Vistara,140,207
+318,TestIndigo,102,13
+897,Vistara,140,1070
+250,GoAir,192,140
+775A,Air India,283,82
+7967,TestIndigo,1179,735
+6104,TestIndigo,82,702
+757,TestIndigo,11,120
+920,SpiceJet,217,13
+362,Jet Airways,140,458
+983,Vistara,140,140
+6603,TestIndigo,120,1148
+512,AirAsia India,120,283
+610,AirAsia India,116,140
+708,GoAir,13,13
+664,TestIndigo,487,283
+703,Jet Airways,458,138
+5005,TestIndigo,120,140
+789,GoAir,207,1179
+2986,SpiceJet,1157,140
+7263,TestIndigo,116,210
+8973,SpiceJet,140,53
+185,TestIndigo,140,140
+985,TestIndigo,120,131
+134,TruJet,1170,207
+709,GoAir,13,13
+439,Jet Airways,116,702
+825,TestIndigo,458,82
+5228,TestIndigo,82,140
+612,AirAsia India,140,116
+364,AirAsia India,82,207
+3753,Air India,283,954
+429,Air India,120,120
+827,Vistara,458,120
+304,Jet Airways,140,458
+7236,TestIndigo,82,192
+192,TruJet,1179,207
+7314,TestIndigo,13,13
+451,Air India,140,1179
+8187,SpiceJet,140,140
+949,SpiceJet,458,252
+191,GoAir,140,998
+7351,TestIndigo,1157,192
+2305,TestIndigo,82,140
+5026,TestIndigo,31,140
+845,Vistara,458,82
+685,SpiceJet,217,635
+6148,TestIndigo,635,192
+688,Air India,458,138
+106,SpiceJet,120,120
+635,SpiceJet,82,13
+502,Vistara,116,82
+195,GoAir,283,487
+2469,AirAsia India,210,82
+2652,TestIndigo,120,140
+243,SpiceJet,283,13
+772,AirAsia India,13,13
+478,Air India,102,140
+803,Jetlite,82,210
+2367,TestIndigo,82,140
+6336,TestIndigo,207,131
+248,TestIndigo,458,140
+311,GoAir,210,82
+8145,SpiceJet,635,140
+232,GoAir,210,140
+6799,TestIndigo,13,102
+805,GoAir,13,13
+954,SpiceJet,13,635
+8955,SpiceJet,140,13
+5036,TestIndigo,1019,82
+215,TestIndigo,23,13
+871,Vistara,140,207
+1237,TestIndigo,1148,487
+6889,TestIndigo,140,151
+590,Air India,13,82
+1128,AirAsia India,279,82
+782,TestIndigo,120,458
+962,SpiceJet,82,635
+932,Vistara,13,140
+1044,SpiceJet,339,207
+2044,TestIndigo,140,140
+626,TestIndigo,207,207
+712,Vistara,102,82
+284,GoAir,487,82
+362,SpiceJet,131,458
+2381,AirAsia India,120,207
+341,GoAir,458,140
+2745,SpiceJet,140,252
+614,Air India,13,458
+548,Air India,131,140
+691,Air India,283,138
+302,TruJet,237,1170
+302,Jetlite,140,458
+5341,TestIndigo,120,325
+6244,TestIndigo,120,13
+995,Vistara,140,458
+2163,TestIndigo,82,140
+7256,TestIndigo,279,251
+6559,TestIndigo,998,458
+324,SpiceJet,458,120
+843,TestIndigo,140,458
+788,GoAir,116,207
+826,Air India,998,140
+2839,TestIndigo,140,82
+388,TestIndigo,82,210
+179,TruJet,207,210
+180,TruJet,210,207
+8158,SpiceJet,458,140
+528,Air India,702,82
+317,AirAsia India,458,283
+8483,SpiceJet,140,1019
+604,Jet Airways,702,140
+703,SpiceJet,458,207
+836,GoAir,82,102
+173,GoAir,140,702
+136,GoAir,635,140
+632,Vistara,1157,140
+540,Air India,140,120
+8719,SpiceJet,13,82
+124,GoAir,82,82
+393,GoAir,283,283
+7234,TestIndigo,82,102
+2806,SpiceJet,954,283
+1459,AirAsia India,1179,82
+501,TruJet,120,207
+959,TestIndigo,140,325
+171,Jet Airways,140,192
+504,Vistara,207,140
+479,TestIndigo,116,325
+304,SpiceJet,82,252
+412,GoAir,458,13
+187,Jet Airways,140,138
+6218,TestIndigo,82,131
+686,Jetlite,210,702
+703,AirAsia India,140,13
+610,Jet Airways,283,458
+579,TestIndigo,1157,458
+576,GoAir,279,82
+6372,TestIndigo,283,13
+317,SpiceJet,279,458
+977,Vistara,140,458
+996,Jet Airways,131,120
+6973,TestIndigo,192,283
+153,GoAir,192,140
+602,AirAsia India,217,140
+323,GoAir,140,82
+6225,TestIndigo,120,1179
+795,Vistara,140,730
+425,Air India,140,140
+8906,SpiceJet,82,140
+6335,TestIndigo,487,702
+148,TestIndigo,140,140
+174,GoAir,702,140
+6193,TestIndigo,140,279
+107,TruJet,207,1091
+643,Vistara,140,998
+598,Vistara,102,140
+304,AirAsia India,82,82
+640,Air India,82,458
+955,SpiceJet,635,13
+7739,TestIndigo,730,13
+526,TestIndigo,82,207
+3745,SpiceJet,207,120
+409,SpiceJet,140,31
+944,SpiceJet,458,134
+3454,SpiceJet,13,53
+364,Jet Airways,140,31
+2988,TestIndigo,82,140
+6358,TestIndigo,207,283
+6932,SpiceJet,458,138
+183,Jet Airways,702,730
+351,Jetlite,458,140
+472,Air India,1114,140
+1427,AirAsia India,217,82
+886,TestIndigo,82,207
+506,TestIndigo,207,82
+538,TestIndigo,101,82
+264,TestIndigo,116,101
+2454,TestIndigo,730,140
+128,GoAir,140,140
+8920,SpiceJet,458,140
+165,TestIndigo,82,102
+1060,SpiceJet,1179,207
+597,TestIndigo,120,120
+707,Vistara,31,140
+186,SpiceJet,13,120
+662,SpiceJet,702,13
+799,Jet Airways,120,120
+865,TestIndigo,207,120
+674,Air India,192,102
+772,SpiceJet,120,207
+306,GoAir,13,210
+1315,GoAir,13,1157
+6638,TestIndigo,207,217
+426,SpiceJet,131,192
+1228,AirAsia India,82,13
+2943,TestIndigo,82,140
+6512,TestIndigo,82,116
+7127,TestIndigo,120,1085
+2646,SpiceJet,140,217
+378,Jet Airways,730,458
+362,AirAsia India,82,207
+182,GoAir,140,1157
+461,GoAir,458,116
+437,Air India,140,101
+114,Air India,140,31
+737,Air India,283,217
+650,SpiceJet,140,1179
+394,TestIndigo,192,217
+6008,TestIndigo,207,120
+7639,TestIndigo,207,82
+442,SpiceJet,120,688
+257,GoAir,192,140
+914,Vistara,210,140
+618,Jet Airways,283,458
+578,AirAsia India,140,283
+138,GoAir,116,140
+8194,SpiceJet,13,13
+748,AirAsia India,140,210
+462,Air India,31,140
+3478,SpiceJet,1070,82
+6017,TestIndigo,207,458
+766,Air India,120,131
+6223,TestIndigo,458,138
+2484,TestIndigo,82,140
+266,TestIndigo,82,102
+916,TestIndigo,217,207
+518,TestIndigo,325,120
+381,TestIndigo,120,120
+665,Air India,140,458
+725,SpiceJet,82,252
+372,TestIndigo,31,116
+964,SpiceJet,223,998
+867,GoAir,207,82
+519,TestIndigo,140,325
+375,GoAir,207,82
+2129,TestIndigo,1019,140
+752,AirAsia India,140,210
+764,Vistara,151,82
+8904,SpiceJet,1179,140
+754,AirAsia India,140,207
+631,AirAsia India,458,771
+2625,TestIndigo,82,140
+574,TestIndigo,120,82
+593,TestIndigo,116,82
+543,Air India,207,140
+930,Vistara,458,140
+936,Vistara,13,140
+625,GoAir,251,207
+3557,Jet Airways,635,23
+3782,SpiceJet,13,101
+706,Jet Airways,13,235
+608,SpiceJet,120,120
+5303,TestIndigo,458,13
+8257,SpiceJet,140,31
+253,TestIndigo,120,13
+5011,TestIndigo,140,82
+5038,TestIndigo,140,210
+554,Air India,120,140
+647,Vistara,140,116
+313,SpiceJet,458,120
+379,AirAsia India,207,283
+689,Air India,138,458
+762,Vistara,283,140
+783,GoAir,217,116
+166,TestIndigo,13,131
+509,TestIndigo,82,140
+2789,SpiceJet,53,82
+2033,SpiceJet,140,138
+3689,SpiceJet,82,1179
+566,Air India,325,82
+697,Jetlite,458,217
+975,Vistara,140,458
+1092,SpiceJet,212,207
+305,SpiceJet,82,283
+6185,TestIndigo,458,279
+1761,GoAir,102,102
+883,Jet Airways,82,120
+656,TestIndigo,140,210
+252,TestIndigo,13,131
+278,SpiceJet,120,283
+352,GoAir,635,458
+379,SpiceJet,120,458
+162,TestIndigo,13,140
+940,GoAir,120,1019
+6316,TestIndigo,131,207
+6489,TestIndigo,458,140
+313,AirAsia India,120,458
+719,TruJet,13,270
+2168,TestIndigo,140,131
+824,Jet Airways,82,31
+2873,SpiceJet,458,686
+755,TestIndigo,116,120
+2193,TestIndigo,192,140
+497,TestIndigo,82,207
+507,Vistara,140,31
+291,TestIndigo,120,82
+2901,TestIndigo,140,998
+482,AirAsia India,116,140
+6956,TestIndigo,283,1179
+3719,Air India,283,209
+5342,TestIndigo,325,207
+781,AirAsia India,140,217
+668,TestIndigo,279,13
+127,SpiceJet,140,1019
+2698,TestIndigo,120,120
+820,Vistara,82,140
+112,GoAir,140,82
+276,SpiceJet,217,217
+596,Air India,1157,120
+172,Jet Airways,192,140
+961,TestIndigo,283,458
+6558,TestIndigo,120,120
+495,TestIndigo,120,116
+895,TestIndigo,13,192
+2541,GoAir,702,140
+496,TestIndigo,207,207
+567,TestIndigo,458,53
+748,SpiceJet,82,82
+630,AirAsia India,102,458
+705,GoAir,458,771
+873,GoAir,82,82
+320,GoAir,82,458
+251,TestIndigo,140,192
+578,SpiceJet,252,283
+839,Vistara,140,120
+111,GoAir,325,13
+6892,TestIndigo,102,82
+927,SpiceJet,82,13
+769,Air India,283,140
+752,SpiceJet,283,207
+6955,TestIndigo,283,192
+2624,SpiceJet,101,140
+6226,TestIndigo,1179,120
+445,Air India,116,140
+559,GoAir,325,207
+723,TestIndigo,116,283
+510,Air India,279,120
+913,SpiceJet,140,13
+7296,TestIndigo,13,210
+855,GoAir,192,283
+884,Vistara,279,140
+681,Jet Airways,458,325
+6480,SpiceJet,458,192
+353,TestIndigo,207,283
+6371,SpiceJet,458,31
+743,Air India,283,11
+619,GoAir,251,207
+2724,TestIndigo,635,140
+346,Jet Airways,458,140
+3177,TestIndigo,458,82
+223,TestIndigo,140,120
+8157,TestIndigo,1179,458
+769,Jet Airways,217,140
+2458,TestIndigo,140,82
+605,SpiceJet,120,120
+711,GoAir,1157,13
+925,TestIndigo,635,120
+211,TestIndigo,82,101
+397,TestIndigo,120,279
+807,TestIndigo,82,210
+194,TruJet,1179,207
+318,GoAir,140,458
+151,TestIndigo,140,31
+6957,TestIndigo,140,458
+8912,SpiceJet,13,140
+984,TestIndigo,13,458
+3690,SpiceJet,1179,82
+789,TestIndigo,120,102
+2887,AirAsia India,210,82
+7326,TestIndigo,209,192
+709,TestIndigo,279,82
+421,SpiceJet,207,207
+5394,TestIndigo,458,207
+2199,TestIndigo,1070,140
+419,Air India,140,1019
+191,TestIndigo,140,140
+5311,TestIndigo,458,138
+689,Jet Airways,235,140
+383,GoAir,120,82
+693,Vistara,140,31
+765,Vistara,120,688
+245,TestIndigo,283,210
+6144,TestIndigo,82,82
+348,TestIndigo,82,82
+787,GoAir,207,116
+539,GoAir,13,192
+455,AirAsia India,702,120
+9818,Jet Airways,998,140
+740,Jet Airways,120,140
+6141,TestIndigo,82,283
+641,TestIndigo,82,217
+5337,TestIndigo,151,140
+1825,AirAsia India,116,82
+290,SpiceJet,138,140
+303,GoAir,120,120
+2586,TestIndigo,140,998
+6906,TestIndigo,192,140
+6430,SpiceJet,252,458
+6313,TestIndigo,131,120
+101,TruJet,207,1091
+331,Jet Airways,458,140
+665,Jet Airways,140,116
+453,Air India,140,31
+143,TruJet,207,735
+533,TestIndigo,458,102
+557,AirAsia India,120,283
+992,TestIndigo,82,13
+254,GoAir,1157,140
+1628,AirAsia India,82,31
+796,Jet Airways,325,702
+605,AirAsia India,140,140
+851,Vistara,458,82
+978,TestIndigo,82,1114
+512,Air India,140,120
+149,TestIndigo,82,207
+863,GoAir,120,82
+145,Jet Airways,210,217
+2211,TestIndigo,140,102
+312,TestIndigo,82,82
+813,Vistara,140,82
+6776,TestIndigo,207,131
+529,TestIndigo,82,283
+6787,TestIndigo,635,458
+2587,TestIndigo,998,140
+534,Air India,13,140
+283,GoAir,82,487
+636,SpiceJet,13,458
+436,TestIndigo,140,82
+550,Air India,688,120
+516,SpiceJet,82,82
+584,GoAir,998,13
+472,Jet Airways,283,458
+2328,SpiceJet,138,140
+931,Vistara,140,13
+1826,AirAsia India,82,116
+563,GoAir,116,13
+612,Air India,217,458
+982,TestIndigo,207,325
+811,Vistara,140,82
+2841,SpiceJet,120,283
+536,TruJet,237,120
+407,SpiceJet,207,207
+610,Air India,82,458
+6237,SpiceJet,217,458
+3753,SpiceJet,82,1170
+8251,SpiceJet,140,283
+702,TestIndigo,82,210
+1727,AirAsia India,279,82
+974,Jet Airways,1114,458
+993,GoAir,13,120
+792,TestIndigo,635,140
+3178,TestIndigo,279,283
+2601,GoAir,458,487
+685,Air India,458,31
+6769,TestIndigo,140,702
+719,Vistara,140,283
+338,GoAir,140,458
+6843,TestIndigo,120,207
+542,GoAir,207,283
+7228,TestIndigo,82,120
+956,TestIndigo,458,140
+359,TestIndigo,140,140
+2772,TestIndigo,1179,140
+216,GoAir,210,217
+7318,TestIndigo,138,325
+691,Jet Airways,458,53
+1762,GoAir,102,102
+410,GoAir,279,82
+6427,TestIndigo,120,82
+704,Vistara,192,140
+6912,TestIndigo,82,487
+7178,TestIndigo,251,207
+516,AirAsia India,207,210
+8055,TestIndigo,53,82
+770,GoAir,82,140
+623,TestIndigo,283,192
+817,Vistara,140,82
+2467,AirAsia India,82,210
+968,Jetlite,730,458
+3741,SpiceJet,82,192
+688,Jet Airways,140,235
+874,Jet Airways,120,82
+5448,TestIndigo,458,140
+7174,TestIndigo,279,82
+6928,TestIndigo,192,635
+875,Jet Airways,82,120
+902,Jet Airways,283,140
+252,GoAir,210,140
+6722,AirAsia India,82,140
+6597,TestIndigo,458,102
+2486,TestIndigo,140,140
+724,TestIndigo,635,140
+528,SpiceJet,1157,82
+497,GoAir,458,325
+2602,GoAir,487,458
+325,AirAsia India,458,279
+798,Vistara,730,140
+104,TruJet,1091,207
+6388,TestIndigo,82,325
+1423,GoAir,120,13
+737,AirAsia India,82,140
+895,GoAir,702,82
+251,GoAir,140,210
+705,TestIndigo,210,82
+814,Vistara,82,140
+746,Jet Airways,140,730
+6536,TestIndigo,1157,13
+559,TestIndigo,223,223
+855,TestIndigo,82,207
+7157,TestIndigo,339,207
+6068,TestIndigo,207,102
+6916,TestIndigo,207,82
+695,Air India,458,1157
+7262,TestIndigo,13,210
+8623,SpiceJet,140,101
+809,Vistara,140,82
+659,Jet Airways,82,192
+437,SpiceJet,458,1070
+1526,AirAsia India,279,207
+518,GoAir,82,207
+867,TestIndigo,210,140
+375,TestIndigo,102,102
+2425,TestIndigo,325,140
+6216,TestIndigo,207,120
+5347,TestIndigo,53,458
+409,Air India,140,635
+5318,TestIndigo,325,458
+625,TestIndigo,140,13
+8209,SpiceJet,140,207
+6275,TestIndigo,120,23
+474,TestIndigo,283,82
+319,Jet Airways,1148,82
+325,SpiceJet,120,13
+6797,TestIndigo,192,207
+3021,SpiceJet,120,131
+758,AirAsia India,140,13
+6448,TestIndigo,458,140
+3016,SpiceJet,82,279
+3463,SpiceJet,82,101
+482,Air India,101,101
+841,TestIndigo,458,140
+576,TestIndigo,223,223
+144,TruJet,735,207
+153,TestIndigo,13,13
+6965,TestIndigo,82,82
+323,TestIndigo,458,120
+6098,TestIndigo,140,217
+8011,TestIndigo,31,140
+729,Jet Airways,140,235
+174,TestIndigo,120,131
+2228,TestIndigo,82,140
+6574,TestIndigo,702,120
+3524,Jet Airways,325,116
+678,TestIndigo,82,82
+506,GoAir,207,207
+998,TestIndigo,120,207
+7147,TestIndigo,120,1085
+1063,SpiceJet,82,82
+7974,TestIndigo,82,251
+128,TestIndigo,458,82
+870,Vistara,207,140
+1076,SpiceJet,279,120
+8054,TestIndigo,82,53
+735,Jet Airways,730,140
+3721,SpiceJet,101,101
+445,AirAsia India,120,210
+866,Air India,140,140
+306,TestIndigo,325,140
+442,Air India,53,53
+594,Air India,13,120
+832,Jet Airways,140,120
+630,Air India,487,458
+462,SpiceJet,635,120
+182,TestIndigo,102,120
+336,Jet Airways,140,458
+766,SpiceJet,82,283
+6331,TestIndigo,458,13
+8969,SpiceJet,53,140
+394,GoAir,283,283
+778,TestIndigo,279,120
+6724,TestIndigo,82,120
+878,Vistara,207,458
+445,SpiceJet,120,192
+2065,TestIndigo,82,140
+2807,SpiceJet,283,1179
+782,GoAir,13,217
+938,Jet Airways,1179,458
+633,Jet Airways,140,138
+991,TestIndigo,138,140
+797,Jet Airways,702,325
+904,Jet Airways,283,140
+766,AirAsia India,120,140
+897,Jetlite,458,101
+649,Air India,458,31
+3709,Air India,283,688
+7738,TestIndigo,13,730
+5384,TestIndigo,458,207
+843,GoAir,82,116
+554,AirAsia India,116,140
+950,Jet Airways,120,210
+836,TestIndigo,702,325
+136,TestIndigo,140,53
+316,Jet Airways,140,458
+698,Air India,635,458
+981,Jet Airways,702,283
+543,AirAsia India,82,102
+669,Jet Airways,140,192
+463,AirAsia India,120,279
+7934,TestIndigo,152,151
+418,Jet Airways,458,217
+7171,TestIndigo,82,339
+6613,TestIndigo,140,140
+6329,TestIndigo,207,458
+861,TestIndigo,140,11
+152,SpiceJet,140,140
+3707,Air India,283,688
+2017,TestIndigo,140,212
+823,Jet Airways,140,82
+173,TruJet,13,210
+545,Air India,120,207
+6287,TestIndigo,82,702
+985,Vistara,140,458
+176,SpiceJet,207,13
+607,Air India,458,82
+7273,TestIndigo,120,279
+907,TestIndigo,458,120
+302,GoAir,120,120
+672,Air India,120,120
+1801,GoAir,82,487
+503,TestIndigo,82,730
+897,TestIndigo,82,82
+757,Vistara,458,283
+784,AirAsia India,192,140
+983,TestIndigo,101,458
+2676,AirAsia India,283,82
+711,Vistara,82,102
+7931,TestIndigo,101,12
+8190,SpiceJet,702,140
+2716,TestIndigo,82,140
+374,SpiceJet,283,252
+255,SpiceJet,458,635
+356,Jet Airways,140,458
+3073,SpiceJet,82,82
+308,Jet Airways,140,458
+188,TestIndigo,120,120
+3732,SpiceJet,193,193
+616,Jet Airways,283,458
+833,TestIndigo,11,192
+7207,TestIndigo,1170,120
+481,AirAsia India,140,116
+523,Air India,82,217
+1802,GoAir,82,82
+7718,TestIndigo,635,283
+822,Air India,223,140
+1629,AirAsia India,31,82
+775,Jet Airways,702,82
+851,GoAir,140,192
+6255,TestIndigo,120,116
+6710,SpiceJet,458,140
+624,Air India,140,458
+552,TestIndigo,140,120
+334,TestIndigo,102,82
+784,SpiceJet,192,458
+2503,GoAir,771,458
+146,Jet Airways,217,210
+464,GoAir,325,458
+371,Jet Airways,702,140
+422,Air India,210,140
+2501,GoAir,140,458
+569,GoAir,13,13
+774,TestIndigo,140,487
+8393,SpiceJet,283,140
+5029,TestIndigo,1019,140
+3462,SpiceJet,138,31
+485,Air India,140,688
+374,AirAsia India,458,210
+376,TestIndigo,116,31
+2102,GoAir,283,1019
+2505,GoAir,13,458
+268,GoAir,140,207
+351,GoAir,458,635
+801,GoAir,82,13
+577,TestIndigo,325,138
+780,Jet Airways,120,82
+963,Jet Airways,140,283
+107,GoAir,116,116
+463,SpiceJet,120,101
+787,Vistara,140,102
+126,TestIndigo,82,458
+289,GoAir,223,223
+5331,TestIndigo,82,458
+786,AirAsia India,192,140
+323,Jetlite,140,13
+658,Jet Airways,487,140
+637,Air India,140,210
+6426,SpiceJet,458,283
+765,GoAir,140,140
+828,Vistara,120,458
+498,Jet Airways,458,82
+790,GoAir,1179,207
+443,SpiceJet,688,120
+7721,TestIndigo,1157,283
+168,Jet Airways,1114,140
+459,Jet Airways,458,116
+1725,AirAsia India,207,82
+671,Air India,120,120
+838,Vistara,120,140
+747,Jet Airways,140,217
+307,Jet Airways,458,140
+398,Jet Airways,746,458
+6184,TestIndigo,771,140
+1127,AirAsia India,82,279
+811,GoAir,487,82
+274,SpiceJet,283,702
+368,TestIndigo,82,102
+6494,TestIndigo,140,635
+928,Jet Airways,101,140
+837,TestIndigo,140,140
+499,TestIndigo,140,82
+157,TestIndigo,13,82
+6328,TestIndigo,458,207
+430,Air India,120,140
+5025,TestIndigo,140,11
+892,Air India,192,140
+355,AirAsia India,207,82
+530,SpiceJet,120,702
+8718,SpiceJet,82,140
+277,SpiceJet,283,120
+561,Air India,82,771
+945,Vistara,140,458
+242,SpiceJet,13,283
+1267,SpiceJet,101,82
+813,GoAir,82,102
+7923,TestIndigo,735,1179
+131,TestIndigo,82,131
+3425,SpiceJet,82,120
+279,SpiceJet,217,217
+654,Jet Airways,140,487
+952,TestIndigo,82,283
+3492,TestIndigo,13,140
+269,GoAir,207,140
+863,Vistara,458,82
+135,TestIndigo,13,13
+817,GoAir,116,140
+2471,SpiceJet,140,138
+690,Jet Airways,140,13
+1712,GoAir,771,120
+601,TestIndigo,140,207
+3869,TestIndigo,102,82
+391,GoAir,458,140
+258,TestIndigo,82,82
+675,TestIndigo,458,120
+704,GoAir,217,217
+7175,TestIndigo,339,279
+159,SpiceJet,140,458
+282,SpiceJet,458,279
+3612,TestIndigo,140,140
+438,Air India,101,140
+751,TruJet,13,210
