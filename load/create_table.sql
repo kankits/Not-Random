@@ -143,5 +143,17 @@ CREATE TABLE TrainPath (
     PRIMARY KEY (train_no, station_code)
 );
 
+CREATE TABLE Users (
+    username varchar NOT NULL,
+    Name varchar NOT NULL,
+    password varchar NOT NULL,
+    PRIMARY KEY (username)
+);
 
-
+CREATE TABLE FavouritePlaces (
+    username varchar NOT NULL REFERENCES Users(username),
+    Place varchar NOT NULL,
+    CityId int NOT NULL,
+    constraint fk foreign key (CityId, Place) REFERENCES Places (CityId, Place),
+    UNIQUE (username, Place, CityId)
+);
