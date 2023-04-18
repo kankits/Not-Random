@@ -153,3 +153,49 @@ DROP TABLE IF EXISTS raw_restaurants;
 DROP TABLE IF EXISTS raw_flights;
 DROP TABLE IF EXISTS raw_trains;
 DROP TABLE IF EXISTS raw_stations;
+
+
+--create materialized view for cuisines---
+
+CREATE MATERIALIZED VIEW cuisines_table
+as
+select cityid,name,locality, trim(regexp_split_to_table (cuisine, ',')) as cuisine
+from restaurants ;
+
+-----------------------
+
+CREATE MATERIALIZED VIEW cuisine_name
+as
+select distinct cuisine
+from cuisines_table  ;
+
+
+-----Create indexes-----
+create index idx1 on hotels(cityid, starrating, rent, freebreakfast, freewifi, hasswimmingpool);
+
+create index idx2 on Restaurants(cityid, rating, cost, name, locality);
+
+create index idx3 on cuisines_table(cityid,name,locality);
+
+create index idx4 on cuisines_table(cuisine);
+
+create index idx5 on cuisine_name(cuisine);
+
+create index idx6 on cities(state);
+
+create index idx7 on cities(cityname);
+
+create index idx8 on places(rating, num_rating);
+
+create index idx9 on TrainPath(train_no);
+
+create index idx10 on TrainPath(station_code);
+
+create index idx11 on FavouritePlaces(username);
+
+create index idx12 on FavouritePlaces(place, cityid);
+
+create index idx13 on Users(username, password);
+
+
+-- drop index idx1, idx2, idx3, idx4,idx5,idx6, idx7, idx8, idx9, idx10,idx11, idx12, idx13;

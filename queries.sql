@@ -16,23 +16,6 @@ where hotels.cityid = cities.cityid and
       cityname in :icities
 order by hotelname;
 
---2--
-\set irating 4.0
-\set icost 1000
-\set icities '(\'Nagpur\', \'Delhi\', \'Mumbai\',\'Hyderabad\', \'Ghaziabad\')'
-\set icuisines '(\'Italian\', \'South Indian\')'
-select distinct restaurants.name 
-from restaurants, cities, cuisines_table
-where restaurants.cityid = cities.cityid and
-      cityname in :icities and
-      rating >= :irating and
-      cost <= :icost and
-      cuisines_table.cityid = restaurants.cityid and 
-      cuisines_table.name = restaurants.name and
-      cuisines_table.locality = restaurants.locality and
-      cuisines_table.cuisine in :icuisines
-order by restaurants.name;
-
 
 --5--
 \set istate '\'Rajasthan\''
@@ -75,7 +58,7 @@ select place, cities.cityid
 from places, cities
 where places.cityid = cities.cityid
 and cities.cityname = :icityname
-order by rating desc, num_rating desc
+order by rating desc, num_rating desc;
 
 --3--
 \set source '\'Mumbai\''
@@ -110,76 +93,6 @@ select *
 from t2
 where dst = :destination
 order by len;
-
-----------------
--- update rating--
-
-\set irating 4.0
-\set icityid 2
-\set iplace '\'Delhi\''
-
-UPDATE places SET rating = (num_rating * rating + irating)/ (num_rating + 1) , num_rating = num_rating + 1
-WHERE places.cityid = :icityid and places.place = :iplace 
-
------------------
---hotel search---
-
-\set ihotel '\'Taj\''
-
-select hotelname,locality, cityname
-from hotels, cities
-where hotels.cityid = cities.cityid and hotelname like '%' || :ihotel || '%';
-
-
-------------------
---cuisine search------
-
-\set icuisine '\'Italian\''
-
-select cuisine
-from cuisine_name
-where cuisine like '%' || :icuisine || '%';
-
-------------------
----city search ---
-
-\set icity '\'Pune\''
-
-select cityname, cityid
-from cities
-where cityname like '%' || :icity || '%';
-
------------------
---restaurant search--
-
-\set irestaurant '\'Taj\''
-
-select name,locality, cityname
-from restaurants, cities
-where restaurants.cityid = cities.cityid and name like '%' || :irestaurant || '%';
-
------------------------
---place search---
-
-\set iplace '\'Taj Mahal\''
-select place, cityname
-from places, cities
-where cities.cityid = places.cityid and place like '%' || :iplace || '%';
-
------------------------
---create materialized view for cuisines---
-
-CREATE MATERIALIZED VIEW cuisines_table
-as
-select cityid,name,locality, trim(regexp_split_to_table (cuisine, ',')) as cuisine
-from restaurants ;
-
------------------------
-
-CREATE MATERIALIZED VIEW cuisine_name
-as
-select distinct cuisine
-from cuisines_table  ;
 
 ------
 \set source '\'Mumbai\''
@@ -219,6 +132,125 @@ from t2
 where dst = :destination
 order by len;
 
+----------------
+-- update rating--
+
+\set irating 4.0
+\set icityid 2
+\set iplace '\'Delhi\''
+
+UPDATE places SET rating = (num_rating * rating + :irating)/ (num_rating + 1) , num_rating = num_rating + 1
+WHERE places.cityid = :icityid and places.place = :iplace;
+
+-----------------
+--hotel search---
+
+\set ihotel '\'Taj\''
+
+select hotelname,locality, cityname
+from hotels, cities
+where hotels.cityid = cities.cityid and hotelname like '%' || :ihotel || '%';
+
+-----------------
+--restaurant search--
+
+\set irestaurant '\'Taj\''
+
+select name,locality, cityname
+from restaurants, cities
+where restaurants.cityid = cities.cityid and name like '%' || :irestaurant || '%';
+
+-----------------------
+--place search---
+
+\set iplace '\'Taj Mahal\''
+select place, cityname
+from places, cities
+where cities.cityid = places.cityid and place like '%' || :iplace || '%';
+
+------------------
+--cuisine search------
+
+\set icuisine '\'Italian\''
+
+select cuisine
+from cuisine_name
+where cuisine like '%' || :icuisine || '%';
+
+------------------
+---city search ---
+
+\set icity '\'Pune\''
+
+select cityname, cityid
+from cities
+where cityname like '%' || :icity || '%';
+
+
+--2--
+\set irating 4.0
+\set icost 1000
+\set icities '(\'Nagpur\', \'Delhi\', \'Mumbai\',\'Hyderabad\', \'Ghaziabad\')'
+\set icuisines '(\'Italian\', \'South Indian\')'
+select distinct restaurants.name 
+from restaurants, cities, cuisines_table
+where restaurants.cityid = cities.cityid and
+      cityname in :icities and
+      rating >= :irating and
+      cost <= :icost and
+      cuisines_table.cityid = restaurants.cityid and 
+      cuisines_table.name = restaurants.name and
+      cuisines_table.locality = restaurants.locality and
+      cuisines_table.cuisine in :icuisines
+order by restaurants.name;
+
+
+------validate registration-----
+\set username '\'rainy\''
+
+select 
+case
+when exists (
+    select *
+    from Users
+    where username = :username
+) then false::boolean
+else true::boolean
+end as valid;
+
+
+-------register user------------
+\set username '\'rainy\''
+\set Name '\'giraffe\''
+\set password '\'zebra\''
+
+insert into Users(username, Name, password)
+values (:username, :Name, :password);
+
+
+-------authenticate login-------
+\set username '\'rainy\''
+\set password '\'zebra\''
+
+select 
+case
+when exists (
+    select *
+    from Users
+    where username = :username and password = :password
+) then true::boolean
+else false::boolean
+end as valid;
+
+
+------add place to favourites----
+\set username '\'rainy\''
+\set Place '\'Kadam Dam\''
+\set CityId 4
+
+insert into FavouritePlaces(username, place, cityid)
+select :username, :Place, :CityId
+where not exists (select * from FavouritePlaces where username = :username and place = :Place and cityid = :CityId);
 
 --------recommend places----------
 \set username '\'rainy\''
@@ -241,52 +273,3 @@ from FavouritePlaces, t2
 where (place, cityid) not in (select place, cityid from t1) and t2.username = FavouritePlaces.username
 group by place, cityid
 order by weight desc, place asc, cityid asc;
-
-
-
---------validate registration-----
-\set username '\'rainy\''
-
-select 
-case
-when exists (
-    select *
-    from Users
-    where username = :username
-) then false::boolean
-else true::boolean
-end as valid;
-
-
----------register user------------
-\set username '\'rainy\''
-\set Name '\'giraffe\''
-\set password '\'zebra\''
-
-insert into Users(username, Name, password)
-values (:username, :Name, :password);
-
-
----------authenticate login-------
-\set username '\'rainy\''
-\set password '\'zebra\''
-
-select 
-case
-when exists (
-    select *
-    from Users
-    where username = :username and password = :password
-) then true::boolean
-else false::boolean
-end as valid;
-
-
---------add place to favourites----
-\set username '\'rainy\''
-\set Place '\'Kadam Dam\''
-\set CityId 4
-
-insert into FavouritePlaces(username, place, cityid)
-select :username, :Place, :CityId
-where not exists (select * from FavouritePlaces where username = :username and place = :Place and cityid = :CityId);
