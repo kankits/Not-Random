@@ -146,3 +146,10 @@ csv header;
 
 COPY TrainPath from '/app/Not-Random/data/trainpath.csv' DELIMITER ',' CSV HEADER;
 
+DROP TABLE IF EXISTS raw_cities;
+DROP TABLE IF EXISTS Raw_Places;
+DROP TABLE IF EXISTS Raw_Hotels;
+DROP TABLE IF EXISTS raw_restaurants;
+DROP TABLE IF EXISTS raw_flights;
+DROP TABLE IF EXISTS raw_trains;
+DROP TABLE IF EXISTS raw_stations;
