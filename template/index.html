@@ -5,12 +5,28 @@
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Include jQuery and Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
+    <nav>
+      <ul class="nav-links">
+        <li class="nav-item"><a href="{{ url_for('index') }}">Home</a></li>
+        {% if session.user %}
+          <li class="nav-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+          <li class="nav-item"><form action="{{ url_for('logout') }}" method="get">
+            <button type="submit">Logout</button>
+          </form></li>
+        {% else %}
+          <li class="nav-item"><a href="{{ url_for('login') }}">Log in</a></li>
+          <li class="nav-item"><a href="{{ url_for('signup') }}">Sign up</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
     <div class="container">
       <!-- Navigation bar with tabs -->
       <ul class="nav nav-tabs">
@@ -28,5 +44,6 @@
         </div>
       </div>
     </div>
+
   </body>
 </html>

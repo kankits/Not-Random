@@ -1,3 +1,28 @@
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+
+/* Style for inactive tabs */
+.nav-tabs > li > a {
+  border: none;
+  color: #777;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+  background-color: #f8f8f8;
+  color: #333;
+  border-bottom: 2px solid #eee;
+}
+
 .search-results {
   position: absolute;
   top: 30px;
@@ -31,4 +56,38 @@
 
 .form-group {
   position: relative;
+}
+
+nav {
+  background-color: #000000;
+  height: 50px;
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-right: 20px;
+  color: white;
+}
+
+a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  text-decoration: none;
+}
+
+a:link, a:active, a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: #979797;
 }

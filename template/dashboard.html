@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <h1>Welcome to the Dashboard</h1>
+  <p>Here's some content that only logged-in users can see.</p>
+  <form action="{{ url_for('logout') }}" method="get">
+    <button type="submit" class="btn btn-primary">Logout</button>
+  </form>
+{% endblock %}

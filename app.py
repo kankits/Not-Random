@@ -1,10 +1,13 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, redirect, render_template, request, session, url_for
  
 # WSGI Application
 # Provide template folder name
 # The default folder name should be "templates" else need to mention custom folder name
 app = Flask(__name__, template_folder='template', static_folder='static')
- 
+app.secret_key = 'super secret key'
+app.config['SESSION_TYPE'] = 'filesystem'
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -68,3 +71,62 @@ def get_candidate_values_route():
     query = request.args.get('query')
     values = get_candidate_values(column, query)
     return jsonify({'data': values})
+
+# Temporary Users table
+
+Users = {}
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if 'user' in session:
+        return redirect(url_for('dashboard'))
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        # check if user exists and password is correct
+        if username in Users.keys() and Users[username] == password:
+            session['user'] = username
+            return redirect(url_for('dashboard'))
+        else:
+            return render_template('login.html', error='Invalid username or password')
+    else:
+        return render_template('login.html')
+
+# signup page
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if 'user' in session:
+        return redirect(url_for('dashboard'))
+    elif request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+        if password != confirm_password:
+            return render_template('signup.html', error='Passwords do not match')
+
+        # check if user already exists
+        if username in Users.keys():
+            return render_template('signup.html', error='Username already taken')
+        else:
+            # create new user
+            Users[username] = password
+            session['user'] = username
+            return redirect(url_for('dashboard'))
+    else:
+        return render_template('signup.html')
+
+# dashboard page (requires authentication)
+@app.route('/dashboard')
+def dashboard():
+    if 'user' in session:
+        return render_template('dashboard.html', username=session['user'])
+    else:
+        return redirect(url_for('login'))
+
+# logout
+@app.route('/logout')
+def logout():
+    session.pop('user', None)
+    return redirect(url_for('login'))
