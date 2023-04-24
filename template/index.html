@@ -1,18 +1,32 @@
-<!--  how to use css in python_ flask-->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<!--  Load CSS in Flask with html-->
-    <link rel="stylesheet" href='/static/main.css' />
- 
-<!--  Load JavaScript in Flask with html-->
-  <script>
-    alert("Page has been loaded successfully")
-  </script>
- 
+<html>
+  <head>
+    <title>Travel Guide</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <h1>Flask Template tutorial</h1>
-    <p>Integrating HTML, CSS and Javascript in Flask Web Framework</p>
+    <div class="container">
+      <!-- Navigation bar with tabs -->
+      <ul class="nav nav-tabs">
+        <li {% if active_tab == "places" %}class="active"{% endif %}><a href="/places">Places</a></li>
+        <li {% if active_tab == "hotels" %}class="active"{% endif %}><a href="/hotels">Hotels</a></li>
+        <li {% if active_tab == "restaurants" %}class="active"{% endif %}><a href="/restaurants">Restaurants</a></li>
+        <li {% if active_tab == "travel" %}class="active"{% endif %}><a href="/travel">Travel</a></li>
+      </ul>
+
+      <!-- Tab content -->
+      <div class="tab-content">
+        <div class="tab-pane fade in active">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
   </body>
 </html>

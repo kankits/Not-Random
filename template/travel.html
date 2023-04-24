@@ -1,0 +1,119 @@
+{% extends "index.html" %}
+
+{% block content %}
+          <!-- Search form for Travel tab -->
+          <form class="form-container" action="{{ url_for('search_travel') }}" method="get">
+            <div class="form-group">
+                <input type="text" class="form-control" name="from_location" id="from_location" placeholder="From...">
+                <div class="search-results" id="search-results-from" style="display: none;">
+                    <ul></ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="to_location" id="to_location" placeholder="To...">
+                <div class="search-results" id="search-results-to" style="display: none;">
+                    <ul></ul>
+                </div>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="mode_of_transport">
+                  <option value="Train">Train</option>
+                  <option value="Flight">Flight</option>
+                  <option value="Both">Both</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-default">Go</button>
+            </div>
+            
+          </form>
+
+          <script>
+            $(document).ready(function() {
+              $('#from_location').on('keyup', function() {
+                var query = $(this).val();
+                $.ajax({
+                  type: 'GET',
+                  url: '/get_candidate_values',
+                  data: {'column': 'column_name', 'query': query},
+                  success: function(response) {
+                      var results = response.data;
+                      var list = $('#search-results-from ul');
+                      list.empty(); // Clear any previous results
+      
+                      // Loop through the results and create a new <li> element for each one
+                      for (var i = 0; i < results.length; i++) {
+                          var item = $('<li>').text(results[i]);
+                          
+                          // Add a click event listener to each <li> element
+                          item.on('click', function() {
+                              $('#from_location').val($(this).text());
+                              $('#search-results-from').hide();
+                          });
+                          
+                          list.append(item);
+                      }
+      
+                      // Show the search results
+                      $('#search-results-from').show();
+                  },
+                  error: function(error) {
+                    console.log(error);
+                  }
+                });
+              });
+            });
+            
+            $(document).on('click', '.dropdown-item', function() {
+              var value = $(this).text();
+              $('#from_location').val(value);
+              $('#search-results-from').hide();
+            });
+
+
+            $(document).ready(function() {
+              $('#to_location').on('keyup', function() {
+                var query = $(this).val();
+                $.ajax({
+                  type: 'GET',
+                  url: '/get_candidate_values',
+                  data: {'column': 'column_name', 'query': query},
+                  success: function(response) {
+                      var results = response.data;
+                      var list = $('#search-results-to ul');
+                      list.empty(); // Clear any previous results
+      
+                      // Loop through the results and create a new <li> element for each one
+                      for (var i = 0; i < results.length; i++) {
+                          var item = $('<li>').text(results[i]);
+                          
+                          // Add a click event listener to each <li> element
+                          item.on('click', function() {
+                              $('#to_location').val($(this).text());
+                              $('#search-results-to').hide();
+                          });
+                          
+                          list.append(item);
+                      }
+      
+                      // Show the search results
+                      $('#search-results-to').show();
+                  },
+                  error: function(error) {
+                    console.log(error);
+                  }
+                });
+              });
+            });
+            
+            $(document).on('click', '.dropdown-item', function() {
+              var value = $(this).text();
+              $('#from_location').val(value);
+              $('#search-results-to').hide();
+            });
+            </script>
+          
+
+  <h3>Travel</h3>
+  <p>This is the Travel tab.</p>
+{% endblock %}

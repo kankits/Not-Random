@@ -1,0 +1,63 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <!-- Search form for hotels tab -->
+    <form class="form-container" action="{{ url_for('search_hotels') }}" method="get">
+        <div class="form-group">
+            <input type="text" class="form-control" name="search-input" id="search-input" placeholder="Search...">
+            <div class="search-results" id="search-results" style="display: none;">
+                <ul></ul>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Go</button>
+        </div>
+    </form>
+    
+      <script>
+      $(document).ready(function() {
+        $('#search-input').on('keyup', function() {
+          var query = $(this).val();
+          $.ajax({
+            type: 'GET',
+            url: '/get_candidate_values',
+            data: {'column': 'column_name', 'query': query},
+            success: function(response) {
+                var results = response.data;
+                var list = $('#search-results ul');
+                list.empty(); // Clear any previous results
+
+                // Loop through the results and create a new <li> element for each one
+                for (var i = 0; i < results.length; i++) {
+                    var item = $('<li>').text(results[i]);
+                    
+                    // Add a click event listener to each <li> element
+                    item.on('click', function() {
+                        $('#search-input').val($(this).text());
+                        $('#search-results').hide();
+                    });
+                    
+                    list.append(item);
+                }
+
+                // Show the search results
+                $('#search-results').show();
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+        });
+      });
+      
+      $(document).on('click', '.dropdown-item', function() {
+        var value = $(this).text();
+        $('#search-input').val(value);
+        $('#search-results').hide();
+      });
+      </script>
+      
+      
+  <h3>hotels</h3>
+  <p>This is the hotels tab.</p>
+{% endblock %}
