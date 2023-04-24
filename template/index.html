@@ -3,23 +3,20 @@
   <head>
     <title>Travel Guide</title>
     <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" /> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Include jQuery and Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
   </head>
   <body>
-    <nav>
+    <nav class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top nav1">
       <ul class="nav-links">
         <li class="nav-item"><a href="{{ url_for('index') }}">Home</a></li>
         {% if session.user %}
           <li class="nav-item"><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
-          <li class="nav-item"><form action="{{ url_for('logout') }}" method="get">
-            <button type="submit">Logout</button>
-          </form></li>
+          <li class="nav-item"><a href="{{ url_for('logout') }}">Logout</a></li>
         {% else %}
           <li class="nav-item"><a href="{{ url_for('login') }}">Log in</a></li>
           <li class="nav-item"><a href="{{ url_for('signup') }}">Sign up</a></li>
@@ -27,23 +24,190 @@
       </ul>
     </nav>
 
-    <div class="container">
-      <!-- Navigation bar with tabs -->
-      <ul class="nav nav-tabs">
-        <li {% if active_tab == "places" %}class="active"{% endif %}><a href="/places">Places</a></li>
-        <li {% if active_tab == "hotels" %}class="active"{% endif %}><a href="/hotels">Hotels</a></li>
-        <li {% if active_tab == "restaurants" %}class="active"{% endif %}><a href="/restaurants">Restaurants</a></li>
-        <li {% if active_tab == "travel" %}class="active"{% endif %}><a href="/travel">Travel</a></li>
-      </ul>
+    <!-- Navigation bar with tabs -->
+    <nav class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top nav2">
+    <ul class="nav nav-tabs">
+      <li {% if active_tab == "places" %}class="active"{% endif %}><a href="/places">Places</a></li>
+      <li {% if active_tab == "hotels" %}class="active"{% endif %}><a href="/hotels">Hotels</a></li>
+      <li {% if active_tab == "restaurants" %}class="active"{% endif %}><a href="/restaurants">Restaurants</a></li>
+      <li {% if active_tab == "travel" %}class="active"{% endif %}><a href="/travel">Travel</a></li>
+    </ul>
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
 
-      <!-- Tab content -->
-      <div class="tab-content">
-        <div class="tab-pane fade in active">
-          {% block content %}
-          {% endblock %}
-        </div>
-      </div>
-    </div>
+    <!-- <ul>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+      <li>1</li>
+
+    </ul> -->
 
   </body>
 </html>

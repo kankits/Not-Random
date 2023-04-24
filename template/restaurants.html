@@ -1,6 +1,7 @@
 {% extends "index.html" %}
 
 {% block content %}
+<div class="container">
     <!-- Search form for restaurants tab -->
     <form class="form-container" action="{{ url_for('search_restaurants') }}" method="get">
         <div class="form-group">
@@ -60,4 +61,5 @@
       
   <h3>restaurants</h3>
   <p>This is the restaurants tab.</p>
+</div>
 {% endblock %}
