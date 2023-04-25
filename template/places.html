@@ -23,8 +23,8 @@
 
             <!-- drop down filter -->
             <div class="filter-element">
+              <label for="category"><b style="font-size:13px;">CATEGORY</b></label>
               <div class="form-group">
-                <label for="category"><b style="font-size:13px;">CATEGORY</b></label>
                 <select class="form-control" id="category" style="font-size:13px;">
 
                   <script>
@@ -41,8 +41,8 @@
 
             <!-- checkbox filter -->
             <div class="filter-element">
+              <label for="category"><b style="font-size:13px;">CUISINES</b></label>
               <div class="form-group">
-                <b style="font-size:13px;">CUISINES</b></label>
                 <ul>
 
                 <script>
@@ -60,13 +60,11 @@
               </ul>
               </div>
             </div>
-            
-            <br><br><br>
 
             <!-- search box filter -->
             <div class="filter-element">
+              <label for="category"><b style="font-size:13px;">NAMES</b></label>
               <div class="form-group search_box_filter">
-                <b style="font-size:13px;">NAMES</b></label>
                 <input type="text" style="font-size:13px;" class="form-control filter_search" name="search-filter-input" id="search-filter-input" placeholder="Name...">
                 <div class="search-results" id="search-filter-results" style="display: none;">
                     <ul></ul>
@@ -76,7 +74,7 @@
 
             <!-- search box add tags -->
             <div class="filter-element">
-              <b style="font-size:13px;">TAGS</b></label>
+              <label for="category"><b style="font-size:13px;">TAGS</b></label>
               <div class="tags_layout">
                 <div class="form-group search_box_tag_filter" id="search-box-tag-filter">
                   <input type="text" style="font-size:13px;" class="form-control tag_filter_search" name="search-tag-filter-input" id="search-tag-filter-input" placeholder="Name...">
@@ -114,10 +112,9 @@
 
             <!-- force filter button to next line -->
             <br><br><br>
-
-            <div style = "display:block;">
-              <button type="submit" class="btn btn-primary" style="font-size:13px;">Filter</button>
-            </div>
+              <div style = "display:block;">
+                <button type="submit" class="btn btn-primary" style="font-size:13px;">Filter</button>
+              </div>
           </form>
         </div>
         <div class="col-md-6 filter-results" id="filter-results">

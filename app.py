@@ -74,7 +74,7 @@ def get_candidate_values_route():
 
 # Temporary Users table
 
-Users = {}
+Users = {"admin": "admin"}
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
