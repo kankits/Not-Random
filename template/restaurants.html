@@ -1,20 +1,20 @@
 {% extends "index.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container-search">
     <!-- Search form for restaurants tab -->
     <form class="form-container" action="{{ url_for('search_restaurants') }}" method="get">
-        <div class="form-group">
-            <input type="text" class="form-control" name="search-input" id="search-input" placeholder="Search...">
+        <div class="form-group search_box" style="margin-left: 600px;">
+            <input type="text" class="form-control wide_search" name="search-input" id="search-input" placeholder="Search...">
             <div class="search-results" id="search-results" style="display: none;">
                 <ul></ul>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group search_box">
             <button type="submit" class="btn btn-default">Go</button>
         </div>
     </form>
-    
+</div> 
       <script>
       $(document).ready(function() {
         $('#search-input').on('keyup', function() {
@@ -57,9 +57,4 @@
         $('#search-results').hide();
       });
       </script>
-      
-      
-  <h3>restaurants</h3>
-  <p>This is the restaurants tab.</p>
-</div>
 {% endblock %}

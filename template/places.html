@@ -1,20 +1,130 @@
 {% extends "index.html" %}
 
 {% block content %}
-<div class="container">
+<div class="container-search">
     <!-- Search form for places tab -->
     <form class="form-container" action="{{ url_for('search_places') }}" method="get">
-        <div class="form-group">
-            <input type="text" class="form-control" name="search-input" id="search-input" placeholder="Search...">
+        <div class="form-group search_box" style="margin-left: 600px;">
+            <input type="text" class="form-control wide_search" name="search-input" id="search-input" placeholder="Search...">
             <div class="search-results" id="search-results" style="display: none;">
                 <ul></ul>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group search_box">
             <button type="submit" class="btn btn-default">Go</button>
         </div>
     </form>
-    
+</div>
+<div class="container-results">    
+      <div class="row">
+        <div class="col-md-2 filter-component">
+          <h5>Filters</h5>
+          <form id="filter-form">
+
+            <!-- drop down filter -->
+            <div class="filter-element">
+              <div class="form-group">
+                <label for="category"><b style="font-size:13px;">CATEGORY</b></label>
+                <select class="form-control" id="category" style="font-size:13px;">
+
+                  <script>
+                    var categories = ["All", "Books", "Electronics", "Clothing"]; // Replace with your options
+                    for (var i = 0; i < categories.length; i++) {
+                      document.write('<option>' + categories[i] + '</option>');
+                    }
+                  </script>
+
+                </select>
+              </div>
+            </div>
+
+
+            <!-- checkbox filter -->
+            <div class="filter-element">
+              <div class="form-group">
+                <b style="font-size:13px;">CUISINES</b></label>
+                <ul>
+
+                <script>
+                  var options = ["option1", "option2", "option3", "option4"]; // Replace with your options
+                  for (var i = 0; i < options.length; i++) {
+                    document.write('<li>');
+                    document.write('<div class="form-check">');
+                    document.write('<input class="form-check-input" type="checkbox" value="' + options[i] + '" id="checkbox' + (i+1) + '">');
+                    document.write('<label class="form-check-label" for="checkbox' + (i+1) + '">' + options[i] + '</label>');
+                    document.write('</div>');
+                    document.write('</li>');
+                  }
+                </script>
+
+              </ul>
+              </div>
+            </div>
+            
+            <br><br><br>
+
+            <!-- search box filter -->
+            <div class="filter-element">
+              <div class="form-group search_box_filter">
+                <b style="font-size:13px;">NAMES</b></label>
+                <input type="text" style="font-size:13px;" class="form-control filter_search" name="search-filter-input" id="search-filter-input" placeholder="Name...">
+                <div class="search-results" id="search-filter-results" style="display: none;">
+                    <ul></ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- search box add tags -->
+            <div class="filter-element">
+              <b style="font-size:13px;">TAGS</b></label>
+              <div class="tags_layout">
+                <div class="form-group search_box_tag_filter" id="search-box-tag-filter">
+                  <input type="text" style="font-size:13px;" class="form-control tag_filter_search" name="search-tag-filter-input" id="search-tag-filter-input" placeholder="Name...">
+                  <div class="search-results" id="search-tag-filter-results" style="display: none;">
+                      <ul></ul>
+                  </div>
+                </div>
+                <button onclick="addToTag()" type="button" class="btn btn-default" style="font-size:13px;">Add</button>
+              </div>
+              <div class="form-group search_box_tags" id = "search-box-tags">
+                <ul>
+                <script>
+                  function addToTag() {
+                    var list = $('#search-box-tags ul');
+                
+                    var item = $('<li class="badge_tag">').text($('#search-tag-filter-input').val());
+                
+                    var removeButton = $('<span class="remove-button">').text('x');
+                
+                    // Add a click event listener to the remove button
+                    removeButton.on('click', function() {
+                      $(this).parent().remove();
+                    });
+                
+                    // Add the remove button to the item
+                    item.append(removeButton);
+                
+                    list.append(item);
+                  }
+                </script>
+                </ul>
+              </div>
+              
+            </div>
+
+            <!-- force filter button to next line -->
+            <br><br><br>
+
+            <div style = "display:block;">
+              <button type="submit" class="btn btn-primary" style="font-size:13px;">Filter</button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6 filter-results" id="filter-results">
+          <!-- Your search results go here -->
+        </div>
+      </div>
+</div>
       <script>
       $(document).ready(function() {
         $('#search-input').on('keyup', function() {
@@ -50,16 +160,170 @@
           });
         });
       });
+      </script>
+
+      <script>
+      // drop down search logic
+      $(document).ready(function() {
+        $('#search-filter-input').on('keyup', function() {
+          var query = $(this).val();
+          $.ajax({
+            type: 'GET',
+            url: '/get_candidate_values',
+            data: {'column': 'column_name', 'query': query},
+            success: function(response) {
+                var results = response.data;
+                var list = $('#search-filter-results ul');
+                list.empty(); // Clear any previous results
+
+                // Loop through the results and create a new <li> element for each one
+                for (var i = 0; i < results.length; i++) {
+                    var item = $('<li>').text(results[i]);
+                    
+                    // Add a click event listener to each <li> element
+                    item.on('click', function() {
+                        $('#search-filter-input').val($(this).text());
+                        $('#search-filter-results').hide();
+                    });
+                    
+                    list.append(item);
+                }
+
+                // Show the search results
+                $('#search-filter-results').show();
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+        });
+      });
       
       $(document).on('click', '.dropdown-item', function() {
         var value = $(this).text();
-        $('#search-input').val(value);
-        $('#search-results').hide();
+        $('#search-filter-input').val(value);
+        $('#search-filter-results').hide();
       });
       </script>
+
+      <script>
+      // drop down search logic
+      $(document).ready(function() {
+        $('#search-tag-filter-input').on('keyup', function() {
+          var query = $(this).val();
+          $.ajax({
+            type: 'GET',
+            url: '/get_candidate_values',
+            data: {'column': 'column_name', 'query': query},
+            success: function(response) {
+                var results = response.data;
+                var list = $('#search-tag-filter-results ul');
+                list.empty(); // Clear any previous results
+
+                // Loop through the results and create a new <li> element for each one
+                for (var i = 0; i < results.length; i++) {
+                    var item = $('<li>').text(results[i]);
+                    
+                    // Add a click event listener to each <li> element
+                    item.on('click', function() {
+                        $('#search-tag-filter-input').val($(this).text());
+                        $('#search-tag-filter-results').hide();
+                    });
+                    
+                    list.append(item);
+                }
+
+                // Show the search results
+                $('#search-tag-filter-results').show();
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+        });
+      });
       
-      
-  <h3>Places</h3>
-  <p>This is the Places tab.</p>
-</div>
+      $(document).on('click', '.dropdown-item', function() {
+        var value = $(this).text();
+        $('#search-tag-filter-input').val(value);
+        $('#search-tag-filter-results').hide();
+      });
+      </script>
+
+      <script>
+        function getCheckedOptions() {
+          var checkedValues = [];
+          $('input[type="checkbox"]:checked').each(function() {
+            checkedValues.push($(this).val());
+          });
+          return checkedValues;
+        }
+
+        function getAddedTags() {
+          var tags = [];
+            $('#search-box-tags li').each(function() {
+              tags.push($(this).text().trim().replace(/x$/, ''));
+            });
+          return tags;
+        }
+
+          // Get references to the filter elements
+          const categoryFilter = document.getElementById('category');
+          const searchResults = document.getElementById('filter-results');
+
+          // This is just some dummy data for demonstration purposes
+          const allResults = [
+            { title: 'Book 1', category: 'Books', option: "option1", name: "abc", tag: "abc"},
+            { title: 'Book 2', category: 'Books', option: "option2", name: "def", tag: "def"},
+            { title: 'Electronics 1', category: 'Electronics', option: "option3", name: "ghi", tag: "ghi"},
+            { title: 'Electronics 2', category: 'Electronics', option: "option1", name: "abc", tag: "abc"},
+            { title: 'Clothing 1', category: 'Clothing', option: "option2", name: "def", tag: "def"},
+            { title: 'Clothing 2', category: 'Clothing', option: "option3", name: "ghi", tag: "ghi"}
+          ];
+
+          // Event listener for the filter form
+          document.getElementById('filter-form').addEventListener('submit', (event) => {
+            const optionsFilter = getCheckedOptions();
+            const searchFilter = $('#search-filter-input').val();
+            const tagsFilter = getAddedTags();
+
+            // console.log(optionsFilter);
+            // console.log(tagsFilter);
+
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Get the selected filter values
+            const selectedCategory = categoryFilter.value;
+
+            // Filter the results based on the selected values
+            const filteredResults = allResults.filter((result) => {
+              if (
+                (selectedCategory === 'All' || selectedCategory === result.category) &&
+                (optionsFilter.includes(result.option)) && (searchFilter === result.name) &&
+                (tagsFilter.includes(result.tag))
+              ) {
+                return true;
+              }
+              return false;
+            });
+
+            // Display the filtered results
+            displayResults(filteredResults);
+          });
+
+          // Function to display the search results on the page
+          function displayResults(results) {
+            searchResults.innerHTML = '';
+
+            results.forEach((result) => {
+              const resultElement = document.createElement('div');
+              resultElement.classList.add('result');
+              resultElement.innerHTML = `
+                <h3>${result.title}</h3>
+                <p>Category: ${result.category}</p>
+              `;
+              searchResults.appendChild(resultElement);
+            });
+          }
+      </script>
 {% endblock %}
