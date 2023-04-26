@@ -15,40 +15,10 @@
         </div>
     </form>
 </div> 
+      <script src = "static/script.js" defer></script>
       <script>
       $(document).ready(function() {
-        $('#search-input').on('keyup', function() {
-          var query = $(this).val();
-          $.ajax({
-            type: 'GET',
-            url: '/get_candidate_values',
-            data: {'column': 'column_name', 'query': query},
-            success: function(response) {
-                var results = response.data;
-                var list = $('#search-results ul');
-                list.empty(); // Clear any previous results
-
-                // Loop through the results and create a new <li> element for each one
-                for (var i = 0; i < results.length; i++) {
-                    var item = $('<li>').text(results[i]);
-                    
-                    // Add a click event listener to each <li> element
-                    item.on('click', function() {
-                        $('#search-input').val($(this).text());
-                        $('#search-results').hide();
-                    });
-                    
-                    list.append(item);
-                }
-
-                // Show the search results
-                $('#search-results').show();
-            },
-            error: function(error) {
-              console.log(error);
-            }
-          });
-        });
+        searchInputHandler('search-input', 'search-results');
       });
       
       $(document).on('click', '.dropdown-item', function() {

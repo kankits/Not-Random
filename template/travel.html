@@ -29,40 +29,10 @@
             
           </form>
     </div>
+          <script src = "static/script.js" defer></script>
           <script>
             $(document).ready(function() {
-              $('#from_location').on('keyup', function() {
-                var query = $(this).val();
-                $.ajax({
-                  type: 'GET',
-                  url: '/get_candidate_values',
-                  data: {'column': 'column_name', 'query': query},
-                  success: function(response) {
-                      var results = response.data;
-                      var list = $('#search-results-from ul');
-                      list.empty(); // Clear any previous results
-      
-                      // Loop through the results and create a new <li> element for each one
-                      for (var i = 0; i < results.length; i++) {
-                          var item = $('<li>').text(results[i]);
-                          
-                          // Add a click event listener to each <li> element
-                          item.on('click', function() {
-                              $('#from_location').val($(this).text());
-                              $('#search-results-from').hide();
-                          });
-                          
-                          list.append(item);
-                      }
-      
-                      // Show the search results
-                      $('#search-results-from').show();
-                  },
-                  error: function(error) {
-                    console.log(error);
-                  }
-                });
-              });
+              searchInputHandler('from_location', 'search-results-from');
             });
             
             $(document).on('click', '.dropdown-item', function() {
@@ -73,43 +43,12 @@
 
 
             $(document).ready(function() {
-              $('#to_location').on('keyup', function() {
-                var query = $(this).val();
-                $.ajax({
-                  type: 'GET',
-                  url: '/get_candidate_values',
-                  data: {'column': 'column_name', 'query': query},
-                  success: function(response) {
-                      var results = response.data;
-                      var list = $('#search-results-to ul');
-                      list.empty(); // Clear any previous results
-      
-                      // Loop through the results and create a new <li> element for each one
-                      for (var i = 0; i < results.length; i++) {
-                          var item = $('<li>').text(results[i]);
-                          
-                          // Add a click event listener to each <li> element
-                          item.on('click', function() {
-                              $('#to_location').val($(this).text());
-                              $('#search-results-to').hide();
-                          });
-                          
-                          list.append(item);
-                      }
-      
-                      // Show the search results
-                      $('#search-results-to').show();
-                  },
-                  error: function(error) {
-                    console.log(error);
-                  }
-                });
-              });
+              searchInputHandler('to_location', 'search-results-to');
             });
             
             $(document).on('click', '.dropdown-item', function() {
               var value = $(this).text();
-              $('#from_location').val(value);
+              $('#to_location').val(value);
               $('#search-results-to').hide();
             });
             </script>
