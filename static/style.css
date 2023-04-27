@@ -166,13 +166,13 @@ a:hover {
   height:max-content;
 }
 
-.filter-results {
+.filter_results_places_container {
   margin-left: 50px;
   margin-top: 30px;
   padding-top: 50px;
   padding-bottom: 50px;
   padding-left: 50px;
-  background-color: white;
+  background-color: transparent;
 }
 
 .form-group > ul > li {
@@ -187,6 +187,9 @@ a:hover {
   padding: 0;
 }
 
+.rating-star {
+  color: goldenrod;
+}
 
 /* .search_box_filter {
   width: 100px;
