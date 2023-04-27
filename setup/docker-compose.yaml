@@ -1,0 +1,13 @@
+version: "3.9"
+services:
+  postgresql:
+    user: "1000:1000"
+    build: .
+    volumes:
+      - .:/app
+      - ./data:/usr/local/pgsql/data
+    working_dir: /app
+    network_mode: host
+    stdin_open: true # docker run -i
+    tty: true
+    command: bash -c "/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data || /usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data >logfile 2>&1"
