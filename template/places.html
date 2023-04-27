@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container-search">
     <!-- Search form for places tab -->
-    <form class="form-container" action="{{ url_for('search_places') }}" method="get">
+    <form class="form-container" id="search-bar-form">
         <div class="form-group search_box" style="margin-left: 600px;">
             <input type="text" class="form-control wide_search" name="search-input" id="search-input" placeholder="Search...">
             <div class="search-results" id="search-results" style="display: none;">
@@ -144,9 +144,11 @@
           }
         }
 
-          // Get references to the filter elements
-          const categoryFilter = document.getElementById('category');
-          const searchResults = document.getElementById('filter_results_places_container');
+        let categoryFilterSelected = null;
+        let optionsFilterSelected = null;
+        let searchFilterSelected = null;
+        let tagsFilterselected = null;
+        let searchBarFilterSelected = null;
 
           // This is just some dummy data for demonstration purposes
           const allResults = [
@@ -261,25 +263,52 @@
             resultsContainer.innerHTML = resultsHTML;
           }
 
+          function setFilterValues(){
+            categoryFilterSelected = $('#category').val();
+            searchFilterSelected = $('#search-filter-input').val();
+            optionsFilterSelected = getCheckedOptions();
+            tagsFilterselected = getAddedTags();
+          }
+
+          function setSearchBarValues(){
+            searchBarFilterSelected = $('#search-input').val();
+          }
+
           function searchPlacesResultsHandler(event, allResults) {
-
-            event.preventDefault();
-
-            const optionsFilter = getCheckedOptions();
-            const searchFilter = $('#search-filter-input').val();
-            const tagsFilter = getAddedTags();
-            const selectedCategory = categoryFilter.value;
-
             // Filter the results based on the selected values
             const filteredResults = allResults.filter((result) => {
-              if (
-                (selectedCategory === 'All' || selectedCategory === result.category) &&
-                (optionsFilter.includes(result.option)) && (searchFilter === result.name) &&
-                (tagsFilter.includes(result.tag))
-              ) {
-                return true;
+              if (categoryFilterSelected !== null){
+                if (!(categoryFilterSelected === 'All' || categoryFilterSelected === result.category)) {
+                  console.log("In categoryFilterSelected\n");
+                  return false;
+                }
               }
-              return false;
+              if (optionsFilterSelected !== null){
+                if (!(optionsFilterSelected.includes(result.option))) {
+                  console.log("In optionsFilterSelected\n");
+                  return false;
+                }
+              }
+              if (searchFilterSelected !== null){
+                if (!(searchFilterSelected === result.name)) {
+                  console.log("In searchFilterSelected\n");
+                  return false;
+                }
+              }
+              if (tagsFilterselected !== null){
+                if (!(tagsFilterselected.includes(result.tag))) {
+                  console.log("In tagsFilterselected\n");
+                  return false;
+                }
+              }
+              if (searchBarFilterSelected !== null){
+                if (!(searchBarFilterSelected === result.name)) {
+                  console.log("In searchBarFilterSelected\n");
+                  return false;
+                }
+              }
+              console.log("In true\n");
+              return true;
             });
 
             // Display the filtered results
@@ -287,7 +316,16 @@
           }
 
           // Event listener for the filter form
-          document.getElementById('filter-form').addEventListener('submit', (event) => {
+          document.getElementById('search-bar-form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            setSearchBarValues();
+            searchPlacesResultsHandler(event, allResults);
+          });
+
+          // Event listener for the search bar
+          document.getElementById('search-input').addEventListener('submit', (event) => {
+            event.preventDefault();
+            setFilterValues();
             searchPlacesResultsHandler(event, allResults);
           });
           
