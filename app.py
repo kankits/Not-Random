@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for
- 
+import psycopg2
+
 # WSGI Application
 # Provide template folder name
 # The default folder name should be "templates" else need to mention custom folder name
@@ -7,19 +8,18 @@ app = Flask(__name__, template_folder='template', static_folder='static')
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
 
+conn = psycopg2.connect(
+    host="10.17.51.34",
+    database="group_34",
+    user="group_34",
+    password="ZiVNyMU7Jgrlfm"
+)
+
+cur = conn.cursor()
 
 @app.route('/')
 def index():
     return render_template('index.html')
-
-# @app.route('/logged_in')
-# def logged_in():
-#     logged_in = False
-#     user = None
-#     if 'user' in session:
-#         logged_in = True
-#         user = session['user']
-#     return jsonify({'logged_in': logged_in, 'user': user})
 
 @app.route("/places")
 def places():

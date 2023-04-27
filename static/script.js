@@ -66,34 +66,3 @@ function getAddedTags() {
     });
   return tags;
 }
-
-// function isLoggedIn(callback) {
-//   $.ajax({
-//     type: 'GET',
-//     url: '/logged_in', 
-//     success: function(response) {
-//       console.log("response");
-//       if (response.logged_in) {
-//         callback(true);
-//       } else {
-//         callback(false);
-//       }
-//     },
-//     error: function(error) {
-//       console.log(error);
-//       callback(false);
-//     }
-//   });
-// }
-
-// var loginStatus = false;
-
-// // setInterval(updateLoggedIn, 1000);
-
-// function updateLoggedIn(){
-//     isLoggedIn(setLoginStatus);
-// }
-
-// function setLoginStatus(data) {
-//     loginStatus = data;
-// }

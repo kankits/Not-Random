@@ -173,6 +173,18 @@ a:hover {
   padding-bottom: 50px;
   padding-left: 50px;
   background-color: transparent;
+  height:max-content;
+}
+
+.places_recommendations {
+  margin-left: 100px;
+  margin-top: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  background-color: white;
+  height:max-content;
+  /* background-color: transparent; */
 }
 
 .form-group > ul > li {
