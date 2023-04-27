@@ -12,14 +12,14 @@ app.config['SESSION_TYPE'] = 'filesystem'
 def index():
     return render_template('index.html')
 
-@app.route('/logged_in')
-def logged_in():
-    logged_in = False
-    user = None
-    if 'user' in session:
-        logged_in = True
-        user = session['user']
-    return jsonify({'logged_in': logged_in, 'user': user})
+# @app.route('/logged_in')
+# def logged_in():
+#     logged_in = False
+#     user = None
+#     if 'user' in session:
+#         logged_in = True
+#         user = session['user']
+#     return jsonify({'logged_in': logged_in, 'user': user})
 
 @app.route("/places")
 def places():

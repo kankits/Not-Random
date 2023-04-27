@@ -133,6 +133,17 @@
       </script>
 
       <script>
+        function isLoggedIn() {
+          var sessionString = '{{ session|tojson }}';
+          var sessionObj = JSON.parse(sessionString);
+          if ('user' in sessionObj) {
+            return true;
+          }
+          else{
+            return false;
+          }
+        }
+
           // Get references to the filter elements
           const categoryFilter = document.getElementById('category');
           const searchResults = document.getElementById('filter_results_places_container');

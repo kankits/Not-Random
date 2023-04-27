@@ -67,38 +67,33 @@ function getAddedTags() {
   return tags;
 }
 
-function isLoggedIn() {
-  $.ajax({
-    type: 'GET',
-    url: '/logged_in', 
-    success: function(response) {
-      if (response.logged_in) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    error: function(error) {
-      console.log(error);
-      return false;
-    }
-  });
-}
+// function isLoggedIn(callback) {
+//   $.ajax({
+//     type: 'GET',
+//     url: '/logged_in', 
+//     success: function(response) {
+//       console.log("response");
+//       if (response.logged_in) {
+//         callback(true);
+//       } else {
+//         callback(false);
+//       }
+//     },
+//     error: function(error) {
+//       console.log(error);
+//       callback(false);
+//     }
+//   });
+// }
 
-function getUser() {
-  $.ajax({
-    type: 'GET',
-    url: '/logged_in', 
-    success: function(response) {
-      if (response.logged_in) {
-        return response.user;
-      } else {
-        return null;
-      }
-    },
-    error: function(error) {
-      console.log(error);
-      return null;
-    }
-  });
-}
+// var loginStatus = false;
+
+// // setInterval(updateLoggedIn, 1000);
+
+// function updateLoggedIn(){
+//     isLoggedIn(setLoginStatus);
+// }
+
+// function setLoginStatus(data) {
+//     loginStatus = data;
+// }
