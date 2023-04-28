@@ -1,36 +1,36 @@
-function searchInputHandler(inputId, resultsId) {
-    $('#' + inputId).on('keyup', function() {
-      var query = $(this).val();
-      $.ajax({
-        type: 'GET',
-        url: '/get_candidate_values',
-        data: {'column': 'column_name', 'query': query},
-        success: function(response) {
-          var results = response.data;
-          var list = $('#' + resultsId + ' ul');
-          list.empty(); // Clear any previous results
-  
-          // Loop through the results and create a new <li> element for each one
-          for (var i = 0; i < results.length; i++) {
-            var item = $('<li>').text(results[i]);
-  
-            // Add a click event listener to each <li> element
-            item.on('click', function() {
-              $('#' + inputId).val($(this).text());
-              $('#' + resultsId).hide();
-            });
-  
-            list.append(item);
-          }
-  
-          // Show the search results
-          $('#' + resultsId).show();
-        },
-        error: function(error) {
-          console.log(error);
+function searchInputHandler(inputId, resultsId, table, column) {
+  $('#' + inputId).on('keyup', function() {
+    var query = $(this).val();
+    $.ajax({
+      type: 'GET',
+      url: '/get_candidate_values',
+      data: {'column': column, 'table': table, 'query': query},
+      success: function(response) {
+        var results = response.data;
+        var list = $('#' + resultsId + ' ul');
+        list.empty(); // Clear any previous results
+
+        // Loop through the results and create a new <li> element for each one
+        for (var i = 0; i < results.length; i++) {
+          var item = $('<li>').text(results[i]);
+
+          // Add a click event listener to each <li> element
+          item.on('click', function() {
+            $('#' + inputId).val($(this).text());
+            $('#' + resultsId).hide();
+          });
+
+          list.append(item);
         }
-      });
+
+        // Show the search results
+        $('#' + resultsId).show();
+      },
+      error: function(error) {
+        console.log(error);
+      }
     });
+  });
 }
 
 function addToTag() {

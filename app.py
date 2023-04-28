@@ -17,6 +17,7 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -42,8 +43,17 @@ def search_places():
     query = request.args.get('search')
     # Perform search for Places and return results
     # ...
-    results = ['search_places']
-    return render_template('places.html', results=results)
+    s = "select place, cityname, state, num_rating, rating, 0 as in_favourite from places, cities where places.cityid = cities.cityid and place like \'" + query + "\' || \'%\' limit 5"
+    cur.execute(s)
+    results = []
+    columns = ["place", "cityname", "state", "num_rating", "rating", "in_favourite"]
+    for row in cur:
+        l = {}
+        for i in range(6):
+            l[columns[i]] = row[i]
+        results.append(l)
+    print(results)
+    return render_template('places.html', results=jsonify({'data':results}))
 
 @app.route('/search_hotels')
 def search_hotels():
@@ -69,16 +79,21 @@ def search_travel():
     results = ['search_travel']
     return render_template('travel.html', results=results)
 
-def get_candidate_values(column, query):
-    values = ['abc', 'def', 'ghi']
-    return values
+def get_candidate_values(column, table, query):
+    s = "select " + column + " from " + table + " where " + column + " like \'" + query +  "\' || \'%\' limit 5"
+    print(s)
+    cur.execute(s)
+    # values = ['abc', 'def', 'ghi']
+    return [row[0] for row in cur]
+    #return ["abc", "def", "ijk"]
 
 
 @app.route('/get_candidate_values')
 def get_candidate_values_route():
     column = request.args.get('column')
+    table = request.args.get('table')
     query = request.args.get('query')
-    values = get_candidate_values(column, query)
+    values = get_candidate_values(column, table, query)
     return jsonify({'data': values})
 
 # Temporary Users table

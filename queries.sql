@@ -273,3 +273,31 @@ from FavouritePlaces, t2
 where (place, cityid) not in (select place, cityid from t1) and t2.username = FavouritePlaces.username
 group by place, cityid
 order by weight desc, place asc, cityid asc;
+
+
+with t0 as (
+    select * from FavouritePlaces
+    where username = 'abc'
+),
+t1 as (
+    select places.place, places.cityid, username
+    from places left outer join t0
+    on places.place = FavouritePlaces.place and places.cityid = FavouritePlaces.cityid
+),
+t2 as (
+    select place, cityid, (
+        case 
+        when username is not null then 1
+        else 0
+        end;
+    ) as in_favourite
+    from t1
+)
+select place, city, state, num_rating, rating, in_favourite
+from t2, cities
+where t2.cityid = cities.cityid
+
+
+select place, cityname, state, num_rating, rating, 0 as in_favourite
+from places, cities
+where places.cityid = cities.cityid
