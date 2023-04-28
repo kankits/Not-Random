@@ -38,4 +38,78 @@
         $('.container-search').css('margin-top', nav1Height + nav2Height + 'px');
         });
     </script>
-{% endblock %}
+      <script>
+        $(document).ready(function() {
+          searchInputHandler('search-input', 'search-results');
+        });
+        </script>
+  
+  <div class="container-results">    
+      <div class="row">
+        <div class="col-md-2 filter-component">
+          <h5>Filters</h5>
+          <form id="filter-form">
+  
+            <!-- search box add tags -->
+            <div class="filter-element">
+                <label for="category"><b style="font-size:13px;">Cuisines</b></label>
+                <div class="tags_layout">
+                  <div class="form-group search_box_tag_filter" id="search-box-tag-filter">
+                    <input type="text" style="font-size:13px;" class="form-control tag_filter_search" name="search-tag-filter-input" id="search-tag-filter-input" placeholder="Name...">
+                    <div class="search-results" id="search-tag-filter-results" style="display: none;">
+                        <ul></ul>
+                    </div>
+                  </div>
+                  <button onclick="addToTag()" type="button" class="btn btn-default" style="font-size:13px;">Add</button>
+                </div>
+                <div class="form-group search_box_tags" id = "search-box-tags">
+                  <ul>
+                  <script type = "text/javascript" src="static/script.js">
+                  </script>
+                  </ul>
+                </div>
+                
+              </div>
+  
+            <!-- search box filter -->
+            <div class="filter-element">
+              <label for="category"><b style="font-size:13px;">Maximum Cost</b></label>
+              <div class="form-group search_box_filter">
+                <input type="text" style="font-size:13px;" class="form-control filter_search" name="search-filter-input" id="search-filter-input" placeholder="Name...">
+                <div class="search-results" id="search-filter-results" style="display: none;">
+                    <ul></ul>
+                </div>
+              </div>
+            </div>
+  
+  
+            <div class="filter-element">
+              <label for="category"><b style="font-size:13px;">Minimum Rating</b></label>
+              <div class="form-group">
+                <select class="form-control" id="category" style="font-size:13px;">
+  
+                  <script>
+                    var categories = [" ", "1", "2", "3", "4", "5"]; // Replace with your options
+                    for (var i = 0; i < categories.length; i++) {
+                      document.write('<option>' + categories[i] + '</option>');
+                    }
+                  </script>
+  
+                </select>
+              </div>
+            </div>
+  
+            <!-- force filter button to next line -->
+            <br><br><br>
+              <div style = "display:block;">
+                <button type="submit" class="btn btn-primary" style="font-size:13px;">Filter</button>
+              </div>
+          </form>
+        </div>
+  
+        <div class="col-md-6 filter_results_places_container" id="filter_results_hotels_container">
+          <!-- Your search results go here -->
+        </div>
+      </div>
+  </div>
+  {% endblock %}
