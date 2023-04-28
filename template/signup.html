@@ -50,4 +50,15 @@
         </div>
       </div>
     </div>
+
+    <script>
+      $(document).ready(function() {
+      // get the height of .nav1
+      var nav1Height = $('.nav1').height();
+      var nav2Height = $('.nav2').height();
+
+      // set the margin-top of .nav2 to the height of .nav1
+      $('.container-sign').css('margin-top', nav1Height + nav2Height + 100 + 'px');
+      });
+  </script>
 {% endblock %}

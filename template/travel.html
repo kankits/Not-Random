@@ -29,27 +29,38 @@
             
           </form>
     </div>
-          <script src = "static/script.js" defer></script>
-          <script>
-            $(document).ready(function() {
-              searchInputHandler('from_location', 'search-results-from');
-            });
-            
-            $(document).on('click', '.dropdown-item', function() {
-              var value = $(this).text();
-              $('#from_location').val(value);
-              $('#search-results-from').hide();
-            });
+  <script src = "static/script.js" defer></script>
+  <script>
+    $(document).ready(function() {
+      searchInputHandler('from_location', 'search-results-from');
+    });
+    
+    $(document).on('click', '.dropdown-item', function() {
+      var value = $(this).text();
+      $('#from_location').val(value);
+      $('#search-results-from').hide();
+    });
 
 
-            $(document).ready(function() {
-              searchInputHandler('to_location', 'search-results-to');
-            });
-            
-            $(document).on('click', '.dropdown-item', function() {
-              var value = $(this).text();
-              $('#to_location').val(value);
-              $('#search-results-to').hide();
-            });
-            </script>
+    $(document).ready(function() {
+      searchInputHandler('to_location', 'search-results-to');
+    });
+    
+    $(document).on('click', '.dropdown-item', function() {
+      var value = $(this).text();
+      $('#to_location').val(value);
+      $('#search-results-to').hide();
+    });
+  </script>
+
+  <script>
+    $(document).ready(function() {
+    // get the height of .nav1
+    var nav1Height = $('.nav1').height();
+    var nav2Height = $('.nav2').height();
+
+    // set the margin-top of .nav2 to the height of .nav1
+    $('.container-search').css('margin-top', nav1Height + nav2Height + 'px');
+    });
+  </script>
 {% endblock %}

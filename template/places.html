@@ -104,236 +104,198 @@
           <!-- Your search results go here -->
         </div>
 
-        <div class="col-md-2 places_recommendations">
-
-        </div>
-      </div>
-</div>
-</div>
-
-      <script>
-      $(document).ready(function() {
-        searchInputHandler('search-input', 'search-results');
-      });
-      </script>
-
-      <script src = "static/script.js" defer></script>
-      <script>
-      // drop down search logic
-      $(document).ready(function() {
-        searchInputHandler('search-filter-input', 'search-filter-results');
-      });
-      </script>
-
-      <script>
-      // drop down search logic
-      $(document).ready(function() {
-        searchInputHandler('search-tag-filter-input', 'search-tag-filter-results');
-      });
-      
-      $(document).on('click', '.dropdown-item', function() {
-        var value = $(this).text();
-        $('#search-tag-filter-input').val(value);
-        $('#search-tag-filter-results').hide();
-      });
-      </script>
-
-      <script>
-        function isLoggedIn() {
-          var sessionString = '{{ session|tojson }}';
-          var sessionObj = JSON.parse(sessionString);
-          if ('user' in sessionObj) {
-            return true;
-          }
-          else{
-            return false;
-          }
-        }
-
-        let categoryFilterSelected = null;
-        let optionsFilterSelected = null;
-        let searchFilterSelected = null;
-        let tagsFilterselected = null;
-        let searchBarFilterSelected = null;
-
-          // This is just some dummy data for demonstration purposes
-          const allResults = [
-            { title: 'Book 1', category: 'Books', option: "option1", name: "abc", tag: "abc", place: "place1", city: "city1", state: "state1", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 5},
-            { title: 'Book 2', category: 'Books', option: "option2", name: "def", tag: "def", place: "place2", city: "city2", state: "state2", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 4},
-            { title: 'Electronics 1', category: 'Electronics', option: "option3", name: "ghi", tag: "ghi", place: "place3", city: "city3", state: "state3", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 3},
-            { title: 'Electronics 2', category: 'Electronics', option: "option1", name: "abc", tag: "abc", place: "place4", city: "city4", state: "state4", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 2},
-            { title: 'Clothing 1', category: 'Clothing', option: "option2", name: "def", tag: "def", place: "place5", city: "city5", state: "state5", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 1},
-            { title: 'Clothing 2', category: 'Clothing', option: "option3", name: "ghi", tag: "ghi", place: "place6", city: "city6", state: "state6", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 0}
-          ];
-
-          
-          // Function to display the search results on the page
-          function displayResults(results) {
-            const createStarRating = (rating, numRatings) => {
-              let stars = '<p>';
-              const fullStars = Math.floor(rating);
-              const halfStar = rating % 1 !== 0;
-              const emptyStars = 5 - fullStars - halfStar;
-              for (let i = 0; i < fullStars; i++) {
-                stars += '<i class="fas fa-star rating-star"></i>';
-              }
-              if (halfStar) {
-                stars += '<i class="fas fa-star-half-alt rating-star"></i>';
-              }
-              for (let i = 0; i < emptyStars; i++) {
-                stars += '<i class="far fa-star rating-star"></i>';
-              }
-              stars += `</p><br><p style="color: blue; font-size: small;">${numRatings} ratings</p>`;
-              return stars;
-            };
-
-            const createRatingDropdown = () => {
-              let dropdown = '<div class="dropdown">';
-              if (isLoggedIn()) {
-                dropdown += '<button class="btn btn-primary dropdown-toggle" type="button" id="rating-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-              }
-              else{
-                dropdown += '<button class="btn btn-primary dropdown-toggle disabled" type="button" id="rating-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
-              }
-              dropdown += '<i class="fas fa-thumbs-up fa-2x" style="color: goldenrod;"></i>';
-              dropdown += '</button>';
-              dropdown += '<div class="dropdown-menu" aria-labelledby="rating-dropdown">';
-              
-              for (let i = 5; i > 0; i--) {
-                dropdown += '<div class="dropdown-item">';
-                dropdown += `<label class="rating-label" for="rating-${i}">`;
-                dropdown += `<input type="radio" id="rating-${i}" name="rating" value="${i}">`;
-
-                for (let j = 0; j < i; j++) {
-                  dropdown += '<i class="fas fa-star rating-star"></i>';
-                }
-
-                for (let j = 0; j < 5 - i; j++) {
-                  dropdown += '<i class="far fa-star rating-star"></i>';
-                }
-                
-                dropdown += '</label>';
-                dropdown += '</div>';
-
-              }
-
-              dropdown += '</div>';
-              dropdown += '</div>';
-
-              return dropdown;
-            };
-
-            const createFavoriteButton = (inFavorite) => {
-              if (isLoggedIn()) {
-                if (inFavorite) {
-                  return '<button type="button" class="btn btn-primary"><i class="fas fa-heart fa-2x", style="padding-right: 10px;"></i>Add to Favorites</button>';
-                }
-                return '<button type="button" class="btn btn-primary"><i class="far fa-heart fa-2x", style="padding-right: 10px;"></i>Add to Favorites</button>';
-              }
-              else{
-                return '<button type="button" class="btn btn-primary disabled"><i class="fas fa-heart fa-2x", style="padding-right: 10px;"></i>Add to Favorites</button>';
-              }
-            };
-            
-            const createResultCard = (result) => {
+        <div class="col-md-3 places_recommendations" style="background-color: transparent;" id="places_recommendations">
+          <script>
+            function displayPlacesRecommendations(results) {
+              const createPlaceRecommendationCard = (result) => {
               let card = '<li class="list-group-item">';
               card += '<div class="row">';
-              card += '<div class="col-md-4">';
+              card += '<div class="col-md-7">';
               card += `<h4>${result.place}</h4>`;
               card += `<h5>${result.city}, ${result.state}</h5>`;    
               card += '</div>';
-              card += '<div class="col-md-3">';
+              card += '<div class="col-md-5">';
               card += createStarRating(result.rating, result.num_ratings);  
-              card += '</div>';
-              card += '<div class="col-md-3" style="display: flex; align-items: center;">';
-              card += createFavoriteButton(result.in_favorite);
-              card += '</div>';
-              card += '<div class="col-md-2", style="display: flex; align-items: center;">';
-              card += createRatingDropdown();
               card += '</div>';
               card += '</div>';
               card += '</li>';
               return card;
             };
 
-            let resultsHTML = '<h2>Search Results</h2>';
-            resultsHTML += '<ul class="list-group">';
+            let resultsHTML = '<h2>Places you might like</h2>';
+            resultsHTML += '<ul class="list-group" style="height: 720px; overflow-y: scroll;">';
           
             results.forEach((result) => {
-              resultsHTML += createResultCard(result);
+              resultsHTML += createPlaceRecommendationCard(result);
             });
 
             resultsHTML += '</ul>';
 
-            const resultsContainer = document.getElementById('filter_results_places_container');
+            const resultsContainer = document.getElementById('places_recommendations');
             resultsContainer.innerHTML = resultsHTML;
+            }
+
+            displayPlacesRecommendations(allResults)
+          </script>
+        </div>
+      </div>
+</div>
+</div>
+
+  <script src = "static/script.js" defer></script>
+
+  <script>
+  $(document).ready(function() {
+    searchInputHandler('search-input', 'search-results');
+  });
+  </script>
+
+  <script>
+  // drop down search logic
+  $(document).ready(function() {
+    searchInputHandler('search-filter-input', 'search-filter-results');
+  });
+  </script>
+
+  <script>
+  // drop down search logic
+  $(document).ready(function() {
+    searchInputHandler('search-tag-filter-input', 'search-tag-filter-results');
+  });
+  
+  $(document).on('click', '.dropdown-item', function() {
+    var value = $(this).text();
+    $('#search-tag-filter-input').val(value);
+    $('#search-tag-filter-results').hide();
+  });
+  </script>
+
+  <script>
+    function isLoggedIn() {
+      var sessionString = '{{ session|tojson }}';
+      var sessionObj = JSON.parse(sessionString);
+      if ('user' in sessionObj) {
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+
+    let categoryFilterSelected = null;
+    let optionsFilterSelected = null;
+    let searchFilterSelected = null;
+    let tagsFilterselected = null;
+    let searchBarFilterSelected = null;
+      
+      // Function to display the search results on the page
+      function displayResults(results) {
+        const createResultCard = (result) => {
+          let card = '<li class="list-group-item">';
+          card += '<div class="row">';
+          card += '<div class="col-md-4">';
+          card += `<h4>${result.place}</h4>`;
+          card += `<h5>${result.city}, ${result.state}</h5>`;    
+          card += '</div>';
+          card += '<div class="col-md-3">';
+          card += createStarRating(result.rating, result.num_ratings);  
+          card += '</div>';
+          card += '<div class="col-md-3" style="display: flex; align-items: center;">';
+          card += createFavoriteButton(result.in_favorite, isLoggedIn());
+          card += '</div>';
+          card += '<div class="col-md-2", style="display: flex; align-items: center;">';
+          card += createRatingDropdown(isLoggedIn());
+          card += '</div>';
+          card += '</div>';
+          card += '</li>';
+          return card;
+        };
+
+        let resultsHTML = '<h2>Search Results</h2>';
+        resultsHTML += '<ul class="list-group">';
+      
+        results.forEach((result) => {
+          resultsHTML += createResultCard(result);
+        });
+
+        resultsHTML += '</ul>';
+
+        const resultsContainer = document.getElementById('filter_results_places_container');
+        resultsContainer.innerHTML = resultsHTML;
+      }
+
+      function setFilterValues(){
+        categoryFilterSelected = $('#category').val();
+        searchFilterSelected = $('#search-filter-input').val();
+        optionsFilterSelected = getCheckedOptions();
+        tagsFilterselected = getAddedTags();
+      }
+
+      function setSearchBarValues(){
+        searchBarFilterSelected = $('#search-input').val();
+      }
+
+      function searchPlacesResultsHandler() {
+        // Filter the results based on the selected values
+        const filteredResults = allResults.filter((result) => {
+          if (categoryFilterSelected !== null){
+            if (!(categoryFilterSelected === 'All' || categoryFilterSelected === result.category)) {
+              return false;
+            }
           }
-
-          function setFilterValues(){
-            categoryFilterSelected = $('#category').val();
-            searchFilterSelected = $('#search-filter-input').val();
-            optionsFilterSelected = getCheckedOptions();
-            tagsFilterselected = getAddedTags();
+          if (optionsFilterSelected !== null){
+            if (!(optionsFilterSelected.includes(result.option))) {
+              return false;
+            }
           }
-
-          function setSearchBarValues(){
-            searchBarFilterSelected = $('#search-input').val();
+          if (searchFilterSelected !== null){
+            if (!(searchFilterSelected === result.name)) {
+              return false;
+            }
           }
-
-          function searchPlacesResultsHandler(event, allResults) {
-            // Filter the results based on the selected values
-            const filteredResults = allResults.filter((result) => {
-              if (categoryFilterSelected !== null){
-                if (!(categoryFilterSelected === 'All' || categoryFilterSelected === result.category)) {
-                  console.log("In categoryFilterSelected\n");
-                  return false;
-                }
-              }
-              if (optionsFilterSelected !== null){
-                if (!(optionsFilterSelected.includes(result.option))) {
-                  console.log("In optionsFilterSelected\n");
-                  return false;
-                }
-              }
-              if (searchFilterSelected !== null){
-                if (!(searchFilterSelected === result.name)) {
-                  console.log("In searchFilterSelected\n");
-                  return false;
-                }
-              }
-              if (tagsFilterselected !== null){
-                if (!(tagsFilterselected.includes(result.tag))) {
-                  console.log("In tagsFilterselected\n");
-                  return false;
-                }
-              }
-              if (searchBarFilterSelected !== null){
-                if (!(searchBarFilterSelected === result.name)) {
-                  console.log("In searchBarFilterSelected\n");
-                  return false;
-                }
-              }
-              console.log("In true\n");
-              return true;
-            });
-
-            // Display the filtered results
-            displayResults(filteredResults);
+          if (tagsFilterselected !== null){
+            if (!(tagsFilterselected.includes(result.tag))) {
+              return false;
+            }
           }
+          if (searchBarFilterSelected !== null){
+            if (!(searchBarFilterSelected === result.name)) {
+              return false;
+            }
+          }
+          return true;
+        });
 
-          // Event listener for the filter form
-          document.getElementById('search-bar-form').addEventListener('submit', (event) => {
-            event.preventDefault();
-            setSearchBarValues();
-            searchPlacesResultsHandler(event, allResults);
-          });
+        // Display the filtered results
+        displayResults(filteredResults);
+      }
 
-          // Event listener for the search bar
-          document.getElementById('search-input').addEventListener('submit', (event) => {
-            event.preventDefault();
-            setFilterValues();
-            searchPlacesResultsHandler(event, allResults);
-          });
-          
-      </script>
+      // Event listener for the search bar
+      document.getElementById('search-bar-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        setSearchBarValues();
+        searchPlacesResultsHandler();
+      });
+
+      
+      // Event listener for the filter form
+      document.getElementById('filter-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        setFilterValues();
+        console.log("In\n");
+        searchPlacesResultsHandler();
+      });
+      
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      // get the height of .nav1
+      var nav1Height = $('.nav1').height();
+      var nav2Height = $('.nav2').height();
+
+      // set the margin-top of .nav2 to the height of .nav1
+      $('.container-search').css('margin-top', nav1Height + nav2Height + 'px');
+    });
+  </script>
 {% endblock %}

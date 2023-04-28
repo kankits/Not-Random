@@ -15,9 +15,20 @@
         </div>
     </form>
 </div>
-      <script>
-      $(document).ready(function() {
-        searchInputHandler('search-input', 'search-results');
-      });
-      </script>
+    <script>
+    $(document).ready(function() {
+    searchInputHandler('search-input', 'search-results');
+    });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+        // get the height of .nav1
+        var nav1Height = $('.nav1').height();
+        var nav2Height = $('.nav2').height();
+
+        // set the margin-top of .nav2 to the height of .nav1
+        $('.container-search').css('margin-top', nav1Height + nav2Height + 'px');
+        });
+    </script>
 {% endblock %}

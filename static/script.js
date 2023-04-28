@@ -66,3 +66,79 @@ function getAddedTags() {
     });
   return tags;
 }
+
+function createStarRating(rating, numRatings) {
+  let stars = '<p>';
+  const fullStars = Math.floor(rating);
+  const halfStar = rating % 1 !== 0;
+  const emptyStars = 5 - fullStars - halfStar;
+  for (let i = 0; i < fullStars; i++) {
+    stars += '<i class="fas fa-star rating-star"></i>';
+  }
+  if (halfStar) {
+    stars += '<i class="fas fa-star-half-alt rating-star"></i>';
+  }
+  for (let i = 0; i < emptyStars; i++) {
+    stars += '<i class="far fa-star rating-star"></i>';
+  }
+  stars += `</p><br><p style="color: blue; font-size: small;">${numRatings} ratings</p>`;
+  return stars;
+}
+
+function createRatingDropdown(loggedIn) {
+  let dropdown = '<div class="dropdown">';
+  if (loggedIn) {
+    dropdown += '<button class="btn btn-primary dropdown-toggle" type="button" id="rating-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+  }
+  else{
+    dropdown += '<button class="btn btn-primary dropdown-toggle disabled" type="button" id="rating-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+  }
+  dropdown += '<i class="fas fa-thumbs-up fa-2x" style="color: goldenrod;"></i>';
+  dropdown += '</button>';
+  dropdown += '<div class="dropdown-menu" aria-labelledby="rating-dropdown">';
+  
+  for (let i = 5; i > 0; i--) {
+    dropdown += '<div class="dropdown-item">';
+    dropdown += `<label class="rating-label" for="rating-${i}">`;
+    dropdown += `<input type="radio" id="rating-${i}" name="rating" value="${i}">`;
+
+    for (let j = 0; j < i; j++) {
+      dropdown += '<i class="fas fa-star rating-star"></i>';
+    }
+
+    for (let j = 0; j < 5 - i; j++) {
+      dropdown += '<i class="far fa-star rating-star"></i>';
+    }
+    
+    dropdown += '</label>';
+    dropdown += '</div>';
+
+  }
+
+  dropdown += '</div>';
+  dropdown += '</div>';
+
+  return dropdown;
+}
+
+function createFavoriteButton(inFavorite, loggedIn) {
+  if (loggedIn) {
+    if (inFavorite) {
+      return '<button type="button" class="btn btn-primary"><i class="fas fa-heart fa-2x", style="padding-right: 10px;"></i>Add to Favorites</button>';
+    }
+    return '<button type="button" class="btn btn-primary"><i class="far fa-heart fa-2x", style="padding-right: 10px;"></i>Add to Favorites</button>';
+  }
+  else{
+    return '<button type="button" class="btn btn-primary disabled"><i class="fas fa-heart fa-2x", style="padding-right: 10px;"></i>Add to Favorites</button>';
+  }
+}
+
+// This is just some dummy data for demonstration purposes
+var allResults = [
+  { title: 'Book 1', category: 'Books', option: "option1", name: "abc", tag: "abc", place: "place1", city: "city1", state: "state1", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 5},
+  { title: 'Book 2', category: 'Books', option: "option2", name: "def", tag: "def", place: "place2", city: "city2", state: "state2", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 4},
+  { title: 'Electronics 1', category: 'Electronics', option: "option3", name: "ghi", tag: "ghi", place: "place3", city: "city3", state: "state3", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 3},
+  { title: 'Electronics 2', category: 'Electronics', option: "option1", name: "abc", tag: "abc", place: "place4", city: "city4", state: "state4", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 2},
+  { title: 'Clothing 1', category: 'Clothing', option: "option2", name: "def", tag: "def", place: "place5", city: "city5", state: "state5", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 1},
+  { title: 'Clothing 2', category: 'Clothing', option: "option3", name: "ghi", tag: "ghi", place: "place6", city: "city6", state: "state6", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 0}
+];

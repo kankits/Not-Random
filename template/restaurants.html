@@ -15,16 +15,27 @@
         </div>
     </form>
 </div> 
-      <script src = "static/script.js" defer></script>
-      <script>
-      $(document).ready(function() {
-        searchInputHandler('search-input', 'search-results');
-      });
-      
-      $(document).on('click', '.dropdown-item', function() {
-        var value = $(this).text();
-        $('#search-input').val(value);
-        $('#search-results').hide();
-      });
-      </script>
+    <script src = "static/script.js" defer></script>
+    <script>
+    $(document).ready(function() {
+    searchInputHandler('search-input', 'search-results');
+    });
+    
+    $(document).on('click', '.dropdown-item', function() {
+    var value = $(this).text();
+    $('#search-input').val(value);
+    $('#search-results').hide();
+    });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+        // get the height of .nav1
+        var nav1Height = $('.nav1').height();
+        var nav2Height = $('.nav2').height();
+
+        // set the margin-top of .nav2 to the height of .nav1
+        $('.container-search').css('margin-top', nav1Height + nav2Height + 'px');
+        });
+    </script>
 {% endblock %}
