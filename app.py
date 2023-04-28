@@ -41,9 +41,10 @@ def travel():
 @app.route('/search_places')
 def search_places():
     query = request.args.get('search')
+    username = request.args.get('user')
     # Perform search for Places and return results
     # ...
-    s = "select place, cityname, state, num_rating, rating, 0 as in_favourite from places, cities where places.cityid = cities.cityid and place like \'" + query + "\' || \'%\' limit 5"
+    s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + query + "\' || \'%\' limit 5"
     cur.execute(s)
     results = []
     columns = ["place", "cityname", "state", "num_rating", "rating", "in_favourite"]
@@ -52,8 +53,7 @@ def search_places():
         for i in range(6):
             l[columns[i]] = row[i]
         results.append(l)
-    print(results)
-    return render_template('places.html', results=jsonify({'data':results}))
+    return jsonify({'data': results})
 
 @app.route('/search_hotels')
 def search_hotels():
