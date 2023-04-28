@@ -96,30 +96,30 @@ function createRatingDropdown(loggedIn) {
   dropdown += '<i class="fas fa-thumbs-up fa-2x" style="color: goldenrod;"></i>';
   dropdown += '</button>';
   dropdown += '<div class="dropdown-menu" aria-labelledby="rating-dropdown">';
-  
-  for (let i = 5; i > 0; i--) {
-    dropdown += '<div class="dropdown-item">';
-    dropdown += `<label class="rating-label" for="rating-${i}">`;
-    dropdown += `<input type="radio" id="rating-${i}" name="rating" value="${i}">`;
-
-    for (let j = 0; j < i; j++) {
-      dropdown += '<i class="fas fa-star rating-star"></i>';
-    }
-
-    for (let j = 0; j < 5 - i; j++) {
-      dropdown += '<i class="far fa-star rating-star"></i>';
-    }
-    
-    dropdown += '</label>';
-    dropdown += '</div>';
-
+  dropdown += '<div class="rating-stars">';
+  for (let i = 1; i <= 5; i++) {
+    dropdown += `<i class="fas fa-star fa-1x rating-star-rate" data-value="${i}"></i>`;
   }
-
+  dropdown += '</div>';
   dropdown += '</div>';
   dropdown += '</div>';
 
   return dropdown;
 }
+
+// jQuery event handler for hovering over a star
+$(document).on('mouseenter', '.rating-star-rate', function() {
+  $(this).addClass('fas').removeClass('far');
+  $(this).prevAll('.rating-star-rate').addClass('fas').removeClass('far');
+  $(this).nextAll('.rating-star-rate').addClass('far').removeClass('fas');
+});
+
+// jQuery event handler for clicking on a star
+$(document).on('click', '.rating-star-rate', function() {
+  const rating = $(this).data('value');
+  console.log('Selected rating:', rating);
+  // TODO: Add code to submit rating to server or update UI
+});
 
 function createFavoriteButton(inFavorite, loggedIn) {
   if (loggedIn) {

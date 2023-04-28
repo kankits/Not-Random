@@ -195,9 +195,9 @@ a:hover {
   color: goldenrod;
 }
 
-/* .search_box_filter {
-  width: 100px;
-} */
+.rating-star-rate {
+  color: goldenrod;
+}
 
 .search_box_tag_filter {
   width: 220px;
