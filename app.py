@@ -1,5 +1,6 @@
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for
 import psycopg2
+import json
 
 # WSGI Application
 # Provide template folder name
@@ -62,12 +63,51 @@ def search_hotels():
     query = request.args.get('search')
     rent = request.args.get('maxRent')
     rating = request.args.get('minRating')
-    cities = request.args.get('citiesFilter')
-    facilities = request.args.get('facilitiesFilter')
-    print(type(facilities))
+    cities = json.loads(request.args.get('citiesFilter'))
+    facilities = json.loads(request.args.get('facilitiesFilter'))
+    print(facilities, cities)
     # Perform search for Hotels and return results
     # ...
-    s = "select hotelname,locality, cityname, starrating, freewifi, freebreakfast, hasswimmingpool, hoteldescription, hotelpincode, rent from hotels, cities where hotels.cityid = cities.cityid and hotelname like \'" + query + "\' || \'%\' limit 5"
+    a = ''
+    b = ''
+    c = ''
+    d = ''
+
+    if len(cities) > 0 : 
+        for i in range(len(cities)-1):
+            a += 'cities.cityname = ' + cities[i] + ' and '
+
+        if len(cities) > 0 :
+            a += 'cities.cityname = \'' + cities[-1] + '\''
+
+    if len(rating) > 0:
+        b = 'starrating >= ' + rating 
+
+    if len(rent) > 0:
+        c = 'rent <= ' + rent 
+    
+    if len(facilities) > 0 :
+        for i in range(len(facilities)-1) :
+            if i == 'Free Wifi' : d += 'freewifi = true and '
+            if i == "Free Breakfast" : d += 'freebreakfast = true and '
+            if i ==  "Swimming Pool" : d += 'hasswimmingpool = true and ' 
+        i = facilities[-1]
+        if i == 'Free Wifi' : d += 'freewifi = true '
+        if i == "Free Breakfast" : d += 'freebreakfast = true '
+        if i ==  "Swimming Pool" : d += 'hasswimmingpool = true ' 
+
+    cond = []
+    if len(a) > 0 : cond.append(a) 
+    if len(b) > 0 : cond.append(b)
+    if len(c) > 0 : cond.append(c)
+    if len(d) > 0 : cond.append(d)
+
+    conditions = ''
+
+    for i in range(len(cond)) : 
+        conditions += cond[i] + ' and '
+
+    s = "select hotelname,locality, cityname, starrating, freewifi, freebreakfast, hasswimmingpool, hoteldescription, hotelpincode, rent from hotels, cities where hotels.cityid = cities.cityid and " + conditions  + " hotelname like \'" + query + "\' || \'%\' limit 5"
     cur.execute(s)
     results = []
     columns = ["hotelname", "locality", "cityname", "starrating", "freewifi", "freebreakfast", "hasswimmingpool", "hoteldescription","hotelpincode", "rent"]
