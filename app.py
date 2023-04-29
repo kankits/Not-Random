@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, redirect, render_template, request, session, url_for
+from flask import Flask, jsonify, redirect, render_template, request, session, url_for, json
 import psycopg2
 
 # WSGI Application
@@ -98,19 +98,59 @@ def search_restaurants():
     query = request.args.get('search')
     # Perform search for Restaurants and return results
     # ...
-    s = "select name, locality, cuisine, rating, votes as num_rating from restaurants where name like \'" + query + "\' || \'%\';"
+    s = "select name, locality, cost, cuisine, rating, votes as num_rating from restaurants where name like \'" + query + "\' || \'%\';"
     print(s)
     cur.execute(s)
     results = []
-    columns = ["name", "locality", "cuisine", "rating", "num_rating"]
+    columns = ["name", "locality", "cost", "cuisine", "rating", "num_rating"]
     for row in cur:
         l = {}
         for i in range(len(columns)):
             l[columns[i]] = row[i]
             if columns[i] == 'cuisine':
                 l[columns[i]] = [i.strip() for i in l[columns[i]].split(',')]
+            if columns[i] == 'cost':
+                l[columns[i]] = "Rs. " + str(l[columns[i]])
         results.append(l)
     print(results)
+    return jsonify({'data': results})
+
+@app.route('/filter_restaurants')
+def filter_restaurants():
+    query = request.args.get('search')
+    maxCost = request.args.get('maxCost')
+    minRating = request.args.get('minRating')
+    cuisines = json.loads(request.args.get('cuisines'))
+    if(maxCost == ""):
+        maxCost = "1000000000"
+    if(minRating == ""):
+        minRating = "0"
+    
+    cuisineList = "("
+    for i in range(len(cuisines)):
+        cuisineList += "'"+cuisines[i]+"'"
+        if(i < len(cuisines) - 1):
+            cuisineList += ", "
+    cuisineList += ")"
+    
+    s = "with t1 as (\n    select distinct name, locality \n    from cuisines_table \n    where name like \'" + query + "\' || \'%\'"
+    if(len(cuisineList)>2):
+        s+=" and cuisine in " + cuisineList 
+    s+="\n)\nselect t1.name, t1.locality, cost, cuisine, rating, votes as num_rating \nfrom restaurants, t1 \nwhere t1.name = restaurants.name and t1.locality = restaurants.locality and rating >= " + minRating + " and cost <= " + maxCost
+    print(s)
+    cur.execute(s)
+    results = []
+    columns = ["name", "locality", "cost", "cuisine", "rating", "num_rating"]
+    for row in cur:
+        l = {}
+        for i in range(len(columns)):
+            l[columns[i]] = row[i]
+            if columns[i] == 'cuisine':
+                l[columns[i]] = [i.strip() for i in l[columns[i]].split(',')]
+            if columns[i] == 'cost':
+                l[columns[i]] = "Rs. " + str(l[columns[i]])
+        results.append(l)
+    # print(results)
     return jsonify({'data': results})
 
 
