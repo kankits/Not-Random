@@ -1,0 +1,205 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container-search">
+    <!-- Search form for places tab -->
+    <form class="form-container" id="search-bar-form">
+        <div class="form-group search_box" style="margin-left: 600px;">
+            <input type="text" class="form-control wide_search" name="search-input" id="search-input" placeholder="Search...">
+            <div class="search-results" id="search-results" style="display: none;">
+                <ul></ul>
+            </div>
+        </div>
+        <div class="form-group search_box">
+            <button type="submit" class="btn btn-default">Go</button>
+        </div>
+    </form>
+</div>
+<div class="container-results">    
+      <div class="row">
+        <div class="col-md-6 filter_results_places_container" id="filter_results_places_container">
+          <!-- Your search results go here -->
+        </div>
+
+        <div class="col-md-3 places_recommendations" style="background-color: transparent;" id="places_recommendations">
+          <script>
+            function displayPlacesRecommendations(results) {
+              const createPlaceRecommendationCard = (result) => {
+              let card = '<li class="list-group-item">';
+              card += '<div class="row">';
+              card += '<div class="col-md-7">';
+              card += `<h4>${result.place}</h4>`;
+              card += `<h5>${result.city}, ${result.state}</h5>`;    
+              card += '</div>';
+              card += '<div class="col-md-5">';
+              card += createStarRating(result.rating, result.num_ratings);  
+              card += '</div>';
+              card += '</div>';
+              card += '</li>';
+              return card;
+            };
+
+            let resultsHTML = '<h2>Places you might like</h2>';
+            resultsHTML += '<ul class="list-group" style="height: 720px; overflow-y: scroll;">';
+          
+            results.forEach((result) => {
+              resultsHTML += createPlaceRecommendationCard(result);
+            });
+
+            resultsHTML += '</ul>';
+
+            const resultsContainer = document.getElementById('places_recommendations');
+            resultsContainer.innerHTML = resultsHTML;
+            }
+            // This is just some dummy data for demonstration purposes
+            var allResults = [
+              { title: 'Book 1', category: 'Books', option: "option1", name: "abc", tag: "abc", place: "place1", city: "city1", state: "state1", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 5},
+              { title: 'Book 2', category: 'Books', option: "option2", name: "def", tag: "def", place: "place2", city: "city2", state: "state2", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 4},
+              { title: 'Electronics 1', category: 'Electronics', option: "option3", name: "ghi", tag: "ghi", place: "place3", city: "city3", state: "state3", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 3},
+              { title: 'Electronics 2', category: 'Electronics', option: "option1", name: "abc", tag: "abc", place: "place4", city: "city4", state: "state4", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 2},
+              { title: 'Clothing 1', category: 'Clothing', option: "option2", name: "def", tag: "def", place: "place5", city: "city5", state: "state5", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 1},
+              { title: 'Clothing 2', category: 'Clothing', option: "option3", name: "ghi", tag: "ghi", place: "place6", city: "city6", state: "state6", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 0}
+            ];
+
+            displayPlacesRecommendations(allResults)
+          </script>
+        </div>
+      </div>
+</div>
+</div>
+
+  <script>
+  $(document).ready(function() {
+    searchInputHandler('search-input', 'search-results', 'places', 'place');
+  });
+  </script>
+
+  <script>
+  // drop down search logic
+  $(document).ready(function() {
+    searchInputHandler('search-filter-input', 'search-filter-results');
+  });
+  </script>
+
+  <script>
+  // drop down search logic
+  $(document).ready(function() {
+    searchInputHandler('search-tag-filter-input', 'search-tag-filter-results');
+  });
+  
+  $(document).on('click', '.dropdown-item', function() {
+    var value = $(this).text();
+    $('#search-tag-filter-input').val(value);
+    $('#search-tag-filter-results').hide();
+  });
+  </script>
+
+  <script>
+    let search_query = null;
+    let state = null;
+    let city = null;
+
+    function isLoggedIn() {
+      var sessionString = '{{ session|tojson }}';
+      var sessionObj = JSON.parse(sessionString);
+      if ('user' in sessionObj) {
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+
+    function getUsername() {
+      if(isLoggedIn()) {
+        var sessionString = '{{ session|tojson }}';
+        var sessionObj = JSON.parse(sessionString);
+        return sessionObj['user']
+      } else {
+        return "";
+      }
+    }
+      
+      // Function to display the search results on the page
+      function displayResults(results) {
+        const createResultCard = (result) => {
+          let card = '<li class="list-group-item">';
+          card += '<div class="row">';
+          card += '<div class="col-md-4">';
+          card += `<h4>${result.place}</h4>`;
+          card += `<h5>${result.cityname}, ${result.state}</h5>`;    
+          card += '</div>';
+          card += '<div class="col-md-3">';
+          card += createStarRating(result.rating, result.num_rating);  
+          card += '</div>';
+          card += '<div class="col-md-3" style="display: flex; align-items: center;">';
+          card += createFavoriteButton(result.in_favourite, isLoggedIn());
+          card += '</div>';
+          card += '<div class="col-md-2", style="display: flex; align-items: center;">';
+          card += createRatingDropdown(isLoggedIn());
+          card += '</div>';
+          card += '</div>';
+          card += '</li>';
+          return card;
+        };
+
+        let resultsHTML = '<h2>Search Results</h2>';
+        resultsHTML += '<ul class="list-group">';
+      
+        results.forEach((result) => {
+          resultsHTML += createResultCard(result);
+        });
+
+        resultsHTML += '</ul>';
+
+        const resultsContainer = document.getElementById('filter_results_places_container');
+        resultsContainer.innerHTML = resultsHTML;
+      }
+
+      function searchPlacesResultsHandler() {
+
+        // Display the filtered results
+        // displayResults(filteredResults);
+          $.ajax({
+          type: 'GET',
+          url: '/search_places',
+          data: {'search_query': search_query, 'state': state, 'city': city, 'user': getUsername()},
+          success: function(response) {
+            var results = response.data;
+            for (var i = 0; i < results.length; i++) {
+              var item = $('<li>').text(results[i]);
+              console.log(results[i]+'\n');
+            }
+            displayResults(results);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      }
+
+      // Event listener for the search bar
+      document.getElementById('search-bar-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const queryParams = new URLSearchParams(window.location.search);
+        queryParams.set('search_query', $('#search-input').val());
+        window.location.href = `${"{{ url_for('places_results') }}"}?${queryParams.toString()}`;
+      });
+      search_query = "{{ search_query }}";
+      state = "{{ state }}";
+      city = "{{ city }}";
+      searchPlacesResultsHandler();
+      
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      // get the height of .nav1
+      var nav1Height = $('.nav1').height();
+      var nav2Height = $('.nav2').height();
+
+      // set the margin-top of .nav2 to the height of .nav1
+      $('.container-search').css('margin-top', nav1Height + nav2Height + 'px');
+    });
+  </script>
+{% endblock %}

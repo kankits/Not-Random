@@ -9,12 +9,10 @@
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" /> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src = "{{ url_for('static', filename='script.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <!-- <script>
-      var sessionData = "{{ session|tojson }}";
-    </script> -->
     
   </head>
   <body style="background-color:#f0f0f0">
@@ -48,7 +46,7 @@
     <!-- Navigation bar with tabs -->
     <nav class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top nav2">
     <ul class="nav nav-tabs">
-      <li {% if active_tab == "places" %}class="active"{% endif %}><a href="/places">Places</a></li>
+      <li {% if active_tab == "places" %}class="active"{% endif %}><a href="/places_states">Places</a></li>
       <li {% if active_tab == "hotels" %}class="active"{% endif %}><a href="/hotels">Hotels</a></li>
       <li {% if active_tab == "restaurants" %}class="active"{% endif %}><a href="/restaurants">Restaurants</a></li>
       <li {% if active_tab == "travel" %}class="active"{% endif %}><a href="/travel">Travel</a></li>

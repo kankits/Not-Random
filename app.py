@@ -22,39 +22,67 @@ cur = conn.cursor()
 def index():
     return render_template('index.html')
 
-@app.route("/places")
-def places():
-    return render_template("places.html", active_tab="places")
+
+@app.route("/places_results")
+def places_results():
+    state = request.args.get('state')
+    city = request.args.get('city')
+    search_query = request.args.get('search_query')
+    return render_template("places_results.html", active_tab="places", search_query=search_query, state=state, city=city)
+
+
+@app.route("/places_states")
+def places_states():
+    return render_template("places_states.html", active_tab="places")
+
+
+@app.route("/places_cities")
+def places_cities():
+    state = request.args.get('state')
+    return render_template("places_cities.html", active_tab="places", state=state)
+
 
 @app.route("/hotels")
 def hotels():
     return render_template("hotels.html", active_tab="hotels")
 
+
 @app.route("/restaurants")
 def restaurants():
     return render_template("restaurants.html", active_tab="restaurants")
+
 
 @app.route("/travel")
 def travel():
     return render_template("travel.html", active_tab="travel")
 
+
 @app.route('/search_places')
 def search_places():
-    query = request.args.get('search')
+    search_query = request.args.get('search_query')
+    state = request.args.get('state')
+    city = request.args.get('city')
     username = request.args.get('user')
     # Perform search for Places and return results
     # ...
-    s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + query + "\' || \'%\' limit 5"
-    print(s)
+    if state == "" and city == "":
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' limit 5"
+    elif city == "":
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' limit 5"
+    else:
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' and cityname = \'" + city + "\' limit 5"
+    
     cur.execute(s)
     results = []
-    columns = ["place", "cityname", "state", "num_rating", "rating", "in_favourite"]
+    columns = ["place", "cityname", "state",
+               "num_rating", "rating", "in_favourite"]
     for row in cur:
         l = {}
         for i in range(len(columns)):
             l[columns[i]] = row[i]
         results.append(l)
     return jsonify({'data': results})
+
 
 @app.route('/search_hotels')
 def search_hotels():
@@ -63,6 +91,7 @@ def search_hotels():
     # ...
     results = ['search_hotels']
     return render_template('hotels.html', results=results)
+
 
 @app.route('/search_restaurants')
 def search_restaurants():
@@ -83,6 +112,7 @@ def search_restaurants():
         results.append(l)
     print(results)
     return jsonify({'data': results})
+
 
 @app.route('/search_travel')
 def search_travel():
@@ -127,13 +157,15 @@ def search_travel():
     print(results)    
     return jsonify({'data': results})
 
+
 def get_candidate_values(column, table, query):
-    s = "select " + column + " from " + table + " where " + column + " like \'" + query +  "\' || \'%\' limit 5"
+    s = "select " + column + " from " + table + " where " + \
+        column + " like \'" + query + "\' || \'%\' limit 5"
     print(s)
     cur.execute(s)
     # values = ['abc', 'def', 'ghi']
     return [row[0] for row in cur]
-    #return ["abc", "def", "ijk"]
+    # return ["abc", "def", "ijk"]
 
 
 @app.route('/get_candidate_values')
@@ -146,7 +178,9 @@ def get_candidate_values_route():
 
 # Temporary Users table
 
+
 Users = {"admin": "admin"}
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -166,6 +200,8 @@ def login():
         return render_template('login.html')
 
 # signup page
+
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if 'user' in session:
@@ -190,6 +226,8 @@ def signup():
         return render_template('signup.html')
 
 # dashboard page (requires authentication)
+
+
 @app.route('/dashboard')
 def dashboard():
     if 'user' in session:
@@ -198,7 +236,31 @@ def dashboard():
         return redirect(url_for('login'))
 
 # logout
+
+
 @app.route('/logout')
 def logout():
     session.pop('user', None)
     return redirect(url_for('login'))
+
+# get states
+
+
+@app.route('/get_states')
+def get_states():
+    cur.execute(
+        "SELECT DISTINCT state FROM cities, places WHERE places.cityid = cities.cityid ORDER BY state ASC")
+    # cur.execute("SELECT DISTINCT cityname FROM cities WHERE state = \'Karnataka\'")
+    states = cur.fetchall()
+    return jsonify({'data': states})
+
+
+@app.route('/get_cities')
+def get_cities():
+    state = request.args.get('state')
+    print(state)
+    cur.execute("SELECT DISTINCT cityname FROM cities, places WHERE places.cityid = cities.cityid AND state = \'" +
+                state + "\' ORDER BY cityname ASC")
+    cities = cur.fetchall()
+    print(cities)
+    return jsonify({'data': cities})
