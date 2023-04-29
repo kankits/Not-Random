@@ -58,6 +58,12 @@
     });
   </script>
 
+
+<div class="container-results">    
+  <div class="row">
+    <div class="col-md-6 filter_results_places_container" id="filter_results_travel_container">
+      <!-- Your search results go here -->
+  </div>
   <script>
   let src = null;
   let dst = null;
@@ -71,6 +77,43 @@
     trdetails = document.getElementById("checkbox").checked;
   }
 
+  function displayResults(results) {
+    const createResultCard = (result) => {
+      let card = '<li class="list-group-item">';
+      card += '<div class="row">';
+      card += '<div class="col-md-3">';
+      card += '<ul>';
+      for (var i = 0; i < result.path.length; i++){
+        if(i%2 == 1) {
+          card += '<li class="badge_tag">'+result.path[i];
+          card += '</li>';          
+        } else {
+          card += '<li>'+result.path[i];
+          card += '</li>';
+        }
+
+      };
+      card += '</ul>';
+      card += '</div>';
+      card += '</div>';
+      card += '</li>';
+      
+      return card;
+    };
+
+    let resultsHTML = '<h2>Search Results</h2>';
+    resultsHTML += '<ul class="list-group">';
+  
+    results.forEach((result) => {
+      resultsHTML += createResultCard(result);
+    });
+
+    resultsHTML += '</ul>';
+
+    const resultsContainer = document.getElementById('filter_results_travel_container');
+    resultsContainer.innerHTML = resultsHTML;
+  }
+
   function searchTravelResultsHandler() {
     $.ajax({
       type: 'GET',
@@ -78,11 +121,13 @@
       data: {'src': src, 'dst': dst, 'mode': mode, 'trdetails': trdetails},
       success: function(response) {
         var results = response.data;
+        console.log(results.length);
         for (var i = 0; i < results.length; i++) {
           var item = $('<li>').text(results[i]);
-          console.log(results[i]+'\n');
+          console.log(results[i].path+'\n'); 
+          console.log(results[i].path.length+'\n');
         }
-        // displayResults(results);
+        displayResults(results);
       },
       error: function(error) {
         console.log(error);
@@ -108,4 +153,5 @@
     $('.container-search').css('margin-top', nav1Height + nav2Height + 'px');
     });
   </script>
+</div>
 {% endblock %}
