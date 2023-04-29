@@ -23,6 +23,27 @@
 
         <div class="col-md-3 places_recommendations" style="background-color: transparent;" id="places_recommendations">
           <script>
+            function isLoggedIn() {
+              var sessionString = '{{ session|tojson }}';
+              var sessionObj = JSON.parse(sessionString);
+              if ('user' in sessionObj) {
+                return true;
+              }
+              else{
+                return false;
+              }
+            }
+
+            function getUsername() {
+              if(isLoggedIn()) {
+                var sessionString = '{{ session|tojson }}';
+                var sessionObj = JSON.parse(sessionString);
+                return sessionObj['user']
+              } else {
+                return "";
+              }
+            }
+
             function displayPlacesRecommendations(results) {
               const createPlaceRecommendationCard = (result) => {
               let card = '<li class="list-group-item">';
@@ -32,7 +53,7 @@
               card += `<h5>${result.city}, ${result.state}</h5>`;    
               card += '</div>';
               card += '<div class="col-md-5">';
-              card += createStarRating(result.rating, result.num_ratings);  
+              card += createStarRating(result.rating, result.num_rating);  
               card += '</div>';
               card += '</div>';
               card += '</li>';
@@ -51,17 +72,19 @@
             const resultsContainer = document.getElementById('places_recommendations');
             resultsContainer.innerHTML = resultsHTML;
             }
-            // This is just some dummy data for demonstration purposes
-            var allResults = [
-              { title: 'Book 1', category: 'Books', option: "option1", name: "abc", tag: "abc", place: "place1", city: "city1", state: "state1", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 5},
-              { title: 'Book 2', category: 'Books', option: "option2", name: "def", tag: "def", place: "place2", city: "city2", state: "state2", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 4},
-              { title: 'Electronics 1', category: 'Electronics', option: "option3", name: "ghi", tag: "ghi", place: "place3", city: "city3", state: "state3", rating: 4.5, num_ratings: 100, in_favorite: true, given_rating: 3},
-              { title: 'Electronics 2', category: 'Electronics', option: "option1", name: "abc", tag: "abc", place: "place4", city: "city4", state: "state4", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 2},
-              { title: 'Clothing 1', category: 'Clothing', option: "option2", name: "def", tag: "def", place: "place5", city: "city5", state: "state5", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 1},
-              { title: 'Clothing 2', category: 'Clothing', option: "option3", name: "ghi", tag: "ghi", place: "place6", city: "city6", state: "state6", rating: 4.5, num_ratings: 100, in_favorite: false, given_rating: 0}
-            ];
 
-            displayPlacesRecommendations(allResults)
+            $.ajax({
+              type: 'GET',
+              url: '/get_places_recommendations',
+              data: {'user': getUsername()},
+              success: function(response) {
+                var results = response.data;
+                displayPlacesRecommendations(results);
+              },
+              error: function(error) {
+                console.log(error);
+              }
+            });
           </script>
         </div>
       </div>
@@ -160,16 +183,12 @@
 
         // Display the filtered results
         // displayResults(filteredResults);
-          $.ajax({
+        $.ajax({
           type: 'GET',
           url: '/search_places',
           data: {'search_query': search_query, 'state': state, 'city': city, 'user': getUsername()},
           success: function(response) {
             var results = response.data;
-            for (var i = 0; i < results.length; i++) {
-              var item = $('<li>').text(results[i]);
-              console.log(results[i]+'\n');
-            }
             displayResults(results);
           },
           error: function(error) {
