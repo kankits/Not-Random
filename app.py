@@ -277,16 +277,29 @@ def get_cities():
 
 @app.route('/get_places_recommendations')
 def get_places_recommendations():
+
     username = request.args.get('user')
-    print("In")
+
+    q1 = "select place, cityname, state, rating, num_rating from places, cities where places.cityid = cities.cityid and num_rating >= 50 order by rating desc, num_rating desc limit 20"
+    q2 = "with t1 as (select Place, cityid from FavouritePlaces where username = \'" + username + "\'), t2 as (select username, count(*) as num_overlaps from FavouritePlaces, t1 where t1.Place = FavouritePlaces.Place and t1.cityid = FavouritePlaces.cityid group by username), t3 as (select place, cityid, sum(power(2, num_overlaps)) as weight from FavouritePlaces, t2 where (place, cityid) not in (select place, cityid from t1) and t2.username = FavouritePlaces.username group by place, cityid) select t3.place, cityname, state, rating, num_rating from t3, places, cities where t3.place = places.place and t3.cityid = places.cityid and t3.cityid = cities.cityid order by weight desc, rating desc, num_rating desc, place asc, t3.cityid asc limit 20"
+
     if username == '':        
-        query = "select place, cityname, state, rating, num_rating from places, cities where places.cityid = cities.cityid and num_rating > 10 order by rating desc, num_rating desc limit 20"
+        query = q1
     else:
-        query = "with t1 as (select Place, cityid from FavouritePlaces where username = \'" + username + "\'), t2 as (select username, count(*) as num_overlaps from FavouritePlaces, t1 where t1.Place = FavouritePlaces.Place and t1.cityid = FavouritePlaces.cityid group by username), t3 as (select place, cityid, sum(power(2, num_overlaps)) as weight from FavouritePlaces, t2 where (place, cityid) not in (select place, cityid from t1) and t2.username = FavouritePlaces.username group by place, cityid) select t3.place, cityname, state, rating, num_rating from t3, places, cities where t3.place = places.place and t3.cityid = places.cityid and t3.cityid = cities.cityid order by weight desc, rating desc, num_rating desc, place asc, t3.cityid asc limit 20"
+        query = q2
 
     cursor = conn.cursor()
     cursor.execute(query)
     data = cursor.fetchall()
     cursor.close()
+
     columns = ['place', 'city', 'state', 'rating', 'num_rating']
-    return parse_data(data, columns)
+
+    if len(data) == 0:
+        cursor = conn.cursor()
+        cursor.execute(q1)
+        data = cursor.fetchall()
+        cursor.close()
+        return parse_data(data, columns)
+    else:
+        return parse_data(data, columns)
