@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, redirect, render_template, request, session, url_for, json
+import hashlib
 import psycopg2
 import json
 
@@ -291,9 +292,18 @@ def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        hashPass = str(hashlib.sha256(password.encode()).hexdigest())
+
+        s = "select * from users\nwhere username = '" + username + "' and password = '" + hashPass + "'"
+        print(s)
+        cur.execute(s)
+        count = 0
+        for _ in cur:
+            count+=1
+        print(count)
 
         # check if user exists and password is correct
-        if username in Users.keys() and Users[username] == password:
+        if count > 0:
             session['user'] = username
             return redirect(url_for('dashboard'))
         else:
@@ -311,18 +321,31 @@ def signup():
     elif request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        name = request.form['name']
         confirm_password = request.form['confirm_password']
 
         if password != confirm_password:
             return render_template('signup.html', error='Passwords do not match')
+        
+        if len(password) < 8:
+            return render_template('signup.html', error='Passwords length must be atleast 8 characters')
 
         # check if user already exists
-        if username in Users.keys():
+        s = "select * from users\nwhere username = '" + username + "'"
+        print(s)
+        cur.execute(s)
+        count = 0
+        for _ in cur:
+            count+=1
+        if count > 0:
             return render_template('signup.html', error='Username already taken')
         else:
             # create new user
-            Users[username] = password
-            session['user'] = username
+            hashPass = str(hashlib.sha256(password.encode()).hexdigest())
+            s = "insert into users values('" + username + "', '" + name + "', '" + hashPass + "')"
+            cur.execute(s)
+            conn.commit()
+            print(s)
             return redirect(url_for('dashboard'))
     else:
         return render_template('signup.html')
