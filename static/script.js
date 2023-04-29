@@ -91,7 +91,7 @@ function createStarRating(rating, numRatings) {
   }
   if (numRatings >= 0) {
     stars += `</p><p style="color: goldenrod; font-size: normal;">${Math.round(rating * 10) / 10}</p>`;
-    stars += `</p><br><p style="color: blue; font-size: small;">${numRatings} ratings</p>`;
+    stars += `</p><p style="color: blue; font-size: small;">${numRatings} ratings</p>`;
   }
   return stars;
 }
