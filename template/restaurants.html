@@ -129,6 +129,7 @@
       var cuisines = [];
       let maxCost = null;
       let minRating = null;
+      let locality = null;
 
       function setSearchBarValues(){
         searchBarFilterSelected = $('#search-input').val();
@@ -223,6 +224,23 @@
         });        
       }
 
+      function searchRecommendationHandler() {
+        if(locality!==null) {
+          $.ajax({
+          type: 'GET',
+          url: '/recommend_restaurants',
+          data: {'locality': locality},
+          success: function(response) {
+            var results = response.data;
+            displayResults(results);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });           
+        }
+      }
+
       // Event listener for the search bar
       document.getElementById('search-bar-form').addEventListener('submit', (event) => {
         event.preventDefault();
@@ -235,5 +253,8 @@
         setFilerValues();
         searchFilterRestaurantsResultsHandler();
       });
+      const queryParams = new URLSearchParams(window.location.search);
+      locality = queryParams.get('locality');
+      searchRecommendationHandler();
   </script>
   {% endblock %}

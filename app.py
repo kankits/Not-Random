@@ -216,6 +216,28 @@ def filter_restaurants():
     # print(results)
     return jsonify({'data': results})
 
+@app.route('/recommend_restaurants')
+def recommend_restaurants():
+    locality = request.args.get('locality')
+    # Perform search for Restaurants and return results
+    # ...
+    s = "with T2 as(\n    select name, restaurants.locality, cost, cuisine, rating, votes as num_rating, '" + locality+"'::text as hotel_locality,regexp_split_to_table(restaurants.locality, ',') as restaurant_locality\n    from restaurants\n)\nselect name, locality, cost, cuisine, rating, num_rating \nfrom T2 \nwhere position( LOWER(TRIM(restaurant_locality) ) in LOWER(hotel_locality)) > 0;"
+    print(s)
+    cur.execute(s)
+    results = []
+    columns = ["name", "locality", "cost", "cuisine", "rating", "num_rating"]
+    for row in cur:
+        l = {}
+        for i in range(len(columns)):
+            l[columns[i]] = row[i]
+            if columns[i] == 'cuisine':
+                l[columns[i]] = [i.strip() for i in l[columns[i]].split(',')]
+            if columns[i] == 'cost':
+                l[columns[i]] = "Rs. " + str(l[columns[i]])
+        results.append(l)
+    print(results)
+    return jsonify({'data': results})
+
 
 @app.route('/search_travel')
 def search_travel():
