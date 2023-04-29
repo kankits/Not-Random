@@ -90,9 +90,9 @@ function createStarRating(rating, numRatings) {
     stars += '<i class="far fa-star rating-star"></i>';
   }
   if (numRatings >= 0) {
+    stars += `</p><p style="color: goldenrod; font-size: normal;">${Math.round(rating * 10) / 10}</p>`;
     stars += `</p><br><p style="color: blue; font-size: small;">${numRatings} ratings</p>`;
   }
-    
   return stars;
 }
 

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, redirect, render_template, request, session, url_for
+from flask import Flask, jsonify, redirect, render_template, request, session, url_for, json
 import psycopg2
 import json
 
@@ -18,45 +18,78 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
+def parse_data(data, columns):
+    results = []
+    for row in data:
+        l = {}
+        for i in range(len(columns)):
+            l[columns[i]] = row[i]
+        results.append(l)
+    return jsonify({'data': results})
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route("/places")
-def places():
-    return render_template("places.html", active_tab="places")
+
+@app.route("/places_results")
+def places_results():
+    state = request.args.get('state')
+    city = request.args.get('city')
+    search_query = request.args.get('search_query')
+    return render_template("places_results.html", active_tab="places", search_query=search_query, state=state, city=city)
+
+
+@app.route("/places_states")
+def places_states():
+    return render_template("places_states.html", active_tab="places")
+
+
+@app.route("/places_cities")
+def places_cities():
+    state = request.args.get('state')
+    return render_template("places_cities.html", active_tab="places", state=state)
+
 
 @app.route("/hotels")
 def hotels():
     return render_template("hotels.html", active_tab="hotels")
 
+
 @app.route("/restaurants")
 def restaurants():
     return render_template("restaurants.html", active_tab="restaurants")
+
 
 @app.route("/travel")
 def travel():
     return render_template("travel.html", active_tab="travel")
 
+
 @app.route('/search_places')
 def search_places():
-    query = request.args.get('search')
+    search_query = request.args.get('search_query')
+    state = request.args.get('state')
+    city = request.args.get('city')
+    username = request.args.get('user')
     # Perform search for Places and return results
     # ...
-    s = "select place, cityname, state, num_rating, rating, 0 as in_favourite from places, cities where places.cityid = cities.cityid and place like \'" + query + "\' || \'%\' limit 5"
-    cur.execute(s)
-    results = []
-    columns = ["place", "cityname", "state", "num_rating", "rating", "in_favourite"]
-    for row in cur:
-        l = {}
-        for i in range(6):
-            l[columns[i]] = row[i]
-        results.append(l)
-    # print(results)
-    # results = [row[0] for row in cur]
-    #return render_template('places.html', results=jsonify({'data':results}))
-    return jsonify({'data': results})
+    if state == "" and city == "":
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' limit 5"
+    elif city == "":
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' limit 5"
+    else:
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' and cityname = \'" + city + "\' limit 5"
+    
+    cursor = conn.cursor()
+    cursor.execute(s)
+    data = cursor.fetchall()
+    cursor.close()
+    columns = ["place", "cityname", "state",
+               "num_rating", "rating", "in_favourite"]
+    
+    return parse_data(data, columns)
+
 
 @app.route('/search_hotels')
 def search_hotels():
@@ -121,29 +154,120 @@ def search_hotels():
     # return render_template('hotels.html', results=results)
     return jsonify({'data': results})
 
+
 @app.route('/search_restaurants')
 def search_restaurants():
     query = request.args.get('search')
     # Perform search for Restaurants and return results
     # ...
-    results = ['search_restaurants']
-    return render_template('restaurants.html', results=results)
+    s = "select name, locality, cost, cuisine, rating, votes as num_rating from restaurants where name like \'" + query + "\' || \'%\';"
+    print(s)
+    cur.execute(s)
+    results = []
+    columns = ["name", "locality", "cost", "cuisine", "rating", "num_rating"]
+    for row in cur:
+        l = {}
+        for i in range(len(columns)):
+            l[columns[i]] = row[i]
+            if columns[i] == 'cuisine':
+                l[columns[i]] = [i.strip() for i in l[columns[i]].split(',')]
+            if columns[i] == 'cost':
+                l[columns[i]] = "Rs. " + str(l[columns[i]])
+        results.append(l)
+    print(results)
+    return jsonify({'data': results})
+
+@app.route('/filter_restaurants')
+def filter_restaurants():
+    query = request.args.get('search')
+    maxCost = request.args.get('maxCost')
+    minRating = request.args.get('minRating')
+    cuisines = json.loads(request.args.get('cuisines'))
+    if(maxCost == ""):
+        maxCost = "1000000000"
+    if(minRating == ""):
+        minRating = "0"
+    
+    cuisineList = "("
+    for i in range(len(cuisines)):
+        cuisineList += "'"+cuisines[i]+"'"
+        if(i < len(cuisines) - 1):
+            cuisineList += ", "
+    cuisineList += ")"
+    
+    s = "with t1 as (\n    select distinct name, locality \n    from cuisines_table \n    where name like \'" + query + "\' || \'%\'"
+    if(len(cuisineList)>2):
+        s+=" and cuisine in " + cuisineList 
+    s+="\n)\nselect t1.name, t1.locality, cost, cuisine, rating, votes as num_rating \nfrom restaurants, t1 \nwhere t1.name = restaurants.name and t1.locality = restaurants.locality and rating >= " + minRating + " and cost <= " + maxCost
+    print(s)
+    cur.execute(s)
+    results = []
+    columns = ["name", "locality", "cost", "cuisine", "rating", "num_rating"]
+    for row in cur:
+        l = {}
+        for i in range(len(columns)):
+            l[columns[i]] = row[i]
+            if columns[i] == 'cuisine':
+                l[columns[i]] = [i.strip() for i in l[columns[i]].split(',')]
+            if columns[i] == 'cost':
+                l[columns[i]] = "Rs. " + str(l[columns[i]])
+        results.append(l)
+    # print(results)
+    return jsonify({'data': results})
+
 
 @app.route('/search_travel')
 def search_travel():
-    query = request.args.get('search')
+    src = request.args.get('src')
+    dst = request.args.get('dst')
+    displayTransportDetails = request.args.get('trdetails')
+    mode = request.args.get('mode')
+    s = ""
+    columns = ["path", "length"]
+    if(displayTransportDetails == "false"):
+        s += "with recursive t3 as (\n    "
+        if(mode != "Train"):
+            s += "select distinct source_cityid as source, destination_cityid as destination, 'Flight' as typeOfTravel\n    from flights"
+        if(mode == "Both"):
+            s += "\n\n    union\n\n    "
+        if(mode != "Flight"):
+            s+="select distinct s1.cityid as source, s2.cityid as destination, 'Train' as typeOfTravel\n    from stations as s1, stations as s2, trainpath as x1, trainpath as x2, traininfo\n    where x1.train_no = x2.train_no and x1.seq < x2.seq and x1.station_code = s1.station_code and\n          x2.station_code = s2.station_code and x1.train_no = traininfo.train_no"
+        s += "\n),\nt1 as (\n    select c1.cityname as source, c2.cityname as destination, typeOfTravel\n    from t3, cities as c1, cities as c2\n    where t3.source = c1.cityid and t3.destination = c2.cityid\n),\nt2(dst, path, len) as (\n    select t1.destination, ARRAY[t1.source::text, t1.typeOfTravel::text, t1.destination::text] as path, 1 as len\n    from t1\n    where t1.source = \'" + src + "\'\n\n    union all\n\n    select f.destination, (g.path || ARRAY[f.typeOfTravel::text, f.destination::text]), g.len + 1\n    from t1 as f join t2 as g on f.source = g.dst and f.destination != ALL(g.path) and g.len < 3\n)\n"
+        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len limit 5;"
+        # s+="select * from t1 where source = 'Kolkata' and destination = 'Mumbai'"
+    else:
+        s += "with recursive t3 as (\n    "
+        if(mode != "Train"):
+            s += "select source_cityid as source, destination_cityid as destination, 'Flight' as typeOfTravel,\n           flight_number || ' , ' ||airline as transportid\n    from flights"
+        if(mode == "Both"):
+            s += "\n\n    union\n\n    "
+        if(mode != "Flight"):
+            s+="select s1.cityid as source, s2.cityid as destination, 'Train' as typeOfTravel,\n           traininfo.train_no || ' , ' || traininfo.train_name as transportid\n    from stations as s1, stations as s2, trainpath as x1, trainpath as x2, traininfo\n    where x1.train_no = x2.train_no and x1.seq < x2.seq and x1.station_code = s1.station_code and\n          x2.station_code = s2.station_code and x1.train_no = traininfo.train_no"
+        s += "\n),\nt1 as (\n    select c1.cityname as source, c2.cityname as destination, typeOfTravel, transportid\n    from t3, cities as c1, cities as c2\n    where t3.source = c1.cityid and t3.destination = c2.cityid\n),\nt2(dst, path, len) as (\n    select t1.destination, ARRAY[t1.source::text, t1.typeOfTravel::text, t1.transportid::text, t1.destination::text] as path, 1 as len\n    from t1\n    where t1.source = \'" + src + "\'\n\n    union all\n\n    select f.destination, (g.path || ARRAY[f.typeOfTravel::text, f.transportid::text, f.destination::text]), g.len + 1\n    from t1 as f join t2 as g on f.source = g.dst and f.destination != ALL(g.path) and g.len < 2\n)\n"
+        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len limit 5;"
+        # s+="select * from t1 where source = 'Kolkata' and destination = 'Mumbai'"
     # Perform search for Travel and return results
     # ...
-    results = ['search_travel']
-    return render_template('travel.html', results=results)
+    print(s)
+    cur.execute(s)
+    results = []
+    for row in cur:
+        l = {}
+        for i in range(len(columns)):
+            l[columns[i]] = row[i]
+        results.append(l)
+    print(results)    
+    return jsonify({'data': results})
+
 
 def get_candidate_values(column, table, query):
-    s = "select " + column + " from " + table + " where " + column + " like \'" + query +  "\' || \'%\' limit 5"
+    s = "select " + column + " from " + table + " where " + \
+        column + " like \'" + query + "\' || \'%\' limit 5"
     print(s)
     cur.execute(s)
     # values = ['abc', 'def', 'ghi']
     return [row[0] for row in cur]
-    #return ["abc", "def", "ijk"]
+    # return ["abc", "def", "ijk"]
 
 
 @app.route('/get_candidate_values')
@@ -156,7 +280,9 @@ def get_candidate_values_route():
 
 # Temporary Users table
 
+
 Users = {"admin": "admin"}
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -176,6 +302,8 @@ def login():
         return render_template('login.html')
 
 # signup page
+
+
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if 'user' in session:
@@ -200,6 +328,8 @@ def signup():
         return render_template('signup.html')
 
 # dashboard page (requires authentication)
+
+
 @app.route('/dashboard')
 def dashboard():
     if 'user' in session:
@@ -208,7 +338,64 @@ def dashboard():
         return redirect(url_for('login'))
 
 # logout
+
+
 @app.route('/logout')
 def logout():
     session.pop('user', None)
     return redirect(url_for('login'))
+
+# get states
+
+
+@app.route('/get_states')
+def get_states():
+    query = "SELECT DISTINCT state FROM cities, places WHERE places.cityid = cities.cityid ORDER BY state ASC"
+
+    cursor = conn.cursor()
+    cursor.execute(query)
+    states = cursor.fetchall()
+    cursor.close()
+    return jsonify({'data': states})
+
+
+@app.route('/get_cities')
+def get_cities():
+    state = request.args.get('state')
+    query = "with citiesInState as (select cityid, cityname from cities where state = \'" + state + "\'), pointsToCity as (select places.cityid, citiesInState.cityname, avg(places.rating) as rating, sum(num_rating) as num_rating from citiesInState, places where citiesInState.cityid = places.cityid group by places.cityid, citiesInState.cityname) select cityname, rating, num_rating from pointsToCity order by rating desc, num_rating desc, cityname asc"
+
+    cursor = conn.cursor()
+    cursor.execute(query)
+    data = cursor.fetchall()
+    cursor.close()
+    columns = ["cityname", "rating", "num_rating"]
+    return parse_data(data, columns)
+
+@app.route('/get_places_recommendations')
+def get_places_recommendations():
+
+    username = request.args.get('user')
+
+    q1 = "select place, cityname, state, rating, num_rating from places, cities where places.cityid = cities.cityid and num_rating >= 50 order by rating desc, num_rating desc limit 20"
+    q2 = "with t1 as (select Place, cityid from FavouritePlaces where username = \'" + username + "\'), t2 as (select username, count(*) as num_overlaps from FavouritePlaces, t1 where t1.Place = FavouritePlaces.Place and t1.cityid = FavouritePlaces.cityid group by username), t3 as (select place, cityid, sum(power(2, num_overlaps)) as weight from FavouritePlaces, t2 where (place, cityid) not in (select place, cityid from t1) and t2.username = FavouritePlaces.username group by place, cityid) select t3.place, cityname, state, rating, num_rating from t3, places, cities where t3.place = places.place and t3.cityid = places.cityid and t3.cityid = cities.cityid order by weight desc, rating desc, num_rating desc, place asc, t3.cityid asc limit 20"
+
+    if username == '':        
+        query = q1
+    else:
+        query = q2
+
+    cursor = conn.cursor()
+    cursor.execute(query)
+    data = cursor.fetchall()
+    cursor.close()
+
+    columns = ['place', 'city', 'state', 'rating', 'num_rating']
+
+    if len(data) == 0:
+        cursor = conn.cursor()
+        cursor.execute(q1)
+        data = cursor.fetchall()
+        cursor.close()
+        return parse_data(data, columns)
+    else:
+        return parse_data(data, columns)
