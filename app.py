@@ -45,12 +45,13 @@ def search_places():
     # Perform search for Places and return results
     # ...
     s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + query + "\' || \'%\' limit 5"
+    print(s)
     cur.execute(s)
     results = []
     columns = ["place", "cityname", "state", "num_rating", "rating", "in_favourite"]
     for row in cur:
         l = {}
-        for i in range(6):
+        for i in range(len(columns)):
             l[columns[i]] = row[i]
         results.append(l)
     return jsonify({'data': results})
@@ -68,16 +69,63 @@ def search_restaurants():
     query = request.args.get('search')
     # Perform search for Restaurants and return results
     # ...
-    results = ['search_restaurants']
-    return render_template('restaurants.html', results=results)
+    s = "select name, locality, cuisine, rating, votes as num_rating from restaurants where name like \'" + query + "\' || \'%\';"
+    print(s)
+    cur.execute(s)
+    results = []
+    columns = ["name", "locality", "cuisine", "rating", "num_rating"]
+    for row in cur:
+        l = {}
+        for i in range(len(columns)):
+            l[columns[i]] = row[i]
+            if columns[i] == 'cuisine':
+                l[columns[i]] = [i.strip() for i in l[columns[i]].split(',')]
+        results.append(l)
+    print(results)
+    return jsonify({'data': results})
 
 @app.route('/search_travel')
 def search_travel():
-    query = request.args.get('search')
+    src = request.args.get('src')
+    dst = request.args.get('dst')
+    displayTransportDetails = request.args.get('trdetails')
+    mode = request.args.get('mode')
+    s = ""
+    columns = ["path", "length"]
+    if(displayTransportDetails == "false"):
+        s += "with recursive t3 as (\n    "
+        if(mode != "Train"):
+            s += "select distinct source_cityid as source, destination_cityid as destination, 'Flight' as typeOfTravel\n    from flights"
+        if(mode == "Both"):
+            s += "\n\n    union\n\n    "
+        if(mode != "Flight"):
+            s+="select distinct s1.cityid as source, s2.cityid as destination, 'Train' as typeOfTravel\n    from stations as s1, stations as s2, trainpath as x1, trainpath as x2, traininfo\n    where x1.train_no = x2.train_no and x1.seq < x2.seq and x1.station_code = s1.station_code and\n          x2.station_code = s2.station_code and x1.train_no = traininfo.train_no"
+        s += "\n),\nt1 as (\n    select c1.cityname as source, c2.cityname as destination, typeOfTravel\n    from t3, cities as c1, cities as c2\n    where t3.source = c1.cityid and t3.destination = c2.cityid\n),\nt2(dst, path, len) as (\n    select t1.destination, ARRAY[t1.source::text, t1.typeOfTravel::text, t1.destination::text] as path, 1 as len\n    from t1\n    where t1.source = \'" + src + "\'\n\n    union all\n\n    select f.destination, (g.path || ARRAY[f.typeOfTravel::text, f.destination::text]), g.len + 1\n    from t1 as f join t2 as g on f.source = g.dst and f.destination != ALL(g.path) and g.len < 3\n)\n"
+        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len limit 5;"
+        # s+="select * from t1 where source = 'Kolkata' and destination = 'Mumbai'"
+    else:
+        s += "with recursive t3 as (\n    "
+        if(mode != "Train"):
+            s += "select source_cityid as source, destination_cityid as destination, 'Flight' as typeOfTravel,\n           flight_number || ' , ' ||airline as transportid\n    from flights"
+        if(mode == "Both"):
+            s += "\n\n    union\n\n    "
+        if(mode != "Flight"):
+            s+="select s1.cityid as source, s2.cityid as destination, 'Train' as typeOfTravel,\n           traininfo.train_no || ' , ' || traininfo.train_name as transportid\n    from stations as s1, stations as s2, trainpath as x1, trainpath as x2, traininfo\n    where x1.train_no = x2.train_no and x1.seq < x2.seq and x1.station_code = s1.station_code and\n          x2.station_code = s2.station_code and x1.train_no = traininfo.train_no"
+        s += "\n),\nt1 as (\n    select c1.cityname as source, c2.cityname as destination, typeOfTravel, transportid\n    from t3, cities as c1, cities as c2\n    where t3.source = c1.cityid and t3.destination = c2.cityid\n),\nt2(dst, path, len) as (\n    select t1.destination, ARRAY[t1.source::text, t1.typeOfTravel::text, t1.transportid::text, t1.destination::text] as path, 1 as len\n    from t1\n    where t1.source = \'" + src + "\'\n\n    union all\n\n    select f.destination, (g.path || ARRAY[f.typeOfTravel::text, f.transportid::text, f.destination::text]), g.len + 1\n    from t1 as f join t2 as g on f.source = g.dst and f.destination != ALL(g.path) and g.len < 2\n)\n"
+        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len limit 5;"
+        # s+="select * from t1 where source = 'Kolkata' and destination = 'Mumbai'"
     # Perform search for Travel and return results
     # ...
-    results = ['search_travel']
-    return render_template('travel.html', results=results)
+    print(s)
+    cur.execute(s)
+    results = []
+    for row in cur:
+        l = {}
+        for i in range(len(columns)):
+            l[columns[i]] = row[i]
+        results.append(l)
+    print(results)    
+    return jsonify({'data': results})
 
 def get_candidate_values(column, table, query):
     s = "select " + column + " from " + table + " where " + column + " like \'" + query +  "\' || \'%\' limit 5"

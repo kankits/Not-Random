@@ -2,19 +2,19 @@
 
 {% block content %}
 <div class="container-search">
-    <!-- Search form for restaurants tab -->
-    <form class="form-container" action="{{ url_for('search_restaurants') }}" method="get">
-        <div class="form-group search_box" style="margin-left: 600px;">
-            <input type="text" class="form-control wide_search" name="search-input" id="search-input" placeholder="Search...">
-            <div class="search-results" id="search-results" style="display: none;">
-                <ul></ul>
-            </div>
-        </div>
-        <div class="form-group search_box">
-            <button type="submit" class="btn btn-default">Go</button>
-        </div>
-    </form>
-</div> 
+  <!-- Search form for restaurants tab -->
+  <form class="form-container" id="search-bar-form">
+      <div class="form-group search_box" style="margin-left: 600px;">
+          <input type="text" class="form-control wide_search" name="search-input" id="search-input" placeholder="Search...">
+          <div class="search-results" id="search-results" style="display: none;">
+              <ul></ul>
+          </div>
+      </div>
+      <div class="form-group search_box">
+          <button type="submit" class="btn btn-default">Go</button>
+      </div>
+  </form>
+</div>
     <script src = "static/script.js" defer></script>
     <script>
     $(document).ready(function() {
@@ -107,9 +107,84 @@
           </form>
         </div>
   
-        <div class="col-md-6 filter_results_places_container" id="filter_results_hotels_container">
+        <div class="col-md-6 filter_results_places_container" id="filter_results_restaurants_container">
           <!-- Your search results go here -->
         </div>
       </div>
   </div>
+
+  <script>
+
+      function setSearchBarValues(){
+        searchBarFilterSelected = $('#search-input').val();
+      }
+
+      // Function to display the search results on the page
+      function displayResults(results) {
+        const createResultCard = (result) => {
+          let card = '<li class="list-group-item">';
+          card += '<div class="row">';
+          card += '<div class="col-md-4">';
+          card += `<h4>${result.name}</h4>`;
+          card += `<h5>${result.locality}</h5>`;    
+          card += '</div>';
+          card += '<div class="col-md-3">';
+          card += createStarRating(result.rating, result.num_rating);  
+          card += '</div>';
+          card += '<div class="col-md-3">';
+          card += '<ul>';
+            console.log(result.cuisine);
+            console.log(result.cuisine.length);
+          for (var i = 0; i < result.cuisine.length; i++){
+            card += '<li class="badge_tag">'+result.cuisine[i];
+            card += '</li>';
+          };
+          card += '</ul>';
+          card += '</div>';
+          card += '</div>';
+          card += '</li>';
+          
+          return card;
+        };
+
+        let resultsHTML = '<h2>Search Results</h2>';
+        resultsHTML += '<ul class="list-group">';
+      
+        results.forEach((result) => {
+          resultsHTML += createResultCard(result);
+        });
+
+        resultsHTML += '</ul>';
+
+        const resultsContainer = document.getElementById('filter_results_restaurants_container');
+        resultsContainer.innerHTML = resultsHTML;
+      }
+
+      function searchRestaurantsResultsHandler() {
+      // Display the filtered results
+        $.ajax({
+        type: 'GET',
+        url: '/search_restaurants',
+        data: {'search': searchBarFilterSelected},
+        success: function(response) {
+          var results = response.data;
+          for (var i = 0; i < results.length; i++) {
+            var item = $('<li>').text(results[i]);
+            console.log(results[i]+'\n');
+          }
+          displayResults(results);
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+      }
+
+      // Event listener for the search bar
+      document.getElementById('search-bar-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        setSearchBarValues();
+        searchRestaurantsResultsHandler();
+      });
+  </script>
   {% endblock %}
