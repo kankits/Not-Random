@@ -67,6 +67,14 @@ function getAddedTags() {
   return tags;
 }
 
+function getAddedCities() {
+  var cities = [];
+    $('#search-box-tags li').each(function() {
+      cities.push($(this).text().trim().replace(/x$/, ''));
+    });
+  return cities;
+}
+
 function createStarRating(rating, numRatings) {
   let stars = '<p>';
   const fullStars = Math.floor(rating);
@@ -81,9 +89,13 @@ function createStarRating(rating, numRatings) {
   for (let i = 0; i < emptyStars; i++) {
     stars += '<i class="far fa-star rating-star"></i>';
   }
-  stars += `</p><br><p style="color: blue; font-size: small;">${numRatings} ratings</p>`;
+  if (numRatings >= 0) {
+    stars += `</p><br><p style="color: blue; font-size: small;">${numRatings} ratings</p>`;
+  }
+    
   return stars;
 }
+
 
 function createRatingDropdown(loggedIn) {
   let dropdown = '<div class="dropdown">';

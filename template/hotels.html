@@ -2,19 +2,22 @@
 
 {% block content %}
 <div class="container-search">
-    <!-- Search form for hotels tab -->
-    <form class="form-container" action="{{ url_for('search_hotels') }}" method="get">
-        <div class="form-group search_box" style="margin-left: 600px;">
-            <input type="text" class="form-control wide_search" name="search-input" id="search-input" placeholder="Search...">
-            <div class="search-results" id="search-results" style="display: none;">
-                <ul></ul>
-            </div>
-        </div>
-        <div class="form-group search_box">
-            <button type="submit" class="btn btn-default">Go</button>
-        </div>
-    </form>
+  <!-- Search form for places tab -->
+  <form class="form-container" id="search-bar-form">
+      <div class="form-group search_box" style="margin-left: 600px;">
+          <input type="text" class="form-control wide_search" name="search-input" id="search-input" placeholder="Search...">
+          <div class="search-results" id="search-results" style="display: none;">
+              <ul></ul>
+          </div>
+      </div>
+      <div class="form-group search_box">
+          <button type="submit" class="btn btn-default">Go</button>
+      </div>
+  </form>
 </div>
+
+    <script src = "static/script.js" defer></script>
+
     <script>
     $(document).ready(function() {
     searchInputHandler('search-input', 'search-results', 'hotels', 'hotelname');
@@ -117,9 +120,169 @@
         </form>
       </div>
 
-      <div class="col-md-6 filter_results_places_container" id="filter_results_hotels_container">
+      <div class="col-md-8 filter_results_places_container" id="filter_results_hotels_container">
         <!-- Your search results go here -->
+        
       </div>
     </div>
 </div>
+
+  <script>
+
+    let categoryFilterSelected = null;
+    let facilitiesFilterSelected = null;
+    let searchFilterSelected = null;
+    let maxRentFilterselected = null;
+    let minRatingFilterselected = null;
+    let citiesFilterselected = null;
+    let searchBarFilterSelected = null;
+
+    // Function to display the search results on the page
+    function displayResults(results) {
+        const createResultCard = (result) => {
+          let card = '<li class="list-group-item">';
+          card += '<div class="row">';
+          card += '<div class="col-md-6">';
+          card += `<h4>${result.hotelname}</h4>`;
+          card += `<h5>${result.hoteldescription}</h5>`;
+          card += `<h6>${result.locality}, ${result.hotelpincode}, ${result.cityname}</h6>`;    
+          // card += '</div>';
+          // card += '<div class="col-md-7">';
+          card += createStarRating(result.starrating,-1);  
+          // card += '<div class="col-md-10">';
+  
+          card += '</div>';
+          card += '<div class="col-md-3">';
+          card += '<ul>';
+            if (result.hasswimmingpool)
+            {
+              card += '<li class="badge_tag"> swimmingpool </li>';
+            }  
+            if (result.freewifi)
+            {
+              card += '<li class="badge_tag"> free wifi </li>';
+            }
+            if (result.freebreakfast)
+            {
+              card += '<li class="badge_tag"> free breakfast </li>';
+            }
+          card += '</ul>';
+          card += '</div>';
+          card += '<div class="col-md-3">';
+          card += '<p class="text-center">'
+          card += '<ul style="list-style-type: none;">';
+            card += `<li class="rent"  style= "background-color: #FFDCD1; border: 4px solid #ccc; border-radius: 5px; padding: 10px; width: 130px; text-align: center; font-size: 20px;"> ${result.rent} INR </li>`;
+
+            card += '<li onclick="location.href=\'a.com\';" class="recommend" style= "background-color: #FFDCD1; cursor:pointer; border: 4px solid #ccc; border-radius: 5px; padding: 10px; width: 130px; text-align: center; font-size: 16px;">  Recommend restaurants </a> </li>';
+          card += '</ul>';
+          card += '</p>'
+          card += '</div>';
+          card += '</div>';
+          card += '</li>';
+          return card;
+        };
+
+        let resultsHTML = '<h2>Search Results</h2>';
+        resultsHTML += '<ul class="list-group">';
+      
+        results.forEach((result) => {
+          resultsHTML += createResultCard(result);
+        });
+
+        resultsHTML += '</ul>';
+
+        const resultsContainer = document.getElementById('filter_results_hotels_container');
+        resultsContainer.innerHTML = resultsHTML;
+      }
+
+      function setFilterValues(){
+        maxRentFilterselected = $('#search-filter-input').val();
+        facilitiesFilterSelected = getCheckedOptions();
+        minRatingFilterselected = $('#category').val();
+        citiesFilterselected = getAddedCities();
+        console.log(maxRentFilterselected );
+        console.log(facilitiesFilterSelected);
+        console.log(minRatingFilterselected);
+        console.log(citiesFilterselected);
+
+      }
+
+      function setSearchBarValues(){
+        searchBarFilterSelected = $('#search-input').val();
+        console.log(searchBarFilterSelected);
+      }
+
+      function searchHotelResultsHandler() {
+
+          // Display the filtered results
+          // displayResults(filteredResults);
+
+            $.ajax({ 
+            type: 'GET',
+            url: '/search_hotels',
+            data: {'search': searchBarFilterSelected, 'maxRent': maxRentFilterselected, 'facilitiesFilter': JSON.stringify(facilitiesFilterSelected) , 'minRating': minRatingFilterselected , 'citiesFilter': JSON.stringify(citiesFilterselected)},
+            success: function(response) {
+              var results = response.data;
+              for (var i = 0; i < results.length; i++) {
+                var item = $('<li>').text(results[i]);
+                console.log(results[i]+'\n');
+              }
+              displayResults(results);
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+        }
+
+        // Display the filtered results
+        // displayResults(filteredResults);
+        //   $.ajax({
+        //   type: 'GET',
+        //   url: '/search_places',
+        //   data: {'search': searchBarFilterSelected},
+        //   success: function(response) {
+        //     var results = response.data;
+        //     for (var i = 0; i < results.length; i++) {
+        //       var item = $('<li>').text(results[i]);
+        //       console.log(results[i]+'\n');
+        //     }
+        //     displayResults(results);
+        //   },
+        //   error: function(error) {
+        //     console.log(error);
+        //   }
+        // });
+      
+
+      // Event listener for the search bar
+      document.getElementById('search-bar-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        setSearchBarValues();
+        searchHotelResultsHandler();
+      });
+
+      
+      // Event listener for the filter form
+      document.getElementById('filter-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        setFilterValues();
+        console.log("In\n");
+        searchHotelResultsHandler();
+      });
+      
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      // get the height of .nav1
+      var nav1Height = $('.nav1').height();
+      var nav2Height = $('.nav2').height();
+
+      // set the margin-top of .nav2 to the height of .nav1
+      $('.container-search').css('margin-top', nav1Height + nav2Height + 'px');
+    });
+
+  </script>
+
 {% endblock %}

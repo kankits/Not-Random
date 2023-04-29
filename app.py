@@ -52,16 +52,34 @@ def search_places():
         for i in range(6):
             l[columns[i]] = row[i]
         results.append(l)
-    print(results)
-    return render_template('places.html', results=jsonify({'data':results}))
+    # print(results)
+    # results = [row[0] for row in cur]
+    #return render_template('places.html', results=jsonify({'data':results}))
+    return jsonify({'data': results})
 
 @app.route('/search_hotels')
 def search_hotels():
     query = request.args.get('search')
+    rent = request.args.get('maxRent')
+    rating = request.args.get('minRating')
+    cities = request.args.get('citiesFilter')
+    facilities = request.args.get('facilitiesFilter')
+    print(type(facilities))
     # Perform search for Hotels and return results
     # ...
-    results = ['search_hotels']
-    return render_template('hotels.html', results=results)
+    s = "select hotelname,locality, cityname, starrating, freewifi, freebreakfast, hasswimmingpool, hoteldescription, hotelpincode, rent from hotels, cities where hotels.cityid = cities.cityid and hotelname like \'" + query + "\' || \'%\' limit 5"
+    cur.execute(s)
+    results = []
+    columns = ["hotelname", "locality", "cityname", "starrating", "freewifi", "freebreakfast", "hasswimmingpool", "hoteldescription","hotelpincode", "rent"]
+    for row in cur:
+        l = {}
+        for i in range(10) :
+            l[columns[i]] = row[i]
+        results.append(l)
+    print(results)
+    # results = ['search_hotels']
+    # return render_template('hotels.html', results=results)
+    return jsonify({'data': results})
 
 @app.route('/search_restaurants')
 def search_restaurants():
