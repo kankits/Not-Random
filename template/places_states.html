@@ -59,17 +59,14 @@
 </div>
 </div>
   <script>
-    function handleClickOnState() {
-      // var value = this.val();
-      // console.log(value);
-      const item = event.target;
-      const state = item.textContent;
-      window.location.href = "{{ url_for('places_cities', state='') }}" + state;
+    function handleClickOnState(gridItem) {
+      const state = gridItem.querySelector('.text').textContent;
+      window.location.href = `${"{{ url_for('places_cities') }}"}?state=${state}`;
     }
 
     function displayStateCards(states){
       const createStateCard = (state) => {
-        let card = `<div class="grid-item" onclick=handleClickOnState()>`;
+        let card = `<div class="grid-item" onclick=handleClickOnState(this)>`;
         let img_src = `{{ url_for('static', filename='images/states/') }}` + `${state}` + `.jpg`;
         card += `<img src="${img_src}" class="cover">`;
         card += `<div class="text">`;
@@ -115,8 +112,11 @@
     // Event listener for the search bar
     document.getElementById('search-bar-form').addEventListener('submit', (event) => {
       event.preventDefault();
-      var search_query = $('#search-input').val();
-      window.location.href = "{{ url_for('places_results', search_query='') }}" + search_query;
+      const queryParams = new URLSearchParams();
+      queryParams.set('search_query', $('#search-input').val());
+      queryParams.set('state', '');
+      queryParams.set('city', '');
+      window.location.href = `${"{{ url_for('places_results') }}"}?${queryParams.toString()}`;
     });
       
   </script>

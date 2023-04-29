@@ -95,7 +95,9 @@
   </script>
 
   <script>
-    let searchBarFilterSelected = null;
+    let search_query = null;
+    let state = null;
+    let city = null;
 
     function isLoggedIn() {
       var sessionString = '{{ session|tojson }}';
@@ -161,7 +163,7 @@
           $.ajax({
           type: 'GET',
           url: '/search_places',
-          data: {'search': searchBarFilterSelected, 'user': getUsername()},
+          data: {'search_query': search_query, 'state': state, 'city': city, 'user': getUsername()},
           success: function(response) {
             var results = response.data;
             for (var i = 0; i < results.length; i++) {
@@ -179,11 +181,13 @@
       // Event listener for the search bar
       document.getElementById('search-bar-form').addEventListener('submit', (event) => {
         event.preventDefault();
-        var search_query = $('#search-input').val();
-        window.location.href = "{{ url_for('places_results', search_query='') }}" + search_query;
+        const queryParams = new URLSearchParams(window.location.search);
+        queryParams.set('search_query', $('#search-input').val());
+        window.location.href = `${"{{ url_for('places_results') }}"}?${queryParams.toString()}`;
       });
-      searchBarFilterSelected = "{{ search_query }}";
-      console.log(searchBarFilterSelected);
+      search_query = "{{ search_query }}";
+      state = "{{ state }}";
+      city = "{{ city }}";
       searchPlacesResultsHandler();
       
   </script>
