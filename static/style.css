@@ -274,3 +274,58 @@ a:hover {
   padding-bottom: 5px;
   overflow-y: auto;
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  margin: 50px auto;
+  max-width: 1500px;
+  padding: 10px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  height: 200px;
+  position: relative;
+}
+
+.grid-item {
+  position: relative;
+}
+
+.grid-item:hover {
+  opacity: 0.5;
+}
+
+.grid-item img {
+  /* CSS styles for the images */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.grid-item .text {
+  /* CSS styles for the text */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+}

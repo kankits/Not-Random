@@ -22,9 +22,17 @@ cur = conn.cursor()
 def index():
     return render_template('index.html')
 
-@app.route("/places")
-def places():
-    return render_template("places.html", active_tab="places")
+@app.route("/places_results/<search_query>")
+def places_results(search_query):
+    return render_template("places_results.html", active_tab="places", search_query=search_query)
+
+@app.route("/places_states")
+def places_states():
+    return render_template("places_states.html", active_tab="places")
+
+@app.route("/places_cities/<state>")
+def places_cities(state):
+    return render_template("places_cities.html", active_tab="places", state=state)
 
 @app.route("/hotels")
 def hotels():
@@ -154,3 +162,20 @@ def dashboard():
 def logout():
     session.pop('user', None)
     return redirect(url_for('login'))
+
+# get states
+@app.route('/get_states')
+def get_states():
+    cur.execute("SELECT DISTINCT state FROM cities, places WHERE places.cityid = cities.cityid ORDER BY state ASC")
+    # cur.execute("SELECT DISTINCT cityname FROM cities WHERE state = \'Karnataka\'")
+    states = cur.fetchall()
+    return jsonify({'data': states})
+
+@app.route('/get_cities')
+def get_cities():
+    state = request.args.get('state')
+    print(state)
+    cur.execute("SELECT DISTINCT cityname FROM cities, places WHERE places.cityid = cities.cityid AND state = \'" + state + "\' ORDER BY cityname ASC")
+    cities = cur.fetchall()
+    print(cities)
+    return jsonify({'data': cities})
