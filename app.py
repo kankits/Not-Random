@@ -17,6 +17,14 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
+def parse_data(data, columns):
+    results = []
+    for row in data:
+        l = {}
+        for i in range(len(columns)):
+            l[columns[i]] = row[i]
+        results.append(l)
+    return jsonify({'data': results})
 
 @app.route('/')
 def index():
@@ -72,16 +80,14 @@ def search_places():
     else:
         s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' and cityname = \'" + city + "\' limit 5"
     
-    cur.execute(s)
-    results = []
+    cursor = conn.cursor()
+    cursor.execute(s)
+    data = cursor.fetchall()
+    cursor.close()
     columns = ["place", "cityname", "state",
                "num_rating", "rating", "in_favourite"]
-    for row in cur:
-        l = {}
-        for i in range(len(columns)):
-            l[columns[i]] = row[i]
-        results.append(l)
-    return jsonify({'data': results})
+    
+    return parse_data(data, columns)
 
 
 @app.route('/search_hotels')
@@ -288,19 +294,52 @@ def logout():
 
 @app.route('/get_states')
 def get_states():
-    cur.execute(
-        "SELECT DISTINCT state FROM cities, places WHERE places.cityid = cities.cityid ORDER BY state ASC")
-    # cur.execute("SELECT DISTINCT cityname FROM cities WHERE state = \'Karnataka\'")
-    states = cur.fetchall()
+    query = "SELECT DISTINCT state FROM cities, places WHERE places.cityid = cities.cityid ORDER BY state ASC"
+
+    cursor = conn.cursor()
+    cursor.execute(query)
+    states = cursor.fetchall()
+    cursor.close()
     return jsonify({'data': states})
 
 
 @app.route('/get_cities')
 def get_cities():
     state = request.args.get('state')
-    print(state)
-    cur.execute("SELECT DISTINCT cityname FROM cities, places WHERE places.cityid = cities.cityid AND state = \'" +
-                state + "\' ORDER BY cityname ASC")
-    cities = cur.fetchall()
-    print(cities)
-    return jsonify({'data': cities})
+    query = "with citiesInState as (select cityid, cityname from cities where state = \'" + state + "\'), pointsToCity as (select places.cityid, citiesInState.cityname, avg(places.rating) as rating, sum(num_rating) as num_rating from citiesInState, places where citiesInState.cityid = places.cityid group by places.cityid, citiesInState.cityname) select cityname, rating, num_rating from pointsToCity order by rating desc, num_rating desc, cityname asc"
+
+    cursor = conn.cursor()
+    cursor.execute(query)
+    data = cursor.fetchall()
+    cursor.close()
+    columns = ["cityname", "rating", "num_rating"]
+    return parse_data(data, columns)
+
+@app.route('/get_places_recommendations')
+def get_places_recommendations():
+
+    username = request.args.get('user')
+
+    q1 = "select place, cityname, state, rating, num_rating from places, cities where places.cityid = cities.cityid and num_rating >= 50 order by rating desc, num_rating desc limit 20"
+    q2 = "with t1 as (select Place, cityid from FavouritePlaces where username = \'" + username + "\'), t2 as (select username, count(*) as num_overlaps from FavouritePlaces, t1 where t1.Place = FavouritePlaces.Place and t1.cityid = FavouritePlaces.cityid group by username), t3 as (select place, cityid, sum(power(2, num_overlaps)) as weight from FavouritePlaces, t2 where (place, cityid) not in (select place, cityid from t1) and t2.username = FavouritePlaces.username group by place, cityid) select t3.place, cityname, state, rating, num_rating from t3, places, cities where t3.place = places.place and t3.cityid = places.cityid and t3.cityid = cities.cityid order by weight desc, rating desc, num_rating desc, place asc, t3.cityid asc limit 20"
+
+    if username == '':        
+        query = q1
+    else:
+        query = q2
+
+    cursor = conn.cursor()
+    cursor.execute(query)
+    data = cursor.fetchall()
+    cursor.close()
+
+    columns = ['place', 'city', 'state', 'rating', 'num_rating']
+
+    if len(data) == 0:
+        cursor = conn.cursor()
+        cursor.execute(q1)
+        data = cursor.fetchall()
+        cursor.close()
+        return parse_data(data, columns)
+    else:
+        return parse_data(data, columns)

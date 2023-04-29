@@ -81,7 +81,8 @@ function createStarRating(rating, numRatings) {
   for (let i = 0; i < emptyStars; i++) {
     stars += '<i class="far fa-star rating-star"></i>';
   }
-  stars += `</p><br><p style="color: blue; font-size: small;">${numRatings} ratings</p>`;
+  stars += `</p><p style="color: goldenrod; font-size: normal;">${Math.round(rating * 10) / 10}</p>`;
+  stars += `</p><p style="color: blue; font-size: small;">${numRatings} ratings</p>`;
   return stars;
 }
 

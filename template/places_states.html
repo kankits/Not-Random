@@ -23,6 +23,27 @@
 
         <div class="col-md-3 places_recommendations" style="background-color: transparent;" id="places_recommendations">
           <script>
+            function isLoggedIn() {
+              var sessionString = '{{ session|tojson }}';
+              var sessionObj = JSON.parse(sessionString);
+              if ('user' in sessionObj) {
+                return true;
+              }
+              else{
+                return false;
+              }
+            }
+
+            function getUsername() {
+              if(isLoggedIn()) {
+                var sessionString = '{{ session|tojson }}';
+                var sessionObj = JSON.parse(sessionString);
+                return sessionObj['user']
+              } else {
+                return "";
+              }
+            }
+
             function displayPlacesRecommendations(results) {
               const createPlaceRecommendationCard = (result) => {
               let card = '<li class="list-group-item">';
@@ -31,8 +52,8 @@
               card += `<h4>${result.place}</h4>`;
               card += `<h5>${result.city}, ${result.state}</h5>`;    
               card += '</div>';
-              card += '<div class="col-md-5">';   
-              card += createStarRating(result.rating, result.num_ratings);  
+              card += '<div class="col-md-5">';
+              card += createStarRating(result.rating, result.num_rating);  
               card += '</div>';
               card += '</div>';
               card += '</li>';
@@ -51,8 +72,19 @@
             const resultsContainer = document.getElementById('places_recommendations');
             resultsContainer.innerHTML = resultsHTML;
             }
-            
-            displayPlacesRecommendations(allResults)
+
+            $.ajax({
+              type: 'GET',
+              url: '/get_places_recommendations',
+              data: {'user': getUsername()},
+              success: function(response) {
+                var results = response.data;
+                displayPlacesRecommendations(results);
+              },
+              error: function(error) {
+                console.log(error);
+              }
+            });
           </script>
         </div>
       </div>
