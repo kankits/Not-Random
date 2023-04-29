@@ -17,6 +17,14 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
+def parse_data(data, columns):
+    results = []
+    for row in data:
+        l = {}
+        for i in range(len(columns)):
+            l[columns[i]] = row[i]
+        results.append(l)
+    return jsonify({'data': results})
 
 @app.route('/')
 def index():
@@ -259,8 +267,7 @@ def get_states():
 def get_cities():
     state = request.args.get('state')
     print(state)
-    cur.execute("SELECT DISTINCT cityname FROM cities, places WHERE places.cityid = cities.cityid AND state = \'" +
-                state + "\' ORDER BY cityname ASC")
-    cities = cur.fetchall()
-    print(cities)
-    return jsonify({'data': cities})
+    cur.execute("with citiesInState as (select cityid, cityname from cities where state = \'" + state + "\'), pointsToCity as (select places.cityid, citiesInState.cityname, avg(places.rating) as rating, sum(num_rating) as num_rating from citiesInState, places where citiesInState.cityid = places.cityid group by places.cityid, citiesInState.cityname) select cityname, rating, num_rating from pointsToCity order by rating desc, num_rating desc, cityname asc")
+    data = cur.fetchall()
+    columns = ["cityname", "rating", "num_rating"]
+    return parse_data(data, columns)

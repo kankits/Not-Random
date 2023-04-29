@@ -69,10 +69,13 @@
 
     function displayCityCards(cities){
       const createCityCard = (city) => {
-        let card = `<div class="grid-item" onclick=handleClickOnCity(this)>`;
+        let card = `<div class="grid-item cities" onclick=handleClickOnCity(this)>`;
         card += `<div class="text">`;
-        card += `${city}`;
+        card += `${city.cityname}`;
         card += `</div>`;
+        card += '<div style="position: absolute; top: 40%; text-align: center;">';
+        card += createStarRating(city.rating, city.num_rating); 
+        card += '</div>'; 
         card += '</div>';
         return card;
       };
