@@ -157,3 +157,12 @@ CREATE TABLE FavouritePlaces (
     constraint fk foreign key (CityId, Place) REFERENCES Places (CityId, Place),
     UNIQUE (username, Place, CityId)
 );
+
+CREATE TABLE UserRatings(
+    username varchar NOT NULL REFERENCES Users(username),
+    Place varchar NOT NULL,
+    CityId int NOT NULL,
+    rating int NOT NULL,
+    constraint fk foreign key (CityId, Place) REFERENCES Places (CityId, Place),
+    UNIQUE (username, Place, CityId)
+)

@@ -76,11 +76,11 @@ def search_places():
     # Perform search for Places and return results
     # ...
     if state == "" and city == "":
-        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' order by rating desc, num_rating desc"
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, username, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ), t3 as ( \n select place, cityid, num_rating, rating, in_favourite, ( \n case \n when (username, place, cityid) in (select username, place, cityid from userratings) then 1 \n else 0 \n end\n) as is_rated\n from t2) select place, cityname, state, num_rating, rating, in_favourite, is_rated \n from t3, cities \n where t3.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' order by rating desc, num_rating desc"
     elif city == "":
-        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' order by rating desc, num_rating desc"
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, username, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ), t3 as ( \n select place, cityid, num_rating, rating, in_favourite, ( \n case \n when (username, place, cityid) in (select username, place, cityid from userratings) then 1 \n else 0 \n end\n) as is_rated\n from t2) select place, cityname, state, num_rating, rating, in_favourite, is_rated \n from t3, cities \n where t3.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' order by rating desc, num_rating desc"
     else:
-        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select place, cityname, state, num_rating, rating, in_favourite \n from t2, cities \n where t2.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' and cityname = \'" + city + "\' order by rating desc, num_rating desc"
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, username, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ), t3 as ( \n select place, cityid, num_rating, rating, in_favourite, ( \n case \n when (username, place, cityid) in (select username, place, cityid from userratings) then 1 \n else 0 \n end\n) as is_rated\n from t2) select place, cityname, state, num_rating, rating, in_favourite, is_rated \n from t3, cities \n where t3.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' and cityname = \'" + city + "\' order by rating desc, num_rating desc"
     
     cursor = conn.cursor()
     cursor.execute(s)
@@ -90,6 +90,57 @@ def search_places():
                "num_rating", "rating", "in_favourite"]
     
     return parse_data(data, columns)
+
+@app.route('/update_rating')
+def update_rating():
+    username = request.form['username']
+    cityname = request.form['cityname']
+    place = request.form['place']
+    state = request.form['state']
+    rating = request.form['rating']
+    cityid = ""
+    lastrating = 0
+    firsttimerating = 0
+
+    s = "select cityid from cities where cityname = '" + cityname + "' and state = '" + state + "'"
+    print(s)
+    print()
+    cur.execute(s)
+    for row in cur:
+        cityid = str(row[0])
+    
+    s = "select * from userratings where cityid = '" + cityid + "' and place = '" + place + "' and username = '" + username + "'"
+    print(s)
+    print()
+    cur.execute(s)
+    count = 0
+    for row in cur:
+        count += 1
+        lastrating = row[3]
+
+    if(count > 0):
+        s = ""
+        s = "update userratings \nset rating = '" + rating + "'\nwhere cityid = '" + cityid + "' and place = '" + place + "' and username = '" + username + "'"
+        print(s)
+        print()
+        cur.execute(s)
+    else:
+        firsttimerating = 1
+        s = "insert into userratings values('" + username + "', '" + place + "', '" + cityid + "', '" + rating + "')"
+        print(s)
+        print()
+        cur.execute(s)
+
+    deltarating = rating - lastrating
+    
+    s = "update places set rating = (num_rating * rating + " + str(deltarating) + ")/ (num_rating + " + str(firsttimerating) + ") , num_rating = num_rating + " + str(firsttimerating) + "\nwhere places.cityid = '" + cityid + "' and places.place = '" + place + "'"
+    print(s)
+    print()
+    cur.execute(s)
+
+    return jsonify({'data': 'success'})
+
+    
 
 
 @app.route('/search_hotels')
