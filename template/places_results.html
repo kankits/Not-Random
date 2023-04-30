@@ -134,16 +134,29 @@
       const resultCity = resultCard.data('city');
       const resultState = resultCard.data('state');
       const resultRating = resultCard.data('rating');
-      const resultNumRating = resultCard.data('num-rating');
-      const resultInFavourite = resultCard.data('in-favourite');
+      const resultIsRated = resultCard.data('is-rated');
       console.log('Selected rating:', rating);
       console.log('Result Place:', resultPlace);
       console.log('Result City:', resultCity);
       console.log('Result State:', resultState);
       console.log('Result Rating:', resultRating);
-      console.log('Result Number of Ratings:', resultNumRating);
-      console.log('Result In Favourites:', resultInFavourite);
-      // TODO: Add code to submit rating to server or update UI
+      console.log('Result Is Rated:', resultIsRated);
+
+      $.ajax({
+        type: 'POST',
+        url: '/submit_rating',
+        data: {'rating': rating, 'place': resultPlace, 'cityname': resultCity, 'state': resultState},
+        success: function(response) {
+          if (response.data == 'success') {
+            $(this).closest('.fa-thumbs-up').addClass('fas').removeClass('far');
+            resultCard.data('is-rated', true);
+          }
+        },
+        error: function(error) {
+          console.log(error);
+        }
+      });
+
     });
 
     function addToFavoriteHandler(element) {
@@ -151,14 +164,10 @@
       const resultPlace = resultCard.data('place');
       const resultCity = resultCard.data('city');
       const resultState = resultCard.data('state');
-      const resultRating = resultCard.data('rating');
-      const resultNumRating = resultCard.data('num-rating');
       const resultInFavourite = resultCard.data('in-favourite');
       console.log('Result Place:', resultPlace);
       console.log('Result City:', resultCity);
       console.log('Result State:', resultState);
-      console.log('Result Rating:', resultRating);
-      console.log('Result Number of Ratings:', resultNumRating);
       console.log('Result In Favourites:', resultInFavourite);
 
       if (resultInFavourite) {
@@ -232,6 +241,7 @@
           card += `data-rating="${result.rating}" `;
           card += `data-num-rating="${result.num_rating}" `;
           card += `data-in-favourite="${result.in_favourite}" `;
+          card += `data-is-rated="${result.is_rated}" `;
           card += '>';
           card += '<div class="row">';
           card += '<div class="col-md-4">';
@@ -245,7 +255,7 @@
           card += createFavoriteButton(result.in_favourite, isLoggedIn(), 'addToFavoriteHandler(this)');
           card += '</div>';
           card += '<div class="col-md-2", style="display: flex; align-items: center;">';
-          card += createRatingDropdown(isLoggedIn());
+          card += createRatingDropdown(result.is_rated, isLoggedIn());
           card += '</div>';
           card += '</div>';
           card += '</li>';
