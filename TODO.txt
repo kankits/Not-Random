@@ -4,3 +4,4 @@
 4) recommend restaurants for hotels: add same city condition in the query (currently only locality is same) - P0
 5) Update user rating for places  - P0 (done)
 6) list ratings posted by user and favourite places of user on dashboard - P2
+7) Fix hotel filters. Currently it needs non-empty value of cities filter otherwise gives error.
