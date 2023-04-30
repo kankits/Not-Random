@@ -97,7 +97,7 @@ function createStarRating(rating, numRatings) {
 }
 
 
-function createRatingDropdown(loggedIn) {
+function createRatingDropdown(isRated, loggedIn) {
   let dropdown = '<div class="dropdown">';
   if (loggedIn) {
     dropdown += '<button class="btn btn-primary dropdown-toggle" type="button" id="rating-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
@@ -105,7 +105,12 @@ function createRatingDropdown(loggedIn) {
   else{
     dropdown += '<button class="btn btn-primary dropdown-toggle disabled" type="button" id="rating-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
   }
-  dropdown += '<i class="fas fa-thumbs-up fa-2x" style="color: goldenrod;"></i>';
+  if (isRated) {
+    dropdown += '<i class="fas fa-thumbs-up fa-2x" style="color: goldenrod;"></i>';
+  }
+  else{
+    dropdown += '<i class="far fa-thumbs-up fa-2x" style="color: goldenrod;"></i>';
+  }
   dropdown += '</button>';
   dropdown += '<div class="dropdown-menu" aria-labelledby="rating-dropdown">';
   dropdown += '<div class="rating-stars">';
