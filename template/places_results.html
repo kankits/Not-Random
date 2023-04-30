@@ -118,6 +118,85 @@
   </script>
 
   <script>
+
+    // jQuery event handler for hovering over a star
+    $(document).on('mouseenter', '.rating-star-rate', function() {
+      $(this).addClass('fas').removeClass('far');
+      $(this).prevAll('.rating-star-rate').addClass('fas').removeClass('far');
+      $(this).nextAll('.rating-star-rate').addClass('far').removeClass('fas');
+    });
+
+    // jQuery event handler for clicking on a star
+    $(document).on('click', '.rating-star-rate', function() {
+      const rating = $(this).data('value');
+      const resultCard = $(this).closest('.list-group-item');
+      const resultPlace = resultCard.data('place');
+      const resultCity = resultCard.data('city');
+      const resultState = resultCard.data('state');
+      const resultRating = resultCard.data('rating');
+      const resultNumRating = resultCard.data('num-rating');
+      const resultInFavourite = resultCard.data('in-favourite');
+      console.log('Selected rating:', rating);
+      console.log('Result Place:', resultPlace);
+      console.log('Result City:', resultCity);
+      console.log('Result State:', resultState);
+      console.log('Result Rating:', resultRating);
+      console.log('Result Number of Ratings:', resultNumRating);
+      console.log('Result In Favourites:', resultInFavourite);
+      // TODO: Add code to submit rating to server or update UI
+    });
+
+    function addToFavoriteHandler(element) {
+      const resultCard = $(element).closest('.list-group-item');
+      const resultPlace = resultCard.data('place');
+      const resultCity = resultCard.data('city');
+      const resultState = resultCard.data('state');
+      const resultRating = resultCard.data('rating');
+      const resultNumRating = resultCard.data('num-rating');
+      const resultInFavourite = resultCard.data('in-favourite');
+      console.log('Result Place:', resultPlace);
+      console.log('Result City:', resultCity);
+      console.log('Result State:', resultState);
+      console.log('Result Rating:', resultRating);
+      console.log('Result Number of Ratings:', resultNumRating);
+      console.log('Result In Favourites:', resultInFavourite);
+
+      if (resultInFavourite) {
+        $.ajax({
+          type: 'POST',
+          url: '/remove_from_favourite',
+          data: {'place': resultPlace, 'cityname': resultCity, 'state': resultState},
+          success: function(response) {
+            if (response.data == 'success') {
+              $(element).removeClass('fas').addClass('far');
+              element.querySelector('div').textContent = 'Add to Favorites';
+              resultCard.data('in-favourite', false);
+              
+            }
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      } else {
+        $.ajax({
+          type: 'POST',
+          url: '/add_to_favourite',
+          data: {'place': resultPlace, 'cityname': resultCity, 'state': resultState},
+          success: function(response) {
+            if (response.data == 'success') {
+              $(element).removeClass('far').addClass('fas');
+              element.querySelector('div').textContent = 'Remove from Favorites';
+              resultCard.data('in-favourite', true);
+            }
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        }); 
+      }
+    }
+
     let search_query = null;
     let state = null;
     let city = null;
@@ -146,7 +225,14 @@
       // Function to display the search results on the page
       function displayResults(results) {
         const createResultCard = (result) => {
-          let card = '<li class="list-group-item">';
+          let card = '<li class="list-group-item" ';
+          card += `data-place="${result.place}" `;
+          card += `data-city="${result.cityname}" `;
+          card += `data-state="${result.state}" `;
+          card += `data-rating="${result.rating}" `;
+          card += `data-num-rating="${result.num_rating}" `;
+          card += `data-in-favourite="${result.in_favourite}" `;
+          card += '>';
           card += '<div class="row">';
           card += '<div class="col-md-4">';
           card += `<h4>${result.place}</h4>`;
@@ -156,7 +242,7 @@
           card += createStarRating(result.rating, result.num_rating);  
           card += '</div>';
           card += '<div class="col-md-3" style="display: flex; align-items: center;">';
-          card += createFavoriteButton(result.in_favourite, isLoggedIn());
+          card += createFavoriteButton(result.in_favourite, isLoggedIn(), 'addToFavoriteHandler(this)');
           card += '</div>';
           card += '<div class="col-md-2", style="display: flex; align-items: center;">';
           card += createRatingDropdown(isLoggedIn());

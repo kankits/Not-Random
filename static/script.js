@@ -119,29 +119,15 @@ function createRatingDropdown(loggedIn) {
   return dropdown;
 }
 
-// jQuery event handler for hovering over a star
-$(document).on('mouseenter', '.rating-star-rate', function() {
-  $(this).addClass('fas').removeClass('far');
-  $(this).prevAll('.rating-star-rate').addClass('fas').removeClass('far');
-  $(this).nextAll('.rating-star-rate').addClass('far').removeClass('fas');
-});
-
-// jQuery event handler for clicking on a star
-$(document).on('click', '.rating-star-rate', function() {
-  const rating = $(this).data('value');
-  console.log('Selected rating:', rating);
-  // TODO: Add code to submit rating to server or update UI
-});
-
-function createFavoriteButton(inFavorite, loggedIn) {
+function createFavoriteButton(inFavorite, loggedIn, onClick) {
   if (loggedIn) {
     if (inFavorite) {
-      return '<button type="button" class="btn btn-primary"><i class="fas fa-heart fa-2x", style="padding-right: 10px;"></i>Add to Favorites</button>';
+      return `<button type="button" class="btn btn-primary fas fa-heart fa-2x" onclick=${onClick} style="min-width: 200px;"><div style="font-size: 10px;">Remove from Favorites</div></button>`;
     }
-    return '<button type="button" class="btn btn-primary"><i class="far fa-heart fa-2x", style="padding-right: 10px;"></i>Add to Favorites</button>';
+    return `<button type="button" class="btn btn-primary far fa-heart fa-2x" onclick=${onClick} style="min-width: 200px;"><div style="font-size: 10px;">Add to Favorites</div></button>`;
   }
   else{
-    return '<button type="button" class="btn btn-primary disabled"><i class="fas fa-heart fa-2x", style="padding-right: 10px;"></i>Add to Favorites</button>';
+    return `<button type="button" class="btn btn-primary disabled far fa-heart fa-2x"><div style="font-size: 10px">Add to Favorites</div></button>`;
   }
 }
 

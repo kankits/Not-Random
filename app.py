@@ -422,3 +422,49 @@ def get_places_recommendations():
         return parse_data(data, columns)
     else:
         return parse_data(data, columns)
+    
+@app.route('/add_to_favourite', methods=['POST'])
+def add_to_favourite():
+    if 'user' not in session:
+        return jsonify({'data': 'fail'})
+    else:
+        username = session['user']
+        place = request.form.get('place')
+        cityname = request.form.get('cityname')
+        state = request.form.get('state')
+
+        city_id_query = "select cityid from cities where cityname = \'" + cityname + "\' and state = \'" + state + "\'"
+        cursor = conn.cursor()
+        cursor.execute(city_id_query)
+        cityid = cursor.fetchone()[0]
+        cursor.close()
+
+        query = "insert into FavouritePlaces values(\'" + username + "\', \'" + place + "\', " + str(cityid) + ")"
+        cursor = conn.cursor()
+        cursor.execute(query)
+        conn.commit()
+        cursor.close()
+        return jsonify({'data': 'success'})
+    
+@app.route('/remove_from_favourite', methods=['POST'])
+def remove_from_favourite():
+    if 'user' not in session:
+        return jsonify({'data': 'fail'})
+    else:
+        username = session['user']
+        place = request.form.get('place')
+        cityname = request.form.get('cityname')
+        state = request.form.get('state')
+
+        city_id_query = "select cityid from cities where cityname = \'" + cityname + "\' and state = \'" + state + "\'"
+        cursor = conn.cursor()
+        cursor.execute(city_id_query)
+        cityid = cursor.fetchone()[0]
+        cursor.close()
+
+        query = "delete from FavouritePlaces where username = \'" + username + "\' and place = \'" + place + "\' and cityid = " + str(cityid)
+        cursor = conn.cursor()
+        cursor.execute(query)
+        conn.commit()
+        cursor.close()
+        return jsonify({'data': 'success'})
