@@ -49,6 +49,34 @@
         <div class="col-md-2 filter-component">
           <h5>Filters</h5>
           <form id="filter-form">
+            <div class="filter-element">
+              <label for="category"><b style="font-size:13px;">Cities</b></label>
+              <div class="tags_layout">
+                <div class="form-group search_box_tag_filter" id="search-box-city-tag-filter">
+                  <input type="text" style="font-size:13px;" class="form-control tag_filter_search" name="search-tag-filter-input" id="search-tag-city-filter-input" placeholder="Name...">
+                  <div class="search-results" id="search-tag-city-filter-results" style="display: none; font-size:13px;">
+                      <ul></ul>
+                  </div>
+                </div>
+                <button onclick="addCuisineAndCityTag()" type="button" class="btn btn-default" style="font-size:13px;">Add</button>
+              </div>
+              <div class="form-group search_box_tags" id = "search-box-city-tags">
+                <ul>
+                </ul>
+              </div>
+              <script>
+                $(document).ready(function() {
+                searchInputHandler('search-tag-city-filter-input', 'search-tag-city-filter-results', 'cities', 'cityname');
+                });
+                
+                $(document).on('click', '.dropdown-item', function() {
+                var value = $(this).text();
+                $('#search-tag-city-filter-input').val(value);
+                $('#search-tag-city-filter-results').hide();
+                });
+              </script>
+              
+            </div>
   
             <!-- search box add tags -->
             <div class="filter-element">
@@ -64,8 +92,6 @@
                 </div>
                 <div class="form-group search_box_tags" id = "search-box-tags">
                   <ul>
-                  <script type = "text/javascript" src="static/script.js">
-                  </script>
                   <script>
                     $(document).ready(function() {
                     searchInputHandler('search-tag-filter-input', 'search-tag-filter-results', 'cuisine_name', 'cuisine');
@@ -130,6 +156,7 @@
       let maxCost = null;
       let minRating = null;
       let locality = null;
+      var cities = [];
 
       function setSearchBarValues(){
         searchBarFilterSelected = $('#search-input').val();
@@ -138,6 +165,11 @@
       function addCuisineAndTag() {
         cuisines.push($('#search-tag-filter-input').val());
         addToTag();
+      }
+
+      function addCuisineAndCityTag() {
+        cities.push($('#search-tag-city-filter-input').val());
+        addToCityTag();        
       }
 
       function setFilerValues() {
@@ -213,7 +245,7 @@
         $.ajax({
           type: 'GET',
           url: '/filter_restaurants',
-          data: {'search': searchBarFilterSelected, 'maxCost': maxCost, 'minRating': minRating, 'cuisines': JSON.stringify(cuisines)},
+          data: {'search': searchBarFilterSelected, 'maxCost': maxCost, 'minRating': minRating, 'cuisines': JSON.stringify(cuisines), 'cities': JSON.stringify(cities)},
           success: function(response) {
             var results = response.data;
             displayResults(results);

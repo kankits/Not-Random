@@ -243,6 +243,7 @@ def filter_restaurants():
     maxCost = request.args.get('maxCost')
     minRating = request.args.get('minRating')
     cuisines = json.loads(request.args.get('cuisines'))
+    cities = json.loads(request.args.get('cities'))
     if(maxCost == ""):
         maxCost = "1000000000"
     if(minRating == ""):
@@ -254,11 +255,20 @@ def filter_restaurants():
         if(i < len(cuisines) - 1):
             cuisineList += ", "
     cuisineList += ")"
+
+    cityList = "("
+    for i in range(len(cities)):
+        cityList += "'"+cities[i]+"'"
+        if(i < len(cities) - 1):
+            cityList += ", "
+    cityList += ")"
     
     s = "with t1 as (\n    select distinct name, locality \n    from cuisines_table \n    where name like \'" + query + "\' || \'%\'"
     if(len(cuisineList)>2):
         s+=" and cuisine in " + cuisineList 
-    s+="\n)\nselect t1.name, t1.locality, cost, cuisine, rating, votes as num_rating \nfrom restaurants, t1 \nwhere t1.name = restaurants.name and t1.locality = restaurants.locality and rating >= " + minRating + " and cost <= " + maxCost
+    s+="\n)\nselect t1.name, t1.locality, cost, cuisine, rating, votes as num_rating \nfrom restaurants, t1, cities \nwhere t1.name = restaurants.name and t1.locality = restaurants.locality and rating >= " + minRating + " and cost <= " + maxCost + " and restaurants.cityid = cities.cityid"
+    if(len(cityList)>2):
+        s+=" and cityname in " + cityList 
     print(s)
     cur.execute(s)
     results = []

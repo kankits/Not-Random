@@ -1,6 +1,6 @@
 1) Fix UI of Hotels, Travel - P3
 2) Add place recommender for hotels and hotel recommender for places - P1
-3) Add city filter for restaurants - P0
+3) Add city filter for restaurants - P0 (done)
 4) recommend restaurants for hotels: add same city condition in the query (currently only locality is same) - P0
-5) Update user rating for places  - P0
+5) Update user rating for places  - P0 (done)
 6) list ratings posted by user and favourite places of user on dashboard - P2
