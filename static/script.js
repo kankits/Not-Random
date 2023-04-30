@@ -51,6 +51,24 @@ function addToTag() {
     list.append(item);
 }
 
+function addToCityTag() {
+  var list = $('#search-box-city-tags ul');
+
+  var item = $('<li class="badge_tag">').text($('#search-tag-city-filter-input').val());
+
+  var removeButton = $('<span class="remove-button">').text('x');
+
+  // Add a click event listener to the remove button
+  removeButton.on('click', function() {
+    $(this).parent().remove();
+  });
+
+  // Add the remove button to the item
+  item.append(removeButton);
+
+  list.append(item);
+}
+
 function getCheckedOptions() {
   var checkedValues = [];
   $('input[type="checkbox"]:checked').each(function() {

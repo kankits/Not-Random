@@ -275,7 +275,7 @@ a:hover {
   margin-bottom: -1px;
   padding-top: 5px;
   padding-bottom: 5px;
-  overflow-y: visible;
+  overflow-y: hidden;
 }
 
 .filter_results_hotels_container {
