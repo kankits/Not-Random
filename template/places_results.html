@@ -144,12 +144,13 @@
 
       $.ajax({
         type: 'POST',
-        url: '/submit_rating',
+        url: '/update_rating',
         data: {'rating': rating, 'place': resultPlace, 'cityname': resultCity, 'state': resultState},
         success: function(response) {
           if (response.data == 'success') {
-            $(this).closest('.fa-thumbs-up').addClass('fas').removeClass('far');
-            resultCard.data('is-rated', true);
+            console.log("Success");
+            const queryParams = new URLSearchParams(window.location.search);
+            window.location.href = `${"{{ url_for('places_results') }}"}?${queryParams.toString()}`;
           }
         },
         error: function(error) {

@@ -87,60 +87,68 @@ def search_places():
     data = cursor.fetchall()
     cursor.close()
     columns = ["place", "cityname", "state",
-               "num_rating", "rating", "in_favourite"]
+               "num_rating", "rating", "in_favourite", "is_rated"]
     
     return parse_data(data, columns)
 
-@app.route('/update_rating')
+@app.route('/update_rating', methods=['POST'])
 def update_rating():
-    username = request.form['username']
-    cityname = request.form['cityname']
-    place = request.form['place']
-    state = request.form['state']
-    rating = request.form['rating']
-    cityid = ""
-    lastrating = 0
-    firsttimerating = 0
-
-    s = "select cityid from cities where cityname = '" + cityname + "' and state = '" + state + "'"
-    print(s)
-    print()
-    cur.execute(s)
-    for row in cur:
-        cityid = str(row[0])
-    
-    s = "select * from userratings where cityid = '" + cityid + "' and place = '" + place + "' and username = '" + username + "'"
-    print(s)
-    print()
-    cur.execute(s)
-    count = 0
-    for row in cur:
-        count += 1
-        lastrating = row[3]
-
-    if(count > 0):
-        s = ""
-        s = "update userratings \nset rating = '" + rating + "'\nwhere cityid = '" + cityid + "' and place = '" + place + "' and username = '" + username + "'"
-        print(s)
-        print()
-        cur.execute(s)
+    if 'user' not in session:
+        return jsonify({'data': 'fail'})
     else:
-        firsttimerating = 1
-        s = "insert into userratings values('" + username + "', '" + place + "', '" + cityid + "', '" + rating + "')"
+        username = session['user']
+        cityname = request.form['cityname']
+        place = request.form['place']
+        state = request.form['state']
+        rating = int(request.form['rating'])
+        cityid = ""
+        lastrating = 0
+        firsttimerating = 0
+
+        s = f"select cityid from cities where cityname = '{cityname}' and state = '{state}'"
         print(s)
         print()
-        cur.execute(s)
+        cursor = conn.cursor()
+        cursor.execute(s)
+        data = cursor.fetchall()
+        cursor.close()
+        for row in data:
+            cityid = str(row[0])
+        
+        s = f"select * from userratings where cityid = '{cityid}' and place = '{place}' and username = '{username}'"
+        print(s)
+        print()
+        cursor = conn.cursor()
+        cursor.execute(s)
+        data = cursor.fetchall()
+        cursor.close()
+        count = 0
+        for row in data:
+            count += 1
+            lastrating = row[3]
 
-    deltarating = rating - lastrating
-    
-    s = "update places set rating = (num_rating * rating + " + str(deltarating) + ")/ (num_rating + " + str(firsttimerating) + ") , num_rating = num_rating + " + str(firsttimerating) + "\nwhere places.cityid = '" + cityid + "' and places.place = '" + place + "'"
-    print(s)
-    print()
-    cur.execute(s)
+        if(count > 0):
+            s = ""
+            s = f"update userratings \nset rating = '{rating}'\nwhere cityid = '{cityid}' and place = '{place}' and username = '{username}'"
+            print(s)
+            print()
+            cur.execute(s)
+        else:
+            firsttimerating = 1
+            s = f"insert into userratings values('{username}', '{place}', '{cityid}', '{rating}')"
+            print(s)
+            print()
+            cur.execute(s)
 
-    return jsonify({'data': 'success'})
-
-    
+        deltarating = rating - lastrating
+        
+        s = f"update places set rating = (num_rating * rating + {deltarating})/ (num_rating + {firsttimerating}) , num_rating = num_rating + {firsttimerating} \nwhere places.cityid = '{cityid}' and places.place = '{place}'"
+        print(s)
+        cursor = conn.cursor()
+        cursor.execute(s)
+        cursor.close()
+        conn.commit()
+        return jsonify({'data': 'success'})
 
 
 @app.route('/search_hotels')
