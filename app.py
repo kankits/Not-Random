@@ -19,14 +19,6 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
-# username = 'parth'
-# search_query = 'Ramapuram Beach'
-# s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t4 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t1 as (\n select * from t4 where place like \'" + search_query + "\' || \'%\'\n), t2 as ( \n select place, cityid, num_rating, rating, username, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select * from t2"
-# print(s)
-# cur.execute(s)
-# for row in cur:
-#     print(row)
-
 def parse_data(data, columns):
     results = []
     for row in data:
@@ -79,6 +71,7 @@ def travel():
 @app.route('/search_places')
 def search_places():
     search_query = request.args.get('search_query')
+    search_query = search_query.replace("'", "''")
     state = request.args.get('state')
     city = request.args.get('city')
     username = request.args.get('user')
@@ -108,6 +101,7 @@ def update_rating():
         username = session['user']
         cityname = request.form['cityname']
         place = request.form['place']
+        place = place.replace("'", "''")
         state = request.form['state']
         rating = int(request.form['rating'])
         cityid = ""
@@ -162,6 +156,7 @@ def update_rating():
 @app.route('/search_hotels')
 def search_hotels():
     query = request.args.get('search')
+    query = query.replace("'", "''")
     # Perform search for Restaurants and return results
     # ...
     s = "select hotelname, state, locality, cityname, starrating, freewifi, freebreakfast, hasswimmingpool, hoteldescription, hotelpincode, rent from hotels, cities where hotels.cityid = cities.cityid and hotelname like \'" + query + "\' || \'%\';"
@@ -181,6 +176,7 @@ def search_hotels():
 @app.route('/filter_hotels')
 def filter_hotels():
     query = request.args.get('search')
+    query = query.replace("'", "''")
     rent = request.args.get('maxRent')
     rating = request.args.get('minRating')
     cities = json.loads(request.args.get('citiesFilter'))
@@ -246,6 +242,7 @@ def filter_hotels():
 @app.route('/search_restaurants')
 def search_restaurants():
     query = request.args.get('search')
+    query = query.replace("'", "''")
     # Perform search for Restaurants and return results
     # ...
     s = "select name, locality, cost, cuisine, rating, votes as num_rating from restaurants where name like \'" + query + "\' || \'%\';"
@@ -268,6 +265,7 @@ def search_restaurants():
 @app.route('/filter_restaurants')
 def filter_restaurants():
     query = request.args.get('search')
+    query = query.replace("'", "''")
     maxCost = request.args.get('maxCost')
     minRating = request.args.get('minRating')
     cuisines = json.loads(request.args.get('cuisines'))
@@ -356,7 +354,7 @@ def search_travel():
         if(mode != "Flight"):
             s+="select distinct s1.cityid as source, s2.cityid as destination, 'Train' as typeOfTravel\n    from stations as s1, stations as s2, trainpath as x1, trainpath as x2, traininfo\n    where x1.train_no = x2.train_no and x1.seq < x2.seq and x1.station_code = s1.station_code and\n          x2.station_code = s2.station_code and x1.train_no = traininfo.train_no"
         s += "\n),\nt1 as (\n    select c1.cityname as source, c2.cityname as destination, typeOfTravel\n    from t3, cities as c1, cities as c2\n    where t3.source = c1.cityid and t3.destination = c2.cityid\n),\nt2(dst, path, len) as (\n    select t1.destination, ARRAY[t1.source::text, t1.typeOfTravel::text, t1.destination::text] as path, 1 as len\n    from t1\n    where t1.source = \'" + src + "\'\n\n    union all\n\n    select f.destination, (g.path || ARRAY[f.typeOfTravel::text, f.destination::text]), g.len + 1\n    from t1 as f join t2 as g on f.source = g.dst and f.destination != ALL(g.path) and g.len < 3\n)\n"
-        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len limit 5;"
+        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len limit 15;"
         # s+="select * from t1 where source = 'Kolkata' and destination = 'Mumbai'"
     else:
         s += "with recursive t3 as (\n    "
@@ -367,7 +365,7 @@ def search_travel():
         if(mode != "Flight"):
             s+="select s1.cityid as source, s2.cityid as destination, 'Train' as typeOfTravel,\n           traininfo.train_no || ' , ' || traininfo.train_name as transportid\n    from stations as s1, stations as s2, trainpath as x1, trainpath as x2, traininfo\n    where x1.train_no = x2.train_no and x1.seq < x2.seq and x1.station_code = s1.station_code and\n          x2.station_code = s2.station_code and x1.train_no = traininfo.train_no"
         s += "\n),\nt1 as (\n    select c1.cityname as source, c2.cityname as destination, typeOfTravel, transportid\n    from t3, cities as c1, cities as c2\n    where t3.source = c1.cityid and t3.destination = c2.cityid\n),\nt2(dst, path, len) as (\n    select t1.destination, ARRAY[t1.source::text, t1.typeOfTravel::text, t1.transportid::text, t1.destination::text] as path, 1 as len\n    from t1\n    where t1.source = \'" + src + "\'\n\n    union all\n\n    select f.destination, (g.path || ARRAY[f.typeOfTravel::text, f.transportid::text, f.destination::text]), g.len + 1\n    from t1 as f join t2 as g on f.source = g.dst and f.destination != ALL(g.path) and g.len < 2\n)\n"
-        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len limit 5;"
+        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len limit 15;"
         # s+="select * from t1 where source = 'Kolkata' and destination = 'Mumbai'"
     # Perform search for Travel and return results
     # ...
@@ -398,6 +396,7 @@ def get_candidate_values_route():
     column = request.args.get('column')
     table = request.args.get('table')
     query = request.args.get('query')
+    query = query.replace("'", "''")
     values = get_candidate_values(column, table, query)
     return jsonify({'data': values})
 

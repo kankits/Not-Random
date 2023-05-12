@@ -1,6 +1,9 @@
 {% extends "index.html" %}
 
 {% block content %}
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
     <div class="container-search">
           <!-- Search form for Travel tab -->
           <form class="form-container" id="search-bar-form">
@@ -83,24 +86,37 @@
     const createResultCard = (result) => {
       let card = '<li class="list-group-item"  style = "background-color: rgba(255, 255, 255, 0.85);" >';
       card += '<div class="row">';
-      card += '<div class="col-md-3">';
+      card += '<div class="col-md-20">';
       card += '<ul>';
-      for (var i = 0; i < result.path.length; i++){
-        if(i%2 == 1) {
-          card += '<li class="badge_tag">'+result.path[i];
-          card += '</li>';          
-        } else {
-          card += '<li>'+result.path[i];
-          card += '</li>';
-        }
 
-      };
+      let offset = 2;
+      if (trdetails) {
+        offset = 3;
+      }
+      console.log(offset);
+      card += '<li class="path-item">'; // Start a single <li> element for all items
+      for (var i = 0; i < result.path.length; i++) {
+        if (i % offset == 0) {
+          card += result.path[i] + ' '; // Display city name or transport mode
+        } else {
+          if (result.path[i] === 'Flight') {
+            card += '<i class="fas fa-plane badge-icon"></i> '; // Display flight icon
+          } else if (result.path[i] === 'Train') {
+            card += '<i class="fas fa-train badge-icon"></i> '; // Display train icon
+          } else {
+            card += '<span class="badge badge-info">' + result.path[i] + '</span> '; // Display flight or train number in a badge style
+          }
+        }
+      }
+      card += '</li>'; // Close the single <li> element
+
       card += '</ul>';
       card += '</div>';
       card += '</div>';
       card += '</li>';
-      
+
       return card;
+
     };
 
     let resultsHTML = '<h2>Search Results</h2>';
