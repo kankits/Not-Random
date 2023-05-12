@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Travel Guide</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src = "{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    
+  </head>
+  <body style="background-color:#f0f0f0">
+    <nav class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top nav1">
+      <div class="row flex-nowrap" style="margin: 0%; height: 60px;">
+        <div class="col-md-3" style="padding: 0;">
+          <a href="{{ url_for('places_states') }}" style="display: block; height: 100%; width: 100%;">
+            <img src="{{ url_for('static', filename='images/Tg_crop.gif') }}" alt="Home" class="img-fluid h-100 w-100">
+          </a>
+        </div>
+        {% if session.user %}
+          <div class="col-md-3 d-flex align-items-center justify-content-center" style="padding: 0; height: 100%;">
+            <a href="{{ url_for('dashboard') }}" class="text-center d-flex align-items-center justify-content-center" style="font-size: large; width: 100%; height: 100%;">Dashboard</a>
+          </div>
+          <div class="col-md-3 d-flex align-items-center justify-content-center" style="padding: 0;  height: 100%;">
+            <a href="{{ url_for('logout') }}" class="text-center d-flex align-items-center justify-content-center" style="font-size: large; width: 100%; height: 100%;">Logout</a>
+          </div>
+        {% else %}
+          <div class="col-md-3 d-flex align-items-center justify-content-center" style="padding: 0; height: 100%;">
+            <a href="{{ url_for('login') }}" class="text-center d-flex align-items-center justify-content-center" style="font-size: large; width: 100%; height: 100%;">Log in</a>
+          </div>
+          <div class="col-md-3 d-flex align-items-center justify-content-center" style="padding: 0; height: 100%;">
+            <a href="{{ url_for('signup') }}" class="text-center d-flex align-items-center justify-content-center" style="font-size: large; width: 100%; height: 100%;">Sign up</a>
+          </div>
+        {% endif %}
+      </div>
+    </nav>
+
+    <!-- Navigation bar with tabs -->
+    <nav class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top nav2">
+    <ul class="nav nav-tabs">
+      <li {% if active_tab == "places" %}class="active"{% endif %}><a href="/places_states">Places</a></li>
+      <li {% if active_tab == "hotels" %}class="active"{% endif %}><a href="/hotels">Hotels</a></li>
+      <li {% if active_tab == "restaurants" %}class="active"{% endif %}><a href="/restaurants">Restaurants</a></li>
+      <li {% if active_tab == "travel" %}class="active"{% endif %}><a href="/travel">Travel</a></li>
+    </ul>
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
+    <script>
+      $(document).ready(function() {
+        // get the height of .nav1
+        var nav1Height = $('.nav1').height();
+
+        // set the margin-top of .nav2 to the height of .nav1
+        $('.nav2').css('margin-top', nav1Height + 'px');
+      });
+    </script>
+    
+  </body>
+</html>

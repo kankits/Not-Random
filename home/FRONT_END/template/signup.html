@@ -1,0 +1,71 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div class="container-sign">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem; background-color:#b8fcf8;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="{{url_for('static', filename='images/signup.jpg')}}"
+                  alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; object-fit: fill; width: 600px; height: 600px;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                  <form method="POST" action="/signup">
+  
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                      <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
+                      <span class="h1 fw-bold mb-0"></span>
+                    </div>
+  
+                    <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Register your account</h5>
+  
+                    <div class="form-outline mb-4">
+                        <input class="form-control form-control-lg" type="text" name="username" placeholder="Username" autofocus="">
+                    </div>
+  
+                    <div class="form-outline mb-4">
+                        <input class="form-control form-control-lg" type="text" name="name" placeholder="Name" autofocus="">
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input class="form-control form-control-lg" type="password" name="password" placeholder="Password">
+                    </div>
+
+                    <div class="form-outline mb-4">
+                        <input class="form-control form-control-lg" type="password" name="confirm_password" placeholder="Confirm Password">
+                    </div>
+  
+                    <div class="pt-1 mb-4">
+                      <button class="btn btn-dark btn-lg btn-block" type="submit">Sign Up</button>
+                    </div>
+
+                    <div class="error_message" id="error_message">
+
+                    </div>
+                  </form>
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <script>
+      $(document).ready(function() {
+      // get the height of .nav1
+      var nav1Height = $('.nav1').height();
+      var nav2Height = $('.nav2').height();
+
+      // set the margin-top of .nav2 to the height of .nav1
+      $('.container-sign').css('margin-top', nav1Height + nav2Height + 100 + 'px');
+      });
+      let error_message = "{{ error }}"
+      const errorContainer = document.getElementById('error_message');
+      errorContainer.innerHTML = `<div style="color: red; font-size:large">${error_message}</div>`;
+  </script>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row">
+      <div class="sidebar">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" style="color: black;" href="{{ url_for('dashboard') }}">Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: black;" href="{{ url_for('favorites') }}">Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: black;" href="{{ url_for('ratings') }}">My Ratings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: black;" href="{{ url_for('logout') }}">Logout</a>
+          </li>
+        </ul>
+      </div>
+      <div class="content" id="content">
+        <!-- Page content goes here -->
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function() {
+      // get the height of .nav1
+      var navHeight = $('.nav1').height() + $('.nav2').height();
+
+      // set the margin-top of .nav2 to the height of .nav1
+      $('.sidebar').css('margin-top', navHeight + 'px');
+      $('.content').css('margin-top', navHeight + 'px');
+    });
+  </script>
+
+  <script>
+    function displayResults(results) {
+      const createCard = (result) => {
+        let card = '<li class="list-group-item">';
+        card += '<div class="row">';
+        card += '<div class="col-md-7">';
+        card += `<h4>${result.place}</h4>`;
+        card += `<h5>${result.city}, ${result.state}</h5>`;    
+        card += '</div>';
+        card += '<div class="col-md-5">';
+        card += createStarRating(result.rating, result.num_rating);  
+        card += '</div>';
+        card += '</div>';
+        card += '</li>';
+        return card;
+      };
+      if (results == "fail") {
+        window.location.href = "{{ url_for('login') }}"
+      }
+      else{
+        let resultsHTML = '<ul class="list-group">';
+    
+        results.forEach((result) => {
+          resultsHTML += createCard(result);
+        });
+        resultsHTML += '</ul>';
+
+        const resultsContainer = document.getElementById('content');
+        resultsContainer.innerHTML = resultsHTML;
+      }
+    }
+
+    // display user details using the get_user_details flask route
+    $.ajax({
+      type: 'GET',
+      url: '/get_favourite_places',
+      data: {},
+      success: function(response) {
+        var results = response.data;
+        displayResults(results);
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+
+  </script>
+{% endblock %}

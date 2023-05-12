@@ -1,0 +1,319 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container-search">
+  <!-- Search form for places tab -->
+  <form class="form-container" id="search-bar-form">
+      <div class="form-group search_box" style="margin-left: 600px;">
+          <input type="text" class="form-control wide_search" name="search-input" id="search-input" placeholder="Search...">
+          <div class="search-results" id="search-results" style="display: none;">
+              <ul></ul>
+          </div>
+      </div>
+      <div class="form-group search_box">
+          <button type="submit" class="btn btn-default">Go</button>
+      </div>
+  </form>
+</div>
+
+    <script src = "static/script.js" defer></script>
+
+    <script>
+    $(document).ready(function() {
+    searchInputHandler('search-input', 'search-results', 'hotels', 'hotelname');
+    });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+        // get the height of .nav1
+        var nav1Height = $('.nav1').height();
+        var nav2Height = $('.nav2').height();
+
+        // set the margin-top of .nav2 to the height of .nav1
+        $('.container-search').css('margin-top', nav1Height + nav2Height + 'px');
+        });
+    </script>
+
+<div class="container-results-hotels">    
+    <div class="row">
+      <div class="col-md-2 filter-component">
+        <h5>Filters</h5>
+        <form id="filter-form">
+
+          <!-- checkbox filter -->
+          <div class="filter-element">
+            <label for="category"><b style="font-size:13px;">Facilities</b></label>
+            <div class="form-group">
+              <ul>
+
+              <script>
+                var options = ["Free Wifi", "Free Breakfast", "Swimming Pool"]; // Replace with your options
+                for (var i = 0; i < options.length; i++) {
+                  document.write('<li>');
+                  document.write('<div class="form-check">');
+                  document.write('<input class="form-check-input" type="checkbox" value="' + options[i] + '" id="checkbox' + (i+1) + '">');
+                  document.write('<label class="form-check-label" for="checkbox' + (i+1) + '">' + options[i] + '</label>');
+                  document.write('</div>');
+                  document.write('</li>');
+                }
+              </script>
+
+            </ul>
+            </div>
+          </div>
+
+          <!-- search box filter -->
+          <div class="filter-element">
+            <label for="category"><b style="font-size:13px;">Maximum Rent</b></label>
+            <div class="form-group search_box_filter">
+              <input type="text" style="font-size:13px;" class="form-control filter_search" name="search-filter-input" id="search-filter-input" placeholder="Name...">
+              <div class="search-results" id="search-filter-results" style="display: none;">
+                  <ul></ul>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="filter-element">
+            <label for="category"><b style="font-size:13px;">Minimum Rating</b></label>
+            <div class="form-group">
+              <select class="form-control" id="category" style="font-size:13px;">
+
+                <script>
+                  var categories = [" ", "1", "2", "3", "4", "5"]; // Replace with your options
+                  for (var i = 0; i < categories.length; i++) {
+                    document.write('<option>' + categories[i] + '</option>');
+                  }
+                </script>
+
+              </select>
+            </div>
+          </div>
+
+          <!-- search box add tags -->
+          <div class="filter-element">
+            <label for="category"><b style="font-size:13px;">Cities</b></label>
+            <div class="tags_layout">
+              <div class="form-group search_box_tag_filter" id="search-box-tag-filter">
+                <input type="text" style="font-size:13px;" class="form-control tag_filter_search" name="search-tag-filter-input" id="search-tag-filter-input" placeholder="Name...">
+                <div class="search-results" id="search-tag-filter-results" style="display: none;">
+                    <ul></ul>
+                </div>
+              </div>
+              <button onclick="addToTag()" type="button" class="btn btn-default" style="font-size:13px;">Add</button>
+            </div>
+            <div class="form-group search_box_tags" id = "search-box-tags">
+              <ul>
+              <script type = "text/javascript" src="static/script.js">
+              </script>
+              </ul>
+            </div>
+            <script>
+              $(document).ready(function() {
+              searchInputHandler('search-tag-filter-input', 'search-tag-filter-results', 'cities', 'cityname');
+              });
+              
+              $(document).on('click', '.dropdown-item', function() {
+              var value = $(this).text();
+              $('#search-tag-filter-input').val(value);
+              $('#search-tag-filter-results').hide();
+              });
+            </script>
+            
+          </div>
+
+          <!-- force filter button to next line -->
+          <br><br><br>
+            <div style = "display:block;">
+              <button type="submit" class="btn btn-primary" style="font-size:13px;">Filter</button>
+            </div>
+        </form>
+      </div>
+
+      <div class="col-md-8 filter_results_places_container" id="filter_results_hotels_container">
+        <!-- Your search results go here -->
+        
+      </div>
+    </div>
+</div>
+
+  <script>
+
+    let categoryFilterSelected = null;
+    let facilitiesFilterSelected = null;
+    let searchFilterSelected = null;
+    let maxRentFilterselected = null;
+    let minRatingFilterselected = null;
+    let citiesFilterselected = null;
+    let searchBarFilterSelected = null;
+
+    // Function to display the search results on the page
+    function displayResults(results) {
+        const createResultCard = (result) => {
+          let card = '<li class="list-group-item">';
+          card += '<div class="row">';
+          card += '<div class="col-md-6">';
+          card += `<h4>${result.hotelname}</h4>`;
+          card += `<h5>${result.hoteldescription}</h5>`;
+          card += `<h6>${result.locality}, ${result.hotelpincode}, ${result.cityname}</h6>`;    
+          // card += '</div>';
+          // card += '<div class="col-md-7">';
+          card += createStarRating(result.starrating,-1);  
+          // card += '<div class="col-md-10">';
+  
+          card += '</div>';
+          card += '<div class="col-md-3">';
+          card += '<ul>';
+            if (result.hasswimmingpool)
+            {
+              card += '<li class="badge_tag"> swimmingpool </li>';
+            }  
+            if (result.freewifi)
+            {
+              card += '<li class="badge_tag"> free wifi </li>';
+            }
+            if (result.freebreakfast)
+            {
+              card += '<li class="badge_tag"> free breakfast </li>';
+            }
+          card += '</ul>';
+          card += '</div>';
+          card += '<div class="col-md-3">';
+          card += '<p class="text-center">'
+          card += '<ul style="list-style-type: none;">';
+            card += `<li class="rent"  style= "background-color: #FFDCD1; border: 4px solid #ccc; border-radius: 5px; padding: 10px; width: 180px; text-align: center; font-size: 20px;"> ${result.rent} INR </li>`;
+            card += '<li onclick="redirect(\'' + result.locality + '\', \'' + result.cityname + '\')"class="recommend" style= "background-color: #FFDCD1; cursor:pointer; border: 4px solid #ccc; border-radius: 5px; padding: 10px; width: 180px; text-align: center; font-size: 16px;">  Recommend restaurants </a> </li>';
+            card += '<li onclick="redirect_place(\'' + result.cityname  + '\',\'' + result.state + '\')"class="recommend" style= "background-color: #FFDCD1; cursor:pointer; border: 4px solid #ccc; border-radius: 5px; padding: 10px; width: 180px; text-align: center; font-size: 16px;">  Recommend places </a> </li>';
+          card += '</ul>';
+          card += '</ul>';
+          card += '</p>'
+          card += '</div>';
+          card += '</div>';
+          card += '</li>';
+          return card;
+        };
+
+        let resultsHTML = '<h2 style = "color: white;">Search Results</h2>';
+        resultsHTML += '<ul class="list-group">';
+      
+        results.forEach((result) => {
+          resultsHTML += createResultCard(result);
+        });
+
+        resultsHTML += '</ul>';
+
+        const resultsContainer = document.getElementById('filter_results_hotels_container');
+        resultsContainer.innerHTML = resultsHTML;
+      }
+
+      function redirect(locality, city) {
+        const queryParams = new URLSearchParams(window.location.search);
+        console.log(locality);
+        console.log(city);
+        queryParams.set('locality', locality);
+        queryParams.set('city', city);
+        window.location.href = `${"{{ url_for('restaurants') }}"}?${queryParams.toString()}`;
+      }
+
+      function redirect_place(cityname, state) {
+        const queryParams = new URLSearchParams();
+        queryParams.set('search_query', '');
+        queryParams.set('city', cityname);
+        queryParams.set('state', state);
+        console.log(state);
+        window.location.href = `${"{{ url_for('places_results') }}"}?${queryParams.toString()}`;
+      }
+
+      function setFilterValues(){
+        maxRentFilterselected = $('#search-filter-input').val();
+        facilitiesFilterSelected = getCheckedOptions();
+        minRatingFilterselected = $('#category').val();
+        citiesFilterselected = getAddedCities();
+        console.log(maxRentFilterselected );
+        console.log(facilitiesFilterSelected);
+        console.log(minRatingFilterselected);
+        console.log(citiesFilterselected);
+
+      }
+
+      function setSearchBarValues(){
+        searchBarFilterSelected = $('#search-input').val();
+        console.log(searchBarFilterSelected);
+      }
+
+      function searchHotelResultsHandler() {
+
+          // Display the filtered results
+            $.ajax({ 
+            type: 'GET',
+            url: '/search_hotels',
+            data: {'search': searchBarFilterSelected},
+            // data: {'search': searchBarFilterSelected, 'maxRent': maxRentFilterselected, 'facilitiesFilter': JSON.stringify(facilitiesFilterSelected) , 'minRating': minRatingFilterselected , 'citiesFilter': JSON.stringify(citiesFilterselected)},
+            success: function(response) {
+              var results = response.data;
+              displayResults(results);
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+        }
+
+      function searchFilterHotelResultsHandler() {
+
+          // Display the filtered results
+            $.ajax({ 
+            type: 'GET',
+            url: '/filter_hotels',
+            data: {'search': searchBarFilterSelected, 'maxRent': maxRentFilterselected, 'facilitiesFilter': JSON.stringify(facilitiesFilterSelected) , 'minRating': minRatingFilterselected , 'citiesFilter': JSON.stringify(citiesFilterselected)},
+            success: function(response) {
+              var results = response.data;
+              displayResults(results);
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+        }
+      
+
+      // Event listener for the search bar
+      document.getElementById('search-bar-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        setSearchBarValues();
+        searchHotelResultsHandler();
+      });
+
+      
+      // Event listener for the filter form
+      document.getElementById('filter-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        setFilterValues();
+        console.log("In\n");
+        searchFilterHotelResultsHandler();
+      });
+
+      const queryParams = new URLSearchParams(window.location.search);
+      citiesFilterselected = [queryParams.get('city')];
+      state = queryParams.get('state');
+      if( state !== null){
+        searchFilterHotelResultsHandler();
+      }
+      
+      
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      // get the height of .nav1
+      var nav1Height = $('.nav1').height();
+      var nav2Height = $('.nav2').height();
+
+      // set the margin-top of .nav2 to the height of .nav1
+      $('.container-search').css('margin-top', nav1Height + nav2Height + 'px');
+    });
+
+  </script>
+
+{% endblock %}

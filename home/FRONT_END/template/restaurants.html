@@ -1,0 +1,294 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="container-search">
+  <!-- Search form for restaurants tab -->
+  <form class="form-container" id="search-bar-form">
+      <div class="form-group search_box" style="margin-left: 600px;">
+          <input type="text" class="form-control wide_search" name="search-input" id="search-input" placeholder="Search...">
+          <div class="search-results" id="search-results" style="display: none;">
+              <ul></ul>
+          </div>
+      </div>
+      <div class="form-group search_box">
+          <button type="submit" class="btn btn-default">Go</button>
+      </div>
+  </form>
+</div>
+    <script src = "static/script.js" defer></script>
+    <script>
+    $(document).ready(function() {
+    searchInputHandler('search-input', 'search-results', 'restaurants', 'name');
+    });
+    
+    $(document).on('click', '.dropdown-item', function() {
+    var value = $(this).text();
+    $('#search-input').val(value);
+    $('#search-results').hide();
+    });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+        // get the height of .nav1
+        var nav1Height = $('.nav1').height();
+        var nav2Height = $('.nav2').height();
+
+        // set the margin-top of .nav2 to the height of .nav1
+        $('.container-search').css('margin-top', nav1Height + nav2Height + 'px');
+        });
+    </script>
+      <script>
+        // $(document).ready(function() {
+        //   searchInputHandler('search-input', 'search-results');
+        // });
+        // </script>
+  
+  <div class="container-results-restaurants">    
+      <div class="row">
+        <div class="col-md-2 filter-component">
+          <h5>Filters</h5>
+          <form id="filter-form">
+            <div class="filter-element">
+              <label for="category"><b style="font-size:13px;">Cities</b></label>
+              <div class="tags_layout">
+                <div class="form-group search_box_tag_filter" id="search-box-city-tag-filter">
+                  <input type="text" style="font-size:13px;" class="form-control tag_filter_search" name="search-tag-filter-input" id="search-tag-city-filter-input" placeholder="Name...">
+                  <div class="search-results" id="search-tag-city-filter-results" style="display: none; font-size:13px;">
+                      <ul></ul>
+                  </div>
+                </div>
+                <button onclick="addCuisineAndCityTag()" type="button" class="btn btn-default" style="font-size:13px;">Add</button>
+              </div>
+              <div class="form-group search_box_tags" id = "search-box-city-tags">
+                <ul>
+                </ul>
+              </div>
+              <script>
+                $(document).ready(function() {
+                searchInputHandler('search-tag-city-filter-input', 'search-tag-city-filter-results', 'cities', 'cityname');
+                });
+                
+                $(document).on('click', '.dropdown-item', function() {
+                var value = $(this).text();
+                $('#search-tag-city-filter-input').val(value);
+                $('#search-tag-city-filter-results').hide();
+                });
+              </script>
+              
+            </div>
+  
+            <!-- search box add tags -->
+            <div class="filter-element">
+                <label for="category"><b style="font-size:13px;">Cuisines</b></label>
+                <div class="tags_layout">
+                  <div class="form-group search_box_tag_filter" id="search-box-tag-filter">
+                    <input type="text" style="font-size:13px;" class="form-control tag_filter_search" name="search-tag-filter-input" id="search-tag-filter-input" placeholder="Name...">
+                    <div class="search-results" id="search-tag-filter-results" style="display: none; font-size:13px;">
+                        <ul></ul>
+                    </div>
+                  </div>
+                  <button onclick="addCuisineAndTag()" type="button" class="btn btn-default" style="font-size:13px;">Add</button>
+                </div>
+                <div class="form-group search_box_tags" id = "search-box-tags">
+                  <ul>
+                  <script>
+                    $(document).ready(function() {
+                    searchInputHandler('search-tag-filter-input', 'search-tag-filter-results', 'cuisine_name', 'cuisine');
+                    });
+                    
+                    $(document).on('click', '.dropdown-item', function() {
+                    var value = $(this).text();
+                    $('#search-tag-filter-input').val(value);
+                    $('#search-tag-filter-results').hide();
+                    });
+                  </script>
+                  </ul>
+                </div>
+                
+              </div>
+
+            <!-- search box filter -->
+            <div class="filter-element">
+              <label for="category"><b style="font-size:13px;">Maximum Cost</b></label>
+              <div class="form-group search_box_filter">
+                <input type="text" style="font-size:13px;" class="form-control filter_search" name="search-filter-input" id="search-filter-input" placeholder="Name...">
+                <div class="search-results" id="search-filter-results" style="display: none;">
+                    <ul></ul>
+                </div>
+              </div>
+            </div>
+  
+  
+            <div class="filter-element">
+              <label for="category"><b style="font-size:13px;">Minimum Rating</b></label>
+              <div class="form-group">
+                <select class="form-control" id="category" style="font-size:13px;">
+  
+                  <script>
+                    var categories = ["", "1", "2", "3", "4", "5"]; // Replace with your options
+                    for (var i = 0; i < categories.length; i++) {
+                      document.write('<option>' + categories[i] + '</option>');
+                    }
+                  </script>
+  
+                </select>
+              </div>
+            </div>
+  
+            <!-- force filter button to next line -->
+            <br><br><br>
+              <div style = "display:block;">
+                <button type="submit" class="btn btn-primary" style="font-size:13px;">Filter</button>
+              </div>
+          </form>
+        </div>
+  
+        <div class="col-md-6 filter_results_places_container" id="filter_results_restaurants_container">
+          <!-- Your search results go here -->
+        </div>
+      </div>
+  </div>
+
+  <script>
+
+      var cuisines = [];
+      let maxCost = null;
+      let minRating = null;
+      let locality = null;
+      let city = null;
+      var cities = [];
+
+      function setSearchBarValues(){
+        searchBarFilterSelected = $('#search-input').val();
+      }
+
+      function addCuisineAndTag() {
+        cuisines.push($('#search-tag-filter-input').val());
+        addToTag();
+      }
+
+      function addCuisineAndCityTag() {
+        cities.push($('#search-tag-city-filter-input').val());
+        addToCityTag();        
+      }
+
+      function setFilerValues() {
+        searchBarFilterSelected = $('#search-input').val();
+        maxCost = $('#search-filter-input').val();
+        minRating = $('#category').val();
+        console.log(maxCost);
+        console.log(minRating);
+        console.log(cuisines);
+      }
+
+      // Function to display the search results on the page
+      function displayResults(results) {
+        const createResultCard = (result) => {
+          let card = '<li class="list-group-item">';
+          card += '<div class="row">';
+          card += '<div class="col-md-4">';
+          card += `<h4>${result.name}</h4>`;
+          card += `<h5>${result.locality}</h5>`;    
+          card += '</div>';
+          card += '<div class="col-md-2">';
+          card += createStarRating(result.rating, result.num_rating);  
+          card += '</div>';
+          card += '<div class="col-md-2">';
+          card += `<h6>${result.cost}</h6>`;    
+          card += '</div>';
+          card += '<div class="col-md-3">';
+          card += '<ul>';
+            console.log(result.cuisine);
+            console.log(result.cuisine.length);
+          for (var i = 0; i < result.cuisine.length; i++){
+            card += '<li class="badge_tag">'+result.cuisine[i];
+            card += '</li>';
+          };
+          card += '</ul>';
+          card += '</div>';
+          card += '</div>';
+          card += '</li>';
+          
+          return card;
+        };
+
+        let resultsHTML = '<h2 style = "color: white;">Search Results</h2>';
+        resultsHTML += '<ul class="list-group">';
+      
+        results.forEach((result) => {
+          resultsHTML += createResultCard(result);
+        });
+
+        resultsHTML += '</ul>';
+
+        const resultsContainer = document.getElementById('filter_results_restaurants_container');
+        resultsContainer.innerHTML = resultsHTML;
+      }
+
+      function searchRestaurantsResultsHandler() {
+      // Display the filtered results
+        $.ajax({
+          type: 'GET',
+          url: '/search_restaurants',
+          data: {'search': searchBarFilterSelected},
+          success: function(response) {
+            var results = response.data;
+            displayResults(results);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      }
+
+      function searchFilterRestaurantsResultsHandler() {
+        $.ajax({
+          type: 'GET',
+          url: '/filter_restaurants',
+          data: {'search': searchBarFilterSelected, 'maxCost': maxCost, 'minRating': minRating, 'cuisines': JSON.stringify(cuisines), 'cities': JSON.stringify(cities)},
+          success: function(response) {
+            var results = response.data;
+            displayResults(results);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });        
+      }
+
+      function searchRecommendationHandler() {
+        if(locality!==null) {
+          $.ajax({
+          type: 'GET',
+          url: '/recommend_restaurants',
+          data: {'locality': locality, 'city': city},
+          success: function(response) {
+            var results = response.data;
+            displayResults(results);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });           
+        }
+      }
+
+      // Event listener for the search bar
+      document.getElementById('search-bar-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        setSearchBarValues();
+        searchRestaurantsResultsHandler();
+      });
+
+      document.getElementById('filter-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        setFilerValues();
+        searchFilterRestaurantsResultsHandler();
+      });
+      const queryParams = new URLSearchParams(window.location.search);
+      locality = queryParams.get('locality');
+      city = queryParams.get('city');
+      searchRecommendationHandler();
+  </script>
+  {% endblock %}
