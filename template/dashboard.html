@@ -1,11 +1,112 @@
 {% extends "index.html" %}
 
 {% block content %}
-<div class="container">
-  <h1>Welcome to the Dashboard</h1>
-  <p>Here's some content that only logged-in users can see.</p>
-  <form action="{{ url_for('logout') }}" method="get">
-    <button type="submit" class="btn btn-primary">Logout</button>
-  </form>
-</div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="sidebar">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" style="color: black;" href="{{ url_for('dashboard') }}">Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: black;" href="{{ url_for('favorites') }}">Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: black;" href="{{ url_for('ratings') }}">My Ratings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="color: black;" href="{{ url_for('logout') }}">Logout</a>
+          </li>
+        </ul>
+      </div>
+      <div class="content">
+        <!-- Page content goes here -->
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function() {
+      // get the height of .nav1
+      var navHeight = $('.nav1').height() + $('.nav2').height();
+
+      // set the margin-top of .nav2 to the height of .nav1
+      $('.sidebar').css('margin-top', navHeight + 'px');
+      $('.content').css('margin-top', navHeight + 'px');
+    });
+  </script>
+
+  <script>
+    function displayResults(results) {
+      if (results == "fail") {
+        window.location.href = "{{ url_for('login') }}"
+      }
+      else{
+        var username = results[0].username;
+        var name = results[0].name;
+
+        // Access the content div
+        var contentDiv = document.querySelector('.content');
+
+        // Create a container div for the user details
+        var userDetailsDiv = document.createElement('div');
+        userDetailsDiv.classList.add('user-details');
+
+        // Create a div for the username
+        var usernameDiv = document.createElement('div');
+
+        // Create a Font Awesome icon for the username
+        var usernameIcon = document.createElement('i');
+        // usernameIcon.classList.add('fas', 'fa-user', 'fa-2x'); // Added 'fa-2x' class for larger size
+
+        // Create a span element for the username
+        var usernameSpan = document.createElement('span');
+        usernameSpan.classList.add('user-info');
+        usernameSpan.textContent = 'Username: ' + username;
+
+        // Append the icon and span to the username div
+        usernameDiv.appendChild(usernameIcon);
+        usernameDiv.appendChild(usernameSpan);
+
+        // Append the username div to the user details div
+        userDetailsDiv.appendChild(usernameDiv);
+
+        // Create a div for the name
+        var nameDiv = document.createElement('div');
+
+        // Create a Font Awesome icon for the name
+        var nameIcon = document.createElement('i');
+        // nameIcon.classList.add('fas', 'fa-user-circle', 'fa-2x'); // Added 'fa-2x' class for larger size
+
+        // Create a span element for the name
+        var nameSpan = document.createElement('span');
+        nameSpan.classList.add('user-info');
+        nameSpan.textContent = 'Name: ' + name;
+
+        // Append the icon and span to the name div
+        nameDiv.appendChild(nameIcon);
+        nameDiv.appendChild(nameSpan);
+
+        // Append the name div to the user details div
+        userDetailsDiv.appendChild(nameDiv);
+
+        // Append the user details div to the content div
+        contentDiv.appendChild(userDetailsDiv);
+      }
+    }
+
+    // display user details using the get_user_details flask route
+    $.ajax({
+      type: 'GET',
+      url: '/get_user_details',
+      data: {},
+      success: function(response) {
+        var results = response.data;
+        displayResults(results);
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+
+  </script>
 {% endblock %}

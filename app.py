@@ -39,7 +39,7 @@ def parse_data(data, columns):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('places_states.html')
 
 
 @app.route("/places_results")
@@ -398,35 +398,58 @@ def get_candidate_values_route():
     values = get_candidate_values(column, table, query)
     return jsonify({'data': values})
 
-def get_rated_places():
-    user = request.args.get('user')
-    s = "select place, cityname, rating \nfrom userratings, cities \nwhere userratings.cityid = cities.cityid and userratings.username = '" + user + "'"
-    print(s)
-    cur.execute(s)
-    results = []
-    columns = ["place", "cityname", "rating"]
-    for row in cur:
-        l = {}
-        for i in range(len(columns)) :
-            l[columns[i]] = row[i]
-        results.append(l)
-    print(results)
-    return jsonify({'data': results})
+@app.route('/get_user_details')
+def get_user_details():
+    if 'user' not in session:
+        return jsonify({'data': 'fail'})
+    else:
+        user = session['user']
+        s = "select username, name from users where username = '" + user + "'"
+        cur.execute(s)
+        results = []
+        columns = ["username", "name"]
+        for row in cur:
+            l = {}
+            for i in range(len(columns)) :
+                l[columns[i]] = row[i]
+            results.append(l)
+        return jsonify({'data': results})
 
+@app.route('/get_rated_places')
+def get_rated_places():
+    if 'user' not in session:
+        return jsonify({'data': 'fail'})
+    else:
+        user = session['user']
+        s = "select place, cityname, state, rating \nfrom userratings, cities \nwhere userratings.cityid = cities.cityid and userratings.username = '" + user + "'"
+        print(s)
+        cur.execute(s)
+        results = []
+        columns = ["place", "city", "state", "rating"]
+        for row in cur:
+            l = {}
+            for i in range(len(columns)) :
+                l[columns[i]] = row[i]
+            results.append(l)
+        return jsonify({'data': results})
+
+@app.route('/get_favourite_places')
 def get_favourite_places():
-    user = request.args.get('user')
-    s = "select place, cityname \nfrom favouriteplaces, cities \nwhere favouriteplaces.cityid = cities.cityid and favouriteplaces.username = '" + user + "'"
-    print(s)
-    cur.execute(s)
-    results = []
-    columns = ["place", "cityname"]
-    for row in cur:
-        l = {}
-        for i in range(len(columns)) :
-            l[columns[i]] = row[i]
-        results.append(l)
-    print(results)
-    return jsonify({'data': results})
+    if 'user' not in session:
+        return jsonify({'data': 'fail'})
+    else:
+        user = session['user']
+        s = "select places.place, cityname, state, rating, num_rating \nfrom favouriteplaces, cities, places \nwhere places.place = favouriteplaces.place and places.cityid = favouriteplaces.cityid and favouriteplaces.cityid = cities.cityid and favouriteplaces.username = '" + user + "'"
+        print(s)
+        cur.execute(s)
+        results = []
+        columns = ["place", "city", "state", "rating", "num_rating"]
+        for row in cur:
+            l = {}
+            for i in range(len(columns)) :
+                l[columns[i]] = row[i]
+            results.append(l)
+        return jsonify({'data': results})
 
 
 # Temporary Users table
@@ -618,3 +641,17 @@ def remove_from_favourite():
         conn.commit()
         cursor.close()
         return jsonify({'data': 'success'})
+    
+@app.route('/favorites', methods=['GET'])
+def favorites():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    else:
+        return render_template('favorites.html')
+
+@app.route('/ratings', methods=['GET'])
+def ratings():
+    if 'user' not in session:
+        return redirect(url_for('login'))
+    else:
+        return render_template('ratings.html')

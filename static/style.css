@@ -86,23 +86,19 @@
   margin-top: 75px;
 }
 
-
-.nav-links {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.nav-link {
+  color: black;
 }
 
 .nav-item {
   display: inline-block;
-  color: white;
 }
 
-.nav-item > button{
+/* .nav-item > button{
   display: inline-block;
   margin-right: 20px;
   color: white;
-}
+} */
 
 a {
   display: block;
@@ -359,4 +355,24 @@ a:hover {
   font-size: 1.75rem;
   font-weight: bold;
   text-shadow: none;
+}
+
+.sidebar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f8f9fa;
+  padding: 0;
+}
+
+.content {
+  margin-left: 220px;
+  padding: 20px;
+}
+
+.user-info {
+  margin-left: 8px; /* Add margin for spacing */
+  font-weight: bold; /* Make the text bold */
 }

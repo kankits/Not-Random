@@ -18,23 +18,23 @@
   <body style="background-color:#f0f0f0">
     <nav class="navbar navbar-toggleable-sm bg-faded navbar-light fixed-top nav1">
       <div class="row flex-nowrap" style="margin: 0%; height: 60px;">
-        <div class="col-md-2" style="padding: 0;">
-          <a href="{{ url_for('index') }}" style="display: block; height: 100%; width: 100%;">
+        <div class="col-md-3" style="padding: 0;">
+          <a href="{{ url_for('places_states') }}" style="display: block; height: 100%; width: 100%;">
             <img src="{{ url_for('static', filename='images/Tg_crop.gif') }}" alt="Home" class="img-fluid h-100 w-100">
           </a>
         </div>
         {% if session.user %}
-          <div class="col-md-2 d-flex align-items-center justify-content-center" style="padding: 0; height: 100%;">
+          <div class="col-md-3 d-flex align-items-center justify-content-center" style="padding: 0; height: 100%;">
             <a href="{{ url_for('dashboard') }}" class="text-center d-flex align-items-center justify-content-center" style="font-size: large; width: 100%; height: 100%;">Dashboard</a>
           </div>
-          <div class="col-md-2 d-flex align-items-center justify-content-center" style="padding: 0;  height: 100%;">
+          <div class="col-md-3 d-flex align-items-center justify-content-center" style="padding: 0;  height: 100%;">
             <a href="{{ url_for('logout') }}" class="text-center d-flex align-items-center justify-content-center" style="font-size: large; width: 100%; height: 100%;">Logout</a>
           </div>
         {% else %}
-          <div class="col-md-2 d-flex align-items-center justify-content-center" style="padding: 0; height: 100%;">
+          <div class="col-md-3 d-flex align-items-center justify-content-center" style="padding: 0; height: 100%;">
             <a href="{{ url_for('login') }}" class="text-center d-flex align-items-center justify-content-center" style="font-size: large; width: 100%; height: 100%;">Log in</a>
           </div>
-          <div class="col-md-2 d-flex align-items-center justify-content-center" style="padding: 0; height: 100%;">
+          <div class="col-md-3 d-flex align-items-center justify-content-center" style="padding: 0; height: 100%;">
             <a href="{{ url_for('signup') }}" class="text-center d-flex align-items-center justify-content-center" style="font-size: large; width: 100%; height: 100%;">Sign up</a>
           </div>
         {% endif %}
