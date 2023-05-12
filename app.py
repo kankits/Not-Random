@@ -150,9 +150,27 @@ def update_rating():
         conn.commit()
         return jsonify({'data': 'success'})
 
-
 @app.route('/search_hotels')
 def search_hotels():
+    query = request.args.get('search')
+    # Perform search for Restaurants and return results
+    # ...
+    s = "select hotelname, locality, cityname, starrating, freewifi, freebreakfast, hasswimmingpool, hoteldescription, hotelpincode, rent from hotels, cities where hotels.cityid = cities.cityid and hotelname like \'" + query + "\' || \'%\';"
+    print(s)
+    cur.execute(s)
+    results = []
+    columns = ["hotelname", "locality", "cityname", "starrating", "freewifi", "freebreakfast", "hasswimmingpool", "hoteldescription","hotelpincode", "rent"]
+    for row in cur:
+        l = {}
+        for i in range(10) :
+            l[columns[i]] = row[i]
+        results.append(l)
+    print(results)
+    return jsonify({'data': results})
+
+
+@app.route('/filter_hotels')
+def filter_hotels():
     query = request.args.get('search')
     rent = request.args.get('maxRent')
     rating = request.args.get('minRating')

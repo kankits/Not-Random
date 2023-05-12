@@ -223,18 +223,13 @@
       function searchHotelResultsHandler() {
 
           // Display the filtered results
-          // displayResults(filteredResults);
-
             $.ajax({ 
             type: 'GET',
             url: '/search_hotels',
-            data: {'search': searchBarFilterSelected, 'maxRent': maxRentFilterselected, 'facilitiesFilter': JSON.stringify(facilitiesFilterSelected) , 'minRating': minRatingFilterselected , 'citiesFilter': JSON.stringify(citiesFilterselected)},
+            data: {'search': searchBarFilterSelected},
+            // data: {'search': searchBarFilterSelected, 'maxRent': maxRentFilterselected, 'facilitiesFilter': JSON.stringify(facilitiesFilterSelected) , 'minRating': minRatingFilterselected , 'citiesFilter': JSON.stringify(citiesFilterselected)},
             success: function(response) {
               var results = response.data;
-              for (var i = 0; i < results.length; i++) {
-                var item = $('<li>').text(results[i]);
-                console.log(results[i]+'\n');
-              }
               displayResults(results);
             },
             error: function(error) {
@@ -243,24 +238,22 @@
           });
         }
 
-        // Display the filtered results
-        // displayResults(filteredResults);
-        //   $.ajax({
-        //   type: 'GET',
-        //   url: '/search_places',
-        //   data: {'search': searchBarFilterSelected},
-        //   success: function(response) {
-        //     var results = response.data;
-        //     for (var i = 0; i < results.length; i++) {
-        //       var item = $('<li>').text(results[i]);
-        //       console.log(results[i]+'\n');
-        //     }
-        //     displayResults(results);
-        //   },
-        //   error: function(error) {
-        //     console.log(error);
-        //   }
-        // });
+      function searchFilterHotelResultsHandler() {
+
+          // Display the filtered results
+            $.ajax({ 
+            type: 'GET',
+            url: '/filter_hotels',
+            data: {'search': searchBarFilterSelected, 'maxRent': maxRentFilterselected, 'facilitiesFilter': JSON.stringify(facilitiesFilterSelected) , 'minRating': minRatingFilterselected , 'citiesFilter': JSON.stringify(citiesFilterselected)},
+            success: function(response) {
+              var results = response.data;
+              displayResults(results);
+            },
+            error: function(error) {
+              console.log(error);
+            }
+          });
+        }
       
 
       // Event listener for the search bar
@@ -276,7 +269,7 @@
         event.preventDefault();
         setFilterValues();
         console.log("In\n");
-        searchHotelResultsHandler();
+        searchFilterHotelResultsHandler();
       });
       
   </script>
