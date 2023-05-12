@@ -164,14 +164,14 @@ def search_hotels():
     query = request.args.get('search')
     # Perform search for Restaurants and return results
     # ...
-    s = "select hotelname, locality, cityname, starrating, freewifi, freebreakfast, hasswimmingpool, hoteldescription, hotelpincode, rent from hotels, cities where hotels.cityid = cities.cityid and hotelname like \'" + query + "\' || \'%\';"
+    s = "select hotelname, state, locality, cityname, starrating, freewifi, freebreakfast, hasswimmingpool, hoteldescription, hotelpincode, rent from hotels, cities where hotels.cityid = cities.cityid and hotelname like \'" + query + "\' || \'%\';"
     print(s)
     cur.execute(s)
     results = []
-    columns = ["hotelname", "locality", "cityname", "starrating", "freewifi", "freebreakfast", "hasswimmingpool", "hoteldescription","hotelpincode", "rent"]
+    columns = ["hotelname", "state", "locality", "cityname", "starrating", "freewifi", "freebreakfast", "hasswimmingpool", "hoteldescription","hotelpincode", "rent"]
     for row in cur:
         l = {}
-        for i in range(10) :
+        for i in range(len(columns)) :
             l[columns[i]] = row[i]
         results.append(l)
     print(results)
@@ -185,7 +185,7 @@ def filter_hotels():
     rating = request.args.get('minRating')
     cities = json.loads(request.args.get('citiesFilter'))
     facilities = json.loads(request.args.get('facilitiesFilter'))
-    print(facilities, cities)
+    print(request.args.get('citiesFilter'), cities)
     # Perform search for Hotels and return results
     # ...
     a = ''
@@ -193,20 +193,20 @@ def filter_hotels():
     c = ''
     d = ''
 
-    if len(cities) > 0 : 
+    if cities != None and len(cities) > 0 : 
         for i in range(len(cities)-1):
             a += 'cities.cityname = ' + cities[i] + ' and '
 
         if len(cities) > 0 :
             a += 'cities.cityname = \'' + cities[-1] + '\''
 
-    if len(rating) > 0:
+    if rating != None and len(rating) > 0:
         b = 'starrating >= ' + rating 
 
-    if len(rent) > 0:
+    if rent != None and len(rent) > 0:
         c = 'rent <= ' + rent 
     
-    if len(facilities) > 0 :
+    if facilities != None and len(facilities) > 0 :
         for i in range(len(facilities)-1) :
             if i == 'Free Wifi' : d += 'freewifi = true and '
             if i == "Free Breakfast" : d += 'freebreakfast = true and '
@@ -227,16 +227,19 @@ def filter_hotels():
     for i in range(len(cond)) : 
         conditions += cond[i] + ' and '
 
-    s = "select hotelname,locality, cityname, starrating, freewifi, freebreakfast, hasswimmingpool, hoteldescription, hotelpincode, rent from hotels, cities where hotels.cityid = cities.cityid and " + conditions  + " hotelname like \'" + query + "\' || \'%\' limit 5"
+    s = "select hotelname, state, locality, hotels.cityid as cityid, cityname, starrating, freewifi, freebreakfast, hasswimmingpool, hoteldescription, hotelpincode, rent \n from hotels, cities \n where hotels.cityid = cities.cityid and " + conditions  + " hotelname like \'" + query + "\' || \'%\' limit 5"
+    print(s)
     cur.execute(s)
     results = []
-    columns = ["hotelname", "locality", "cityname", "starrating", "freewifi", "freebreakfast", "hasswimmingpool", "hoteldescription","hotelpincode", "rent"]
+    columns = ["hotelname", "state", "locality", "cityid", "cityname", "starrating", "freewifi", "freebreakfast", "hasswimmingpool", "hoteldescription","hotelpincode", "rent"]
     for row in cur:
         l = {}
-        for i in range(10) :
+        for i in range(len(columns)) :
             l[columns[i]] = row[i]
         results.append(l)
     print(results)
+    # results = ['search_hotels']
+    # return render_template('hotels.html', results=results)
     return jsonify({'data': results})
 
 
