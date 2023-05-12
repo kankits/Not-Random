@@ -109,6 +109,17 @@
               </script>
               </ul>
             </div>
+            <script>
+              $(document).ready(function() {
+              searchInputHandler('search-tag-filter-input', 'search-tag-filter-results', 'cities', 'cityname');
+              });
+              
+              $(document).on('click', '.dropdown-item', function() {
+              var value = $(this).text();
+              $('#search-tag-filter-input').val(value);
+              $('#search-tag-filter-results').hide();
+              });
+            </script>
             
           </div>
 
