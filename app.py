@@ -223,7 +223,7 @@ def filter_hotels():
     for i in range(len(cond)) : 
         conditions += cond[i] + ' and '
 
-    s = "select hotelname, state, locality, hotels.cityid as cityid, cityname, starrating, freewifi, freebreakfast, hasswimmingpool, hoteldescription, hotelpincode, rent \n from hotels, cities \n where hotels.cityid = cities.cityid and " + conditions  + " hotelname like \'" + query + "\' || \'%\' limit 5"
+    s = "select hotelname, state, locality, hotels.cityid as cityid, cityname, starrating, freewifi, freebreakfast, hasswimmingpool, hoteldescription, hotelpincode, rent \n from hotels, cities \n where hotels.cityid = cities.cityid and " + conditions  + " hotelname like \'" + query + "\' || \'%\'"
     print(s)
     cur.execute(s)
     results = []
@@ -354,7 +354,7 @@ def search_travel():
         if(mode != "Flight"):
             s+="select distinct s1.cityid as source, s2.cityid as destination, 'Train' as typeOfTravel\n    from stations as s1, stations as s2, trainpath as x1, trainpath as x2, traininfo\n    where x1.train_no = x2.train_no and x1.seq < x2.seq and x1.station_code = s1.station_code and\n          x2.station_code = s2.station_code and x1.train_no = traininfo.train_no"
         s += "\n),\nt1 as (\n    select c1.cityname as source, c2.cityname as destination, typeOfTravel\n    from t3, cities as c1, cities as c2\n    where t3.source = c1.cityid and t3.destination = c2.cityid\n),\nt2(dst, path, len) as (\n    select t1.destination, ARRAY[t1.source::text, t1.typeOfTravel::text, t1.destination::text] as path, 1 as len\n    from t1\n    where t1.source = \'" + src + "\'\n\n    union all\n\n    select f.destination, (g.path || ARRAY[f.typeOfTravel::text, f.destination::text]), g.len + 1\n    from t1 as f join t2 as g on f.source = g.dst and f.destination != ALL(g.path) and g.len < 3\n)\n"
-        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len limit 15;"
+        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len;"
         # s+="select * from t1 where source = 'Kolkata' and destination = 'Mumbai'"
     else:
         s += "with recursive t3 as (\n    "
@@ -365,7 +365,7 @@ def search_travel():
         if(mode != "Flight"):
             s+="select s1.cityid as source, s2.cityid as destination, 'Train' as typeOfTravel,\n           traininfo.train_no || ' , ' || traininfo.train_name as transportid\n    from stations as s1, stations as s2, trainpath as x1, trainpath as x2, traininfo\n    where x1.train_no = x2.train_no and x1.seq < x2.seq and x1.station_code = s1.station_code and\n          x2.station_code = s2.station_code and x1.train_no = traininfo.train_no"
         s += "\n),\nt1 as (\n    select c1.cityname as source, c2.cityname as destination, typeOfTravel, transportid\n    from t3, cities as c1, cities as c2\n    where t3.source = c1.cityid and t3.destination = c2.cityid\n),\nt2(dst, path, len) as (\n    select t1.destination, ARRAY[t1.source::text, t1.typeOfTravel::text, t1.transportid::text, t1.destination::text] as path, 1 as len\n    from t1\n    where t1.source = \'" + src + "\'\n\n    union all\n\n    select f.destination, (g.path || ARRAY[f.typeOfTravel::text, f.transportid::text, f.destination::text]), g.len + 1\n    from t1 as f join t2 as g on f.source = g.dst and f.destination != ALL(g.path) and g.len < 2\n)\n"
-        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len limit 15;"
+        s+="select path, len\nfrom t2\nwhere dst = \'" + dst + "\'\norder by len;"
         # s+="select * from t1 where source = 'Kolkata' and destination = 'Mumbai'"
     # Perform search for Travel and return results
     # ...
@@ -383,7 +383,7 @@ def search_travel():
 
 def get_candidate_values(column, table, query):
     s = "select " + column + " from " + table + " where " + \
-        column + " like \'" + query + "\' || \'%\' limit 5"
+        column + " like \'" + query + "\' || \'%\'"
     print(s)
     cur.execute(s)
     # values = ['abc', 'def', 'ghi']
