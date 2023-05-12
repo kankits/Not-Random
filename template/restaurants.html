@@ -156,6 +156,7 @@
       let maxCost = null;
       let minRating = null;
       let locality = null;
+      let city = null;
       var cities = [];
 
       function setSearchBarValues(){
@@ -261,7 +262,7 @@
           $.ajax({
           type: 'GET',
           url: '/recommend_restaurants',
-          data: {'locality': locality},
+          data: {'locality': locality, 'city': city},
           success: function(response) {
             var results = response.data;
             displayResults(results);
@@ -287,6 +288,7 @@
       });
       const queryParams = new URLSearchParams(window.location.search);
       locality = queryParams.get('locality');
+      city = queryParams.get('city');
       searchRecommendationHandler();
   </script>
   {% endblock %}

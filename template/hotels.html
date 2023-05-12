@@ -172,7 +172,7 @@
           card += '<p class="text-center">'
           card += '<ul style="list-style-type: none;">';
             card += `<li class="rent"  style= "background-color: #FFDCD1; border: 4px solid #ccc; border-radius: 5px; padding: 10px; width: 130px; text-align: center; font-size: 20px;"> ${result.rent} INR </li>`;
-            card += '<li onclick="redirect(\'' + result.locality + '\')"class="recommend" style= "background-color: #FFDCD1; cursor:pointer; border: 4px solid #ccc; border-radius: 5px; padding: 10px; width: 130px; text-align: center; font-size: 16px;">  Recommend restaurants </a> </li>';
+            card += '<li onclick="redirect(\'' + result.locality + '\', \'' + result.cityname + '\')"class="recommend" style= "background-color: #FFDCD1; cursor:pointer; border: 4px solid #ccc; border-radius: 5px; padding: 10px; width: 130px; text-align: center; font-size: 16px;">  Recommend restaurants </a> </li>';
           card += '</ul>';
           card += '</p>'
           card += '</div>';
@@ -194,9 +194,12 @@
         resultsContainer.innerHTML = resultsHTML;
       }
 
-      function redirect(locality) {
+      function redirect(locality, city) {
         const queryParams = new URLSearchParams(window.location.search);
+        console.log(locality);
+        console.log(city);
         queryParams.set('locality', locality);
+        queryParams.set('city', city);
         window.location.href = `${"{{ url_for('restaurants') }}"}?${queryParams.toString()}`;
       }
 

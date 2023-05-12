@@ -288,9 +288,12 @@ def filter_restaurants():
 @app.route('/recommend_restaurants')
 def recommend_restaurants():
     locality = request.args.get('locality')
+    city = request.args.get('city')
+    print(locality)
+    print(city)
     # Perform search for Restaurants and return results
     # ...
-    s = "with T2 as(\n    select name, restaurants.locality, cost, cuisine, rating, votes as num_rating, '" + locality+"'::text as hotel_locality,regexp_split_to_table(restaurants.locality, ',') as restaurant_locality\n    from restaurants\n)\nselect name, locality, cost, cuisine, rating, num_rating \nfrom T2 \nwhere position( LOWER(TRIM(restaurant_locality) ) in LOWER(hotel_locality)) > 0;"
+    s = "with T1 as (\n    select name, restaurants.locality, cost, cuisine, rating, votes\n    from restaurants, cities\n    where cities.cityid = restaurants.cityid and cities.cityname = '" + city + "'\n), T2 as(\n    select name, locality, cost, cuisine, rating, votes as num_rating, '" + locality+"'::text as hotel_locality,regexp_split_to_table(locality, ',') as restaurant_locality\n    from T1\n)\nselect name, locality, cost, cuisine, rating, num_rating \nfrom T2 \nwhere position( LOWER(TRIM(restaurant_locality) ) in LOWER(hotel_locality)) > 0;"
     print(s)
     cur.execute(s)
     results = []
