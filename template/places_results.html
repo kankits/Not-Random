@@ -258,6 +258,9 @@
           card += '<div class="col-md-2", style="display: flex; align-items: center;">';
           card += createRatingDropdown(result.is_rated, isLoggedIn());
           card += '</div>';
+          card += '<ul style="list-style-type: none;">';
+            card += '<li onclick="redirect_hotels(\'' + result.cityname  + '\',\'' + result.state + '\')"class="recommend" style= "background-color: #FFDCD1; cursor:pointer; border: 4px solid #ccc; border-radius: 5px; padding: 10px; width: 180px; text-align: center; font-size: 16px;">  Recommend Hotels </a> </li>';
+          card += '</ul>';
           card += '</div>';
           card += '</li>';
           return card;
@@ -276,10 +279,19 @@
         resultsContainer.innerHTML = resultsHTML;
       }
 
+      function redirect_hotels(cityname, state) {
+        const queryParams = new URLSearchParams();
+        // queryParams.set('search_query', '');
+        queryParams.set('city', cityname);
+        queryParams.set('state', state);
+        window.location.href = `${"{{ url_for('hotels') }}"}?${queryParams.toString()}`;
+      }
+
       function searchPlacesResultsHandler() {
 
         // Display the filtered results
         // displayResults(filteredResults);
+        // console.log(city);
         $.ajax({
           type: 'GET',
           url: '/search_places',
@@ -304,6 +316,8 @@
       search_query = "{{ search_query }}";
       state = "{{ state }}";
       city = "{{ city }}";
+      console.log(state);
+      console.log(city);
       searchPlacesResultsHandler();
       
   </script>

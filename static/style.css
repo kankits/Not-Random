@@ -120,6 +120,40 @@ a:hover {
   height:max-content;
   margin-left: 0px;
   margin-right: 0px;
+  margin-bottom: 0px;
+}
+
+.container-results-restaurants {
+  min-height:1080px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  background-image: url('images/restaurants.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container-results-hotels {
+  min-height:1080px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  background-image: url('images/hotel.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.container-results-train {
+  min-height: 1080px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  background-image: url('images/train1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .container-sign {
@@ -166,6 +200,19 @@ a:hover {
   background-color: transparent;
   height:max-content;
 }
+
+.filter_results_travel_container {
+  margin-left: 50px;
+  margin-top: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+  /* background-color: rgba(255, 255, 255, 0.75); */
+  background-color: transparent;
+  height:max-content;
+}
+
+
 
 .places_recommendations {
   margin-top: 30px;
