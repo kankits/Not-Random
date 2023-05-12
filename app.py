@@ -19,9 +19,18 @@ conn = psycopg2.connect(
 
 cur = conn.cursor()
 
+# username = 'parth'
+# search_query = 'Ramapuram Beach'
+# s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t4 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t1 as (\n select * from t4 where place like \'" + search_query + "\' || \'%\'\n), t2 as ( \n select place, cityid, num_rating, rating, username, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ) select * from t2"
+# print(s)
+# cur.execute(s)
+# for row in cur:
+#     print(row)
+
 def parse_data(data, columns):
     results = []
     for row in data:
+        print(row)
         l = {}
         for i in range(len(columns)):
             l[columns[i]] = row[i]
@@ -76,12 +85,12 @@ def search_places():
     # Perform search for Places and return results
     # ...
     if state == "" and city == "":
-        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, username, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ), t3 as ( \n select place, cityid, num_rating, rating, in_favourite, ( \n case \n when (username, place, cityid) in (select username, place, cityid from userratings) then 1 \n else 0 \n end\n) as is_rated\n from t2) select place, cityname, state, num_rating, rating, in_favourite, is_rated \n from t3, cities \n where t3.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' order by rating desc, num_rating desc"
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t4 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t1 as (\n select * from t4 where place like \'" + search_query + "\' || \'%\'\n), t2 as ( \n select place, cityid, num_rating, rating, username, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ), t3 as ( \n select place, cityid, num_rating, rating, in_favourite, ( \n case \n when ('" + username + "', place, cityid) in (select username, place, cityid from userratings) then 1 \n else 0 \n end\n) as is_rated\n from t2) select place, cityname, state, num_rating, rating, in_favourite, is_rated \n from t3, cities \n where t3.cityid = cities.cityid order by rating desc, num_rating desc"
     elif city == "":
-        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, username, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ), t3 as ( \n select place, cityid, num_rating, rating, in_favourite, ( \n case \n when (username, place, cityid) in (select username, place, cityid from userratings) then 1 \n else 0 \n end\n) as is_rated\n from t2) select place, cityname, state, num_rating, rating, in_favourite, is_rated \n from t3, cities \n where t3.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' order by rating desc, num_rating desc"
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, username, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ), t3 as ( \n select place, cityid, num_rating, rating, in_favourite, ( \n case \n when ('" + username + "', place, cityid) in (select username, place, cityid from userratings) then 1 \n else 0 \n end\n) as is_rated\n from t2) select place, cityname, state, num_rating, rating, in_favourite, is_rated \n from t3, cities \n where t3.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' order by rating desc, num_rating desc"
     else:
-        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, username, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ), t3 as ( \n select place, cityid, num_rating, rating, in_favourite, ( \n case \n when (username, place, cityid) in (select username, place, cityid from userratings) then 1 \n else 0 \n end\n) as is_rated\n from t2) select place, cityname, state, num_rating, rating, in_favourite, is_rated \n from t3, cities \n where t3.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' and cityname = \'" + city + "\' order by rating desc, num_rating desc"
-    
+        s = "with t0 as (\n select * \n from FavouritePlaces \n where username = \'" + username + "\'), \n t1 as ( \n select places.place, places.cityid, num_rating, rating, username \n from places left outer join t0 \n on places.place = t0.place and places.cityid = t0.cityid\n ), t2 as ( \n select place, cityid, num_rating, rating, username, ( \n case \n when username is not null then 1 \n else 0 \n end\n) as in_favourite from t1 \n ), t3 as ( \n select place, cityid, num_rating, rating, in_favourite, ( \n case \n when ('" + username + "', place, cityid) in (select username, place, cityid from userratings) then 1 \n else 0 \n end\n) as is_rated\n from t2) select place, cityname, state, num_rating, rating, in_favourite, is_rated \n from t3, cities \n where t3.cityid = cities.cityid and place like \'" + search_query + "\' || \'%\' and state = \'" + state + "\' and cityname = \'" + city + "\' order by rating desc, num_rating desc"
+    print(s)
     cursor = conn.cursor()
     cursor.execute(s)
     data = cursor.fetchall()
